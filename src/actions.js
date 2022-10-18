@@ -1,0 +1,21 @@
+//All actions variables
+export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
+export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
+export const GET_TOURS_BEGIN = "GET_TOURS_BEGIN"; //var for loading the tour
+export const GET_TOURS_SUCCESS = "GET_TOURS_SUCCESS"; //var for when tour is loaded and there is no errors
+export const GET_TOURS_ERROR = "GET_TOURS_ERROR"; //var for error handling
+export const GET_SINGLE_TOUR_BEGIN = "GET_SINGLE_TOUR_BEGIN";
+export const GET_SINGLE_TOUR_ERROR = "GET_SINGLE_TOUR_ERROR";
+export const LOAD_TOURS = "LOAD_TOURS";
+export const SET_GRIDVIEW = "SET_GRIDVIEW";
+export const SET_LISTVIEW = "SET_LISTVIEW";
+export const UPDATE_SORT = "UPDATE_SORT";
+export const SORT_TOURS = "SORT_TOURS";
+export const UPDATE_FILTERS = "UPDATE_FILTERS";
+export const FILTER_TOURS = "FILTER_TOURS";
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
+export const TOGGLE_CART_ITEM_AMOUNT = "TOGGLE_CART_ITEM_AMOUNT";
+export const CLEAR_CART = "CLEAR_CART";
+export const COUNT_CART_TOTALS = "COUNT_CART_TOTALS";
