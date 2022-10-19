@@ -39,12 +39,14 @@ export const ToursProvider = ({ children }) => {
   //The Tours are showcased in 2 locations: HomePage.js and ToursPage.js to make this easier and fetch the api once instead of twice
   const fetchTours = async (url) => {
     dispatch({ type: GET_TOURS_BEGIN }); //set up in tours_reducer.js
-
+    //this try-catch fetches the data
     try {
       const response = await axios.get(url);
       const tours = response.data;
       dispatch({ type: GET_TOURS_SUCCESS, payload: tours }); //action setup (dispatch called GET_SINGLE_TOUR_SUCCESS with payload of tours)
-    } catch (error) {}
+    } catch (error) {
+      dispatch({ type: GET_TOURS_ERROR });
+    }
 
     // console.log(response);
   }; //end fetchTours
