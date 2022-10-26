@@ -16,12 +16,16 @@ import {
 //the Tours Context uses the useReducer
 //It also uses state to control the application state and dispatch for the control of the state
 const initialState = {
+  //values for the all tours view to be selected by user (used in tour_reducer.js)
   isSidebarOpen: false, //var for the panel state (default state false)
   tours_loading: false, //var for loading state
   tours_error: false, //var for error handling
   tours: [], //empty var for actual data aka tours aka all data pulled from reducer
   featured_tours: [], //empty var for featured tours
-  //TODO add variables for loading error
+  //values for each tour page
+  single_tour_loading: false, //
+  single_tour_error: false,
+  single_tour: {}, //empty var object for single tour
 }; //empty object
 
 const ToursContext = React.createContext();
@@ -35,7 +39,7 @@ export const ToursProvider = ({ children }) => {
   const closeSidebar = () => {
     dispatch({ type: SIDEBAR_CLOSE });
   };
-
+  //this Try-Catch portion resposible for fetching all the tours without the id
   //The Tours are showcased in 2 locations: HomePage.js and ToursPage.js to make this easier and fetch the api once instead of twice
   const fetchTours = async (url) => {
     dispatch({ type: GET_TOURS_BEGIN }); //set up in tours_reducer.js
@@ -48,9 +52,19 @@ export const ToursProvider = ({ children }) => {
     } catch (error) {
       dispatch({ type: GET_TOURS_ERROR }); //handling error in reducer
     }
-
     // console.log(response);
   }; //end fetchTours
+  //dispatch for all the tours
+  const fetchSingleTour = async (url) => {
+    dispatch({ type: GET_SINGLE_TOUR_BEGIN }); //dispatching when user click on the tour
+    try {
+      const response = await axios.get(url); //using axios for asynchronous http request
+      const singleTour = response.data;
+      dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour }); //dispatching an action with payload of the singleTour with data
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_TOUR_ERROR });
+    }
+  };
 
   useEffect(() => {
     fetchTours(url);

@@ -5,6 +5,7 @@ export const GET_TOURS_BEGIN = "GET_TOURS_BEGIN"; //var for loading the tour
 export const GET_TOURS_SUCCESS = "GET_TOURS_SUCCESS"; //var for when tour is loaded and there is no errors
 export const GET_TOURS_ERROR = "GET_TOURS_ERROR"; //var for error handling
 export const GET_SINGLE_TOUR_BEGIN = "GET_SINGLE_TOUR_BEGIN";
+export const GET_SINGLE_TOUR_SUCCESS = "GET_SINGLE_TOUR_SUCCESS";
 export const GET_SINGLE_TOUR_ERROR = "GET_SINGLE_TOUR_ERROR";
 export const LOAD_TOURS = "LOAD_TOURS";
 export const SET_GRIDVIEW = "SET_GRIDVIEW";

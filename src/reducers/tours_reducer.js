@@ -8,7 +8,7 @@ import {
   GET_SINGLE_TOUR_SUCCESS,
   GET_SINGLE_TOUR_ERROR,
 } from "../actions";
-
+//This reducer takes care of all the actions which are dispatched in tours_context.js
 const tours_reducer = (state, action) => {
   if (action.type === SIDEBAR_OPEN) {
     return { ...state, isSidebarOpen: true }; //returning the state
@@ -38,6 +38,23 @@ const tours_reducer = (state, action) => {
   //ERROR IS NOT FUNCTIONAL?
   if (action.type === GET_TOURS_ERROR) {
     return { ...state, tours_loading: false, tours_error: true };
+  }
+  //When user click on a tour the loading should be true and error to false so that when there is
+  //actual error the state can be changed
+  if (action.type === GET_SINGLE_TOUR_BEGIN) {
+    return { ...state, single_tour_loading: true, single_tour_error: false };
+  }
+  //if there is success pull the payload
+  if (action.type === GET_SINGLE_TOUR_SUCCESS) {
+    return {
+      ...state,
+      single_tour_loading: false,
+      single_tour: action.payload, //passed in the fetchSingleTour
+    };
+  }
+  //if there is an error loading stops and error action is called
+  if (action.type === GET_SINGLE_TOUR_ERROR) {
+    return { ...state, single_tour_loading: false, single_tour_error: true };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
