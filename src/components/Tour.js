@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { formatPrice } from "../utils/helpers";
+import { priceFormat } from "../utils/helpers"; //component for formatting the price
 import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
+//tour displays the
 const Tour = ({ url, name, price, id }) => {
   return (
     <Wrapper>
@@ -18,7 +18,7 @@ const Tour = ({ url, name, price, id }) => {
           <AiFillSchedule />
         </div>
         <h5>{name}</h5>
-        <p>${price}</p>
+        <p>{priceFormat(price)}</p>
       </footer>
     </Wrapper>
   );
