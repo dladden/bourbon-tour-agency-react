@@ -31,8 +31,8 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div class="ft-main-item">
-            <h2 class="ft-title">Resources</h2>
+          <div className="ft-main-item">
+            <h2 className="ft-title">Resources</h2>
             <ul>
               <li>
                 <a href="#">Docs</a>

@@ -11,8 +11,8 @@ const FeaturedTours = () => {
   const {
     tours_loading: loading, //tours_loading with alias of loading
     tours_error: error,
-    featured_tours: featured,
-  } = useToursContext;
+    featured_tours: featured, //featured array
+  } = useToursContext();
   //displaying loading if loading is true and url is
   if (loading) {
     return <Loading />;
@@ -21,7 +21,20 @@ const FeaturedTours = () => {
   if (error) {
     return <Error />;
   }
-  return <h4>Featured Tours</h4>;
+  //Mapping though the featured array and selecting the tours from 0 to 2 with 3 being the cutoff
+  return (
+    <Wrapper className="section">
+      <div className="title">
+        <h2>Featured Tours</h2>
+      </div>
+
+      <div className="section-center featured">
+        {featured.slice(0, 3).map((tour) => {
+          return <Tour key={tour.id} {...tour} />; //spreading the tours using the spread operator
+        })}
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`s

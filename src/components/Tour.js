@@ -1,12 +1,28 @@
-import React from 'react'
-import styled from 'styled-components'
-import { formatPrice } from '../utils/helpers'
-import { FaSearch } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import React from "react";
+import styled from "styled-components";
+import { formatPrice } from "../utils/helpers";
+import { AiFillSchedule } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
-const Tour = () => {
-  return <h4>Tour</h4>
-}
+const Tour = ({ url, name, price, id }) => {
+  return (
+    <Wrapper>
+      <div className="container">
+        <img src={url} alt={name} />
+        <Link to={`/tours/${id}`} className="link">
+          <AiFillSchedule />
+        </Link>
+      </div>
+      <footer>
+        <div>
+          <AiFillSchedule />
+        </div>
+        <h5>{name}</h5>
+        <p>${price}</p>
+      </footer>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.article`
   .container {
@@ -53,14 +69,15 @@ const Wrapper = styled.article`
     justify-content: space-between;
     align-items: center;
   }
+
   footer h5,
   footer p {
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: 500;
   }
   footer p {
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
   }
-`
-export default Tour
+`;
+export default Tour;

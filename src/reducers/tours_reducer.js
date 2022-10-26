@@ -21,11 +21,13 @@ const tours_reducer = (state, action) => {
     return { ...state, tours_loading: true }; //returning the state
   }
   //Updating the arrays
-  //Handling featured and tours
+  //Handling featured tours and ALL tours (if action is called update the arrays)
   if (action.type === GET_TOURS_SUCCESS) {
+    //first setting up featured tours
     const featured_tours = action.payload.filter(
-      (tour) => tour.featured === true //checking the filter for the featured checkmark
-    );
+      (tour) => tour.featured === true
+    ); //checking the filter for the featured check-mark
+    //returning all the state
     return {
       ...state,
       tours_loading: false,
@@ -33,7 +35,7 @@ const tours_reducer = (state, action) => {
       featured_tours,
     }; //returning the state for featured and non featured tours
   } //end if
-
+  //ERROR IS NOT FUNCTIONAL?
   if (action.type === GET_TOURS_ERROR) {
     return { ...state, tours_loading: false, tours_error: true };
   }

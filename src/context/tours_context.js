@@ -42,10 +42,11 @@ export const ToursProvider = ({ children }) => {
     //this try-catch fetches the data
     try {
       const response = await axios.get(url);
-      const tours = response.data;
+      const tours = response.data; //data is in the array property stored to tours
+      //React dispatch ACTION
       dispatch({ type: GET_TOURS_SUCCESS, payload: tours }); //action setup (dispatch called GET_SINGLE_TOUR_SUCCESS with payload of tours)
     } catch (error) {
-      dispatch({ type: GET_TOURS_ERROR });
+      dispatch({ type: GET_TOURS_ERROR }); //handling error in reducer
     }
 
     // console.log(response);
