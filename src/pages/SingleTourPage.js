@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
-import { single_tour_url as url } from "../utils/constants";
+import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id='
 import { formatPrice } from "../utils/helpers";
 import {
   Loading,
@@ -15,6 +15,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const SingleTourPage = () => {
+  //attaching the id (provided in the object) to the url
+  const { id } = useParams(); //getting the id property in the object
+  //pulling the variables from the context hook
+  const {
+    single_tour_loading: loading,
+    single_tour_error: error,
+    single_tour: tour,
+    fetchSingleTour,
+  } = useToursContext();
+
+  // console.log(useParams());
   return <h4>single product page</h4>;
 };
 

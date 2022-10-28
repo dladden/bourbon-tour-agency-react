@@ -69,9 +69,12 @@ export const ToursProvider = ({ children }) => {
   useEffect(() => {
     fetchTours(url);
   }, []);
-
+  //Here, we are using the context provider as way to pass data through the component tree
+  //Single Product Fetch is passed down the context
   return (
-    <ToursContext.Provider value={{ ...state, openSidebar, closeSidebar }}>
+    <ToursContext.Provider
+      value={{ ...state, openSidebar, closeSidebar, fetchSingleTour }}
+    >
       {children}
     </ToursContext.Provider>
   );
