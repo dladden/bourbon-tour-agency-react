@@ -58,4 +58,4 @@ export const services = [
 //"https://course-api.com/react-store-products";
 export const tours_url = "https://sbt-serverless.netlify.app/api/tours";
 //`https://course-api.com/react-store-single-product?id=`;
-export const single_tours_url = `https://sbt-serverless.netlify.app/api/tours?id=`;
+export const single_tour_url = `https://sbt-serverless.netlify.app/api/tours?id=`;

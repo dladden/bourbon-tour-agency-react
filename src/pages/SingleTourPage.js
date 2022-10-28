@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
-import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id='
+import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
 import { formatPrice } from "../utils/helpers";
 import {
   Loading,
@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
   const { id } = useParams(); //getting the id property in the object
+  const history = useHistory(); //getting the history from reactRouter Dom
+  // console.log(useParams());
   //pulling the variables from the context hook
   const {
     single_tour_loading: loading,
@@ -24,8 +26,28 @@ const SingleTourPage = () => {
     single_tour: tour,
     fetchSingleTour,
   } = useToursContext();
+  //when the component loads invoke useEffect
+  useEffect(() => {
+    fetchSingleTour(`s${url}${id}`);
+  }, [id]);
+  // console.log(tour);
 
-  // console.log(useParams());
+  //setting up error which sends user back to the home page
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        history.push("/");
+      }, 3000); //3000 miliseconds
+    }
+  }, [error]);
+
+  //setting up the error view and loading
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error />;
+  }
   return <h4>single product page</h4>;
 };
 
