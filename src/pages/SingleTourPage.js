@@ -20,6 +20,7 @@ const SingleTourPage = () => {
   const history = useHistory(); //getting the history from reactRouter Dom
   // console.log(useParams());
   //pulling the variables from the context hook
+
   const {
     single_tour_loading: loading,
     single_tour_error: error,
@@ -28,19 +29,19 @@ const SingleTourPage = () => {
   } = useToursContext();
   //when the component loads invoke useEffect
   useEffect(() => {
-    fetchSingleTour(`s${url}${id}`);
+    fetchSingleTour(`${url}${id}`);
   }, [id]);
   // console.log(tour);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
+    // console.log(error);
     if (error) {
       setTimeout(() => {
         history.push("/");
       }, 3000); //3000 miliseconds
     }
   }, [error]);
-
   //setting up the error view and loading
   if (loading) {
     return <Loading />;
@@ -48,7 +49,26 @@ const SingleTourPage = () => {
   if (error) {
     return <Error />;
   }
-  return <h4>single product page</h4>;
+
+  const {
+    id: tour_id,
+    name,
+    price,
+    images,
+    desc,
+    trans,
+    disc,
+    guests,
+    stars,
+    tour_url,
+  } = tour;
+
+  console.log(tour);
+  return (
+    <Wrapper>
+      <PageHero title={name} tour />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.main`

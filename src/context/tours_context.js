@@ -9,7 +9,7 @@ import {
   GET_TOURS_BEGIN, //var for loading the tour
   GET_TOURS_SUCCESS, //var for when tour is loaded and there is no errors
   GET_TOURS_ERROR, //var for error handling
-  GET_SINGLE_TOUR_BEGIN as GET_SINGLE_TOUR_BEGIN,
+  GET_SINGLE_TOUR_BEGIN,
   GET_SINGLE_TOUR_SUCCESS,
   GET_SINGLE_TOUR_ERROR,
 } from "../actions";
@@ -60,7 +60,8 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url); //using axios for asynchronous http request
       const singleTour = response.data;
-      dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour }); //dispatching an action with payload of the singleTour with data
+      console.log(singleTour);
+      dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour.fields }); //dispatching an action with payload of the singleTour with data
     } catch (error) {
       dispatch({ type: GET_SINGLE_TOUR_ERROR });
     }
