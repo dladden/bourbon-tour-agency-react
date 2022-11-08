@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
-import { formatPrice } from "../utils/helpers";
+import { priceFormat } from "../utils/helpers";
 import {
   Loading,
   Error,
@@ -52,21 +52,57 @@ const SingleTourPage = () => {
 
   const {
     id: tour_id,
+    category,
     name,
     price,
     images,
     desc,
     trans,
-    disc,
+    dist,
     guests,
     stars,
     tour_url,
   } = tour;
 
-  console.log(tour);
+  // console.log(tour);
+
   return (
     <Wrapper>
+      {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />
+      <div className="page section section-center">
+        <Link to="/tours" className="btn">
+          Back
+        </Link>
+        <div className="tour-center">
+          <TourImages />
+          <section className="content">
+            <h2>{name}</h2>
+            <Stars />
+            <h5 className="price">{priceFormat(price)}</h5>
+            <p className="desc">{desc}</p>
+            <p className="info">
+              <span>Category :</span>
+              {}
+            </p>
+            <p className="info-title">Distilleries: </p>
+            <p className="info">
+              {dist?.map((distillery, index) => {
+                // console.log(distillery);
+                return (
+                  <span
+                    key={index}
+                    value={distillery}
+                    // style={{ marginLeft: ".5rem" }}
+                  >
+                    {distillery}
+                  </span>
+                );
+              })}
+            </p>
+          </section>
+        </div>
+      </div>
     </Wrapper>
   );
 };
@@ -84,22 +120,35 @@ const Wrapper = styled.main`
     line-height: 2;
     max-width: 45em;
   }
+  .info-title {
+    text-transform: capitalize;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
   .info {
     text-transform: capitalize;
     width: 300px;
     display: grid;
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: minmax(60px, 950fr);
+    grid-column-gap: 0px;
+    align-items: center;
     span {
-      font-weight: 700;
+      font-weight: 600;
     }
   }
   @media (min-width: 992px) {
     .tour-center {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 20fr 20fr;
+      grid-column-gap: 1px;
       align-items: center;
     }
     .price {
       font-size: 1.25rem;
+    }
+    .info {
+      grid-template-columns: 130px repeat(5, 130px);
+      grid-column-gap: 1px;
+      align-items: center;
     }
   }
 `;

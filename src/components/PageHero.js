@@ -7,7 +7,8 @@ const PageHero = ({ title, tour }) => {
       <div className="section-center">
         <h3>
           <Link to="/">Home</Link>
-          {/* using conditional rendering to  */}
+          {/* using conditional rendering to set up tour return button */}
+          {/* if tour is true then render link */}
           {tour && <Link to="/tours">/ Tours</Link>}/ {title}
         </h3>
       </div>
