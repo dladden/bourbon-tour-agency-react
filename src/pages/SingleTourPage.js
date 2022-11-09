@@ -1,4 +1,10 @@
 import React, { useEffect } from "react";
+import {
+  GiBarrel,
+  GiSaloon,
+  GiSteamLocomotive,
+  GiGlassShot,
+} from "react-icons/gi";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
@@ -54,6 +60,7 @@ const SingleTourPage = () => {
     id: tour_id,
     category,
     name,
+    available,
     price,
     images,
     desc,
@@ -63,6 +70,19 @@ const SingleTourPage = () => {
     stars,
     tour_url,
   } = tour;
+
+  const renderIcon = () => {
+    switch (category) {
+      case "tour":
+        return <GiBarrel />;
+      case "stay":
+        return <GiSaloon />;
+      case "food":
+        return <GiGlassShot />;
+      case "event":
+        return <GiGlassShot />;
+    }
+  };
 
   // console.log(tour);
 
@@ -75,16 +95,16 @@ const SingleTourPage = () => {
           Back
         </Link>
         <div className="tour-center">
-          <TourImages />
+          {/* passing images prop into the component TourImages */}
+          <TourImages images={images} />
           <section className="content">
-            <h2>{name}</h2>
+            <div className="title-icon">
+              <h2>{name}</h2>
+              <h2 className="icon">{renderIcon()}</h2>
+            </div>
             <Stars />
             <h5 className="price">{priceFormat(price)}</h5>
             <p className="desc">{desc}</p>
-            <p className="info">
-              <span>Category :</span>
-              {}
-            </p>
             <p className="info-title">Distilleries: </p>
             <p className="info">
               {dist?.map((distillery, index) => {
@@ -100,6 +120,8 @@ const SingleTourPage = () => {
                 );
               })}
             </p>
+            <hr />
+            {available == true && <AddToCart />}
           </section>
         </div>
       </div>
@@ -112,6 +134,13 @@ const Wrapper = styled.main`
     display: grid;
     gap: 4rem;
     margin-top: 2rem;
+  }
+  .title-icon {
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon {
+    bottom: -3;
   }
   .price {
     color: var(--clr-primary-5);
@@ -146,9 +175,10 @@ const Wrapper = styled.main`
       font-size: 1.25rem;
     }
     .info {
-      grid-template-columns: 130px repeat(5, 130px);
-      grid-column-gap: 1px;
-      align-items: center;
+      grid-template-columns: 100px repeat(5, 123px);
+      grid-column-gap: 0px;
+      justify-items: center;
+      //align-items: left;
     }
   }
 `;

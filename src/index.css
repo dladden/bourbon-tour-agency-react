@@ -76,7 +76,8 @@ a {
 }
 hr {
   border: none;
-  border-top: 1px solid var(--clr-grey-8);
+  border-top: 2px solid var(--clr-primary-10);
+  border-radius: 30px;
 }
 h1,
 h2,
