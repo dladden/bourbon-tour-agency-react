@@ -132,7 +132,7 @@ const SingleTourPage = () => {
 const Wrapper = styled.main`
   .tour-center {
     display: grid;
-    gap: 4rem;
+    gap: 2rem;
     margin-top: 2rem;
   }
   .title-icon {
@@ -168,7 +168,7 @@ const Wrapper = styled.main`
   @media (min-width: 992px) {
     .tour-center {
       grid-template-columns: 20fr 20fr;
-      grid-column-gap: 1px;
+      grid-column-gap: 20px;
       align-items: center;
     }
     .price {

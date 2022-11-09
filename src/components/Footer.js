@@ -153,7 +153,7 @@ const Wrapper = styled.footer`
     img {
       width: 20rem;
       align: center;
-      padding-left: 1rem;
+      padding-left: 0rem;
       width: 100%;
       height: auto;
     }

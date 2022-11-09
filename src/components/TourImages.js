@@ -1,9 +1,34 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import styled from "styled-components";
+//Default main image is the first in the array
+//Using the ES6 default parameters to check if images are undefined first 'images = []'
+//'{ url: "" }' is used to update empty url if it is undefined to intialize a nonzero return
+const TourImages = ({ images = [{ url: "" }] }) => {
+  //main is for the main image, and setImage is
+  const [main, setMain] = useState(images[0]);
 
-const TourImages = () => {
-  return <h4>Tour images</h4>
-}
+  console.log(images); //initially undefined item which contains the url
+  return (
+    <Wrapper>
+      <img src={main.url} alt="main image" className="main" />
+      <div className="gallery">
+        {images.map((image, index) => {
+          return (
+            <img
+              src={image.url}
+              alt={image.filename}
+              key={index}
+              //setMain function passes the image index once clicked
+              onClick={() => setMain(images[index])}
+              //showcasing which image index is clicked with
+              className={`${image.url === main.url ? "active" : null}`}
+            />
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   .main {
@@ -48,6 +73,6 @@ const Wrapper = styled.section`
       }
     }
   }
-`
+`;
 
-export default TourImages
+export default TourImages;
