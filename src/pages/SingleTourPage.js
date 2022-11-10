@@ -4,6 +4,7 @@ import {
   GiSaloon,
   GiSteamLocomotive,
   GiGlassShot,
+  GiBeerBottle,
 } from "react-icons/gi";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
@@ -16,8 +17,10 @@ import {
   AddToCart,
   Stars,
   PageHero,
+  CalendarPicker,
 } from "../components";
 import styled from "styled-components";
+import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
 
 const SingleTourPage = () => {
@@ -83,6 +86,7 @@ const SingleTourPage = () => {
         return <GiGlassShot />;
     }
   };
+  console.log(stars);
 
   // console.log(tour);
 
@@ -102,7 +106,8 @@ const SingleTourPage = () => {
               <h2>{name}</h2>
               <h2 className="icon">{renderIcon()}</h2>
             </div>
-            <Stars />
+            {/* passing the stars data to the Stars component */}
+            <Stars stars={stars} />
             <h5 className="price">{priceFormat(price)}</h5>
             <p className="desc">{desc}</p>
             <p className="info-title">Distilleries: </p>
@@ -115,11 +120,13 @@ const SingleTourPage = () => {
                     value={distillery}
                     // style={{ marginLeft: ".5rem" }}
                   >
+                    <GiBeerBottle />
                     {distillery}
                   </span>
                 );
               })}
             </p>
+            <CalendarPicker />
             <hr />
             {available == true && <AddToCart />}
           </section>
@@ -152,7 +159,7 @@ const Wrapper = styled.main`
   .info-title {
     text-transform: capitalize;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0rem;
   }
   .info {
     text-transform: capitalize;
@@ -174,10 +181,20 @@ const Wrapper = styled.main`
     .price {
       font-size: 1.25rem;
     }
+  }
+  @media (min-width: 1000px) {
     .info {
-      grid-template-columns: 100px repeat(5, 123px);
+      grid-template-columns: 145px repeat(2, 145px);
       grid-column-gap: 0px;
-      justify-items: center;
+      justify-items: left;
+      //align-items: left;
+    }
+  }
+  @media (min-width: 1300px) {
+    .info {
+      grid-template-columns: 145px repeat(3, 145px);
+      grid-column-gap: 0px;
+      justify-items: left;
       //align-items: left;
     }
   }

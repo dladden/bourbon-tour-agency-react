@@ -1,6 +1,7 @@
 import React from "react"; //adding React functionality into the file from the node_modules
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
+import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
 //Importing the pages from index.js this is done so that it can be called in the app when needed
 import {
