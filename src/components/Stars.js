@@ -3,64 +3,32 @@ import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const Stars = ({ stars, tour_url }) => {
   console.log(stars, tour_url);
+
+  //Using the array we can dynamically insert numbers which are checked against the data's numbers
+  //array .from method with 5 empty objects
+  //array .from second argument is callback function
+  const tempStars = Array.from({ length: 5 }, (_, index) => {
+    const number = index + 0.5; //iterating by 0.5 float
+    return (
+      //Each child in a list should have a unique "key" prop
+      <span key={index}>
+        {stars >= index + 1 ? (
+          <BsStarFill />
+        ) : stars >= number ? (
+          <BsStarHalf />
+        ) : (
+          <BsStar />
+        )}
+      </span>
+    );
+  });
+  // console.log(tempStars);
+
   return (
     <Wrapper>
       <div className="stars">
-        {/* Stars React ternary Operator for 1 Star */}
-        <span>
-          {stars >= 1 ? (
-            <BsStarFill />
-          ) : stars >= 0.5 ? (
-            <BsStarHalf />
-          ) : (
-            <BsStar />
-          )}
-        </span>
-        {/* StarsEnd */}
-        {/* Stars React ternary Operator for 2 Star */}
-        <span>
-          {stars >= 2 ? (
-            <BsStarFill />
-          ) : stars >= 1.5 ? (
-            <BsStarHalf />
-          ) : (
-            <BsStar />
-          )}
-        </span>
-        {/* StarsEnd */}
-        {/* Stars React ternary Operator for 3 Star */}
-        <span>
-          {stars >= 3 ? (
-            <BsStarFill />
-          ) : stars >= 2.5 ? (
-            <BsStarHalf />
-          ) : (
-            <BsStar />
-          )}
-        </span>
-        {/* StarsEnd */}
-        {/* Stars React ternary Operator for 4 Star */}
-        <span>
-          {stars >= 4 ? (
-            <BsStarFill />
-          ) : stars >= 3.5 ? (
-            <BsStarHalf />
-          ) : (
-            <BsStar />
-          )}
-        </span>
-        {/* StarsEnd */}
-        {/* Stars React ternary Operator for 4 Star */}
-        <span>
-          {stars === 5 ? (
-            <BsStarFill />
-          ) : stars >= 4.5 ? (
-            <BsStarHalf />
-          ) : (
-            <BsStar />
-          )}
-        </span>
-        {/* StarsEnd */}
+        {/* rendering function tempStars */}
+        {tempStars}
       </div>
       {/* target="_blank" link in a new tab every time & no referrer information passing */}
       <a href={tour_url} target="_blank" rel="noreferrer">

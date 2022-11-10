@@ -19,6 +19,7 @@ const Services = () => {
             voluptatem provident molestias.
           </p>
         </article>
+
         <div className="services-center">
           {services.map((service) => {
             const { id, icon, title, text } = service;
@@ -47,12 +48,12 @@ const Wrapper = styled.section`
     margin-bottom: 2rem;
   }
   p {
-    margin-bottom: 0;
+    margin-bottom: 0.4rem;
     line-height: 1.8;
     color: var(--clr-primary-3);
   }
   .services-center {
-    margin-top: 4rem;
+    margin-top: 1rem;
     display: grid;
     gap: 2.5rem;
   }
