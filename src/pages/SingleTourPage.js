@@ -128,7 +128,8 @@ const SingleTourPage = () => {
             </p>
             <CalendarPicker />
             <hr />
-            {available == true && <AddToCart />}
+            {/* using conditional rendering  and passing the all props to AddToCart*/}
+            {available == true && <AddToCart tour={tour} />}
           </section>
         </div>
       </div>

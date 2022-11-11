@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FaCheck } from "react-icons/fa";
+import bus from "../assets/bus.svg";
+import suv from "../assets/suv.svg";
+import van from "../assets/van.svg";
+import { FaCheck, truck } from "react-icons/fa";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 
-const AddToCart = () => {
-  return <h4>addToCart </h4>;
+const AddToCart = ({ tour }) => {
+  const { id, trans } = tour;
+
+  const [mainTrans, setTrans] = useState(trans);
+
+  return (
+    <Wrapper>
+      <div className="colors">
+        <span>Transportation: </span>
+        <div>{}</div>
+      </div>
+    </Wrapper>
+  );
+  // <img src={bus} alt="DL logo" />
+  // <img src={van} alt="DL logo" />
+  // <img src={suv} alt="DL logo" />
 };
 //This wrapper does not effect the functionality it is used for styling
 const Wrapper = styled.section`
