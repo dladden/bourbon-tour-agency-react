@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 const Stars = ({ stars, tour_url }) => {
-  console.log(stars, tour_url);
+  // console.log(stars, tour_url);
 
   //Using the array we can dynamically insert numbers which are checked against the data's numbers
   //array .from method with 5 empty objects
