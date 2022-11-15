@@ -14,12 +14,17 @@ const AddToCart = ({ tour }) => {
   //default transportation will always be firs array item
   //in this case it is suv
   const [mainTrans, setTrans] = useState(trans[0]);
-
+  //
+  const [guest, setGuest] = useState(1);
   // console.log(trans);
+
+  const increase = () => {};
+
+  const decrease = () => {};
 
   return (
     <Wrapper>
-      <div className="colors">
+      <div className="trans">
         <span>Transportation: </span>
         <div>
           {trans.map((car, index) => {
@@ -27,9 +32,9 @@ const AddToCart = ({ tour }) => {
               <button
                 key={index}
                 //terinary operator:"?" if mainTrans is a car that is the first choice display active
-                //":" if not: just display "color-btn" styling
+                //":" if not: just display "trans-btn" styling
                 className={`${
-                  mainTrans === car ? "color-btn active" : "color-btn"
+                  mainTrans === car ? "trans-btn active" : "trans-btn"
                 }`}
                 onClick={() => setTrans(car)}
               >
@@ -59,6 +64,12 @@ const AddToCart = ({ tour }) => {
         </p>
       )}
       <hr />
+      <div className="btn-container">
+        <AmountButtons guest={guest} increase={increase} decrease={decrease} />
+        <Link to="/cart" className="btn">
+          Book Tour
+        </Link>
+      </div>
     </Wrapper>
   );
   //{/* <input type="checkbox" /> */}
@@ -70,7 +81,7 @@ const AddToCart = ({ tour }) => {
 //This wrapper does not effect the functionality it is used for styling
 const Wrapper = styled.section`
   margin-top: 2rem;
-  .colors {
+  .trans {
     display: grid;
     grid-template-columns: 125px 1fr;
     align-items: center;
@@ -83,7 +94,7 @@ const Wrapper = styled.section`
       display: flex;
     }
   }
-  .color-btn {
+  .trans-btn {
     display: inline-block;
     margin-right: 0.5rem;
     background: none;
@@ -106,7 +117,7 @@ const Wrapper = styled.section`
   }
   .btn {
     margin-top: 1rem;
-    width: 140px;
+    width: 132.5px;
   }
 `;
 export default AddToCart;
