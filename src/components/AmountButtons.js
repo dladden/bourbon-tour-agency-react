@@ -1,10 +1,24 @@
-import React from 'react'
-import styled from 'styled-components'
-import { FaPlus, FaMinus } from 'react-icons/fa'
+import React from "react";
+import styled from "styled-components";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
-const AmountButtons = () => {
-  return <h4>amount buttons </h4>
-}
+const AmountButtons = ({ increase, decrease, guest }) => {
+  //outside styling added into the styled components wrapper 'amount-btns'
+  console.log(guest);
+  return (
+    <Wrapper className="amount-btns">
+      {/* decrease passed as a reference to AddToCart */}
+      <button type="button" className="amount-btn" onClick={decrease}>
+        <FaMinus />
+      </button>
+      <h2 className="guests">{guest}</h2>
+      <button type="button" className="amount-btn" onClick={increase}>
+        <FaPlus />
+      </button>
+      <div className="guest-selector">Guests</div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.div`
   display: grid;
@@ -29,6 +43,13 @@ const Wrapper = styled.div`
   h2 {
     margin-bottom: 0;
   }
-`
+  guest-selector {
+    width: 5rem;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
-export default AmountButtons
+export default AmountButtons;

@@ -9,7 +9,7 @@ import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 
 const AddToCart = ({ tour }) => {
-  const { id, trans } = tour;
+  const { id, guests, trans } = tour;
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be firs array item
   //in this case it is suv
@@ -18,7 +18,12 @@ const AddToCart = ({ tour }) => {
   const [guest, setGuest] = useState(1);
   // console.log(trans);
 
-  const increase = () => {};
+  //The increase function uses count variable as storage and increments value by one
+  const increase = () => {
+    setGuest((count) => {
+      let tempGuest = count + 1;
+    });
+  };
 
   const decrease = () => {};
 
@@ -96,7 +101,7 @@ const Wrapper = styled.section`
   }
   .trans-btn {
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: 1rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -109,6 +114,16 @@ const Wrapper = styled.section`
       color: var(--clr-white);
     }
   }
+
+  @media (min-width: 992px) {
+    .trans-btn {
+      margin-left: 3rem;
+      grid-template-columns: 20fr 20fr;
+      grid-column-gap: 20px;
+      align-items: center;
+    }
+  }
+
   .active {
     opacity: 1;
   }

@@ -86,7 +86,7 @@ const SingleTourPage = () => {
         return <GiGlassShot />;
     }
   };
-  console.log(stars);
+  // console.log(stars);
 
   // console.log(tour);
 
