@@ -18,14 +18,27 @@ const AddToCart = ({ tour }) => {
   const [guest, setGuest] = useState(1);
   // console.log(trans);
 
-  //The increase function uses count variable as storage and increments value by one
+  //The increase function uses count variable as storage and increments value by on
+  //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {
     setGuest((count) => {
       let tempGuest = count + 1;
+      if (tempGuest > guests) {
+        tempGuest = guests;
+      }
+      return tempGuest;
     });
   };
 
-  const decrease = () => {};
+  const decrease = () => {
+    setGuest((count) => {
+      let tempGuest = count - 1;
+      if (tempGuest < 1) {
+        tempGuest = 1;
+      }
+      return tempGuest;
+    });
+  };
 
   return (
     <Wrapper>
