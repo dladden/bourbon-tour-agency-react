@@ -18,13 +18,16 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //   })
 // );
 
-// This index.js is JavaScript entry point for javas script
+//This index.js is JavaScript entry point for javas script
 //The index.html is the actual connection to the web and ReactDOM is used to insert the App.js into the the root div of the index.html
 //render method is looking for what to render and where to render it (</> is needed)
-//Application is wrapped into the global context
+//Application is wrapped into the global context.
+//ToursProvider provides data into the Filter, to ensure this FilterProvider is embedded into the TourProvider
 ReactDOM.render(
   <ToursProvider>
-    <App />
+    <FilterProvider>
+      <App />
+    </FilterProvider>
   </ToursProvider>,
   document.getElementById("root")
 );

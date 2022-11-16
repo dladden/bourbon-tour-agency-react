@@ -1,4 +1,5 @@
-//All actions variables
+//All actions variables:
+//These action are responsible for loading the tour into the components
 export const SIDEBAR_OPEN = "SIDEBAR_OPEN";
 export const SIDEBAR_CLOSE = "SIDEBAR_CLOSE";
 export const GET_TOURS_BEGIN = "GET_TOURS_BEGIN"; //var for loading the tour
@@ -7,6 +8,7 @@ export const GET_TOURS_ERROR = "GET_TOURS_ERROR"; //var for error handling
 export const GET_SINGLE_TOUR_BEGIN = "GET_SINGLE_TOUR_BEGIN";
 export const GET_SINGLE_TOUR_SUCCESS = "GET_SINGLE_TOUR_SUCCESS";
 export const GET_SINGLE_TOUR_ERROR = "GET_SINGLE_TOUR_ERROR";
+//These action are responsible for taking the tour from tour_context and loads them into filter_context
 export const LOAD_TOURS = "LOAD_TOURS";
 export const SET_GRIDVIEW = "SET_GRIDVIEW";
 export const SET_LISTVIEW = "SET_LISTVIEW";

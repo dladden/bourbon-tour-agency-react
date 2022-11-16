@@ -80,7 +80,7 @@ export const ToursProvider = ({ children }) => {
     </ToursContext.Provider>
   );
 }; //end ToursProvider
-// make sure use
+//useToursContext HOOK
 export const useToursContext = () => {
   return useContext(ToursContext);
 };

@@ -11,19 +11,30 @@ import {
   CLEAR_FILTERS,
 } from "../actions";
 import { useToursContext } from "./tours_context";
-
-const initialState = {};
+//Filter Context is responsible for
+//two properties: filtered - changes as the user changes the filter; all_tours - back to default
+const initialState = {
+  filtered_products: [],
+  all_tours: [],
+};
 
 const FilterContext = React.createContext();
 
+//useReducer
 export const FilterProvider = ({ children }) => {
+  //tours cannot be passed into the initialState of this filter_context must be done with useEffect
+  const { tours } = useToursContext(); //here we are grabbing the tours initial state from tours_context
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {}, [tours]);
+
   return (
     <FilterContext.Provider value="filter context">
       {children}
     </FilterContext.Provider>
   );
 };
-// make sure use
+//useFilterContext HOOK
 export const useFilterContext = () => {
   return useContext(FilterContext);
 };

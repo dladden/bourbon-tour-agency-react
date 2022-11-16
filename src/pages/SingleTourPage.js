@@ -22,7 +22,7 @@ import {
 import styled from "styled-components";
 import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
-
+//Page responsible for layout of akk component for single tour
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
   const { id } = useParams(); //getting the id property in the object
