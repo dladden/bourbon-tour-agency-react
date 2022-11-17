@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
-const Stars = ({ stars, tour_url }) => {
-  // console.log(stars, tour_url);
+const Stars = ({ stars, rev_url }) => {
+  // console.log(stars, rev_url);
 
   //Using the array we can dynamically insert numbers which are checked against the data's numbers
   //array .from method with 5 empty objects
@@ -31,7 +31,7 @@ const Stars = ({ stars, tour_url }) => {
         {tempStars}
       </div>
       {/* target="_blank" link in a new tab every time & no referrer information passing */}
-      <a href={tour_url} target="_blank" rel="noreferrer">
+      <a href={rev_url} target="_blank" rel="noreferrer">
         <p className="reviews">(Facebook Reviews)</p>
       </a>
     </Wrapper>

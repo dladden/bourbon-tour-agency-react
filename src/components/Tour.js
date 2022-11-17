@@ -1,10 +1,30 @@
 import React from "react";
+import {
+  GiBarrel,
+  GiSaloon,
+  GiSteamLocomotive,
+  GiGlassShot,
+  GiBeerBottle,
+} from "react-icons/gi";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers"; //component for formatting the price
 import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
 //tour displays the
-const Tour = ({ url, name, price, id }) => {
+const Tour = ({ url, category, name, price, id }) => {
+  const renderIcon = () => {
+    switch (category) {
+      case "tour":
+        return <GiBarrel size={17} />;
+      case "stay":
+        return <GiSaloon size={17} />;
+      case "food":
+        return <GiGlassShot size={17} />;
+      case "event":
+        return <GiGlassShot size={17} />;
+    }
+  };
+
   return (
     <Wrapper>
       <div className="container">
@@ -14,9 +34,7 @@ const Tour = ({ url, name, price, id }) => {
         </Link>
       </div>
       <footer>
-        <div>
-          <AiFillSchedule />
-        </div>
+        <div className="tour-icon">{renderIcon()}</div>
         <h5>{name}</h5>
         <p>{priceFormat(price)}</p>
       </footer>
@@ -57,6 +75,10 @@ const Wrapper = styled.article`
       color: var(--clr-white);
     }
   }
+
+  .tour-icon {
+  }
+
   .container:hover img {
     opacity: 0.5;
   }
@@ -73,7 +95,7 @@ const Wrapper = styled.article`
   footer h5,
   footer p {
     margin-bottom: 0;
-    font-weight: 500;
+    font-weight: 400;
   }
   footer p {
     color: var(--clr-primary-5);

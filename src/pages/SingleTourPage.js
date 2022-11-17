@@ -15,6 +15,7 @@ import {
   Error,
   TourImages,
   AddToCart,
+  LinkButton,
   Stars,
   PageHero,
   CalendarPicker,
@@ -71,7 +72,7 @@ const SingleTourPage = () => {
     dist,
     guests,
     stars,
-    tour_url,
+    rev_url,
   } = tour;
 
   const renderIcon = () => {
@@ -107,7 +108,7 @@ const SingleTourPage = () => {
               <h2 className="icon">{renderIcon()}</h2>
             </div>
             {/* passing the stars data to the Stars component */}
-            <Stars stars={stars} tour_url={tour_url} />
+            <Stars stars={stars} rev_url={rev_url} />
             <h5 className="price">{priceFormat(price)}</h5>
             <p className="desc">{desc}</p>
             <p className="info-title">Distilleries: </p>
@@ -129,7 +130,11 @@ const SingleTourPage = () => {
             <CalendarPicker />
             <hr />
             {/* using conditional rendering  and passing the all props to AddToCart*/}
-            {available == true && <AddToCart tour={tour} />}
+            {available == true ? (
+              <AddToCart tour={tour} />
+            ) : (
+              <LinkButton tour={tour} />
+            )}
           </section>
         </div>
       </div>
