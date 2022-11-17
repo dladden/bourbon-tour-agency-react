@@ -1,10 +1,36 @@
-import React from 'react'
-import { useFilterContext } from '../context/filter_context'
-import { BsFillGridFill, BsList } from 'react-icons/bs'
-import styled from 'styled-components'
+import React from "react";
+import { useFilterContext } from "../context/filter_context";
+import { BsGridFill } from "react-icons/bs";
+import { FaList } from "react-icons/fa";
+import styled from "styled-components";
 const Sort = () => {
-  return <h4>sort </h4>
-}
+  const { filtered_tours: tours, grid_view } = useFilterContext();
+  return (
+    <Wrapper>
+      <div className="btn-container">
+        <button type="button" className={`${grid_view ? "active" : null}`}>
+          <BsGridFill size={28} />
+        </button>
+        <button type="button" className={`${!grid_view ? "active" : null}`}>
+          <FaList size={30} />
+        </button>
+      </div>
+      <p> Total {tours.length} Tours, Stays, Events</p>
+      <hr />
+      {/* //sort with LABEL: sort */}
+      <form>
+        <label htmlFor="sort">Sort By</label>
+        <select name="sort" id="sort" className="sort-input">
+          <option value="best-sellers">Best Sellers</option>
+          <option value="price-lowest">Price Low-High</option>
+          <option value="price-lowest">Price High-Low</option>
+          <option value="newly-added">Newly Added</option>
+          <option value="top-rated">Top Rated</option>
+        </select>
+      </form>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   display: grid;
@@ -36,23 +62,23 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 1fr;
     column-gap: 0.5rem;
     button {
+      opacity: 0.4;
+      border: none;
       background: transparent;
-      border: 1px solid var(--clr-black);
-      color: var(--clr-black);
-      width: 1.5rem;
-      border-radius: var(--radius);
-      height: 1.5rem;
+      // border: 1px solid var(--clr-black);
+      color: var(--clr-primary-2);
+      // width: 1.5rem;
+      // border-radius: var(--radius);
+      // height: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      svg {
-        font-size: 1rem;
-      }
     }
     .active {
-      background: var(--clr-black);
-      color: var(--clr-white);
+      opacity: 1;
+      // background: var(--clr-black);
+      // color: var(--clr-white);
     }
   }
   .sort-input {
@@ -65,6 +91,6 @@ const Wrapper = styled.section`
     font-size: 1rem;
     text-transform: capitalize;
   }
-`
+`;
 
-export default Sort
+export default Sort;
