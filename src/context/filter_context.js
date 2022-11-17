@@ -15,9 +15,11 @@ import { useToursContext } from "./tours_context";
 //Filter Context is responsible for providing
 //two properties: filtered - changes as the user changes the filter;
 //all_tours - stays the same, used to return to default
+//grid_view - toggle for the view
 const initialState = {
   filtered_tours: [],
   all_tours: [],
+  grid_view: false,
 };
 //Filter Context
 const FilterContext = React.createContext();
@@ -27,7 +29,7 @@ export const FilterProvider = ({ children }) => {
   //tours cannot be passed into the initialState of this filter_context must be done with useEffect
   const { tours } = useToursContext(); //here we are grabbing the tours initial state from tours_context (initially empty array)
   const [state, dispatch] = useReducer(reducer, initialState);
-  //This use effect dispatches action load tours when called on
+  //This use effect dispatches action load tours when called on (replaces the empty array)
   useEffect(() => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
