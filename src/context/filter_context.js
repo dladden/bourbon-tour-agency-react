@@ -32,8 +32,9 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
 
+  //state passing filtered_tours: [], all_tours: [].
   return (
-    <FilterContext.Provider value="filter context">
+    <FilterContext.Provider value={{ ...state }}>
       {children}
     </FilterContext.Provider>
   );
