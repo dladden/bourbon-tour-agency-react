@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/logo.svg";
+import logo1 from "../assets/logo1.svg";
+import logo2 from "../assets/logo2.svg";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
@@ -9,6 +10,20 @@ import { useToursContext } from "../context/tours_context";
 import { useUserContext } from "../context/user_context";
 //The Navbar.js is responsible fo rendering the links to the pages as well as log-in and cart buttons
 //It calls on constants which house an array for all the links and the designated urls
+const MyComponent = () => {
+  // The current width of the viewport
+  const width = window.innerWidth;
+  // The width below which the mobile view should be rendered
+  const breakpoint = 620;
+  /* If the viewport is more narrow than the breakpoint render the
+     mobile component, else render the desktop component */
+  return width < breakpoint ? (
+    <img src={logo2} alt="Shelby Bourbon Tours" />
+  ) : (
+    <img src={logo1} alt="Shelby Bourbon Tours" />
+  );
+};
+
 const Nav = () => {
   const { openSidebar } = useToursContext();
   return (
@@ -16,7 +31,13 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src={logo} alt="Shelby Bourbon Tours" />
+            {MyComponent()}
+            {/* {openSidebar ? (
+              <img src={logo2} alt="Shelby Bourbon Tours" />
+            ) : (
+              <img src={logo1} alt="Shelby Bourbon Tours" />
+            )} */}
+            {/* <img src={logo2} alt="Shelby Bourbon Tours" /> */}
           </Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
@@ -53,7 +74,7 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     img {
-      width: 280px;
+      width: 300px;
       margin-left: -15px;
     }
   }

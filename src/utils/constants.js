@@ -44,14 +44,14 @@ export const services = [
   },
   {
     id: 3,
-    icon: <GiSteamLocomotive />,
-    title: "On the Mission",
+    icon: <GiGlassShot />,
+    title: "Food & Events",
     text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
   },
   {
     id: 4,
-    icon: <GiGlassShot />,
-    title: "Food & Events",
+    icon: <GiSteamLocomotive />,
+    title: "On the Mission",
     text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
   },
 ];

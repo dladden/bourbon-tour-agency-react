@@ -16,7 +16,7 @@ import Filters from "./Filters";
 import TourList from "./TourList";
 import Sort from "./Sort";
 import Stars from "./Stars";
-import CartContent from "./CarContent";
+import CartContent from "./CartContent";
 import PageHero from "./PageHero";
 import StripeCheckout from "./StripeCheckout";
 

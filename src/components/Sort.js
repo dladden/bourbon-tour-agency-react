@@ -4,28 +4,49 @@ import { BsGridFill } from "react-icons/bs";
 import { FaList } from "react-icons/fa";
 import styled from "styled-components";
 const Sort = () => {
-  const { filtered_tours: tours, grid_view } = useFilterContext();
+  const {
+    filtered_tours: tours,
+    grid_view,
+    setGridView,
+    setListView,
+    updateSort,
+    sort,
+  } = useFilterContext();
   return (
     <Wrapper>
       <div className="btn-container">
-        <button type="button" className={`${grid_view ? "active" : null}`}>
+        <button
+          type="button"
+          className={`${grid_view ? "active" : null}`}
+          onClick={setGridView}
+        >
           <BsGridFill size={28} />
         </button>
-        <button type="button" className={`${!grid_view ? "active" : null}`}>
+        <button
+          type="button"
+          className={`${!grid_view ? "active" : null}`}
+          onClick={setListView}
+        >
           <FaList size={30} />
         </button>
       </div>
-      <p> Total {tours.length} Tours, Stays, Events</p>
+      <p> Total {tours.length}: Tours, Stays, Events. </p>
       <hr />
       {/* //sort with LABEL: sort */}
       <form>
         <label htmlFor="sort">Sort By</label>
-        <select name="sort" id="sort" className="sort-input">
-          <option value="best-sellers">Best Sellers</option>
+        <select
+          name="sort"
+          id="sort"
+          className="sort-input"
+          value={sort}
+          onChange={updateSort}
+        >
+          <option value="all">All</option>
           <option value="price-lowest">Price Low-High</option>
           <option value="price-lowest">Price High-Low</option>
+          <option value="best-sellers">Best Sellers</option>
           <option value="newly-added">Newly Added</option>
-          <option value="top-rated">Top Rated</option>
         </select>
       </form>
     </Wrapper>

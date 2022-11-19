@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.svg";
+import logo1 from "../assets/logo1.svg";
 import { Link } from "react-router-dom";
 import { useToursContext } from "../context/tours_context"; //importing the context
 import { FaTimes } from "react-icons/fa";
@@ -20,7 +20,7 @@ const Sidebar = () => {
         className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}
       >
         <div className="sidebar-header">
-          <img src={logo} className="logo" alt="Shelby Bourbon Tours" />
+          <img src={logo1} className="logo" alt="Shelby Bourbon Tours" />
           <button className="close-btn" type="button" onClick={closeSidebar}>
             <FaTimes />
           </button>

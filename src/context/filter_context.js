@@ -16,10 +16,12 @@ import { useToursContext } from "./tours_context";
 //two properties: filtered - changes as the user changes the filter;
 //all_tours - stays the same, used to return to default
 //grid_view - toggle for the view
+//sort - controlled input that changes depending on the value set in Sort.js form
 const initialState = {
   filtered_tours: [],
   all_tours: [],
   grid_view: false,
+  sort: "all",
 };
 //Filter Context
 const FilterContext = React.createContext();
@@ -33,10 +35,28 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
+  console.log(tours);
+
+  //View setters for grid-view and list-view
+  const setGridView = () => {
+    dispatch({ type: SET_GRIDVIEW });
+  };
+  const setListView = () => {
+    dispatch({ type: SET_LISTVIEW });
+  };
+  //sorting e = event
+  //name is..., value is the actual option that the user is choosing
+  const updateSort = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    console.log(name, value);
+  };
 
   //state passing filtered_tours: [], all_tours: [].
   return (
-    <FilterContext.Provider value={{ ...state }}>
+    <FilterContext.Provider
+      value={{ ...state, setGridView, setListView, updateSort }}
+    >
       {children}
     </FilterContext.Provider>
   );
