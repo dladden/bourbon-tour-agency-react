@@ -15,7 +15,7 @@ export const links = [
   {
     id: 2,
     text: "TOURS",
-    url: "/Tours",
+    url: "/tours",
   },
   {
     id: 3,
@@ -24,8 +24,8 @@ export const links = [
   },
   {
     id: 4,
-    text: "CREATE",
-    url: "/create-tour",
+    text: "CONTACT",
+    url: "/contact",
   },
 ];
 //

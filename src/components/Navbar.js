@@ -23,22 +23,13 @@ const MyComponent = () => {
     <img src={logo1} alt="Shelby Bourbon Tours" />
   );
 };
-
 const Nav = () => {
   const { openSidebar } = useToursContext();
   return (
     <NavContainer>
       <div className="nav-center">
         <div className="nav-header">
-          <Link to="/">
-            {MyComponent()}
-            {/* {openSidebar ? (
-              <img src={logo2} alt="Shelby Bourbon Tours" />
-            ) : (
-              <img src={logo1} alt="Shelby Bourbon Tours" />
-            )} */}
-            {/* <img src={logo2} alt="Shelby Bourbon Tours" /> */}
-          </Link>
+          <Link to="/">{MyComponent()}</Link>
           <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>

@@ -45,11 +45,14 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: SET_LISTVIEW });
   };
   //sorting e = event
-  //name is..., value is the actual option that the user is choosing
+  //Value is the actual option that the user is choosing pulled with EVENT TARGET .value
+  //which is in Sort.js passed from the <form>
+  //this is then the value is dispatched
   const updateSort = (e) => {
-    const name = e.target.name;
+    // const name = e.target.name;
     const value = e.target.value;
-    console.log(name, value);
+    // console.log(name, value);
+    dispatch({ type: UPDATE_SORT, payload: value });
   };
 
   //state passing filtered_tours: [], all_tours: [].

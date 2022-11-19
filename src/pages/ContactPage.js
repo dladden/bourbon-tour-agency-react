@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Filters, TourList, Sort, PageHero } from "../components";
 
-const CreateTourPage = () => {
-  return <h4>Create a Tour</h4>;
+const ContactPage = () => {
+  return <h4>Contact</h4>;
 };
 
 const Wrapper = styled.div`
@@ -19,4 +19,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default CreateTourPage;
+export default ContactPage;

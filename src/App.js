@@ -9,7 +9,7 @@ import {
   About,
   Cart,
   Checkout,
-  CreateTour,
+  Contact,
   Error,
   SingleTour,
   Tours,
@@ -40,8 +40,8 @@ function App() {
         <Route exact path="/tours">
           <Tours />
         </Route>
-        <Route exact path="/create-tour">
-          <CreateTour />
+        <Route exact path="/contact">
+          <Contact />
         </Route>
         <Route exact path="/checkout">
           <Checkout />

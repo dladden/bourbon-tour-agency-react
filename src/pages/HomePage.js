@@ -1,12 +1,12 @@
 import React from "react";
-import { FeaturedTours, Hero, Services, Contact } from "../components";
+import { FeaturedTours, Hero, Services, NewsLetter } from "../components";
 const HomePage = () => {
   return (
     <main>
       <Hero />
       <FeaturedTours />
       <Services />
-      <Contact />
+      <NewsLetter />
     </main>
   );
 };

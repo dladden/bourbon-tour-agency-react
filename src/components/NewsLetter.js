@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Contact = () => {
+const NewsLetter = () => {
   return (
     <Wrapper>
       <div className="section-center">
@@ -92,4 +92,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default Contact;
+export default NewsLetter;

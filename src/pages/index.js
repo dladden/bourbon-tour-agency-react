@@ -3,7 +3,7 @@ import Home from "./HomePage";
 import About from "./AboutPage";
 import Cart from "./CartPage";
 import Checkout from "./CheckoutPage";
-import CreateTour from "./CreateTourPage";
+import Contact from "./ContactPage";
 import Error from "./ErrorPage";
 import SingleTour from "./SingleTourPage";
 import Tours from "./ToursPage";
@@ -15,7 +15,7 @@ export {
   About,
   Cart,
   Checkout,
-  CreateTour,
+  Contact,
   Error,
   SingleTour,
   Tours,

@@ -7,7 +7,7 @@ import LinkButton from "./LinkButton";
 import Sidebar from "./Sidebar";
 import Hero from "./Hero";
 import Services from "./Services";
-import Contact from "./Contact";
+import NewsLetter from "./NewsLetter";
 import Loading from "./Loading";
 import Error from "./Error";
 import TourImages from "./TourImages";
@@ -30,7 +30,7 @@ export {
   Sidebar,
   Hero,
   Services,
-  Contact,
+  NewsLetter,
   Loading,
   Error,
   TourImages,
