@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageHero } from "../components";
+import { PageHero, TourLogo, OwnerCard } from "../components";
 import aboutImg from "../assets/about_cover.jpeg";
 import aboutImg2 from "../assets/about_cover2.jpeg";
 import aboutImg3 from "../assets/about_cover4.png";
@@ -8,6 +8,7 @@ import aboutImg3 from "../assets/about_cover4.png";
 const AboutPage = () => (
   <main>
     <PageHero title="about" />
+    <TourLogo />
     <Wrapper className="page section section-center">
       <div id="parallax-world-of-ugg">
         <section>
@@ -74,20 +75,21 @@ const AboutPage = () => (
           </div>
         </section>
       </div>
+      <OwnerCard />
     </Wrapper>
   </main>
 );
 
 const Wrapper = styled.section`
-  display: grid;
-  gap: 4rem;
-  img {
-    width: 100%;
-    display: block;
-    border-radius: var(--radius);
-    height: 500px;
-    object-fit: cover;
-  }
+  // display: grid;
+  // gap: 4rem;
+  // img {
+  //   width: 100%;
+  //   display: block;
+  //   border-radius: var(--radius);
+  //   height: 500px;
+  //   object-fit: cover;
+  // }
   
   .title {
     text-align: left;
@@ -126,7 +128,7 @@ const Wrapper = styled.section`
   
   }
   #parallax-world-of-ugg h2 {
-    font-family: "Oswald", sans-serif;
+
     font-size: 70px;
     letter-spacing: 10px;
     text-align: center;
@@ -137,7 +139,7 @@ const Wrapper = styled.section`
     opacity: 0.9;
   }
   #parallax-world-of-ugg h3 {
-    font-family: "Oswald", sans-serif;
+    
     font-size: 14px;
     line-height: 0;
     font-weight: 400;

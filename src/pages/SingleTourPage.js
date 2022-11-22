@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  GiBarrel,
-  GiSaloon,
-  GiSteamLocomotive,
-  GiGlassShot,
-  GiBeerBottle,
-} from "react-icons/gi";
+import { GiBarrel, GiSaloon, GiGlassShot, GiBeerBottle } from "react-icons/gi";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
@@ -143,6 +137,7 @@ const SingleTourPage = () => {
 };
 
 const Wrapper = styled.main`
+  // background-color: var(--clr-background-main);
   .tour-center {
     display: grid;
     gap: 2rem;

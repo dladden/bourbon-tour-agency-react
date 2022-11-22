@@ -10,7 +10,7 @@ import AmountButtons from "./AmountButtons";
 const AddToCart = ({ tour }) => {
   const { id, guests, trans } = tour;
   //mainTrans = current transportation, setTrans = sets transportation
-  //default transportation will always be firs array item
+  //default transportation will always be first array item
   //in this case it is suv
   const [mainTrans, setTrans] = useState(trans[0]);
   //

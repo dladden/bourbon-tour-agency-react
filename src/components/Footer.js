@@ -15,10 +15,10 @@ const Footer = () => {
             <h2 className="ft-title">About</h2>
             <ul>
               <li>
-                <a href="#">Services</a>
+                <a href="#">About</a>
               </li>
               <li>
-                <a href="#">Portfolio</a>
+                <a href="#">Our Services</a>
               </li>
               <li>
                 <a href="#">Pricing</a>
@@ -35,16 +35,16 @@ const Footer = () => {
             <h2 className="ft-title">Resources</h2>
             <ul>
               <li>
-                <a href="#">Docs</a>
+                <a href="#">Distilleries</a>
               </li>
               <li>
-                <a href="#">Blog</a>
+                <a href="#">Other Tours</a>
               </li>
               <li>
-                <a href="#">eBooks</a>
+                <a href="#">Events</a>
               </li>
               <li>
-                <a href="#">Webinars</a>
+                <a href="#">Tours</a>
               </li>
             </ul>
           </div>
@@ -52,7 +52,7 @@ const Footer = () => {
             <h2 className="ft-title">Contact</h2>
             <ul>
               <li>
-                <a href="#">Help</a>
+                <a href="#">Contact Us</a>
               </li>
               <li>
                 <a href="#">Sales</a>

@@ -49,7 +49,7 @@ const Wrapper = styled.article`
     width: 400px;
     max-width: 100%;
     background: white;
-    border: 1px solid #ffff;
+    border: 0px solid #ffff;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.125em;
   }
@@ -156,7 +156,7 @@ const Wrapper = styled.article`
       width: 600px;
       max-width: 130%;
       background: white;
-      border: 1px solid #ffff;
+      border: 0px solid #ffff;
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.125em;
     }

@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { services } from "../utils/constants";
 
@@ -9,9 +10,12 @@ const Services = () => {
       <div className="section-center">
         <article className="header">
           <h3>Custom Tours</h3>
-          <Link to="/tours" className="btn hero-btn">
-            Create
-          </Link>
+          <Router>
+            <Link to="/contact" className="btn hero-btn">
+              Create
+            </Link>
+            <Route path="/contact" />
+          </Router>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Et expedita
             doloribus ducimus similique, laborum facere minima magni architecto

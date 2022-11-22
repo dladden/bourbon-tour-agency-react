@@ -17,7 +17,7 @@ Variables
   --clr-primary-6: #c1966f;
   --clr-primary-7: #7f7367;
   --clr-primary-8: #baa795;
-  --clr-primary-9: #d0b9a4;
+  --clr-primary-9: #c3c1b8;
   --clr-primary-10: #e8e6df;
   /* darkest grey - used for headings */
   --clr-grey-1: #4e4741;
@@ -138,7 +138,7 @@ p {
 
 /* section */
 .section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 .section-center {
   width: 90vw;

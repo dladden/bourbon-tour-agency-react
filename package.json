@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "multiselect-react-dropdown": "^2.0.25",
     "react": "^17.0.1",
     "react-calendar": "^2.19.2",
     "react-dom": "^17.0.1",

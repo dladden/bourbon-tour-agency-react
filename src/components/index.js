@@ -1,6 +1,7 @@
 import FeaturedTours from "./FeaturedTours";
 import CalendarPicker from "./CalendarPicker";
 import Navbar from "./Navbar";
+import TourLogo from "./TourLogo";
 import CartButtons from "./CartButtons";
 import Footer from "./Footer";
 import LinkButton from "./LinkButton";
@@ -8,6 +9,9 @@ import Sidebar from "./Sidebar";
 import Hero from "./Hero";
 import Services from "./Services";
 import NewsLetter from "./NewsLetter";
+import OwnerCard from "./OwnerCard";
+import ContactList from "./ContactList";
+import CustomTour from "./CustomTour";
 import Loading from "./Loading";
 import Error from "./Error";
 import TourImages from "./TourImages";
@@ -24,6 +28,7 @@ export {
   FeaturedTours,
   CalendarPicker,
   Navbar,
+  TourLogo,
   CartButtons,
   Footer,
   LinkButton,
@@ -31,6 +36,9 @@ export {
   Hero,
   Services,
   NewsLetter,
+  OwnerCard,
+  ContactList,
+  CustomTour,
   Loading,
   Error,
   TourImages,

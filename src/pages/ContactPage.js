@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { Filters, TourList, Sort, PageHero } from "../components";
+import facebook from "../assets/facebook_qr.svg";
+import owner from "../assets/owner.jpg";
+import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
+import { single_tour_url as url } from "../utils/constants";
+import { useToursContext } from "../context/tours_context";
+
+import { PageHero, OwnerCard, ContactList, CustomTour } from "../components";
 
 const ContactPage = () => {
-  return <h4>Contact</h4>;
+  return (
+    <Wrapper>
+      <PageHero title="contact" />
+      <OwnerCard />
+      <ContactList />
+      <CustomTour />
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.div`
-  .products {
-    display: grid;
-    gap: 3rem 1.5rem;
-    margin: 4rem auto;
-  }
-  @media (min-width: 768px) {
-    .products {
-      grid-template-columns: 200px 1fr;
-    }
+  background-color: var(--clr-background-main);
+  padding: 20px;
+
+  * {
+    margin: 0;
+    padding: 0;
+    transition: ease 0.2s;
   }
 `;
 
