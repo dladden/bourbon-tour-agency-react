@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Multiselect from "multiselect-react-dropdown";
 import { Link } from "react-router-dom";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
@@ -17,32 +18,46 @@ const CustomTour = () => {
   const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
 
-  (function () {
-    "use strict";
-    const forms = document.querySelectorAll(".requires-validation");
-    Array.from(forms).forEach(function (form) {
-      form.addEventListener(
-        "submit",
-        function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-
-          form.classList.add("was-validated");
-        },
-        false
-      );
-    });
-  })();
+  const [mainDist, setDist] = useState([
+    "Buffalo Trace",
+    "Castle & Key",
+    "Woodford Reserve",
+    "Bulleit Distilling",
+    "Castle & Key",
+    "Angel's Envy",
+    "Four Roses",
+    "Jim Beam",
+    "Maker's Mark",
+    "Willett Distillery",
+    "Evan Williams",
+    "Heaven Hill",
+    "Old Forester",
+    "The Old Crow",
+    "Stitzel Weller",
+    "Wild Turkey",
+    "Kentucky Peerless",
+    "Three Boys",
+    "Town Branch",
+    "Rabbit Hole",
+    "Preservation",
+    "Limestone Branch",
+    "Lux Row Distillers",
+    "Jefferson's",
+    "James E. Pepper",
+    "Bardstown Bourbon",
+    "Michter's Shively",
+    "Green River",
+    "Jeptha Creed",
+    "Bourbon Company",
+  ]);
 
   return (
     <Wrapper>
-      <div class="form-body">
-        <div class="row">
-          <div class="form-holder">
-            <div class="form-content">
-              <div class="form-items">
+      <div className="form-body">
+        <div className="row">
+          <div className="form-holder">
+            <div className="form-content">
+              <div className="form-items">
                 <img
                   src={c_tour}
                   alt="Custom Tour"
@@ -50,89 +65,122 @@ const CustomTour = () => {
                 />
                 <h3>Custom Tour Form</h3>
                 <p>Sumbit the form and we will contact you within 24 hours.</p>
-                <form class="requires-validation" novalidate>
-                  <div class="col-md-12">
+                {/* TODO: Setup validate */}
+                <form className="requires-validation">
+                  <div className="col-md-12">
                     <input
-                      class="form-control"
+                      className="form-control"
                       type="text"
-                      name="name"
+                      name="title"
                       placeholder="Tour Name"
                       required
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                       Give your tour a unique name.
                     </div>
                   </div>
 
-                  <div class="col-md-12">
+                  <div className="col-md-12">
                     <input
-                      class="form-control"
+                      className="form-control"
                       type="text"
-                      name="title"
+                      name="name"
                       placeholder="Full Name"
                       required
                     />
-                    <div class="valid-feedback">
-                      Point of contact for your tour.
+                    <div className="valid-feedback">
+                      Provide a point of contact for your tour.
                     </div>
                   </div>
 
-                  <div class="col-md-12">
+                  <div className="col-md-12">
                     <input
-                      class="form-control"
+                      className="form-control"
                       type="email"
                       name="email"
                       placeholder="E-mail Address"
                       required
                     />
-                    <div class="valid-feedback">Your email</div>
+                    <div className="valid-feedback">
+                      Point of contact valid email
+                    </div>
+                    <br />
                   </div>
-
-                  <div class="col-md-12">
-                    <select class="form-select mt-3" required>
-                      <option selected disabled value="">
-                        Position
-                      </option>
-                      <option value="jweb">Junior Web Developer</option>
-                      <option value="sweb">Senior Web Developer</option>
-                      <option value="pmanager">Project Manager</option>
-                    </select>
-                    <div class="valid-feedback">
-                      Select distiliries you are interested in.
+                  {/* MULTI SELECT DISTILLERIES */}
+                  <div className="col-md-12">
+                    <div className="form-select mt-3" required>
+                      <div>
+                        <Multiselect
+                          closeIcon={"circle"}
+                          isObject={false}
+                          onRemove={(event) => {
+                            console.log(event);
+                          }}
+                          onSelect={(event) => {
+                            console.log(event);
+                          }}
+                          options={mainDist}
+                          placeholder="Select Distilleries"
+                          style={{
+                            chips: {
+                              background: "var(--clr-primary-4)",
+                              borderRadius: "5px",
+                              margin: "4px",
+                              padding: "2px",
+                              fontWeight: "bold",
+                              fontSize: 14,
+                            },
+                            multiselectContainer: {
+                              color: "black",
+                            },
+                            searchBox: {
+                              border: "none",
+                            },
+                            option: {
+                              color: "black",
+                              background: "white",
+                            },
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="valid-feedback">
+                      Select distilleries you are interested in.
                     </div>
                   </div>
-
-                  <div class="col-md-12">
+                  {/* MULTI SELECT DISTILLERIES END */}
+                  <div className="col-md-12">
                     <input
-                      class="form-control"
+                      className="form-control"
                       type="comment"
                       name="comment"
                       placeholder="Comment"
                       required
                     />
-                    <div class="valid-feedback">
+                    <div className="valid-feedback">
                       Leave us a comment with as much information about your
                       tour as possible!
                     </div>
                   </div>
                   {/* Comment Section */}
-                  <div class="container">
-                    <form>
-                      <div class="form-group">
-                        <textarea
-                          class="form-control status-box"
-                          rows="3"
-                          placeholder="Enter your comment here..."
-                        ></textarea>
-                      </div>
-                    </form>
+                  <div className="container">
+                    {/* <form> */}
+                    <div className="form-group">
+                      <textarea
+                        className="form-control status-box"
+                        rows="3"
+                        placeholder="Enter your comment here..."
+                      ></textarea>
+                    </div>
+                    {/* </form> */}
 
-                    <ul class="posts"></ul>
+                    <ul className="posts"></ul>
                   </div>
                   {/* Form Continuation */}
 
                   {/* CALENDAR PICKER */}
                   <CalendarPicker />
+                  {/* CALENDAR END */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
                     <span>Transportation: </span>
@@ -185,25 +233,29 @@ const CustomTour = () => {
                     </p>
                   )}
                   {/* TRANSPORTATION END  */}
-                  <div class="form-check">
+                  <div className="form-check">
                     <input
-                      class="form-check-input"
+                      className="form-check-input"
                       type="checkbox"
                       value=""
                       id="invalidCheck"
                       required
                     />
-                    <label class="form-check-label">
+                    <label className="form-check-label">
                       I confirm that my Tour will be reviewed
                     </label>
-                    <div class="invalid-feedback">
+                    <div className="invalid-feedback">
                       By checking the box you aknowledge that only certain
                       amount of distilliries can be visited in a day.
                     </div>
                   </div>
 
-                  <div class="form-button mt-3">
-                    <button id="submit" type="submit" class="btn btn-primary">
+                  <div className="form-button mt-3">
+                    <button
+                      id="submit"
+                      type="submit"
+                      className="btn btn-primary"
+                    >
                       Send Request
                     </button>
                   </div>

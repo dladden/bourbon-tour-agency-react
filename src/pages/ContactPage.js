@@ -10,12 +10,14 @@ import { PageHero, OwnerCard, ContactList, CustomTour } from "../components";
 
 const ContactPage = () => {
   return (
-    <Wrapper>
-      <PageHero title="contact" />
-      <OwnerCard />
-      <ContactList />
-      <CustomTour />
-    </Wrapper>
+    <main>
+      <PageHero title="Contact" />
+      <Wrapper>
+        <OwnerCard />
+        <ContactList />
+        <CustomTour />
+      </Wrapper>
+    </main>
   );
 };
 
@@ -27,6 +29,9 @@ const Wrapper = styled.div`
     margin: 0;
     padding: 0;
     transition: ease 0.2s;
+  }
+  .hero {
+    background-color: var(--clr-background-main);
   }
 `;
 

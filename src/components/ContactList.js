@@ -10,93 +10,93 @@ const ContactList = ({ tours }) => {
   return (
     <Wrapper>
       <div>
-        <div class="contact">
-          <h2 class="heading">Contact Us</h2>
+        <div className="contact">
+          <h2 className="heading">Contact Us</h2>
 
-          <div class="event-card">
-            <div class="left">
-              <div class="qr-code color-1">
+          <div className="event-card">
+            <div className="left">
+              <div className="qr-code color-1">
                 <img src={facebook} alt="" style={{ height: 60, width: 60 }} />
               </div>
 
-              <div class="event-info">
-                <h3 class="event-name">
+              <div className="event-info">
+                <h3 className="event-name">
                   {" "}
                   <FaFacebookMessenger /> Messenger
                 </h3>
 
-                <p class="event-detail">
+                <p className="event-detail">
                   Contact us on Facebook Messenger and we will respond within 24
                   hours!
                 </p>
               </div>
             </div>
 
-            <div class="right">
-              <a href="#" class="add-to-calender">
+            <div className="right">
+              <a href="#" className="add-to-calender">
                 Contact
               </a>
             </div>
           </div>
 
-          <div class="event-card">
-            <div class="left">
-              <div class="qr-code color-2">
+          <div className="event-card">
+            <div className="left">
+              <div className="qr-code color-2">
                 <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
               </div>
 
-              <div class="event-info">
-                <h3 class="event-name">
+              <div className="event-info">
+                <h3 className="event-name">
                   <FaInstagram /> Instagram
                 </h3>
 
-                <p class="event-detail">
+                <p className="event-detail">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Tempora saepe similique officia.
                 </p>
               </div>
             </div>
 
-            <div class="right">
-              <a href="#" class="add-to-calender">
+            <div className="right">
+              <a href="#" className="add-to-calender">
                 Contact
               </a>
             </div>
           </div>
 
-          <div class="event-card">
-            <div class="left">
-              <div class="qr-code color-2">
+          <div className="event-card">
+            <div className="left">
+              <div className="qr-code color-2">
                 <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
               </div>
 
-              <div class="event-info">
-                <h3 class="event-name">WhatsApp</h3>
+              <div className="event-info">
+                <h3 className="event-name">WhatsApp</h3>
 
-                <p class="event-detail">
+                <p className="event-detail">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Tempora saepe similique officia.
                 </p>
               </div>
             </div>
 
-            <div class="right">
-              <a href="#" class="add-to-calender">
+            <div className="right">
+              <a href="#" className="add-to-calender">
                 Contact
               </a>
             </div>
           </div>
 
-          <div class="event-card">
-            <div class="left">
-              <div class="qr-code color-2">
+          <div className="event-card">
+            <div className="left">
+              <div className="qr-code color-2">
                 <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
               </div>
 
-              <div class="event-info">
-                <h3 class="event-name">Email</h3>
+              <div className="event-info">
+                <h3 className="event-name">Email</h3>
 
-                <p class="event-detail">
+                <p className="event-detail">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Tempora saepe similique officia nam atque voluptatem ad
                   necessitatibus consequuntur, nostrum repellendus.
@@ -104,8 +104,8 @@ const ContactList = ({ tours }) => {
               </div>
             </div>
 
-            <div class="right">
-              <a href="#" class="add-to-calender">
+            <div className="right">
+              <a href="#" className="add-to-calender">
                 Contact
               </a>
             </div>

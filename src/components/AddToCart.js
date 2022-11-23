@@ -83,6 +83,8 @@ const AddToCart = ({ tour }) => {
       <hr />
       <div className="btn-container">
         <AmountButtons guest={guest} increase={increase} decrease={decrease} />
+        Select Total Guests
+        <hr className="hr" />
         <Link to="/cart" className="btn">
           Book Tour
         </Link>
@@ -136,6 +138,9 @@ const Wrapper = styled.section`
     }
   }
 
+  .hr {
+    width: 132.5px;
+  }
   .active {
     opacity: 1;
   }

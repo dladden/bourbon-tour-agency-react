@@ -12,20 +12,20 @@ const OwnerCard = ({ tour }) => {
 
   return (
     <Wrapper>
-      <div class="container">
-        <div class="team">
-          <div class="member">
+      <div className="container">
+        <div className="team">
+          <div className="member">
             <img src={owner} alt="member_image" />
             <h3>Steve Ladden</h3>
             <span>shelbybourbontours@gmail.com</span>
-
+            <hr />
             <p>
-              <hr />
               Lorem ipsum dolor sit amet consectetur adipisicing elit.amet
               consecteturamet consecteturamet. You can also reach me at 502
               216..
             </p>
-            <div class="date-time">
+
+            <div className="date-time">
               <img src={contactQR} alt="" style={{ height: 90, width: 90 }} />
             </div>
           </div>
