@@ -66,7 +66,8 @@ export const ToursProvider = ({ children }) => {
       dispatch({ type: GET_SINGLE_TOUR_ERROR });
     }
   };
-
+  //useEffect that fetches tours
+  //this useEffect runs once on render since dependency array is empty
   useEffect(() => {
     fetchTours(url);
   }, []);

@@ -27,7 +27,7 @@ const ListView = ({ tours }) => {
               return <GiGlassShot size={17} />;
           }
         };
-        console.log(url);
+        // console.log(url);
         return (
           <article key={id}>
             <img src={url} alt={name} />

@@ -4,6 +4,7 @@ import { BsGridFill } from "react-icons/bs";
 import { FaList } from "react-icons/fa";
 import styled from "styled-components";
 const Sort = () => {
+  //accessing context from filter_context.js
   const {
     filtered_tours: tours,
     grid_view,
@@ -39,9 +40,10 @@ const Sort = () => {
           name="sort"
           id="sort"
           className="sort-input"
-          value={sort}
+          value={sort} //sort is a state
           onChange={updateSort}
         >
+          {/* Sorting Selection (value is accessed in filter_context)*/}
           <option value="all">All</option>
           <option value="price-lowest">Price Low-High</option>
           <option value="price-lowest">Price High-Low</option>

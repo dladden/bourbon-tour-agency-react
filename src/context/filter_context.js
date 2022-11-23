@@ -18,7 +18,7 @@ import { useToursContext } from "./tours_context";
 //grid_view - toggle for the view
 //sort - controlled input that changes depending on the value set in Sort.js form
 const initialState = {
-  filtered_tours: [],
+  filtered_tours: [], //initially an empty array
   all_tours: [],
   grid_view: false,
   sort: "all",
@@ -32,10 +32,17 @@ export const FilterProvider = ({ children }) => {
   const { tours } = useToursContext(); //here we are grabbing the tours initial state from tours_context (initially empty array)
   const [state, dispatch] = useReducer(reducer, initialState);
   //This use effect dispatches action load tours when called on (replaces the empty array)
+  //NOTE: this useEffect has a dependency array and is triggered every time there is a change
+  //in the tours
   useEffect(() => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
-  console.log(tours);
+  // console.log(tours);
+
+  //useEffect
+  useEffect(() => {
+    dispatch({ type: SORT_TOURS });
+  }, [tours, state.sort]);
 
   //View setters for grid-view and list-view
   const setGridView = () => {
@@ -44,14 +51,16 @@ export const FilterProvider = ({ children }) => {
   const setListView = () => {
     dispatch({ type: SET_LISTVIEW });
   };
-  //sorting e = event
+  //updateSort
+  //sorting e = event objet dispatches value update when value is changed
   //Value is the actual option that the user is choosing pulled with EVENT TARGET .value
   //which is in Sort.js passed from the <form>
   //this is then the value is dispatched
   const updateSort = (e) => {
     // const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value);
+    // console.log(name, value); //you can see actual selection
+    //dispatching an action with value which was selected
     dispatch({ type: UPDATE_SORT, payload: value });
   };
 
