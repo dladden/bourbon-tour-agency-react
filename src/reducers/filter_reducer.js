@@ -11,7 +11,7 @@ import {
 //HOOKS can only be invoked in another hook or in react component
 //This filter reducer is a simple function responsible for filtering functionality
 
-//if load_products change state values using the spread opperator to copy values "data"
+//if load_products change state values using the spread operator to copy values "data"
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_TOURS) {
     return {
@@ -33,12 +33,30 @@ const filter_reducer = (state, action) => {
   if (action.type === UPDATE_SORT) {
     return { ...state, sort: action.payload };
   }
+  //SORT PORTION
   if (action.type === SORT_TOURS) {
     const { sort, filtered_tours } = state;
-    let tempTour = [];
-    if(sort ===)
+    let tempTours = [...filtered_tours]; //making sure array is not empty
+    console.log(tempTours.best_sel);
+    if (sort === "all") {
+      console.log("all");
+    }
+    if (sort === "price-lowest") {
+      //sort function with access to x=current item and y = next item
+      //this sort function works by comparison
+      tempTours = tempTours.sort((x, y) => x.price - y.price);
+    }
+    if (sort === "price-highest") {
+      tempTours = tempTours.sort((x, y) => y.price - x.price);
+    }
+    if (sort === "best-sellers") {
+      tempTours = tempTours.sort((x) => tempTours.best_sell === true);
+    }
+    if (sort === "newly-added") {
+      console.log("newly-added");
+    }
 
-    return { ...state };
+    return { ...state, filtered_tours: tempTours };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

@@ -21,9 +21,9 @@ var distilleries = [
   "Heaven Hill",
   "Old Forester",
   "The Old Crow",
+  "Glenns Creek",
   "Stitzel Weller",
   "Wild Turkey",
-  "Kentucky Peerless",
   "Three Boys",
   "Town Branch",
   "Rabbit Hole",
@@ -34,9 +34,11 @@ var distilleries = [
   "James E. Pepper",
   "Bardstown Bourbon",
   "Michter's Shively",
-  "Green River",
   "Jeptha Creed",
   "Bourbon Company",
+  "Peerless Distillery",
+  "Prohibition Spirits",
+  "Cooperage",
 ];
 
 const AboutPage = () => (

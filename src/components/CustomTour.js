@@ -35,8 +35,8 @@ const CustomTour = () => {
     "The Old Crow",
     "Stitzel Weller",
     "Wild Turkey",
-    "Kentucky Peerless",
     "Three Boys",
+    "Glenns Creek",
     "Town Branch",
     "Rabbit Hole",
     "Preservation",
@@ -46,9 +46,11 @@ const CustomTour = () => {
     "James E. Pepper",
     "Bardstown Bourbon",
     "Michter's Shively",
-    "Green River",
     "Jeptha Creed",
     "Bourbon Company",
+    "Peerless Distillery",
+    "Prohibition Spirits",
+    "Cooperage",
   ]);
 
   return (
