@@ -73,12 +73,25 @@ export const FilterProvider = ({ children }) => {
     // console.log(name, value); //you can see actual selection
     //dispatching an action with value which was selected
     dispatch({ type: UPDATE_SORT, payload: value });
-  };
+  }; //end updateSort
+
+  //Constants for filtering
+  //function called on every-time a change occurs in the filters
+  const updateFilters = (e) => {};
+  //function which clears filters on click
+  const clearFilters = (e) => {};
 
   //state passing filtered_tours: [], all_tours: [].
   return (
     <FilterContext.Provider
-      value={{ ...state, setGridView, setListView, updateSort }}
+      value={{
+        ...state,
+        setGridView,
+        setListView,
+        updateSort,
+        updateFilters,
+        clearFilters,
+      }}
     >
       {children}
     </FilterContext.Provider>
