@@ -50,8 +50,10 @@ export const FilterProvider = ({ children }) => {
   }, [tours]);
   console.log(tours);
 
-  //useEffect
+  //useEffect uses the dependency array to change the sate of the data
+  //two action types are called filter tours and sort tours on change
   useEffect(() => {
+    dispatch({ type: FILTER_TOURS });
     dispatch({ type: SORT_TOURS });
   }, [tours, state.sort, state.filters]);
 

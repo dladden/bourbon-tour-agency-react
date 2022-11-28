@@ -4,9 +4,9 @@ import {
   SET_GRIDVIEW,
   UPDATE_SORT,
   UPDATE_FILTERS,
-  FILTER_PRODUCTS,
   CLEAR_FILTERS,
   SORT_TOURS,
+  FILTER_TOURS,
 } from "../actions";
 //HOOKS can only be invoked in another hook or in react component
 //This filter reducer is a simple function responsible for filtering functionality
@@ -88,6 +88,12 @@ const filter_reducer = (state, action) => {
     const { name, value } = action.payload;
 
     return { ...state, filters: { ...state.filters, [name]: value } };
+  } //END UPDATE FILTERS
+
+  //FILTERS TOURS
+  if (action.type === FILTER_TOURS) {
+    console.log("FILTERING TEST");
+    return { ...state };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
