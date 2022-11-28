@@ -37,7 +37,7 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
-  // console.log(tours);
+  console.log(tours);
 
   //useEffect
   useEffect(() => {
