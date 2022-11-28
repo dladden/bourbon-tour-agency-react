@@ -14,10 +14,18 @@ import {
 //if load_products change state values using the spread operator to copy values "data"
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_TOURS) {
+    //getting the max price of a tour for the pricing filter
+    let maxPrice = action.payload.map((tour) => tour.price);
+    //using math package to get the max price
+    maxPrice = Math.max(...maxPrice);
+    // console.log(maxPrice);
     return {
       ...state,
       all_tours: [...action.payload],
       filtered_tours: [...action.payload],
+      //filters object bring all the initial values with state.filters
+      //it sets max_price equal to maxPrice with "max_price: maxPrice"
+      filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
   //This if statements set the views: GridView
