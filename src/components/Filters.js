@@ -24,6 +24,12 @@ const Filters = () => {
     clearFilters,
     all_tours,
   } = useFilterContext();
+  //These functions pass in the raw data and a string with a name for an array which are used in getUniqueValues
+  const categories = getUniqueValues(all_tours, "category");
+  const distilleries = getUniqueValues(all_tours, "dist");
+  const transportation = getUniqueValues(all_tours, "trans");
+
+  console.log(categories);
   return (
     <Wrapper>
       <div className="content">
