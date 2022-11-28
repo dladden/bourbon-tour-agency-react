@@ -53,7 +53,7 @@ export const FilterProvider = ({ children }) => {
   //useEffect
   useEffect(() => {
     dispatch({ type: SORT_TOURS });
-  }, [tours, state.sort]);
+  }, [tours, state.sort, state.filters]);
 
   //View setters for grid-view and list-view
   const setGridView = () => {
