@@ -1,12 +1,51 @@
-import React from 'react'
-import styled from 'styled-components'
-import { useFilterContext } from '../context/filter_context'
-import { getUniqueValues, formatPrice } from '../utils/helpers'
-import { FaCheck } from 'react-icons/fa'
+import React from "react";
+import styled from "styled-components";
+import { useFilterContext } from "../context/filter_context";
+import { getUniqueValues, formatPrice } from "../utils/helpers";
+import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
-  return <h4>filters</h4>
-}
+  //importing the filter context
+  //search_text - used in the SEARCH INPUT to get the value: actual text and the name of the action: "search_text"
+  //..
+  //updateFilters - ran on change to update the function
+  const {
+    filters: {
+      search_text,
+      category,
+      distillery,
+      trans,
+      min_price,
+      max_price,
+      price,
+      special_res,
+    },
+    updateFilters,
+    clearFilters,
+    all_tours,
+  } = useFilterContext();
+  return (
+    <Wrapper>
+      <div className="content">
+        {/* default action onSubmit which refreshes the page, prevented with preventDefault */}
+        <form onSubmit={(e) => e.preventDefault()}>
+          {/* SEARCH INPUT */}
+          <div className="form-control">
+            <input
+              className="search-input"
+              type="text"
+              name="search_text"
+              placeholder="Search"
+              value={search_text}
+              onChange={updateFilters}
+            />
+          </div>
+          {/* END SEARCH INPUT */}
+        </form>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   .form-control {
@@ -105,6 +144,6 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
-`
+`;
 
-export default Filters
+export default Filters;

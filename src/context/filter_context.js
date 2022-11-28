@@ -17,7 +17,7 @@ import { useToursContext } from "./tours_context";
 //all_tours - stays the same, used to return to default
 //grid_view - toggle for the view
 //sort - controlled input that changes depending on the value set in Sort.js form
-//filters - property with all sorting objects / values
+//filters - object with multiple properties for sorting objects / values
 const initialState = {
   filtered_tours: [], //initially an empty array
   all_tours: [],
@@ -77,7 +77,12 @@ export const FilterProvider = ({ children }) => {
 
   //Constants for filtering
   //function called on every-time a change occurs in the filters
-  const updateFilters = (e) => {};
+  const updateFilters = (e) => {
+    let name = e.target.name; //name of the action
+    let value = e.target.value; //the value of the action
+    // console.log(name, value);
+    dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
+  };
   //function which clears filters on click
   const clearFilters = (e) => {};
 

@@ -14,7 +14,7 @@ import {
 //if load_products change state values using the spread operator to copy values "data"
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_TOURS) {
-    //getting the max price of a tour for the pricing filter
+    //getting the max price of a tour for the pricing filter coming from action.payload
     let maxPrice = action.payload.map((tour) => tour.price);
     //using math package to get the max price
     maxPrice = Math.max(...maxPrice);
@@ -28,6 +28,7 @@ const filter_reducer = (state, action) => {
       filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
+  //GRIDVIEW
   //This if statements set the views: GridView
   if (action.type === SET_GRIDVIEW) {
     return { ...state, grid_view: true };
@@ -35,7 +36,8 @@ const filter_reducer = (state, action) => {
   //This if statements set the views: ListView
   if (action.type === SET_LISTVIEW) {
     return { ...state, grid_view: false };
-  }
+  } //END GRIDVIEW
+
   //This if sets the reducers state to match the value select in the
   //sort option (by default set to sort ALL)
   if (action.type === UPDATE_SORT) {
@@ -76,8 +78,16 @@ const filter_reducer = (state, action) => {
         return y.name.localeCompare(x.name);
       });
     }
-
     return { ...state, filtered_tours: tempTours };
+  } //END SORT PORTION
+
+  //UPDATE FILTERS is an object it uses dynamic properties
+  //[name] - accessing the name value and set it qual to the value
+  //[name] - this means that on change value typed is stored in value (dynamically)
+  if (action.type === UPDATE_FILTERS) {
+    const { name, value } = action.payload;
+
+    return { ...state, filters: { ...state.filters, [name]: value } };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);
