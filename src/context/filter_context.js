@@ -82,6 +82,11 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name; //name of the action
     let value = e.target.value; //the value of the action
+    //unable to reach the value using dot value in category
+    //to bypass this we use a textContent property to get the text in the button
+    if (name === "category") {
+      value = e.target.textContent;
+    }
     // console.log(name, value);
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
