@@ -20,7 +20,7 @@ const CalendarPicker = () => {
   return (
     <Wrapper>
       <Calendar onChange={onChange} value={date} selectRange={true} />
-      {console.log(date)}
+      {/* {console.log(date)} */}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
 
       {date.length > 0 ? (
@@ -34,7 +34,7 @@ const CalendarPicker = () => {
           <span className="bold">Current Date:</span> {date.toDateString()}
         </p>
       )}
-      {console.log(date)}
+      {/* {console.log(date)} */}
       {/* example console output: 
       [Fri Nov 25 2022 00:00:00 GMT-0500 (Eastern Standard Time), 
       Sat Nov 26 2022 23:59:59 GMT-0500 (Eastern Standard Time)] */}

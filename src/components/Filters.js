@@ -28,8 +28,9 @@ const Filters = () => {
   const categories = getUniqueValues(all_tours, "category");
   const distilleries = getUniqueValues(all_tours, "dist");
   const transportation = getUniqueValues(all_tours, "trans");
-
   console.log(categories);
+  console.log(distilleries);
+  console.log(transportation);
   return (
     <Wrapper>
       <div className="content">

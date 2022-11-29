@@ -16,5 +16,13 @@ export const priceFormat = (number) => {
 //maps through the selected array or if the name type contains multiple arrays
 export const getUniqueValues = (data, type) => {
   let unique = data.map((item) => item[type]);
-  // console.log(unique);
+
+  if (type === "dist") {
+    unique = unique.flat();
+  }
+  if (type === "trans") {
+    unique = unique.flat();
+  }
+
+  return ["all", ...new Set(unique)];
 };

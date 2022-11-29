@@ -7,7 +7,7 @@ const TourImages = ({ images = [{ url: "" }] }) => {
   //main is for the main image, and setImage is
   const [main, setMain] = useState(images[0]);
 
-  console.log(images); //initially undefined item which contains the url
+  // console.log(images); //initially undefined item which contains the url
   return (
     <Wrapper>
       <img src={main.url} alt="main image" className="main" />

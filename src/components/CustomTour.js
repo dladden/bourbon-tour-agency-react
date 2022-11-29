@@ -116,10 +116,10 @@ const CustomTour = () => {
                           closeIcon={"circle"}
                           isObject={false}
                           onRemove={(event) => {
-                            console.log(event);
+                            // console.log(event);
                           }}
                           onSelect={(event) => {
-                            console.log(event);
+                            // console.log(event);
                           }}
                           options={mainDist}
                           placeholder="Select Distilleries"
@@ -188,7 +188,7 @@ const CustomTour = () => {
                     <span>Transportation: </span>
                     <div>
                       {trans.map((car, index) => {
-                        console.log(trans);
+                        // console.log(trans);
                         return (
                           <button
                             key={index}

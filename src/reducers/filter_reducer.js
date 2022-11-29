@@ -47,7 +47,7 @@ const filter_reducer = (state, action) => {
   if (action.type === SORT_TOURS) {
     const { sort, filtered_tours } = state;
     let tempTours = [...filtered_tours]; //making sure array is not empty
-    console.log(tempTours.best_sel);
+    // console.log(tempTours.best_sel);
     if (sort === "all") {
       tempTours = tempTours.sort((x, y) => y.price - x.price);
     }
