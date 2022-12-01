@@ -161,6 +161,9 @@ const Filters = () => {
           </div>
           {/* END Special Reservation */}
         </form>
+        <button type="button" className="clear-btn" onClick={clearFilters}>
+          Clear Filter
+        </button>
       </div>
     </Wrapper>
   );

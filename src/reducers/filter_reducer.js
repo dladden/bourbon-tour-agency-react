@@ -95,6 +95,21 @@ const filter_reducer = (state, action) => {
     console.log("FILTERING TEST");
     return { ...state };
   }
+  //Clear filters action: if equal CLEAR_FILTERS set default values while setting price to max
+  if (action.type === CLEAR_FILTERS) {
+    return {
+      ...state,
+      filters: {
+        ...state.filters,
+        search_text: "",
+        category: "all",
+        distillery: "all",
+        transport: "all",
+        price: state.filters.max_price, //accessing max price through state
+        special_res: false,
+      },
+    };
+  }
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };

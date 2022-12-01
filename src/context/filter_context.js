@@ -42,7 +42,7 @@ export const FilterProvider = ({ children }) => {
   //tours cannot be passed into the initialState of this filter_context must be done with useEffect
   const { tours } = useToursContext(); //here we are grabbing the tours initial state from tours_context (initially empty array)
   const [state, dispatch] = useReducer(reducer, initialState);
-  //This use effect dispatches action load tours when called on (replaces the empty array)
+  //This use effect dispatches action (FROM actions/toolkit) load tours when called on (replaces the empty array)
   //NOTE: this useEffect has a dependency array and is triggered every time there is a change in tours array
   //It disptaches the type and payload which is the actual data
   useEffect(() => {
@@ -104,7 +104,9 @@ export const FilterProvider = ({ children }) => {
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
   //function which clears filters on click
-  const clearFilters = (e) => {};
+  const clearFilters = (e) => {
+    dispatch({ type: CLEAR_FILTERS });
+  };
 
   //state passing filtered_tours: [], all_tours: [].
   return (
