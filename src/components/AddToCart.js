@@ -45,6 +45,7 @@ const AddToCart = ({ tour }) => {
         <span>Transportation: </span>
         <div>
           {trans.map((car, index) => {
+            //for every item return a button then we wrap it in svg using conditional rendering
             return (
               <button
                 key={index}
@@ -55,6 +56,7 @@ const AddToCart = ({ tour }) => {
                 }`}
                 onClick={() => setTrans(car)}
               >
+                {/* {console.log(mainTrans)} */}
                 {/* {trans} */}
                 {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
                 {car === "VAN" ? <img src={van} alt="DL logo" /> : null}

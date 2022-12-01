@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import bus from "../assets/bus.svg";
+import suv from "../assets/suv.svg";
+import van from "../assets/van.svg";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { getUniqueValues, formatPrice } from "../utils/helpers";
@@ -14,7 +17,7 @@ const Filters = () => {
       search_text,
       category,
       distillery,
-      trans,
+      transport,
       min_price,
       max_price,
       price,
@@ -29,6 +32,7 @@ const Filters = () => {
   const distilleries = getUniqueValues(all_tours, "dist");
   const transportation = getUniqueValues(all_tours, "trans");
   // console.log(transportation, distilleries, categories);
+  const [mainTrans, setTrans] = useState(transportation[0]);
   return (
     <Wrapper>
       <div className="content">
@@ -67,8 +71,69 @@ const Filters = () => {
               })}
             </div>
           </div>
-
           {/* END CATEGORIES */}
+          {/* DISTILLERIES SELECTION*/}
+          <div className="form-control">
+            <h5>Distilleries</h5>
+            <select
+              id="distillery"
+              name="distillery"
+              value={distillery}
+              onChange={updateFilters}
+              className="company"
+            >
+              {distilleries.map((c, i) => {
+                return (
+                  <option key={i} value={c}>
+                    {c}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          {/* END DISTILLERIES SELECTION*/}
+          {/* TRANSPORTATION SELECTION*/}
+          <div className="form-control">
+            <h5>Transportation</h5>
+            <div className="transport">
+              {transportation.map((car, index) => {
+                if (car === "all") {
+                  return (
+                    <button
+                      key={index}
+                      name="transport"
+                      onClick={() => setTrans(car)}
+                      // onClick={updateFilters}
+                      data-transport="all"
+                      className={`${
+                        mainTrans === "all" ? "all-btn active" : "all-btn"
+                      }`}
+                    >
+                      all
+                    </button>
+                  );
+                }
+                return (
+                  <button
+                    key={index}
+                    name="transport"
+                    className={`${
+                      mainTrans === car ? "trans-btn active" : "trans-btn"
+                    }`}
+                    onClick={() => setTrans(car)}
+                    // onClick={updateFilters}
+                    data-transport={mainTrans}
+                  >
+                    {console.log(mainTrans)}
+                    {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
+                    {car === "VAN" ? <img src={van} alt="DL logo" /> : null}
+                    {car === "BUS" ? <img src={bus} alt="DL logo" /> : null}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* END TRANSPORTATION SELECTION*/}
         </form>
       </div>
     </Wrapper>
@@ -113,26 +178,32 @@ const Wrapper = styled.section`
     border-color: transparent;
     padding: 0.25rem;
   }
-  .colors {
-    display: flex;
-    align-items: center;
+  .transport {
+    // display: flex;
+    // align-items: center;
   }
-  .color-btn {
+  .trans-btn {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
+    grid-template-columns: 2fr;
+    margin-right: 0rem;
+    background: none;
     border: none;
     cursor: pointer;
     opacity: 0.5;
     display: flex;
-    align-items: center;
-    justify-content: center;
+
     svg {
-      font-size: 0.5rem;
+      font-size: 0.75rem;
       color: var(--clr-white);
+    }
+  }
+
+  @media (min-width: 992px) {
+    .trans-btn {
+      margin-left: 0rem;
+      grid-template-columns: 2fr;
+      grid-column-gap: 0px;
+      align-items: left;
     }
   }
   .all-btn {

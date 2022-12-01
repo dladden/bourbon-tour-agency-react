@@ -27,7 +27,7 @@ const initialState = {
     search_text: "",
     category: "all",
     distillery: "all",
-    trans: "suv",
+    transport: "all",
     min_price: 0,
     max_price: 0,
     price: 0,
@@ -87,6 +87,10 @@ export const FilterProvider = ({ children }) => {
     if (name === "category") {
       value = e.target.textContent;
     }
+    if (name === "transport") {
+      value = e.target.dataset.transport;
+    }
+
     // console.log(name, value);
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
