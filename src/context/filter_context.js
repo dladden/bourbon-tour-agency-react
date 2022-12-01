@@ -87,8 +87,13 @@ export const FilterProvider = ({ children }) => {
     if (name === "category") {
       value = e.target.textContent;
     }
+    //catching the data from the filter.js transportation portion
     if (name === "transport") {
       value = e.target.dataset.transport;
+    }
+    //using javascript Number package to confirm/covert value to integer always
+    if (name === "price") {
+      value = Number(value);
     }
 
     // console.log(name, value);

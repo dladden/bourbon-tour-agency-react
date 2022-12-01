@@ -130,6 +130,9 @@ const Wrapper = styled.section`
       color: var(--clr-white);
     }
   }
+  .hr {
+    width: 126px;
+  }
 
   @media (min-width: 992px) {
     .trans-btn {
@@ -138,11 +141,16 @@ const Wrapper = styled.section`
       grid-column-gap: 20px;
       align-items: center;
     }
+    .hr {
+      width: 1px;
+    }
+  }
+  @media (min-width: 810px) {
+    .hr {
+      width: 140px;
+    }
   }
 
-  .hr {
-    width: 132.5px;
-  }
   .active {
     opacity: 1;
   }

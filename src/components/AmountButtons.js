@@ -15,7 +15,7 @@ const AmountButtons = ({ increase, decrease, guest }) => {
       <button type="button" className="amount-btn" onClick={increase}>
         <FaPlus />
       </button>
-      <div className="guest-selector">Guests</div>
+      <div className="guest-selector"></div>
     </Wrapper>
   );
 };

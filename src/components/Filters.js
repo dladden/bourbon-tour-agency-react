@@ -4,7 +4,7 @@ import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
-import { getUniqueValues, formatPrice } from "../utils/helpers";
+import { getUniqueValues, priceFormat } from "../utils/helpers";
 import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
@@ -92,7 +92,7 @@ const Filters = () => {
             </select>
           </div>
           {/* END DISTILLERIES SELECTION*/}
-          {/* TRANSPORTATION SELECTION*/}
+          {/* TRANSPORTATION SELECTION -----------------NEEDS TO BE FIXED*/}
           <div className="form-control">
             <h5>Transportation</h5>
             <div className="transport">
@@ -109,7 +109,7 @@ const Filters = () => {
                         mainTrans === "all" ? "all-btn active" : "all-btn"
                       }`}
                     >
-                      all
+                      All
                     </button>
                   );
                 }
@@ -134,6 +134,20 @@ const Filters = () => {
             </div>
           </div>
           {/* END TRANSPORTATION SELECTION*/}
+          {/* PRICE (controlled input)*/}
+          <div className="form-control">
+            <h5>Price</h5>
+            <p className="price">{priceFormat(price)}</p>
+            <input
+              type="range"
+              name="price"
+              onChange={updateFilters}
+              min={min_price}
+              max={max_price}
+              value={price}
+            />
+          </div>
+          {/* END PRICE */}
         </form>
       </div>
     </Wrapper>
@@ -220,6 +234,7 @@ const Wrapper = styled.section`
     text-decoration: underline;
   }
   .price {
+    color: var(--clr-grey-5);
     margin-bottom: 0.25rem;
   }
   .shipping {
@@ -243,6 +258,27 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
+
+  // input[type="range"] {
+  //   -webkit-appearance: none;
+  //   width: 150px;
+  //   height: 10px;
+  //   margin-right: 10px;
+  //   border-radius: 6px;
+  //   outline: 0;
+  //   background: #ccc;
+  // }
+
+  // input[type="range"]::-webkit-slider-thumb {
+  //   -webkit-appearance: none;
+  //   height: 18px;
+  //   width: 18px;
+  //   border-radius: 3px;
+  //   background: orange;
+  //   border-radius: 50%;
+  //   border: 0;
+  //   cursor: pointer;
+  // }
 `;
 
 export default Filters;
