@@ -148,6 +148,18 @@ const Filters = () => {
             />
           </div>
           {/* END PRICE */}
+          {/* Special Reservation */}
+          <div className="form-control reservation">
+            <label htmlFor="reservation">Special Reservation:</label>
+            <input
+              type="checkbox"
+              name="special_res"
+              id="reservation"
+              onChange={updateFilters}
+              checked={special_res}
+            />
+          </div>
+          {/* END Special Reservation */}
         </form>
       </div>
     </Wrapper>
@@ -237,12 +249,12 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
     margin-bottom: 0.25rem;
   }
-  .shipping {
+  .reservation {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
     text-transform: capitalize;
-    column-gap: 0.5rem;
+    column-gap: 0rem;
     font-size: 1rem;
     max-width: 200px;
   }

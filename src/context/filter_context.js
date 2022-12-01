@@ -95,6 +95,10 @@ export const FilterProvider = ({ children }) => {
     if (name === "price") {
       value = Number(value);
     }
+    //getting the checked target from the Special Reservation in filters.js
+    if (name === "special_res") {
+      value = e.target.checked;
+    }
 
     // console.log(name, value);
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
