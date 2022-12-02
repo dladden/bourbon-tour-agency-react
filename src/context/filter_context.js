@@ -34,7 +34,7 @@ const initialState = {
     special_res: false,
   },
 };
-//Filter Context
+//Filter Context all the actions are handled in Filter Reducer (filter_reducer.js)
 const FilterContext = React.createContext();
 
 //useReducer
@@ -50,6 +50,7 @@ export const FilterProvider = ({ children }) => {
   }, [tours]);
   // console.log(tours);
 
+  //IMPORTANT: this useEffect dispatches the call for filtering
   //useEffect uses the dependency array to change the sate of the data
   //two action types are called filter tours and sort tours on change
   useEffect(() => {

@@ -11,7 +11,9 @@ import {
 //HOOKS can only be invoked in another hook or in react component
 //This filter reducer is a simple function responsible for filtering functionality
 
-//if load_products change state values using the spread operator to copy values "data"
+//if load_tours change state values using the spread operator to copy values "data"
+//return: all_tours - an array which alway returns original array with all the data
+//filtered_tours - state value used to take a copy of data array and manipulate it for filtering
 const filter_reducer = (state, action) => {
   if (action.type === LOAD_TOURS) {
     //getting the max price of a tour for the pricing filter coming from action.payload
@@ -28,7 +30,7 @@ const filter_reducer = (state, action) => {
       filters: { ...state.filters, max_price: maxPrice, price: maxPrice },
     };
   }
-  //GRIDVIEW
+  //GRID-VIEW
   //This if statements set the views: GridView
   if (action.type === SET_GRIDVIEW) {
     return { ...state, grid_view: true };
@@ -90,10 +92,33 @@ const filter_reducer = (state, action) => {
     return { ...state, filters: { ...state.filters, [name]: value } };
   } //END UPDATE FILTERS
 
-  //FILTERS TOURS
+  //FILTERS TOURS filtering logic is handled here
   if (action.type === FILTER_TOURS) {
-    console.log("FILTERING TEST");
-    return { ...state };
+    // console.log("FILTERING TEST");
+    const { all_tours } = state;
+    const { search_text, category, distillery, transport, price, special_res } =
+      state.filters;
+    let tempTours = [...all_tours]; //using all tours for filtering and as default when no if-statements hit
+    //(value overwritten in every if-statement)
+
+    if (search_text) {
+      tempTours = tempTours.filter((tour) => {
+        return tour.name.toLowerCase().startsWith(search_text);
+      }); //if search triggered store new value matched with search_text
+      // and push it to filtered_tours with "filtered_tours: tempTours"
+    } //end if search_text
+
+    if (category != "all") {
+      tempTours = tempTours.filter((tour) => tour.category === category);
+    } //
+
+    if (distillery != "all") {
+      tempTours = tempTours.filter((tour) => {
+        return tour.dist.find((d) => d === distillery);
+      });
+    } //
+
+    return { ...state, filtered_tours: tempTours };
   }
   //Clear filters action: if equal CLEAR_FILTERS set default values while setting price to max
   if (action.type === CLEAR_FILTERS) {

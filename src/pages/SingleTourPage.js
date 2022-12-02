@@ -185,7 +185,7 @@ const Wrapper = styled.main`
   }
   @media (min-width: 1000px) {
     .info {
-      grid-template-columns: 145px repeat(2, 145px);
+      grid-template-columns: 145px repeat(2, 155px);
       grid-column-gap: 0px;
       justify-items: left;
       //align-items: left;
@@ -193,7 +193,7 @@ const Wrapper = styled.main`
   }
   @media (min-width: 1300px) {
     .info {
-      grid-template-columns: 145px repeat(3, 145px);
+      grid-template-columns: 155px repeat(3, 155px);
       grid-column-gap: 0px;
       justify-items: left;
       //align-items: left;
