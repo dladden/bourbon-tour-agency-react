@@ -53,6 +53,13 @@ const filter_reducer = (state, action) => {
     if (sort === "all") {
       tempTours = tempTours.sort((x, y) => y.price - x.price);
     }
+
+    if (sort === "best-sell") {
+      //sort function with access to x=current item and y = next item
+      //this sort function works by comparison
+      tempTours = tempTours.filter((tour) => tour.best_sell === true);
+    }
+
     if (sort === "price-lowest") {
       //sort function with access to x=current item and y = next item
       //this sort function works by comparison
@@ -110,15 +117,21 @@ const filter_reducer = (state, action) => {
 
     if (category != "all") {
       tempTours = tempTours.filter((tour) => tour.category === category);
-    } //
+    } //if not "all" then filter when chosen category matches the category data in the tour 'tour.category'
 
     if (distillery != "all") {
       tempTours = tempTours.filter((tour) => {
         return tour.dist.find((d) => d === distillery);
       });
-    } //
+    } //if not "all" filter using find method on arrays dist 'd' and match distillery value chosen
 
-    return { ...state, filtered_tours: tempTours };
+    tempTours = tempTours.filter((tour) => tour.price <= price);
+
+    if (special_res) {
+      tempTours = tempTours.filter((tour) => tour.spec_res === true);
+    } //if special_res checked filter only when spec_res is true in the data set
+
+    return { ...state, filtered_tours: tempTours }; //IMPORTANT: filtered-tours returned as the new tempTours
   }
   //Clear filters action: if equal CLEAR_FILTERS set default values while setting price to max
   if (action.type === CLEAR_FILTERS) {

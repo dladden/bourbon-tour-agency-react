@@ -45,6 +45,7 @@ const Sort = () => {
         >
           {/* Sorting Selection (value is accessed in filter_context)*/}
           <option value="all">All</option>
+          <option value="best-sell">Best Sellers</option>
           <option value="price-lowest">Price Low-High</option>
           <option value="price-highest">Price High-Low</option>
           <option value="name-highest">Name A - Z</option>

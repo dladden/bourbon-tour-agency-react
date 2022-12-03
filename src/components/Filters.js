@@ -31,7 +31,7 @@ const Filters = () => {
   const categories = getUniqueValues(all_tours, "category");
   const distilleries = getUniqueValues(all_tours, "dist");
   const transportation = getUniqueValues(all_tours, "trans");
-  // console.log(transportation, distilleries, categories);
+  console.log(transportation, distilleries, categories);
   const [mainTrans, setTrans] = useState(transportation[0]);
   return (
     <Wrapper>
@@ -80,7 +80,7 @@ const Filters = () => {
               name="distillery"
               value={distillery}
               onChange={updateFilters}
-              className="company"
+              className="distillery-select"
             >
               {distilleries.map((c, i) => {
                 return (
@@ -102,34 +102,17 @@ const Filters = () => {
                     <button
                       key={index}
                       name="transport"
-                      onClick={() => setTrans(car)}
-                      // onClick={updateFilters}
+                      // onClick={() => setTrans(car)}
+                      onClick={updateFilters}
                       data-transport="all"
                       className={`${
-                        mainTrans === "all" ? "all-btn active" : "all-btn"
+                        transport === "all" ? "all-btn active" : "all-btn"
                       }`}
                     >
                       All
                     </button>
                   );
                 }
-                return (
-                  <button
-                    key={index}
-                    name="transport"
-                    className={`${
-                      mainTrans === car ? "trans-btn active" : "trans-btn"
-                    }`}
-                    onClick={() => setTrans(car)}
-                    // onClick={updateFilters}
-                    data-transport={mainTrans}
-                  >
-                    {console.log(mainTrans)}
-                    {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
-                    {car === "VAN" ? <img src={van} alt="DL logo" /> : null}
-                    {car === "BUS" ? <img src={bus} alt="DL logo" /> : null}
-                  </button>
-                );
               })}
             </div>
           </div>
@@ -176,6 +159,13 @@ const Wrapper = styled.section`
       margin-bottom: 0.5rem;
     }
   }
+  // @media (min-width: 770px) {
+  //   .form-control {
+  //   margin-bottom: 1.25rem;
+  //   h5 {
+  //     margin-bottom: 0.5rem;
+  //   }
+  // }
   .search-input {
     padding: 0.5rem;
     background: var(--clr-grey-10);
@@ -201,16 +191,24 @@ const Wrapper = styled.section`
   .active {
     border-color: var(--clr-grey-5);
   }
-  .company {
+  .distillery-select {
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
     padding: 0.25rem;
   }
   .transport {
-    // display: flex;
-    // align-items: center;
+    grid-template-columns: (2, 100fr);
+    display: flex;
+    justify-content: space-between;
   }
+  @media (min-width: 770px) {
+    .transport {
+      // display: flex;
+      // align-items: right;
+    }
+  }
+
   .trans-btn {
     display: inline-block;
     grid-template-columns: 2fr;

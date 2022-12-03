@@ -244,11 +244,12 @@ const CustomTour = () => {
                       required
                     />
                     <label className="form-check-label">
-                      I confirm that my Tour will be reviewed
+                      {" "}
+                      I confirm that my Tour will be first reviewed
                     </label>
                     <div className="invalid-feedback">
-                      By checking the box you aknowledge that only certain
-                      amount of distilliries can be visited in a day.
+                      By checking the box you aknowledge that your tour will be
+                      first reviewed, there after receiving confirmation.
                     </div>
                   </div>
 
