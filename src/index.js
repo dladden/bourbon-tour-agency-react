@@ -23,10 +23,13 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //render method is looking for what to render and where to render it (</> is needed)
 //Application is wrapped into the global context.
 //ToursProvider provides data into the Filter, to ensure this FilterProvider is embedded into the TourProvider
+//CartProvider is wapping the app, which makes it available in the app
 ReactDOM.render(
   <ToursProvider>
     <FilterProvider>
-      <App />
+      <CartProvider>
+        <App />
+      </CartProvider>
     </FilterProvider>
   </ToursProvider>,
   document.getElementById("root")
