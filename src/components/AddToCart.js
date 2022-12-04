@@ -8,12 +8,15 @@ import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 //Component responsible for transportation type and count of guests
 const AddToCart = ({ tour }) => {
+  //adding context
+  const { addToCart } = useCartContext();
+  //destructuring values to handle max guests and transportation to be used
   const { id, guests, trans } = tour;
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be first array item
   //in this case it is suv
   const [mainTrans, setTrans] = useState(trans[0]);
-  //
+  //guest is the value which will contain the total guest chosen for the tour
   const [guest, setGuest] = useState(1);
   // console.log(trans);
 
@@ -87,7 +90,11 @@ const AddToCart = ({ tour }) => {
         <AmountButtons guest={guest} increase={increase} decrease={decrease} />
         Select Total Guests
         <hr className="hr" />
-        <Link to="/cart" className="btn">
+        <Link
+          to="/cart"
+          className="btn"
+          onClick={() => addToCart(id, mainTrans, guest, tour)}
+        >
           Book Tour
         </Link>
       </div>

@@ -27,8 +27,16 @@ export const CartProvider = ({ children }) => {
   //setting up the reducer: with state function and dispatch function / it passes cart_reducer and initialState
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //Add To Cart handles the data which will be passed to the cart page using the reducer
+  //Expected function values are transportation chosen, total guests
+  const addToCart = (id, trans, guests, tour) => {
+    dispatch({ type: ADD_TO_CART, payload: { id, trans, guests, tour } });
+  };
+
   return (
-    <CartContext.Provider value={{ ...state }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ ...state, addToCart }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 // make sure use
