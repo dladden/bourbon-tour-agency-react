@@ -35,7 +35,7 @@ const SingleTourPage = () => {
   useEffect(() => {
     fetchSingleTour(`${url}${id}`);
   }, [id]);
-  // console.log(tour);
+  console.log(id);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
@@ -55,7 +55,7 @@ const SingleTourPage = () => {
   }
 
   const {
-    id: tour_id,
+    id: sku,
     category,
     name,
     available,
@@ -121,7 +121,8 @@ const SingleTourPage = () => {
                 );
               })}
             </p>
-            <CalendarPicker />
+            {/* <CalendarPicker /> */}
+            {available == true ? <CalendarPicker /> : null}
             <hr />
             {/* using conditional rendering  and passing the all props to AddToCart*/}
             {available == true ? (

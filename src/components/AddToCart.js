@@ -7,6 +7,7 @@ import van from "../assets/van.svg";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 //Component responsible for transportation type and count of guests
+//
 const AddToCart = ({ tour }) => {
   //adding context
   const { addToCart } = useCartContext();
@@ -19,6 +20,7 @@ const AddToCart = ({ tour }) => {
   //guest is the value which will contain the total guest chosen for the tour
   const [guest, setGuest] = useState(1);
   // console.log(trans);
+  console.log(id);
 
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
@@ -59,7 +61,7 @@ const AddToCart = ({ tour }) => {
                 }`}
                 onClick={() => setTrans(car)}
               >
-                {/* {console.log(mainTrans)} */}
+                {console.log(guest)}
                 {/* {trans} */}
                 {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
                 {car === "VAN" ? <img src={van} alt="DL logo" /> : null}

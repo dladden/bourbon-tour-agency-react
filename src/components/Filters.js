@@ -31,7 +31,7 @@ const Filters = () => {
   const categories = getUniqueValues(all_tours, "category");
   const distilleries = getUniqueValues(all_tours, "dist");
   const transportation = getUniqueValues(all_tours, "trans");
-  console.log(transportation, distilleries, categories);
+  // console.log(transportation, distilleries, categories);
   const [mainTrans, setTrans] = useState(transportation[0]);
   return (
     <Wrapper>
