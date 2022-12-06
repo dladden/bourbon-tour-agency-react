@@ -11,17 +11,28 @@ import {
 //It is a function that accepts (state, action) as argument and then returns the next state of the application
 //Reducers used in large scale projects to eliminate complexity and bugs.
 
+//function that checks if item cart is in the local storage
+//if it exist set the cart equal to it (this is done using Browser API)
+const getLocalStorage = () => {
+  let cart = localStorage.getItem("cart");
+  if (cart) {
+    //if cart exist return parsed to original form and store it
+    return JSON.parse(localStorage.getItem("cart"));
+  } else {
+    //if it doesn't exit return empty array
+    return [];
+  }
+};
+
 //initialState:
 //cart - will be a local storage array which is initialized empty
 //total_tours - will be total tours added to cart (usually would be one)
 const initialState = {
-  cart: [],
+  cart: getLocalStorage(),
   total_tours: 0,
   total_amount: 0,
   // cleaning_fee: 2000,
 };
-//setting up cart in the local storage
-useEffect(() => {}, [state.cart]);
 
 const CartContext = React.createContext(); //this initialization of context comes from React
 
@@ -40,6 +51,11 @@ export const CartProvider = ({ children }) => {
   const toggleGuest = (id, amount) => {};
   //TODO: functionality to clear the cart
   const clearCart = () => {};
+
+  //useEffect: setting up "item" cart in the local storage (only accepts strings)
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
 
   return (
     <CartContext.Provider
