@@ -32,6 +32,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (date, id, trans, guests, tour) => {
     dispatch({ type: ADD_TO_CART, payload: { date, id, trans, guests, tour } });
   };
+  //TODO: add functionality to remove tour in the cart
 
   return (
     <CartContext.Provider value={{ ...state, addToCart }}>

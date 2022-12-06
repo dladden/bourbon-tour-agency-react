@@ -20,8 +20,8 @@ const AddToCart = ({ tour }) => {
   const [mainTrans, setTrans] = useState(trans[0]);
   //guest is the value which will contain the total guest chosen for the tour
   const [guest, setGuest] = useState(1);
-  // console.log(trans);
-
+  //Prop passed to CalendarPicker: date used to store the date and setDate to set the date
+  //used with the useState takes the current date Date() and stores it in the date constant
   const [date, setDate] = useState(new Date());
 
   const onChange = (date) => {
@@ -52,6 +52,7 @@ const AddToCart = ({ tour }) => {
   return (
     <Wrapper>
       <CalendarPicker value={date} setDate={setDate} />
+
       {date.length > 0 ? (
         <p className="text-center">
           <span className="bold">Start:</span> {date[0].toDateString()}
@@ -111,6 +112,7 @@ const AddToCart = ({ tour }) => {
         <AmountButtons guest={guest} increase={increase} decrease={decrease} />
         Select Total Guests
         <hr className="hr" />
+        {/* Link passes the arguments for addToCart context to be used in the cart */}
         <Link
           to="/cart"
           className="btn"

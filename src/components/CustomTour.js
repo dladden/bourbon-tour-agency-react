@@ -18,8 +18,10 @@ const CustomTour = () => {
   const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
 
+  const [date, setDate] = useState(new Date());
+
   const [mainDist, setDist] = useState([
-    "Buffalo Trace",
+    "Buffalo Trace ",
     "Castle & Key",
     "Woodford Reserve",
     "Bulleit Distilling",
@@ -181,7 +183,22 @@ const CustomTour = () => {
                   {/* Form Continuation */}
 
                   {/* CALENDAR PICKER */}
-                  <CalendarPicker />
+                  <CalendarPicker value={date} setDate={setDate} />
+                  {date.length > 0 ? (
+                    <p className="text-center">
+                      <span className="bold">Start:</span>{" "}
+                      {date[0].toDateString()}
+                      &nbsp;|&nbsp;
+                      <span className="bold">End:</span>{" "}
+                      {date[1].toDateString()}
+                    </p>
+                  ) : (
+                    <p className="text-center">
+                      <span className="bold">Current Date:</span>{" "}
+                      {date.toDateString()}
+                    </p>
+                  )}
+                  {console.log(date)}
                   {/* CALENDAR END */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
