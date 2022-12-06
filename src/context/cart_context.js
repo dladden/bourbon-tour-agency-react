@@ -20,6 +20,8 @@ const initialState = {
   total_amount: 0,
   // cleaning_fee: 2000,
 };
+//setting up cart in the local storage
+useEffect(() => {}, [state.cart]);
 
 const CartContext = React.createContext(); //this initialization of context comes from React
 
@@ -33,9 +35,16 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { date, id, trans, guests, tour } });
   };
   //TODO: add functionality to remove tour in the cart
+  const removeTour = (id) => {};
+  //TODO: adding the amount of guests in the cart
+  const toggleGuest = (id, amount) => {};
+  //TODO: functionality to clear the cart
+  const clearCart = () => {};
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeTour, toggleGuest, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );
