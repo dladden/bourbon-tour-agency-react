@@ -35,7 +35,7 @@ const SingleTourPage = () => {
   useEffect(() => {
     fetchSingleTour(`${url}${id}`);
   }, [id]);
-  console.log(id);
+  // console.log(tour);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
@@ -55,7 +55,6 @@ const SingleTourPage = () => {
   }
 
   const {
-    id: sku,
     category,
     name,
     available,
@@ -68,6 +67,7 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
+  // console.log(id);//id is passed to addToCart to check uniqueness in the cart
 
   const renderIcon = () => {
     switch (category) {
@@ -82,7 +82,6 @@ const SingleTourPage = () => {
     }
   };
   // console.log(stars);
-
   // console.log(tour);
 
   return (
@@ -121,9 +120,7 @@ const SingleTourPage = () => {
                 );
               })}
             </p>
-            {/* <CalendarPicker /> */}
-            {available == true ? <CalendarPicker /> : null}
-            <hr />
+
             {/* using conditional rendering  and passing the all props to AddToCart*/}
             {available == true ? (
               <AddToCart tour={tour} />

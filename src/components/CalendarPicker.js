@@ -7,11 +7,11 @@ import { priceFormat } from "../utils/helpers"; //component for formatting the p
 import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
 //tour displays the
-const CalendarPicker = () => {
+const CalendarPicker = ({ date, setDate }) => {
   //constants date used to store the date and setDate to set the date
   //used with the useState takes the current date Date() and stores it in the date constant
-  const [date, setDate] = useState(new Date());
-  //onChange function sets the date
+  // const [date, setDate] = useState(new Date());
+  // //onChange function sets the date
   const onChange = (date) => {
     setDate(date);
   };
@@ -19,11 +19,11 @@ const CalendarPicker = () => {
   //onChange is called on and the value store is date
   return (
     <Wrapper>
-      <Calendar onChange={onChange} value={date} selectRange={true} />
-      {/* {console.log(date)} */}
+      <Calendar onChange={setDate} value={date} selectRange={true} />
+      {console.log(date)}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
 
-      {date.length > 0 ? (
+      {/* {date.length > 0 ? (
         <p className="text-center">
           <span className="bold">Start:</span> {date[0].toDateString()}
           &nbsp;|&nbsp;
@@ -33,7 +33,7 @@ const CalendarPicker = () => {
         <p className="text-center">
           <span className="bold">Current Date:</span> {date.toDateString()}
         </p>
-      )}
+      )} */}
       {/* {console.log(date)} */}
       {/* example console output: 
       [Fri Nov 25 2022 00:00:00 GMT-0500 (Eastern Standard Time), 

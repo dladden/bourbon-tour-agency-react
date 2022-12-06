@@ -10,7 +10,7 @@ const cart_reducer = (state, action) => {
   //This if handles the ADD_TO_CART action
   //TODO: Check of the data is already in the cart
   if (action.type === ADD_TO_CART) {
-    const { id, trans, guests, tour } = action.payload;
+    const { id, date, trans, guests, tour } = action.payload;
 
     const tempItem = state.cart.find((i) => i.id === id + trans);
     if (tempItem) {

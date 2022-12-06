@@ -6,13 +6,14 @@ import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
+import CalendarPicker from "./CalendarPicker";
 //Component responsible for transportation type and count of guests
 //
 const AddToCart = ({ tour }) => {
   //adding context
   const { addToCart } = useCartContext();
   //destructuring values to handle max guests and transportation to be used
-  const { id, guests, trans } = tour;
+  const { id: id, guests, trans } = tour;
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be first array item
   //in this case it is suv
@@ -20,8 +21,12 @@ const AddToCart = ({ tour }) => {
   //guest is the value which will contain the total guest chosen for the tour
   const [guest, setGuest] = useState(1);
   // console.log(trans);
-  console.log(id);
 
+  const [date, setDate] = useState(new Date());
+
+  const onChange = (date) => {
+    setDate(date);
+  };
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {
@@ -46,6 +51,20 @@ const AddToCart = ({ tour }) => {
 
   return (
     <Wrapper>
+      <CalendarPicker value={date} setDate={setDate} />
+      {date.length > 0 ? (
+        <p className="text-center">
+          <span className="bold">Start:</span> {date[0].toDateString()}
+          &nbsp;|&nbsp;
+          <span className="bold">End:</span> {date[1].toDateString()}
+        </p>
+      ) : (
+        <p className="text-center">
+          <span className="bold">Current Date:</span> {date.toDateString()}
+        </p>
+      )}
+      {console.log(date)}
+      <hr />
       <div className="trans">
         <span>Transportation: </span>
         <div>
@@ -61,7 +80,7 @@ const AddToCart = ({ tour }) => {
                 }`}
                 onClick={() => setTrans(car)}
               >
-                {console.log(guest)}
+                {/* {console.log(guest)} */}
                 {/* {trans} */}
                 {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
                 {car === "VAN" ? <img src={van} alt="DL logo" /> : null}
@@ -95,7 +114,7 @@ const AddToCart = ({ tour }) => {
         <Link
           to="/cart"
           className="btn"
-          onClick={() => addToCart(id, mainTrans, guest, tour)}
+          onClick={() => addToCart(date, id, mainTrans, guest, tour)}
         >
           Book Tour
         </Link>
