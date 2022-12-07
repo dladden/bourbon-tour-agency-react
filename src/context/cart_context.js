@@ -31,7 +31,8 @@ const initialState = {
   cart: getLocalStorage(),
   total_tours: 0,
   total_amount: 0,
-  // cleaning_fee: 2000,
+  van_fee: 2000,
+  bus_fee: 3000,
 };
 
 const CartContext = React.createContext(); //this initialization of context comes from React

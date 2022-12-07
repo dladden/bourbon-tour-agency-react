@@ -20,7 +20,11 @@ const CartContent = () => {
         <Link to="/tours" className="link-btn">
           Back to Tours
         </Link>
-        <button type="button" className="link-btn clear-btn">
+        <button
+          type="button"
+          className="link-btn clear-btn"
+          onClick={clearCart}
+        >
           Clear Cart
         </button>
       </div>
