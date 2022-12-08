@@ -6,14 +6,24 @@ import { priceFormat } from "../utils/helpers";
 import { Link } from "react-router-dom";
 
 const CartTotals = () => {
-  const { total_amount } = useCartContext();
+  const { total_amount, van_fee, bus_fee } = useCartContext();
   return (
     <Wrapper>
       <div>
         <article>
           <h5>
-            Subtotal: <span>{priceFormat(total_amount)}</span>
+            Subtotal:{" "}
+            <span>
+              {total_amount === 0 ? "$0.00" : `${priceFormat(total_amount)}`}
+            </span>
           </h5>
+          <p>
+            Transportation Fee: <span></span>
+          </p>
+          <hr />
+          <h4>
+            Order Total : <span>{priceFormat(total_amount)}</span>
+          </h4>
         </article>
       </div>
     </Wrapper>

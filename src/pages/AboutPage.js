@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { PageHero, TourLogo, OwnerCard } from "../components";
 import { GiBeerBottle } from "react-icons/gi";
-import aboutImg from "../assets/about_cover.jpeg";
-import aboutImg2 from "../assets/about_cover2.jpeg";
-import aboutImg3 from "../assets/about_cover4.png";
+import aboutImg0 from "../assets/about_cover0.jpeg";
+import aboutImg1 from "../assets/about_cover1.jpeg";
+import aboutImg2 from "../assets/about_cover2.png";
 
 var distilleries = [
   "Buffalo Trace",
@@ -256,7 +256,7 @@ const Wrapper = styled.section`
     position: relative;
     width: 100%;
     border-radius: var(--radius);
-    background-image: url(${aboutImg});
+    background-image: url(${aboutImg0});
     background-position: fixed;
     background-size: cover;
     -moz-background-size: cover;
@@ -288,7 +288,7 @@ const Wrapper = styled.section`
     position: relative;
     width: 100%;
      border-radius: var(--radius);
-    background-image: url(${aboutImg2});
+    background-image: url(${aboutImg1});
     background-position: fixed;
     background-size: cover;
     -moz-background-size: cover;
@@ -320,7 +320,7 @@ const Wrapper = styled.section`
     position: relative;
     width: 100%;
     border-radius: var(--radius);
-    background-image: url(${aboutImg3});
+    background-image: url(${aboutImg2});
     background-position: fixed;
     background-size: cover;
     -moz-background-size: cover;

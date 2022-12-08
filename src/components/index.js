@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import LinkButton from "./LinkButton";
 import Sidebar from "./Sidebar";
 import Hero from "./Hero";
+import ImageSlider from "./ImageSlider";
 import Services from "./Services";
 import NewsLetter from "./NewsLetter";
 import OwnerCard from "./OwnerCard";
@@ -34,6 +35,7 @@ export {
   LinkButton,
   Sidebar,
   Hero,
+  ImageSlider,
   Services,
   NewsLetter,
   OwnerCard,
