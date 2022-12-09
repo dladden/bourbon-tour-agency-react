@@ -48,7 +48,7 @@ export const CartProvider = ({ children }) => {
     console.log(trans);
   };
 
-  //TODO: add functionality to remove tour in the cart
+  //TODO: add functionality to remove tour in the cart based on id
   const removeTour = (id) => {};
   //TODO: adding the amount of guests in the cart
   const toggleGuest = (id, amount) => {};

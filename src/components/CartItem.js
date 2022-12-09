@@ -8,7 +8,8 @@ import AmountButtons from "./AmountButtons";
 import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../context/cart_context";
 const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
-  const { removeItem, toggleAmount } = useCartContext();
+  //imported from cart_context.js
+  const { removeTour, toggleAmount } = useCartContext();
   //function passed to the AmountButtons
   const increase = () => {}; //end increase
   //function passed to the AmountButtons
@@ -21,7 +22,6 @@ const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
         <div>
           <h5 className="name">{name}</h5>
           <p className="transport">
-            Transportation:{" "}
             <span>
               {trans === "SUV" ? <img src={suv} alt="DL logo" /> : null}
               {trans === "VAN" ? <img src={van} alt="DL logo" /> : null}
@@ -34,7 +34,15 @@ const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
       <h5 className="price">{priceFormat(price)}</h5>
       <AmountButtons guest={guests} increase={increase} decrease={decrease} />
       <h5 className="subtotal">{priceFormat(price)}</h5>
-      <button type="button" className="remove-btn"></button>
+      <button
+        type="button"
+        className="remove-btn"
+        onClick={() => {
+          removeTour(id);
+        }}
+      >
+        <FaTrash />
+      </button>
     </Wrapper>
   );
 };
@@ -83,7 +91,7 @@ const Wrapper = styled.article`
     justify-content: flex-start;
     span {
       display: inline-block;
-      width: 10rem;
+      width: 2rem;
       // height: 1rem;
       margin-left: 0rem;
       // border-radius: var(--radius);
