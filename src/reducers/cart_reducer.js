@@ -52,6 +52,12 @@ const cart_reducer = (state, action) => {
     } //else item is not in the cart
   } //END ADD_TO_CART
 
+  if (action.type === REMOVE_CART_ITEM) {
+    //if the tour id doesn't match match passed id in action.payload to tour.id
+    const tempCart = state.cart.filter((tour) => tour.id !== action.payload);
+    return { ...state, cart: tempCart };
+  } //END REMOVE_CART_ITEM
+
   return state;
   throw new Error(`No Matching "${action.type}" - action type`);
 };

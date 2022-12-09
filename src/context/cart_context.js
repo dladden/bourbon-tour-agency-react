@@ -48,12 +48,16 @@ export const CartProvider = ({ children }) => {
     console.log(trans);
   };
 
-  //TODO: add functionality to remove tour in the cart based on id
-  const removeTour = (id) => {};
+  //TODO: add functionality to remove tour in the cart if id is matched with item in the cart
+  const removeTour = (id) => {
+    dispatch({ type: REMOVE_CART_ITEM, payload: id });
+  };
   //TODO: adding the amount of guests in the cart
   const toggleGuest = (id, amount) => {};
   //TODO: functionality to clear the cart
-  const clearCart = () => {};
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   //useEffect: setting up "item" cart in the local storage (only accepts strings)
   useEffect(() => {

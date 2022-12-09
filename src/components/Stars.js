@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
-const Stars = ({ stars, rev_url }) => {
+// Data passed from SingleTourPage.js this component displays the stars
+const Stars = ({ stars, rev_url, category }) => {
   // console.log(stars, rev_url);
 
   //Using the array we can dynamically insert numbers which are checked against the data's numbers
@@ -32,7 +33,10 @@ const Stars = ({ stars, rev_url }) => {
       </div>
       {/* target="_blank" link in a new tab every time & no referrer information passing */}
       <a href={rev_url} target="_blank" rel="noreferrer">
-        <p className="reviews">(Facebook Reviews)</p>
+        <p className="reviews">
+          {category === "stay" ? "(Airbnb Reviews)" : "(Facebook Reviews)"}
+          {console.log(category)}
+        </p>
       </a>
     </Wrapper>
   );

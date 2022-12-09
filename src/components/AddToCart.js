@@ -52,7 +52,6 @@ const AddToCart = ({ tour }) => {
   return (
     <Wrapper>
       <CalendarPicker value={date} setDate={setDate} />
-
       {date.length > 0 ? (
         <p className="text-center">
           <span className="bold">Start:</span> {date[0].toDateString()}
@@ -64,7 +63,7 @@ const AddToCart = ({ tour }) => {
           <span className="bold">Current Date:</span> {date.toDateString()}
         </p>
       )}
-      {console.log(date)}
+      {/* {console.log(date)} */}
       <hr />
       <div className="trans">
         <span>Transportation: </span>

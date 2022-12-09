@@ -101,7 +101,7 @@ const SingleTourPage = () => {
               <h2 className="icon">{renderIcon()}</h2>
             </div>
             {/* passing the stars data to the Stars component */}
-            <Stars stars={stars} rev_url={rev_url} />
+            <Stars stars={stars} rev_url={rev_url} category={category} />
             <h5 className="price">{priceFormat(price)}</h5>
             <p className="desc">{desc}</p>
             <p className="info-title">Distilleries: </p>

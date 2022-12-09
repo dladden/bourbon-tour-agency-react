@@ -5,22 +5,42 @@ import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import { formatPrice, priceFormat } from "../utils/helpers";
 import AmountButtons from "./AmountButtons";
-import { FaTrash } from "react-icons/fa";
+import { CgClose } from "react-icons/cg";
 import { useCartContext } from "../context/cart_context";
-const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
+const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   //imported from cart_context.js
-  const { removeTour, toggleAmount } = useCartContext();
+  const { removeTour, toggleGuest } = useCartContext();
   //function passed to the AmountButtons
   const increase = () => {}; //end increase
   //function passed to the AmountButtons
   const decrease = () => {}; //end decrease
-  console.log(amount);
+  console.log(date);
+  Date(date);
   return (
     <Wrapper>
       <div className="title">
         <img src={image} alt={name} />
         <div>
+          {/* TOUR NAME */}
           <h5 className="name">{name}</h5>
+          {/* END TOUR NAME */}
+          {/* TOUR DATE */}
+          <h6>
+            {date.length > 0 ? (
+              <p className="">
+                <span className="bold"></span> {date[0].toDateString()}
+                &nbsp;to&nbsp;
+                <span className="bold"></span> {date[1].toDateString()}
+              </p>
+            ) : (
+              <p className="">
+                <span className="bold">Current Date:</span>
+                {date.toDateString()}
+              </p>
+            )}
+          </h6>
+          {/* END TOUR DATE */}
+          {/* TRANSPORTATION */}
           <p className="transport">
             <span>
               {trans === "SUV" ? <img src={suv} alt="DL logo" /> : null}
@@ -28,10 +48,15 @@ const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
               {trans === "BUS" ? <img src={bus} alt="DL logo" /> : null}
             </span>
           </p>
+          {/* END TRANSPORTATION */}
+          {/* PRICE - HIDDEN WHEN SMALL */}
           <h5 className="price-small">{priceFormat(price)}</h5>
+          {/* END PRICE - HIDDEN WHEN SMALL */}
         </div>
       </div>
+      {/* PRICE */}
       <h5 className="price">{priceFormat(price)}</h5>
+      {/* END PRICE */}
       <AmountButtons guest={guests} increase={increase} decrease={decrease} />
       <h5 className="subtotal">{priceFormat(price)}</h5>
       <button
@@ -41,7 +66,7 @@ const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
           removeTour(id);
         }}
       >
-        <FaTrash />
+        <CgClose />
       </button>
     </Wrapper>
   );
@@ -122,8 +147,8 @@ const Wrapper = styled.article`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius);
-    font-size: 0.75rem;
+    border-radius: 3rem;
+    font-size: 1rem;
     cursor: pointer;
   }
   @media (min-width: 776px) {
