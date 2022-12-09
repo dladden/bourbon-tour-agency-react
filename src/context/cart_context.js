@@ -45,7 +45,9 @@ export const CartProvider = ({ children }) => {
   //Expected function values are transportation chosen, total guests
   const addToCart = (date, id, trans, guests, tour) => {
     dispatch({ type: ADD_TO_CART, payload: { date, id, trans, guests, tour } });
+    console.log(trans);
   };
+
   //TODO: add functionality to remove tour in the cart
   const removeTour = (id) => {};
   //TODO: adding the amount of guests in the cart

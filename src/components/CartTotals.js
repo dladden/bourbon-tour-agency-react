@@ -25,6 +25,9 @@ const CartTotals = () => {
             Order Total : <span>{priceFormat(total_amount)}</span>
           </h4>
         </article>
+        <Link to="/checkout" className="btn">
+          Proceed to Checkout
+        </Link>
       </div>
     </Wrapper>
   );

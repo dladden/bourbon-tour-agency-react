@@ -95,7 +95,6 @@ const Footer = () => {
             </li>
             <li>
               &copy; {new Date().getFullYear()} Copyright Shelby Bourbon Tours
-              LLC
             </li>
           </ul>
         </section>

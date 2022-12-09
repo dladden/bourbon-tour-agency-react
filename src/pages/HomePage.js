@@ -24,16 +24,17 @@ const HomePage = () => {
     margin: "0 auto",
     marginBottom: "60px",
   };
+
   return (
     <main>
       <Hero />
       <TourLogo />
       <FeaturedTours />
       <Services />
-      <NewsLetter />
       <div style={containerStyle}>
         <ImageSlider slides={slides} />
       </div>
+      <NewsLetter />
     </main>
   );
 };

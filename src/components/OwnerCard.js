@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.jpg";
+import socialLinks from "../utils/social_links";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 //Component responsible for the OwnerCard used in Contact page
@@ -27,6 +28,15 @@ const OwnerCard = ({ tour }) => {
 
             <div className="date-time">
               <img src={contactQR} alt="" style={{ height: 90, width: 90 }} />
+            </div>
+            <div className="social-links ">
+              {socialLinks.map((link) => {
+                return (
+                  <a href={link.url} key={link.id} className="social-link">
+                    {link.icon}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -114,6 +124,17 @@ const Wrapper = styled.section`
 
   body {
     background: #eceff8;
+  }
+  .social-links {
+    margin-top: 1rem;
+    width: 17rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .social-link {
+    font-size: 1.75rem;
+    color: var(--clr-primary-9);
+    transition: var(--transition);
   }
 `;
 export default OwnerCard;

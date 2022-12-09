@@ -1,12 +1,43 @@
-import React from 'react'
-import styled from 'styled-components'
-import { formatPrice } from '../utils/helpers'
-import AmountButtons from './AmountButtons'
-import { FaTrash } from 'react-icons/fa'
-import { useCartContext } from '../context/cart_context'
-const CartItem = () => {
-  return <h4>cart item</h4>
-}
+import React from "react";
+import styled from "styled-components";
+import bus from "../assets/bus.svg";
+import suv from "../assets/suv.svg";
+import van from "../assets/van.svg";
+import { formatPrice, priceFormat } from "../utils/helpers";
+import AmountButtons from "./AmountButtons";
+import { FaTrash } from "react-icons/fa";
+import { useCartContext } from "../context/cart_context";
+const CartItem = ({ id, image, name, trans, price, guests, amount }) => {
+  const { removeItem, toggleAmount } = useCartContext();
+  //function passed to the AmountButtons
+  const increase = () => {}; //end increase
+  //function passed to the AmountButtons
+  const decrease = () => {}; //end decrease
+  console.log(amount);
+  return (
+    <Wrapper>
+      <div className="title">
+        <img src={image} alt={name} />
+        <div>
+          <h5 className="name">{name}</h5>
+          <p className="transport">
+            Transportation:{" "}
+            <span>
+              {trans === "SUV" ? <img src={suv} alt="DL logo" /> : null}
+              {trans === "VAN" ? <img src={van} alt="DL logo" /> : null}
+              {trans === "BUS" ? <img src={bus} alt="DL logo" /> : null}
+            </span>
+          </p>
+          <h5 className="price-small">{priceFormat(price)}</h5>
+        </div>
+      </div>
+      <h5 className="price">{priceFormat(price)}</h5>
+      <AmountButtons guest={guests} increase={increase} decrease={decrease} />
+      <h5 className="subtotal">{priceFormat(price)}</h5>
+      <button type="button" className="remove-btn"></button>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.article`
   .subtotal {
@@ -41,8 +72,8 @@ const Wrapper = styled.article`
     font-size: 0.75rem;
     margin-bottom: 0;
   }
-  .color {
-    color: var(--clr-grey-5);
+  .transport {
+    color: var(--clr-main-1);
     font-size: 0.75rem;
     letter-spacing: var(--spacing);
     text-transform: capitalize;
@@ -52,11 +83,10 @@ const Wrapper = styled.article`
     justify-content: flex-start;
     span {
       display: inline-block;
-      width: 0.5rem;
-      height: 0.5rem;
-      background: red;
-      margin-left: 0.5rem;
-      border-radius: var(--radius);
+      width: 10rem;
+      // height: 1rem;
+      margin-left: 0rem;
+      // border-radius: var(--radius);
     }
   }
   .price-small {
@@ -108,11 +138,11 @@ const Wrapper = styled.article`
     .name {
       font-size: 0.85rem;
     }
-    .color {
+    .transport {
       font-size: 0.85rem;
       span {
-        width: 0.75rem;
-        height: 0.75rem;
+        width: 2.5rem;
+        // height: 1rem;
       }
     }
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
@@ -141,6 +171,6 @@ const Wrapper = styled.article`
       }
     }
   }
-`
+`;
 
-export default CartItem
+export default CartItem;
