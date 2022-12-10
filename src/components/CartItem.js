@@ -14,8 +14,16 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   const increase = () => {}; //end increase
   //function passed to the AmountButtons
   const decrease = () => {}; //end decrease
-  console.log(date);
-  Date(date);
+
+  //converting both date to date objects
+  const dateObjOne = new Date(date[0]);
+  const dateObjTwo = new Date(date[1]);
+
+  console.log(dateObjOne);
+
+  // console.log(date);
+  // JSON.stringify(date);
+  // console.log(date);
   return (
     <Wrapper>
       <div className="title">
@@ -28,14 +36,14 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
           <h6>
             {date.length > 0 ? (
               <p className="">
-                <span className="bold"></span> {date[0].toDateString()}
-                &nbsp;to&nbsp;
-                <span className="bold"></span> {date[1].toDateString()}
+                <span className="bold"></span> {dateObjOne.toDateString()}
+                &nbsp;to
+                <span className="bold"></span> {dateObjTwo.toDateString()}
               </p>
             ) : (
               <p className="">
-                <span className="bold">Current Date:</span>
-                {date.toDateString()}
+                <span className="bold"></span>
+                {dateObjOne.toDateString()}
               </p>
             )}
           </h6>

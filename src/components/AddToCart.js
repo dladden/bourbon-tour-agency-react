@@ -23,7 +23,7 @@ const AddToCart = ({ tour }) => {
   //Prop passed to CalendarPicker: date used to store the date and setDate to set the date
   //used with the useState takes the current date Date() and stores it in the date constant
   const [date, setDate] = useState(new Date());
-
+  console.log(date);
   const onChange = (date) => {
     setDate(date);
   };
@@ -63,7 +63,8 @@ const AddToCart = ({ tour }) => {
           <span className="bold">Current Date:</span> {date.toDateString()}
         </p>
       )}
-      {/* {console.log(date)} */}
+
+      {console.log(date)}
       <hr />
       <div className="trans">
         <span>Transportation: </span>

@@ -12,9 +12,9 @@ const CalendarPicker = ({ date, setDate }) => {
   //used with the useState takes the current date Date() and stores it in the date constant
   // const [date, setDate] = useState(new Date());
   // //onChange function sets the date
-  const onChange = (date) => {
-    setDate(date);
-  };
+  // const onChange = (date) => {
+  //   setDate(date);
+  // };
   //onChange is a property of Calendar dependency
   //onChange is called on and the value store is date
   return (

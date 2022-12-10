@@ -50,6 +50,9 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
   }
+  // .amount-btn {
+  //   color: red;
+  // }
 `;
 
 export default AmountButtons;
