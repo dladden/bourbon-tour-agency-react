@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { CustomTourLink } from "../components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { services } from "../utils/constants";
@@ -9,20 +9,7 @@ const Services = () => {
   return (
     <Wrapper>
       <div className="section-center">
-        <article className="header">
-          <h3>Custom Tours</h3>
-          <Link to="/contact" className="btn hero-btn">
-            Create
-          </Link>
-          {/* <Route path="/contact" element={<CustomTour />} />
-          </Router> */}
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et expedita
-            doloribus ducimus similique, laborum facere minima magni architecto
-            sint distinctio nisi non eligendi velit consectetur quo sunt
-            voluptatem provident molestias.
-          </p>
-        </article>
+        <CustomTourLink />
 
         <div className="services-center">
           {services.map((service) => {

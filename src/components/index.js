@@ -14,6 +14,7 @@ import NewsLetter from "./NewsLetter";
 import OwnerCard from "./OwnerCard";
 import ContactList from "./ContactList";
 import CustomTour from "./CustomTour";
+import CustomTourLink from "./CustomTourLink";
 import Loading from "./Loading";
 import Error from "./Error";
 import TourImages from "./TourImages";
@@ -43,6 +44,7 @@ export {
   OwnerCard,
   ContactList,
   CustomTour,
+  CustomTourLink,
   Loading,
   Error,
   TourImages,
