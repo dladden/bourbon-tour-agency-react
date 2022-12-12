@@ -10,10 +10,16 @@ import { useCartContext } from "../context/cart_context";
 const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   //imported from cart_context.js
   const { removeTour, toggleGuest } = useCartContext();
-  //function passed to the AmountButtons
-  const increase = () => {}; //end increase
-  //function passed to the AmountButtons
-  const decrease = () => {}; //end decrease
+  //function passes id + inc (increase)to cart_context so that +1 guest
+  //can be added to a tour with that id (ex: recAKdIULeQWb8XlGVANdate inc)
+  const increase = () => {
+    toggleGuest(id, "inc");
+  }; //end increase
+  //function passes id + dec (decrease)to cart_context so that -1 guest
+  //can be added to a tour with that id (ex: recAKdIULeQWb8XlGVANdate dec)
+  const decrease = () => {
+    toggleGuest(id, "dec");
+  }; //end decrease
 
   //converting both date to date objects
   const dateObjOne = new Date(date);

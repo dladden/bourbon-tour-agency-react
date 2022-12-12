@@ -50,19 +50,23 @@ const cart_reducer = (state, action) => {
       //state overwrites the cart with tate cart value & newItem (when new item incoming)
       return { ...state, cart: [...state.cart, newItem] };
     } //else item is not in the cart
-  } //END ADD_TO_CART
+  } //END ADD TO CART
 
   //Remove cart item removes a tour after removeTour function called
   if (action.type === REMOVE_CART_ITEM) {
     //if the tour id doesn't match match passed id in action.payload to tour.id
     const tempCart = state.cart.filter((tour) => tour.id !== action.payload);
     return { ...state, cart: tempCart };
-  } //END REMOVE_CART_ITEM
-
+  } //END REMOVE CART ITEM
   //Clear Cart returns an empty array replacing all items
   if (action.type === CLEAR_CART) {
     return { ...state, cart: [] };
-  }
+  } //END CLEAR CART
+  //This if statement checks current amount in matched id and adds or decreases by one
+  if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
+    const { id, amount } = action.payload; //retreaving id and guest increase / decrease from payload
+    const tempCart = state.cart.map;
+  } //END TOGGLE CART ITEM AMOUNT
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };
