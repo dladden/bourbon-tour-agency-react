@@ -52,13 +52,16 @@ const cart_reducer = (state, action) => {
     } //else item is not in the cart
   } //END ADD_TO_CART
 
+  //Remove cart item removes a tour after removeTour function called
   if (action.type === REMOVE_CART_ITEM) {
     //if the tour id doesn't match match passed id in action.payload to tour.id
     const tempCart = state.cart.filter((tour) => tour.id !== action.payload);
     return { ...state, cart: tempCart };
   } //END REMOVE_CART_ITEM
 
+  //Clear Cart returns an empty array replacing all items
   if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

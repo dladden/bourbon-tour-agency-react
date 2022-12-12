@@ -7,7 +7,7 @@ import { priceFormat } from "../utils/helpers"; //component for formatting the p
 import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
 //tour displays the
-const CalendarPicker = ({ date, setDate }) => {
+const MultiCalendarPicker = ({ date, setDate }) => {
   //constants date used to store the date and setDate to set the date
   //used with the useState takes the current date Date() and stores it in the date constant
   // const [date, setDate] = useState(new Date());
@@ -19,7 +19,7 @@ const CalendarPicker = ({ date, setDate }) => {
   //onChange is called on and the value store is date
   return (
     <Wrapper>
-      <Calendar onChange={setDate} value={date} />
+      <Calendar onChange={setDate} value={date} selectRange={true} />
       {console.log(date)}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
 
@@ -165,4 +165,4 @@ const Wrapper = styled.article`
     }
   }
 `;
-export default CalendarPicker;
+export default MultiCalendarPicker;

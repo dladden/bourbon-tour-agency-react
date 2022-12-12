@@ -16,10 +16,9 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   const decrease = () => {}; //end decrease
 
   //converting both date to date objects
-  const dateObjOne = new Date(date[0]);
-  const dateObjTwo = new Date(date[1]);
+  const dateObjOne = new Date(date);
 
-  console.log(dateObjOne);
+  // console.log(dateObjOne);
 
   // console.log(date);
   // JSON.stringify(date);
@@ -34,18 +33,10 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
           {/* END TOUR NAME */}
           {/* TOUR DATE */}
           <h6>
-            {date.length > 0 ? (
-              <p className="">
-                <span className="bold"></span> {dateObjOne.toDateString()}
-                &nbsp;to
-                <span className="bold"></span> {dateObjTwo.toDateString()}
-              </p>
-            ) : (
-              <p className="">
-                <span className="bold"></span>
-                {dateObjOne.toDateString()}
-              </p>
-            )}
+            <p className="">
+              <span className="bold">Date: </span>
+              {dateObjOne.toDateString()}
+            </p>
           </h6>
           {/* END TOUR DATE */}
           {/* TRANSPORTATION */}

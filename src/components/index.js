@@ -1,5 +1,6 @@
 import FeaturedTours from "./FeaturedTours";
 import CalendarPicker from "./CalendarPicker";
+import MultiCalendarPicker from "./MultiCalendarPicker";
 import Navbar from "./Navbar";
 import TourLogo from "./TourLogo";
 import CartButtons from "./CartButtons";
@@ -28,6 +29,7 @@ import StripeCheckout from "./StripeCheckout";
 export {
   FeaturedTours,
   CalendarPicker,
+  MultiCalendarPicker,
   Navbar,
   TourLogo,
   CartButtons,

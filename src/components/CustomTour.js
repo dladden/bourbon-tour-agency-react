@@ -6,7 +6,7 @@ import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
-import { CalendarPicker } from "../components";
+import { MultiCalendarPicker } from "../components";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 //Component responsible for transportation type and count of guests
@@ -54,7 +54,7 @@ const CustomTour = () => {
     "Prohibition Spirits",
     "Cooperage",
   ]);
-
+  // console.log(mainDist);
   return (
     <Wrapper>
       <div className="form-body">
@@ -182,8 +182,8 @@ const CustomTour = () => {
                   </div>
                   {/* Form Continuation */}
 
-                  {/* CALENDAR PICKER */}
-                  <CalendarPicker value={date} setDate={setDate} />
+                  {/* MULTI CALENDAR PICKER */}
+                  <MultiCalendarPicker value={date} setDate={setDate} />
                   {date.length > 0 ? (
                     <p className="text-center">
                       <span className="bold">Start:</span>{" "}
@@ -199,7 +199,7 @@ const CustomTour = () => {
                     </p>
                   )}
                   {console.log(date)}
-                  {/* CALENDAR END */}
+                  {/* END MULTI CALENDAR */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
                     <span>Transportation: </span>
@@ -287,6 +287,7 @@ const CustomTour = () => {
       </div>
     </Wrapper>
   );
+
   //{/* <input type="checkbox" /> */}
   // <img src={bus} alt="DL logo" />
   // <img src={van} alt="DL logo" />
