@@ -39,13 +39,13 @@ const cart_reducer = (state, action) => {
       //new object constructed on 'BOOK TOUR" button
       const newItem = {
         date, //receiving the date from the react-calendar
-        id: id + trans + date, //id + trans used to alow multiple tours with dif transportation
+        id: id + trans + date, //id + trans + date used to alow multiple tours with dif transportation
         name: tour.name, //name from the data
         trans, //transportation chosen in the single tour page from addToCart
         guests, //guests passed from addToCart
         image: tour.images[0].url, //tour image
         price: tour.price, //tour price in the data
-        max_guests: tour.guests, //
+        max_guests: tour.guests, //retrieved in data guests is the max value of tour visitors
       }; //new object item
       //state overwrites the cart with tate cart value & newItem (when new item incoming)
       return { ...state, cart: [...state.cart, newItem] };
@@ -64,8 +64,27 @@ const cart_reducer = (state, action) => {
   } //END CLEAR CART
   //This if statement checks current amount in matched id and adds or decreases by one
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
-    const { id, amount } = action.payload; //retreaving id and guest increase / decrease from payload
-    const tempCart = state.cart.map;
+    const { id, amount } = action.payload; //retrieved id and guest increase / decrease from payload
+    const tempCart = state.cart.map((item) => {
+      if (item.id === id) {
+        if (amount === "inc") {
+          let newAmount = item.guests + 1;
+          if (newAmount > item.max_guests) {
+            newAmount = item.max_guests;
+          } //end if bound check
+          return { ...item, guests: newAmount }; //amount = newAmount
+        } //end if inc
+        if (amount === "dec") {
+          let newAmount = item.guests - 1;
+          if (newAmount < 1) {
+            newAmount = 1;
+          } //end if min check
+          return { ...item, guests: newAmount }; //amount = newAmount
+        } //end if dec
+      }
+      return item;
+    }); //end map
+    return { ...state, cart: tempCart };
   } //END TOGGLE CART ITEM AMOUNT
 
   throw new Error(`No Matching "${action.type}" - action type`);
