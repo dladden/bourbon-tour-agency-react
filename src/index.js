@@ -8,15 +8,9 @@ import { FilterProvider } from "./context/filter_context";
 import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
-// var cors = require("cors");
 
-// App.use(cors());
-
-// App.use(
-//   cors({
-//     origin: "https://sbt-serverless.netlify.app/api/tours",
-//   })
-// );
+//Auth0 info:
+//
 
 //This index.js is JavaScript entry point for javas script
 //The index.html is the actual connection to the web and ReactDOM is used to insert the App.js into the the root div of the index.html
@@ -25,12 +19,19 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //ToursProvider provides data into the Filter, to ensure this FilterProvider is embedded into the TourProvider
 //CartProvider is wapping the app, which makes it available in the app
 ReactDOM.render(
-  <ToursProvider>
-    <FilterProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </FilterProvider>
-  </ToursProvider>,
+  <Auth0Provider
+    domain={process.env.REACT_APP_AUTH0_DOMAIN} //using Environment Variables
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID} //using Environment Variables
+    redirectUri={window.location.origin} //redirect
+    cacheLocation="localstorage" //storing tokens in local storage for persistence
+  >
+    <ToursProvider>
+      <FilterProvider>
+        <CartProvider>
+          <App />
+        </CartProvider>
+      </FilterProvider>
+    </ToursProvider>
+  </Auth0Provider>,
   document.getElementById("root")
 );
