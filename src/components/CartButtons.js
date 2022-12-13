@@ -10,12 +10,13 @@ import { useUserContext } from "../context/user_context";
 //It is also used to display the login link
 const CartButtons = () => {
   const { closeSidebar } = useToursContext();
+  const { total_tours } = useCartContext();
   return (
     <Wrapper className="cart-btn-wrapper">
       <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
         <span className="cart-container">
           <FaCartArrowDown /> cart
-          <span className="cart-value">2</span>
+          <span className="cart-value">{total_tours}</span>
         </span>
       </Link>
       <button type="button" className="auth-btn">
@@ -50,8 +51,8 @@ const Wrapper = styled.div`
   }
   .cart-value {
     position: absolute;
-    top: -9px;
-    right: -16px;
+    top: -10px;
+    right: -15px;
     background: var(--clr-green-dark);
     width: 16px;
     height: 16px;

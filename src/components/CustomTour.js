@@ -199,7 +199,7 @@ const CustomTour = () => {
                     </p>
                   )}
                   {console.log(date)}
-                  {/* END MULTI CALENDAR */}
+                  {/* END MULTICALENDAR */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
                     <span>Transportation: </span>
@@ -238,9 +238,9 @@ const CustomTour = () => {
                       <span className="bold">
                         {" "}
                         Current Transportation Chosen: {mainTrans}{" "}
-                        {mainTrans === "SUV" ? "(MAX 6 Guests)" : null}
-                        {mainTrans === "VAN" ? "(MAX 15 Guests)" : null}
-                        {mainTrans === "BUS" ? "(MAX 20 Guests)" : null}
+                        {mainTrans === "suv" ? "(MAX 6 Guests)" : null}
+                        {mainTrans === "van" ? "(MAX 15 Guests)" : null}
+                        {mainTrans === "bus" ? "(MAX 20 Guests)" : null}
                       </span>
                     </p>
                   ) : (

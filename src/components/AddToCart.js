@@ -95,7 +95,7 @@ const AddToCart = ({ tour }) => {
         <p className="text-center">
           <span className="bold">
             {" "}
-            Current Transportation Chosen: {mainTrans}{" "}
+            Transportation Chosen: {mainTrans}{" "}
             {mainTrans === "SUV" ? "(MAX 6 Guests)" : null}
             {mainTrans === "VAN" ? "(MAX 15 Guests)" : null}
             {mainTrans === "BUS" ? "(MAX 20 Guests)" : null}

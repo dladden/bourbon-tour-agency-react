@@ -87,6 +87,23 @@ const cart_reducer = (state, action) => {
     return { ...state, cart: tempCart };
   } //END TOGGLE CART ITEM AMOUNT
 
+  //REDUCER must return total: this
+  if (action.type === COUNT_CART_TOTALS) {
+    const tempCart = state.cart;
+    const { total_tours, total_amount } = state.cart.reduce(
+      (total) => {
+        total.total_tours = tempCart.length;
+        return total;
+      },
+      {
+        total_tours: 0,
+        total_amount: 0,
+      }
+    );
+    console.log(total_tours);
+    return { ...state, total_tours, total_amount };
+  } //END COUNT CART TOTALS
+
   throw new Error(`No Matching "${action.type}" - action type`);
 };
 

@@ -62,8 +62,10 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
-  //useEffect: setting up "item" cart in the local storage (only accepts strings)
+  //useEffect: saving "item" cart in the local storage
+  //(only accepts strings) & every-time a change in cart occurs
   useEffect(() => {
+    dispatch({ type: COUNT_CART_TOTALS });
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 
