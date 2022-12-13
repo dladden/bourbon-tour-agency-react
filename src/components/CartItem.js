@@ -21,18 +21,19 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   const decrease = () => {
     toggleGuest(id, "dec");
   }; //end decrease
-
+  //suvGuests used to calculate subtotal for multiple suvs if guests choose
   const suvGuests = () => {
-    if (guests >= 13) {
+    if (trans === "SUV" && guests >= 13) {
       return priceFormat(price + twoSuv_fee);
     } //end if 12+
-    if (guests >= 7) {
+    if (trans === "SUV" && guests >= 7) {
       return priceFormat(price + oneSuv_fee);
     } //end if 6+
     return priceFormat(price);
   };
   //converting both date to date objects
   const dateObj = new Date(date);
+
   return (
     <Wrapper>
       <div className="title">
@@ -42,20 +43,19 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
           <h5 className="name">{name}</h5>
           {/* END TOUR NAME */}
           {/* TOUR DATE */}
-          <h6>
-            <h7 className="">
+          <div>
+            <h6 className="">
               <span className="bold">Date: </span>
               {dateObj.toDateString()}
-            </h7>
-          </h6>
+            </h6>
+          </div>
           {/* END TOUR DATE */}
-          <h7>
-            {trans === "SUV" && guests >= 7
-              ? "+1 SUV fee: $199.99"
-              : "SUV fee: $0.00"}
+          <h6>
+            {trans === "SUV" && guests < 7 ? "+1 SUV fee: $0.00" : null}
+            {trans === "SUV" && guests >= 7 ? "+1 SUV fee: $199.99" : null}
             {trans === "VAN" ? "VAN fee: $99.99" : null}
             {trans === "BUS" ? "BUS fee: $199.99" : null}
-          </h7>
+          </h6>
           {/* TRANSPORTATION */}
           <p className="transport">
             <span>
@@ -75,8 +75,7 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
       {/* END PRICE */}
       <AmountButtons guest={guests} increase={increase} decrease={decrease} />
       <h5 className="subtotal">
-        {suvGuests()}
-        {/* {trans === "SUV" ? priceFormat(price) : null} */}
+        {trans === "SUV" ? suvGuests() : null}
         {trans === "VAN" ? priceFormat(price + van_fee) : null}
         {trans === "BUS" ? priceFormat(price + bus_fee) : null}
       </h5>

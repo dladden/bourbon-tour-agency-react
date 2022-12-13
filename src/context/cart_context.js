@@ -51,8 +51,16 @@ export const CartProvider = ({ children }) => {
   //Add To Cart handles the data which will be passed to the cart page using the reducer
   //Expected function values are transportation chosen, total guests
   const addToCart = (date, id, trans, guests, tour) => {
-    dispatch({ type: ADD_TO_CART, payload: { date, id, trans, guests, tour } });
-    console.log(trans);
+    dispatch({
+      type: ADD_TO_CART,
+      payload: {
+        date,
+        id,
+        trans,
+        guests,
+        tour,
+      },
+    });
   };
 
   //TODO: add functionality to remove tour in the cart if id is matched with item in the cart

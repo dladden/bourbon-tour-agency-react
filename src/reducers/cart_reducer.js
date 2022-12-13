@@ -12,6 +12,7 @@ const cart_reducer = (state, action) => {
   if (action.type === ADD_TO_CART) {
     const { id, date, trans, guests, tour } = action.payload; //getting data from payload
     // date.toDateString();
+
     //using javascript find to search the cart to see if item + trans + date already exist
     //if true ... if not a new entry is incoming else takes care of that
     const tempItem = state.cart.find((i) => i.id === id + trans + date);
@@ -47,6 +48,7 @@ const cart_reducer = (state, action) => {
         price: tour.price, //tour price in the data
         max_guests: tour.guests, //retrieved in data guests is the max value of tour visitors
       }; //new object item
+
       //state overwrites the cart with tate cart value & newItem (when new item incoming)
       return { ...state, cart: [...state.cart, newItem] };
     } //else item is not in the cart
@@ -89,18 +91,33 @@ const cart_reducer = (state, action) => {
 
   //REDUCER must return total: this
   if (action.type === COUNT_CART_TOTALS) {
-    const tempCart = state.cart;
+    const tempCart = state.cart; //tempCart used to get the array size of tours in the cart
+    // const { bus_fee } = action.payload;
+    const oneSuv_fee = 19999;
+    const twoSuv_fee = 39999;
+    const van_fee = 9999;
+    const bus_fee = 19999;
     const { total_tours, total_amount } = state.cart.reduce(
-      (total) => {
+      (total, cartItem) => {
+        const { price, trans, guests } = cartItem;
+        console.log(price);
+        console.log(trans);
+        console.log(guests);
+        console.log(bus_fee);
         total.total_tours = tempCart.length;
+        total.total_amount += price + tempCart.length;
         return total;
       },
       {
         total_tours: 0,
         total_amount: 0,
-      }
+        oneSuv_fee: 19999,
+        twoSuv_fee: 39999,
+        van_fee: 9999,
+        bus_fee: 19999,
+      } //returning objects
     );
-    console.log(total_tours);
+
     return { ...state, total_tours, total_amount };
   } //END COUNT CART TOTALS
 
