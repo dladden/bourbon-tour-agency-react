@@ -27,12 +27,19 @@ const getLocalStorage = () => {
 //initialState:
 //cart - will be a local storage array which is initialized empty
 //total_tours - will be total tours added to cart (usually would be one)
+//total_amount - is the subtotals added together
+//oneSuv_fee - fee for an extra suv
+//twoSuv_fee - fee for 2 extra suv's
+//van_fee - fee for the van
+//bus_fee - fee for the bus
 const initialState = {
   cart: getLocalStorage(),
   total_tours: 0,
   total_amount: 0,
-  van_fee: 20000,
-  bus_fee: 30000,
+  oneSuv_fee: 19999,
+  twoSuv_fee: 39999,
+  van_fee: 9999,
+  bus_fee: 19999,
 };
 
 const CartContext = React.createContext(); //this initialization of context comes from React

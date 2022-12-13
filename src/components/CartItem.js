@@ -3,32 +3,36 @@ import styled from "styled-components";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
-import { formatPrice, priceFormat } from "../utils/helpers";
+import { priceFormat } from "../utils/helpers";
 import AmountButtons from "./AmountButtons";
 import { CgClose } from "react-icons/cg";
 import { useCartContext } from "../context/cart_context";
 const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   //imported from cart_context.js
-  const { removeTour, toggleGuest } = useCartContext();
+  const { removeTour, toggleGuest, van_fee, bus_fee, oneSuv_fee, twoSuv_fee } =
+    useCartContext();
   //function passes id + inc (increase)to cart_context so that +1 guest
   //can be added to a tour with that id (ex: recAKdIULeQWb8XlGVANdate inc)
   const increase = () => {
     toggleGuest(id, "inc");
   }; //end increase
-  //function passes id + dec (decrease)to cart_context so that -1 guest
+  //function passes id + dec (decrease)to cart_context so that 1 guest
   //can be added to a tour with that id (ex: recAKdIULeQWb8XlGVANdate dec)
   const decrease = () => {
     toggleGuest(id, "dec");
   }; //end decrease
 
+  const suvGuests = () => {
+    if (guests >= 13) {
+      return priceFormat(price + twoSuv_fee);
+    } //end if 12+
+    if (guests >= 7) {
+      return priceFormat(price + oneSuv_fee);
+    } //end if 6+
+    return priceFormat(price);
+  };
   //converting both date to date objects
-  const dateObjOne = new Date(date);
-
-  // console.log(dateObjOne);
-
-  // console.log(date);
-  // JSON.stringify(date);
-  // console.log(date);
+  const dateObj = new Date(date);
   return (
     <Wrapper>
       <div className="title">
@@ -39,12 +43,19 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
           {/* END TOUR NAME */}
           {/* TOUR DATE */}
           <h6>
-            <p className="">
+            <h7 className="">
               <span className="bold">Date: </span>
-              {dateObjOne.toDateString()}
-            </p>
+              {dateObj.toDateString()}
+            </h7>
           </h6>
           {/* END TOUR DATE */}
+          <h7>
+            {trans === "SUV" && guests >= 7
+              ? "+1 SUV fee: $199.99"
+              : "SUV fee: $0.00"}
+            {trans === "VAN" ? "VAN fee: $99.99" : null}
+            {trans === "BUS" ? "BUS fee: $199.99" : null}
+          </h7>
           {/* TRANSPORTATION */}
           <p className="transport">
             <span>
@@ -63,7 +74,12 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
       <h5 className="price">{priceFormat(price)}</h5>
       {/* END PRICE */}
       <AmountButtons guest={guests} increase={increase} decrease={decrease} />
-      <h5 className="subtotal">{priceFormat(price)}</h5>
+      <h5 className="subtotal">
+        {suvGuests()}
+        {/* {trans === "SUV" ? priceFormat(price) : null} */}
+        {trans === "VAN" ? priceFormat(price + van_fee) : null}
+        {trans === "BUS" ? priceFormat(price + bus_fee) : null}
+      </h5>
       <button
         type="button"
         className="remove-btn"
@@ -109,6 +125,7 @@ const Wrapper = styled.article`
   h5 {
     font-size: 0.75rem;
     margin-bottom: 0;
+    text-align: left;
   }
   .transport {
     color: var(--clr-main-1);

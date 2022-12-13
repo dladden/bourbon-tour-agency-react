@@ -96,9 +96,9 @@ const AddToCart = ({ tour }) => {
           <span className="bold">
             {" "}
             Transportation Chosen: {mainTrans}{" "}
-            {mainTrans === "SUV" ? "(MAX 6 Guests)" : null}
-            {mainTrans === "VAN" ? "(MAX 15 Guests)" : null}
-            {mainTrans === "BUS" ? "(MAX 20 Guests)" : null}
+            {mainTrans === "SUV" ? "(MAX 6 Guests | +1 fee: $199.99)" : null}
+            {mainTrans === "VAN" ? "(MAX 15 Guests | fee: $99.99)" : null}
+            {mainTrans === "BUS" ? "(MAX 20 Guests | fee: $199.99)" : null}
           </span>
         </p>
       ) : (
