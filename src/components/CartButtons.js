@@ -11,17 +11,31 @@ import { useUserContext } from "../context/user_context";
 const CartButtons = () => {
   const { closeSidebar } = useToursContext();
   const { total_tours } = useCartContext();
+  const { loginWithRedirect, logout, user, tourUser } = useUserContext();
   return (
     <Wrapper className="cart-btn-wrapper">
       <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
         <span className="cart-container">
-          <FaCartArrowDown /> cart
+          <FaCartArrowDown /> Cart
           <span className="cart-value">{total_tours}</span>
         </span>
       </Link>
-      <button type="button" className="auth-btn">
+      {/* LOGIN BUTTON */}
+      <button type="button" className="auth-btn" onClick={loginWithRedirect}>
         <FaUserAlt />
-        login
+        Sign in
+      </button>
+      {/* LOGOUT BUTTON: (note: logout set up as a object with Auth0 properties)*/}
+      <button
+        type="button"
+        className="auth-btn"
+        onClick={() =>
+          logout({
+            returnTo: window.location.origin,
+          })
+        }
+      >
+        Sign out
       </button>
     </Wrapper>
   );
@@ -69,7 +83,7 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);

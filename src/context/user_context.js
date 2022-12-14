@@ -13,9 +13,9 @@ export const UserProvider = ({ children }) => {
   //useEffect envoked every-time isAuthenticated changes
   useEffect(() => {
     //viewing the returns:
-    console.log(`user":${user}`);
-    console.log(`authenticated":${isAuthenticated}`);
-    console.log(`loading..":${isLoading}`);
+    console.log(`user:${user}`);
+    console.log(`authenticated:${isAuthenticated}`);
+    console.log(`loading..:${isLoading}`);
   }, [isAuthenticated]);
 
   return (
