@@ -1,13 +1,31 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
-
-const UserContext = React.createContext()
+import React, { useContext, useEffect, useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react"; //hook from auth0
+//Auth0 can be used simply with the hook but here we are setting up user context and wrapping
+//the application so it is accessible everywhere
+const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
+  //destructuring the properties from auth0 like user: which tells us the user and credentials
+  const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
+    useAuth0();
+
+  const [tourUser, setTourUser] = useState(null);
+
+  //useEffect envoked every-time isAuthenticated changes
+  useEffect(() => {
+    //viewing the returns:
+    console.log(`user":${user}`);
+    console.log(`authenticated":${isAuthenticated}`);
+    console.log(`loading..":${isLoading}`);
+  }, [isAuthenticated]);
+
   return (
-    <UserContext.Provider value='user context'>{children}</UserContext.Provider>
-  )
-}
+    //return value
+    <UserContext.Provider value={{ loginWithRedirect, logout }}>
+      {children}
+    </UserContext.Provider>
+  );
+};
 // make sure use
 export const useUserContext = () => {
-  return useContext(UserContext)
-}
+  return useContext(UserContext);
+};

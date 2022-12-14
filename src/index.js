@@ -18,6 +18,8 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //Application is wrapped into the global context.
 //ToursProvider provides data into the Filter, to ensure this FilterProvider is embedded into the TourProvider
 //CartProvider is wapping the app, which makes it available in the app
+//Auth0 provider is used for the authentication and log as well as user database
+//UserProvider wraps the application so that the user_context can be accessible in the whole app
 ReactDOM.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN} //using Environment Variables
@@ -25,13 +27,15 @@ ReactDOM.render(
     redirectUri={window.location.origin} //redirect
     cacheLocation="localstorage" //storing tokens in local storage for persistence
   >
-    <ToursProvider>
-      <FilterProvider>
-        <CartProvider>
-          <App />
-        </CartProvider>
-      </FilterProvider>
-    </ToursProvider>
+    <UserProvider>
+      <ToursProvider>
+        <FilterProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </FilterProvider>
+      </ToursProvider>
+    </UserProvider>
   </Auth0Provider>,
   document.getElementById("root")
 );
