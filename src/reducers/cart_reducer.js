@@ -94,18 +94,37 @@ const cart_reducer = (state, action) => {
     const tempCart = state.cart; //tempCart used to get the array size of tours in the cart
     // const { bus_fee } = action.payload;
     const oneSuv_fee = 19999;
-    const twoSuv_fee = 39999;
+    const twoSuv_fee = 19999;
     const van_fee = 9999;
     const bus_fee = 19999;
     const { total_tours, total_amount } = state.cart.reduce(
       (total, cartItem) => {
         const { price, trans, guests } = cartItem;
-        console.log(price);
-        console.log(trans);
-        console.log(guests);
-        console.log(bus_fee);
-        total.total_tours = tempCart.length;
-        total.total_amount += price + tempCart.length;
+        // console.log(price);
+        // console.log(trans);
+        // console.log(guests);
+        // console.log(bus_fee);
+        total.total_tours = tempCart.length; //retrieving array size of tours in the cart for cart icon
+
+        if (trans === "VAN") {
+          total.total_amount += price + tempCart.length + van_fee;
+        }
+        if (trans === "BUS") {
+          total.total_amount += price + tempCart.length + bus_fee;
+        }
+        if (trans === "SUV") {
+          if (trans === "SUV" && guests >= 7) {
+            total.total_amount += price + oneSuv_fee + tempCart.length;
+            if (trans === "SUV" && guests >= 13) {
+              total.total_amount += twoSuv_fee;
+            } //end if 12+
+          } //end if 6+
+          else {
+            total.total_amount += price + tempCart.length;
+          }
+        }
+
+        // total.total_amount += price + tempCart.length; //calculating total without the fees
         return total;
       },
       {

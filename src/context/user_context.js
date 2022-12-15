@@ -16,18 +16,17 @@ export const UserProvider = ({ children }) => {
       setTourUser(user); //set tourUser to user from auth0
     } else {
       setTourUser(false); //else set user to false
-    }
-    //end if Authenticated is true
+    } //end if else Authenticated is true
 
     //viewing the returns:
-    // console.log(`user:${user}`);
-    // console.log(`authenticated:${isAuthenticated}`);
-    // console.log(`loading..:${isLoading}`);
+    console.log(`user:${user}`);
+    console.log(`authenticated:${isAuthenticated}`);
+    console.log(`loading..:${isLoading}`);
   }, [isAuthenticated]);
 
   return (
     //return value
-    <UserContext.Provider value={{ loginWithRedirect, logout }}>
+    <UserContext.Provider value={{ loginWithRedirect, logout, tourUser }}>
       {children}
     </UserContext.Provider>
   );
