@@ -8,8 +8,8 @@ const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <Wrapper className="section-center ">
-      <div>
+    <Wrapper>
+      <div className="section-center slider-section">
         <div className="slide-container ">
           <Slide>
             {slides.map((slideImage, index) => (
@@ -27,6 +27,10 @@ const ImageSlider = () => {
 };
 console.log(slides);
 const Wrapper = styled.div`
+  .slider-section {
+    padding-top: 30px;
+  }
+
   .each-slide-effect > div {
     display: flex;
     align-items: center;
