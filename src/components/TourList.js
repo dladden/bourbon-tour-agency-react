@@ -9,7 +9,9 @@ const TourList = () => {
 
   if (tours.length < 1) {
     return (
-      <h5 style={{ textTransform: "none" }}>No Tours Matched The Search...</h5>
+      <h5 className={{ textTransform: "none" }}>
+        No Tours Matched The Search...
+      </h5>
     );
   }
 

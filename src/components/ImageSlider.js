@@ -1,98 +1,49 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import { slides } from "../utils/constants";
 
-const ImageSlider = ({ slides }) => {
+const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const sliderStyle = {
-    height: "100%",
-    position: "relative",
-  };
-
-  const slideStyle = {
-    width: "100%",
-    height: "100%",
-    borderRadius: "10px",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundImage: `url(${slides[currentIndex].url})`,
-  };
-  const leftArrowStyle = {
-    position: "absolute",
-    top: "50%",
-    transform: "translate(0, -50%)", //moving it to the half size of the element
-    left: "32px",
-    fontSize: "45px",
-    color: "#fff",
-    zIndex: 1,
-    cursor: "pointer",
-  };
-  const rightArrowStyle = {
-    position: "absolute",
-    top: "50%",
-    transform: "translate(0, -50%)", //moving it to the half size of the element
-    right: "32px",
-    fontSize: "45px",
-    color: "#fff",
-    zIndex: 1,
-    cursor: "pointer",
-  };
-
-  const dotsContainerStyle = {
-    display: "flex",
-    justifyContent: "center",
-  };
-  const dotsStyle = {
-    margin: "0 3px",
-    cursor: "pointer",
-    fontSize: "20px",
-  };
-
-  const goToPrevious = () => {
-    //checking if we are on the first slide
-    const isFirstSlide = currentIndex === 0;
-    //newIndex slides the length -1 even if its on first slide
-    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-  const goToNext = () => {
-    //checking if we are on the last slide
-    const isLastSlide = currentIndex === slides.length - 1;
-    //newIndex slides return to first slide 0 and if not go to slide +1
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
-
   return (
-    <div style={sliderStyle}>
-      {/* using simple utf 8 symbols for arrows */}
-      <div style={leftArrowStyle} onClick={goToPrevious}>
-        ❰
+    <Wrapper className="section-center ">
+      <div>
+        <div className="slide-container ">
+          <Slide>
+            {slides.map((slideImage, index) => (
+              <div className="each-slide each-slide-effect" key={index}>
+                <div
+                  style={{ backgroundImage: `url(${slideImage.url})` }}
+                ></div>
+              </div>
+            ))}
+          </Slide>
+        </div>
       </div>
-      <div style={rightArrowStyle} onClick={goToNext}>
-        ❱
-      </div>
-      <div style={slideStyle}></div>
-      <div style={dotsContainerStyle}>
-        {slides.map((slide, slideIndex) => {
-          return (
-            <div
-              key={slideIndex}
-              style={dotsStyle}
-              onClick={() => goToSlide(slideIndex)}
-            >
-              ●
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    </Wrapper>
   );
 };
+console.log(slides);
+const Wrapper = styled.div`
+  .each-slide-effect > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+    border-radius: 20px;
+  }
+  .each-slide-effect {
+    padding: 20px;
+    font-size: 20px;
+    // background: #fff;
+    text-align: center;
+  }
 
-const Wrapper = styled.div``;
+  .prevArrow {
+  }
+`;
 
 export default ImageSlider;

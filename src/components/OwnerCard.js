@@ -27,7 +27,11 @@ const OwnerCard = ({ tour }) => {
             </p>
 
             <div className="date-time">
-              <img src={contactQR} alt="" style={{ height: 90, width: 90 }} />
+              <img
+                src={contactQR}
+                alt=""
+                className={{ height: 90, width: 90 }}
+              />
             </div>
             <div className="social-links ">
               {socialLinks.map((link) => {

@@ -65,7 +65,7 @@ const CustomTour = () => {
                 <img
                   src={c_tour}
                   alt="Custom Tour"
-                  style={{ height: 100, width: 100 }}
+                  className={{ height: 100, width: 100 }}
                 />
                 <h3>Custom Tour Form</h3>
                 <p>Sumbit the form and we will contact you within 24 hours.</p>

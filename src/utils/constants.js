@@ -1,4 +1,7 @@
 import React from "react";
+import guestsImg0 from "../assets/guests0.jpeg";
+import guestsImg1 from "../assets/guests1.jpeg";
+import guestsImg2 from "../assets/guests2.jpeg";
 import {
   GiBarrel,
   GiSaloon,
@@ -55,6 +58,14 @@ export const services = [
     text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
   },
 ];
+
+export const slides = [
+  { url: guestsImg0, title: "Our Guests" },
+  { url: guestsImg1, title: "Our Guests" },
+  { url: guestsImg2, title: "Our Guests" },
+];
+console.log(guestsImg0);
+
 //"https://course-api.com/react-store-products";
 export const tours_url = "https://sbt-serverless.netlify.app/api/tours";
 //`https://course-api.com/react-store-single-product?id=`;
