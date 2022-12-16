@@ -22,6 +22,7 @@ import {
 //Below is the main function (aka stateless functional component) of the React
 //As JavaScrip it is main function since it is capitalized and it always must return something like JSX
 //The "return <h4></h4>" is called JSX it is the HTML used in the React.js
+//Note: that checkout is wrapped into a PrivateRout page.
 function App() {
   return (
     <Router>
@@ -43,9 +44,9 @@ function App() {
         <Route exact path="/contact">
           <Contact />
         </Route>
-        <Route exact path="/checkout">
+        <PrivateRoute exact path="/checkout">
           <Checkout />
-        </Route>
+        </PrivateRoute>
         <Route exact path="/tours/:id" children={<SingleTour />} />
         <Route path="*">
           <Error />
