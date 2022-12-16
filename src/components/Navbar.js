@@ -25,6 +25,7 @@ const MyComponent = () => {
 };
 const Nav = () => {
   const { openSidebar } = useToursContext();
+  const { tourUser } = useUserContext();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -43,6 +44,11 @@ const Nav = () => {
               </li>
             );
           })}
+          {tourUser && (
+            <li>
+              <Link to="/checkout">CHECKOUT</Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </div>

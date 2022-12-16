@@ -7,7 +7,8 @@ import { useToursContext } from "../context/tours_context";
 import { useCartContext } from "../context/cart_context";
 import { useUserContext } from "../context/user_context";
 //CartButtons is used for the cart button and it is display blocked in Navbar through class: cart-btn-wrapper before 960px
-//It is also used to display the login link
+//It is also used to display the "Sign in" button which uses conditional rendering to display "Sign out" once user is
+//stored in tourUser when user object is out of tourUser the rendering returns to default
 const CartButtons = () => {
   const { closeSidebar } = useToursContext();
   const { total_tours } = useCartContext();
@@ -24,13 +25,15 @@ const CartButtons = () => {
       {tourUser ? (
         <button
           type="button"
-          className="auth-btn"
-          onClick={() =>
-            logout({
-              returnTo: window.location.origin,
-            })
+          className="auth-btn sign-out"
+          onClick={
+            () =>
+              logout({
+                returnTo: window.location.origin,
+              }) //Auth0 specific command to return back to home after logout
           }
         >
+          <FaUserAlt />
           Sign out
         </button>
       ) : (
@@ -85,12 +88,18 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     cursor: pointer;
     color: var(--clr-grey-1);
     letter-spacing: var(--spacing);
     svg {
-      margin-right: 5px;
+      margin-right: 4px;
+    }
+  }
+  .sign-out {
+    svg {
+      margin-right: 4px;
+      color: var(--clr-green-dark);
     }
   }
 `;

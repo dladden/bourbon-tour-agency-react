@@ -12,6 +12,7 @@ import { useUserContext } from "../context/user_context";
 //Using template literals
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useToursContext();
+  const { tourUser } = useUserContext();
   // console.log(data);
   // const isOpen = false;
   return (
@@ -35,11 +36,13 @@ const Sidebar = () => {
               </li>
             );
           })}
-          <li>
-            <Link to="/checkout" onClick={closeSidebar}>
-              CHECKOUT
-            </Link>
-          </li>
+          {tourUser && (
+            <li>
+              <Link to="/checkout" onClick={closeSidebar}>
+                CHECKOUT
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>

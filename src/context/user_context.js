@@ -10,8 +10,9 @@ export const UserProvider = ({ children }) => {
 
   const [tourUser, setTourUser] = useState(null);
 
-  //useEffect envoked every-time isAuthenticated changes
+  //useEffect invoked every-time isAuthenticated changes used in CartButtons.js
   useEffect(() => {
+    //isAuthenticated initialized as false
     if (isAuthenticated) {
       setTourUser(user); //set tourUser to user from auth0
     } else {
@@ -19,10 +20,10 @@ export const UserProvider = ({ children }) => {
     } //end if else Authenticated is true
 
     //viewing the returns:
-    console.log(`user:${user}`);
-    console.log(`authenticated:${isAuthenticated}`);
-    console.log(`loading..:${isLoading}`);
-  }, [isAuthenticated]);
+    // console.log(`user:${user}`);
+    // console.log(`authenticated:${isAuthenticated}`);
+    // console.log(`loading..:${isLoading}`);
+  }, [isAuthenticated]); //isAuthenticated is reiterates even when true
 
   return (
     //return value

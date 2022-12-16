@@ -25,7 +25,7 @@ ReactDOM.render(
     domain={process.env.REACT_APP_AUTH0_DOMAIN} //using Environment Variables
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID} //using Environment Variables
     redirectUri={window.location.origin} //redirect
-    cacheLocation="localstorage" //storing tokens in local storage for persistence
+    cacheLocation="localstorage" //storing user key value pair "tokens" in local storage for persistence
   >
     <UserProvider>
       <ToursProvider>

@@ -6,7 +6,10 @@ import { priceFormat } from "../utils/helpers";
 import { Link } from "react-router-dom";
 
 const CartTotals = () => {
-  const { total_amount, van_fee, bus_fee } = useCartContext();
+  //values from cart_context.js
+  const { total_amount, tax } = useCartContext();
+  //values from user_context.js for functional rendering (if user not logged in set login)
+  const { tourUser, loginWithRedirect } = useUserContext();
   return (
     <Wrapper>
       <div>
@@ -18,16 +21,22 @@ const CartTotals = () => {
             </span>
           </h5>
           <p>
-            Transportation Fee: <span></span>
+            Tax: <span>{tax}</span>
           </p>
           <hr />
           <h4>
             Order Total : <span>{priceFormat(total_amount)}</span>
           </h4>
         </article>
-        <Link to="/checkout" className="btn">
-          Proceed to Checkout
-        </Link>
+        {tourUser ? (
+          <Link to="/checkout" className="btn">
+            Proceed to Checkout
+          </Link>
+        ) : (
+          <button type="button" className="btn" onClick={loginWithRedirect}>
+            Sign in
+          </button>
+        )}
       </div>
     </Wrapper>
   );
