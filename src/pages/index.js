@@ -8,6 +8,7 @@ import Error from "./ErrorPage";
 import SingleTour from "./SingleTourPage";
 import Tours from "./ToursPage";
 import PrivateRoute from "./PrivateRoute"; //preventing users with no profile going to checkout
+import AuthWrapper from "./AuthWrapper";
 
 //exporting as name export
 export {
@@ -20,4 +21,5 @@ export {
   SingleTour,
   Tours,
   PrivateRoute,
+  AuthWrapper,
 };

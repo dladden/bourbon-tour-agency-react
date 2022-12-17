@@ -14,6 +14,7 @@ import {
   SingleTour,
   Tours,
   PrivateRoute,
+  AuthWrapper,
 } from "./pages";
 
 //Using tag-template-literals with styled-component called button
@@ -25,35 +26,37 @@ import {
 //Note: that checkout is wrapped into a PrivateRout page.
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Sidebar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
-        <Route exact path="/tours">
-          <Tours />
-        </Route>
-        <Route exact path="/contact">
-          <Contact />
-        </Route>
-        <PrivateRoute exact path="/checkout">
-          <Checkout />
-        </PrivateRoute>
-        <Route exact path="/tours/:id" children={<SingleTour />} />
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+    <AuthWrapper>
+      <Router>
+        <Navbar />
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/tours">
+            <Tours />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
+          </Route>
+          <PrivateRoute exact path="/checkout">
+            <Checkout />
+          </PrivateRoute>
+          <Route exact path="/tours/:id" children={<SingleTour />} />
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </AuthWrapper>
   );
 }
 
