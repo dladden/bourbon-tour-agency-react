@@ -1,5 +1,5 @@
 import React from "react"; //adding React functionality into the file from the node_modules
-import ReactDOM from "react-dom"; //import from ReactDOM dependency
+import ReactDOM from "react-dom/client"; //import from ReactDOM dependency (React 18 must import from /client)
 import "./index.css"; //importing the index.css styling
 import App from "./App"; //importing the App.js
 //Importing all the context
@@ -10,8 +10,8 @@ import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 //Auth0 info:
-//
-
+//react router dom setting up the root which is then used in the root.render()
+const root = ReactDOM.createRoot(document.getElementById("root"));
 //This index.js is JavaScript entry point for javas script
 //The index.html is the actual connection to the web and ReactDOM is used to insert the App.js into the the root div of the index.html
 //render method is looking for what to render and where to render it (</> is needed)
@@ -20,7 +20,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 //CartProvider is wapping the app, which makes it available in the app
 //Auth0 provider is used for the authentication and log as well as user database
 //UserProvider wraps the application so that the user_context can be accessible in the whole app
-ReactDOM.render(
+root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN} //using Environment Variables
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID} //using Environment Variables
@@ -36,6 +36,5 @@ ReactDOM.render(
         </FilterProvider>
       </ToursProvider>
     </UserProvider>
-  </Auth0Provider>,
-  document.getElementById("root")
+  </Auth0Provider>
 );

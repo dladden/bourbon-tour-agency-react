@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import facebook from "../assets/facebook_qr.svg";
 import owner from "../assets/owner.jpg";
 import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { single_tour_url as url } from "../utils/constants";

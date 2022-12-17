@@ -1,8 +1,8 @@
 import React from "react";
 import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
-import facebook from "../assets/facebook_qr.svg";
-import instagram from "../assets/instagram_qr.svg";
+import facebook from "../assets/facebook.svg";
+import instagram from "../assets/instagram.svg";
 import { priceFormat } from "../utils/helpers";
 import { Link } from "react-router-dom";
 //List View is responsible for displaying the tours in an inline view
