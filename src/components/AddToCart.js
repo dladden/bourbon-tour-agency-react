@@ -13,7 +13,7 @@ const AddToCart = ({ tour }) => {
   //adding context
   const { addToCart } = useCartContext();
   //destructuring values to handle max guests and transportation to be used
-  const { id: id, guests, trans } = tour;
+  const { id, guests, trans } = tour;
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be first array item
   //in this case it is suv
@@ -23,10 +23,10 @@ const AddToCart = ({ tour }) => {
   //Prop passed to CalendarPicker: date used to store the date and setDate to set the date
   //used with the useState takes the current date Date() and stores it in the date constant
   const [date, setDate] = useState(new Date());
-  console.log(date);
-  const onChange = (date) => {
-    setDate(date);
-  };
+  // console.log(date);
+  // const onChange = (date) => {
+  //   setDate(date);
+  // };
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {

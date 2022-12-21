@@ -3,8 +3,7 @@ import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
-import { priceFormat } from "../utils/helpers";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 //List View is responsible for displaying the tours in an inline view
 const ContactList = ({ tours }) => {
   return (
@@ -33,7 +32,10 @@ const ContactList = ({ tours }) => {
             </div>
 
             <div className="right">
-              <a href="#" className="add-to-calender">
+              <a
+                href="https://business.facebook.com/latest/inbox/all?bpn_id=679586316341571&asset_id=106294562241990&nav_ref=redirect_biz_inbox_comet_profile_plus_ap_page_inbox_message_button"
+                className="add-to-calender"
+              >
                 Contact
               </a>
             </div>
@@ -58,7 +60,10 @@ const ContactList = ({ tours }) => {
             </div>
 
             <div className="right">
-              <a href="#" className="add-to-calender">
+              <a
+                href="https://www.facebook.com/shelbybourbontours"
+                className="add-to-calender"
+              >
                 Contact
               </a>
             </div>
@@ -81,7 +86,10 @@ const ContactList = ({ tours }) => {
             </div>
 
             <div className="right">
-              <a href="#" className="add-to-calender">
+              <a
+                href="https://www.facebook.com/shelbybourbontours"
+                className="add-to-calender"
+              >
                 Contact
               </a>
             </div>
@@ -105,7 +113,10 @@ const ContactList = ({ tours }) => {
             </div>
 
             <div className="right">
-              <a href="#" className="add-to-calender">
+              <a
+                href="https://www.facebook.com/shelbybourbontours"
+                className="add-to-calender"
+              >
                 Contact
               </a>
             </div>

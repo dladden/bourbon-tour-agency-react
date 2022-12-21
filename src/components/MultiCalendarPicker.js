@@ -1,11 +1,8 @@
 // import React from "react";
 import styled from "styled-components";
-import React, { useState } from "react";
+import React from "react";
 import Calendar from "react-calendar"; //importing calendar from the react-calendar dependency
 import "react-calendar/dist/Calendar.css"; //importing styling from node_module
-import { priceFormat } from "../utils/helpers"; //component for formatting the price
-import { AiFillSchedule } from "react-icons/ai";
-import { Link } from "react-router-dom";
 //tour displays the
 const MultiCalendarPicker = ({ date, setDate }) => {
   //constants date used to store the date and setDate to set the date
@@ -22,22 +19,6 @@ const MultiCalendarPicker = ({ date, setDate }) => {
       <Calendar onChange={setDate} value={date} selectRange={true} />
       {console.log(date)}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
-
-      {/* {date.length > 0 ? (
-        <p className="text-center">
-          <span className="bold">Start:</span> {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className="bold">End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className="text-center">
-          <span className="bold">Current Date:</span> {date.toDateString()}
-        </p>
-      )} */}
-      {/* {console.log(date)} */}
-      {/* example console output: 
-      [Fri Nov 25 2022 00:00:00 GMT-0500 (Eastern Standard Time), 
-      Sat Nov 26 2022 23:59:59 GMT-0500 (Eastern Standard Time)] */}
     </Wrapper>
   );
 };

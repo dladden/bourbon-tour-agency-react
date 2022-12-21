@@ -1,9 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { CustomTourLink } from "../components";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import { services } from "../utils/constants";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Services = () => {
   return (

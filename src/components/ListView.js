@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  GiBarrel,
-  GiSaloon,
-  GiSteamLocomotive,
-  GiGlassShot,
-  GiBeerBottle,
-} from "react-icons/gi";
+import { GiBarrel, GiSaloon, GiGlassShot } from "react-icons/gi";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers";
 import { Link } from "react-router-dom";
@@ -25,6 +19,8 @@ const ListView = ({ tours }) => {
               return <GiGlassShot size={17} />;
             case "event":
               return <GiGlassShot size={17} />;
+            default:
+              return <GiBarrel size={17} />;
           }
         };
         console.log(id);

@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import bus from "../assets/bus.svg";
-import suv from "../assets/suv.svg";
-import van from "../assets/van.svg";
+import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { getUniqueValues, priceFormat } from "../utils/helpers";
-import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
   //importing the filter context
@@ -32,7 +28,7 @@ const Filters = () => {
   const distilleries = getUniqueValues(all_tours, "dist");
   const transportation = getUniqueValues(all_tours, "trans");
   // console.log(transportation, distilleries, categories);
-  const [mainTrans, setTrans] = useState(transportation[0]);
+  // const [mainTrans, setTrans] = useState(transportation[0]);
   return (
     <Wrapper>
       <div className="content">

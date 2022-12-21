@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.jpg";
 import socialLinks from "../utils/social_links";
-import { useCartContext } from "../context/cart_context";
-import AmountButtons from "./AmountButtons";
+// import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
 const OwnerCard = ({ tour }) => {
   // const { tour_url } = tour;

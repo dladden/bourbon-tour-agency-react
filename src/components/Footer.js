@@ -15,19 +15,19 @@ const Footer = () => {
             <h2 className="ft-title">About</h2>
             <ul>
               <li>
-                <a href="#">About</a>
+                <a href="/about">About</a>
               </li>
               <li>
-                <a href="#">Our Services</a>
+                <a href="/about">Our Services</a>
               </li>
               <li>
-                <a href="#">Pricing</a>
+                <a href="/about">Pricing</a>
               </li>
               <li>
-                <a href="#">Customers</a>
+                <a href="/about">Customers</a>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <a href="/about">Careers</a>
               </li>
             </ul>
           </div>
@@ -35,16 +35,16 @@ const Footer = () => {
             <h2 className="ft-title">Resources</h2>
             <ul>
               <li>
-                <a href="#">Distilleries</a>
+                <a href="/about">Distilleries</a>
               </li>
               <li>
-                <a href="#">Other Tours</a>
+                <a href="/about">Other Tours</a>
               </li>
               <li>
-                <a href="#">Events</a>
+                <a href="/about">Events</a>
               </li>
               <li>
-                <a href="#">Tours</a>
+                <a href="/about">Tours</a>
               </li>
             </ul>
           </div>
@@ -52,13 +52,13 @@ const Footer = () => {
             <h2 className="ft-title">Contact</h2>
             <ul>
               <li>
-                <a href="#">Contact Us</a>
+                <a href="/about">Contact Us</a>
               </li>
               <li>
-                <a href="#">Sales</a>
+                <a href="/about">Sales</a>
               </li>
               <li>
-                <a href="#">Advertise</a>
+                <a href="/about">Advertise</a>
               </li>
             </ul>
           </div>
@@ -88,10 +88,10 @@ const Footer = () => {
         <section className="ft-legal">
           <ul className="ft-legal-list">
             <li>
-              <a href="#">Terms &amp; Conditions</a>
+              <a href="/about">Terms &amp; Conditions</a>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <a href="/about">Privacy Policy</a>
             </li>
             <li>
               &copy; {new Date().getFullYear()} Copyright Shelby Bourbon Tours

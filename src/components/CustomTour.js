@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Multiselect from "multiselect-react-dropdown";
-import { Link } from "react-router-dom";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
 import { MultiCalendarPicker } from "../components";
-import { useCartContext } from "../context/cart_context";
-import AmountButtons from "./AmountButtons";
+// import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
   // const { id, trans } = tour;

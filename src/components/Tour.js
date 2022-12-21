@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  GiBarrel,
-  GiSaloon,
-  GiSteamLocomotive,
-  GiGlassShot,
-  GiBeerBottle,
-} from "react-icons/gi";
+import { GiBarrel, GiSaloon, GiGlassShot } from "react-icons/gi";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers"; //component for formatting the price
 import { AiFillSchedule } from "react-icons/ai";
@@ -22,6 +16,8 @@ const Tour = ({ url, category, name, price, id }) => {
         return <GiGlassShot size={17} />;
       case "event":
         return <GiGlassShot size={17} />;
+      default:
+        return <GiBarrel size={17} />;
     }
   };
 

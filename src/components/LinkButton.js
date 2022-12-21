@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import bus from "../assets/bus.svg";
-import suv from "../assets/suv.svg";
-import van from "../assets/van.svg";
-import { useCartContext } from "../context/cart_context";
-import AmountButtons from "./AmountButtons";
+
 //Component responsible for transportation type and count of guests
 const LinkButton = ({ tour }) => {
   const { tour_url } = tour;
