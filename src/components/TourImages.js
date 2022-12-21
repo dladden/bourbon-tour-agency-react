@@ -10,7 +10,7 @@ const TourImages = ({ images = [{ url: "" }] }) => {
   // console.log(images); //initially undefined item which contains the url
   return (
     <Wrapper>
-      <img src={main.url} alt="main image" className="main" />
+      <img src={main.url} alt="main" className="main" />
       <div className="gallery">
         {images.map((image, index) => {
           return (
@@ -73,6 +73,7 @@ const Wrapper = styled.section`
       }
     }
   }
+  //844px
 `;
 
 export default TourImages;

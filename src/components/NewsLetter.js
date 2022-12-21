@@ -88,7 +88,7 @@ const Wrapper = styled.section`
     }
   }
   @media (min-width: 1280px) {
-    padding: 15rem 0;
+    padding: 4rem 0;
   }
 `;
 

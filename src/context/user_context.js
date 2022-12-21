@@ -17,13 +17,13 @@ export const UserProvider = ({ children }) => {
     // } else {
     //   setTourUser(false); //else set user to false
     // } //end if else Authenticated is true
-    setTourUser(user); //every time user changes setting user to the setTourUser
+    setTourUser(user); //set user to setTourUser
 
     //viewing the returns:
     // console.log(`user:${user}`);
     // console.log(`authenticated:${isAuthenticated}`);
     // console.log(`loading..:${isLoading}`);
-  }, [user]); //isAuthenticated is reiterates even when true
+  }, [user]); //every time user changes setting user to the setTourUser
 
   return (
     //return value

@@ -1,9 +1,8 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-// will remove later
-import { useUserContext } from "../context/user_context";
-//importing useAuth Hook: getting the user from the Auth0 just like from the context
+// import { useUserContext } from "../context/user_context";
 import { useAuth0 } from "@auth0/auth0-react";
+//Above: importing useAuth Hook getting the user from the Auth0 just like from the context
 
 //Private Rout wraps the Checkout page this is done for private checkout and to prevent
 //user form accessing this page through the path

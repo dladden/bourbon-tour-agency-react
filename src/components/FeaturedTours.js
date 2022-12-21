@@ -33,6 +33,9 @@ const FeaturedTours = () => {
           return <Tour key={tour.id} {...tour} />; //spreading the tours using the spread operator
         })}
       </div>
+      <Link to="/tours" className="btn">
+        Tours
+      </Link>
     </Wrapper>
   );
 };

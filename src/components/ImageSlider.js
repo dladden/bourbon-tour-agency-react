@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     border-radius: 20px;
   }
   .each-slide-effect {
-    padding: 20px;
+    padding: 0px;
     font-size: 20px;
     // background: #fff;
     text-align: center;

@@ -12,7 +12,6 @@ import {
   LinkButton,
   Stars,
   PageHero,
-  CalendarPicker,
 } from "../components";
 import styled from "styled-components";
 import "react-calendar/dist/Calendar.css";
@@ -32,8 +31,11 @@ const SingleTourPage = () => {
     fetchSingleTour,
   } = useToursContext();
   //when the component loads invoke useEffect
+  //React Warning: React Hook useEffect has a missing dependency. to disable the
+  //warning "eslint-disable-next-line" is used
   useEffect(() => {
     fetchSingleTour(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
   // console.log(tour);
 
@@ -45,6 +47,7 @@ const SingleTourPage = () => {
         history.push("/");
       }, 3000); //3000 miliseconds
     }
+    //eslint-disable-next-line
   }, [error]);
   //setting up the error view and loading
   if (loading) {
@@ -61,9 +64,7 @@ const SingleTourPage = () => {
     price,
     images,
     desc,
-    trans,
     dist,
-    guests,
     stars,
     rev_url,
   } = tour;
@@ -79,6 +80,9 @@ const SingleTourPage = () => {
         return <GiGlassShot />;
       case "event":
         return <GiGlassShot />;
+      case "":
+        return <GiBarrel />;
+      default:
     }
   };
   // console.log(stars);
@@ -122,7 +126,7 @@ const SingleTourPage = () => {
             </p>
 
             {/* using conditional rendering  and passing the all props to AddToCart*/}
-            {available == true ? (
+            {available === true ? (
               <AddToCart tour={tour} />
             ) : (
               <LinkButton tour={tour} />
