@@ -1,9 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import owner from "../assets/owner.jpg";
-import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
-import { single_tour_url as url } from "../utils/constants";
-import { useToursContext } from "../context/tours_context";
+// import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 
 import { PageHero, OwnerCard, ContactList, CustomTour } from "../components";
 
