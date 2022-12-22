@@ -24,7 +24,7 @@ const getLocalStorage = () => {
   }
 };
 
-//initialState:
+//initialState: global variables
 //cart - will be a local storage array which is initialized empty
 //total_tours - will be total tours added to cart (usually would be one)
 //total_amount - is the subtotals added together

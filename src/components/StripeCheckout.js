@@ -18,6 +18,20 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 //CheckoutForm component returns all stripe
 const CheckoutForm = () => {
+  //globals variables
+  const { cart, total_amount, clearCart } = useCartContext();
+  const { tourUser } = useUserContext();
+  const history = useHistory();
+
+  //STRIPE state variables: If the payment is successful
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
+  const stripe = useStripe();
+  const elements = useElements();
+
   const cardStyle = {
     style: {
       base: {
