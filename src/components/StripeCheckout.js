@@ -22,9 +22,9 @@ const CheckoutForm = () => {
   const { cart, total_amount, clearCart } = useCartContext();
   const { tourUser } = useUserContext();
   const history = useHistory();
-
+  console.log(total_amount);
   //STRIPE state variables: If the payment is successful
-  const [succeeded, setSucceeded] = useState(false);
+  const [succeeded, setSucceeded] = useState(true);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
@@ -74,12 +74,27 @@ const CheckoutForm = () => {
           options={cardStyle}
           onChange={handleChange}
         />
-        {/* submit button is disabled if the payment is processing or disabled or succeeded */}
+        {/* Submit Button is disabled if the payment is processing or disabled or succeeded */}
         <button disabled={processing || disabled || succeeded} id="submit">
           <span id="button-text">
             {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
           </span>
         </button>
+        {/* Error Handling */}
+        {error && (
+          <div className="card-error" role="alert">
+            {error}
+          </div>
+        )}
+        {/* Success Message */}
+        <p className={succeeded ? "result-message" : "result-message hidden"}>
+          {" "}
+          Payment Successful Stripe link:{" "}
+          <a href={`https://dashboard.stripe.com/test/payments`}>
+            Stripe Dashboard
+          </a>
+          Refresh the Page
+        </p>
       </form>
     </div>
   );
@@ -127,6 +142,27 @@ const Wrapper = styled.section`
     width: 100%;
     background: white;
     box-sizing: border-box;
+  }
+
+  #card-error {
+    color: rgb(105, 115, 134);
+    font-size: 16px;
+    line-height: 20px;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .result-message {
+    line-height: 22px;
+    font-size: 16px;
+  }
+  .result-message a {
+    color: rgb(89, 111, 214);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .hidden {
+    display: none;
   }
 
   /* Buttons and links */
