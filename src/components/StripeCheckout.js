@@ -32,6 +32,21 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
+  //createPaymentIntent
+  const createPaymentIntent = async () => {
+    console.log("stripe check");
+  };
+  //useEffect that only evokes when component mounts bc of empty dependency array
+  useEffect(() => {
+    createPaymentIntent();
+    // eslint-disable-next-line
+  }, []);
+
+  //handling change
+  const handleChange = async (event) => {};
+  //handling submit
+  const handleSubmit = async (e) => {};
+
   const cardStyle = {
     style: {
       base: {
@@ -50,7 +65,24 @@ const CheckoutForm = () => {
     },
   };
 
-  return <h4>hello from Stripe Checkout </h4>;
+  return (
+    <div>
+      {/*  */}
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <CardElement
+          id="card-element"
+          options={cardStyle}
+          onChange={handleChange}
+        />
+        {/* submit button is disabled if the payment is processing or disabled or succeeded */}
+        <button disabled={processing || disabled || succeeded} id="submit">
+          <span id="button-text">
+            {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
+          </span>
+        </button>
+      </form>
+    </div>
+  );
 }; //end CheckoutForm
 
 //The rendering is happening here: element with api wraps the checkout form
@@ -86,6 +118,15 @@ const Wrapper = styled.section`
 
   #payment-element {
     margin-bottom: 24px;
+  }
+
+  #card-element {
+    border-radius: 4px 4px 0 0;
+    padding: 12px;
+    max-height: 44px;
+    width: 100%;
+    background: white;
+    box-sizing: border-box;
   }
 
   /* Buttons and links */
