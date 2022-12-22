@@ -1,19 +1,40 @@
 import React from "react";
 import styled from "styled-components";
-import { PageHero, StripeCheckout } from "../components";
-// extra imports
+import { PageHero, StripeCheckout, CustomTourLink } from "../components";
 import { useCartContext } from "../context/cart_context";
 import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
+  //cart used to check if the carts length if empty display div with
+  //if it has items display the StripeCheckout
+  const { cart } = useCartContext();
   return (
     <main>
       <PageHero title="Checkout" />
       <Wrapper className="page">
-        <h1>Checkout Here</h1>
+        {cart.length < 1 ? (
+          <div className="empty">
+            <h2>Nothing to Book. Add Tours to Your Cart Here: </h2>
+            <Link to="/tours" className="btn">
+              Find A Tour
+            </Link>
+            <h5>Or</h5>
+            <div className="section-center">
+              <CustomTourLink />
+            </div>
+          </div>
+        ) : (
+          <StripeCheckout></StripeCheckout>
+        )}
       </Wrapper>
     </main>
   );
 };
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  .empty {
+    text-align: center;
+  }
+`;
 export default CheckoutPage;
