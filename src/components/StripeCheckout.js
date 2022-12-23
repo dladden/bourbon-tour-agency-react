@@ -40,7 +40,7 @@ const CheckoutForm = () => {
       //post request:
       const data = await axios.post(
         "/.netlify/functions/create-payment-intent",
-        //data of the post request:
+        //data of the post request as a string:
         JSON.stringify({ cart, total_amount })
       );
     } catch (error) {}
