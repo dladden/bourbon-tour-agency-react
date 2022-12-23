@@ -18,7 +18,7 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 //CheckoutForm component returns all stripe
 const CheckoutForm = () => {
-  //globals variables
+  //globals variables used in createPaymentIntent
   const { cart, total_amount, clearCart } = useCartContext();
   const { tourUser } = useUserContext();
   const history = useHistory();
@@ -32,15 +32,25 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  //createPaymentIntent
+  //createPaymentIntent uses axios to post the data when the component mounts
+  //This get request is done with a try and catch to catch errors its equvilent
+  //to an https request from a server (in this case serverless netlify func.)
   const createPaymentIntent = async () => {
-    console.log("stripe check");
+    try {
+      //post request:
+      const data = await axios.post(
+        "/.netlify/functions/create-payment-intent",
+        //data of the post request:
+        JSON.stringify({ cart, total_amount })
+      );
+    } catch (error) {}
   };
   //useEffect that only evokes when component mounts bc of empty dependency array
   useEffect(() => {
     createPaymentIntent();
     // eslint-disable-next-line
   }, []);
+  console.log(cart);
 
   //handling change
   const handleChange = async (event) => {};
