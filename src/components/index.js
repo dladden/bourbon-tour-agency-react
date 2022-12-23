@@ -4,6 +4,7 @@ import MultiCalendarPicker from "./MultiCalendarPicker";
 import Navbar from "./Navbar";
 import TourLogo from "./TourLogo";
 import CartButtons from "./CartButtons";
+import Cancelation from "./Cancelation";
 import Footer from "./Footer";
 import LinkButton from "./LinkButton";
 import Sidebar from "./Sidebar";
@@ -15,6 +16,7 @@ import OwnerCard from "./OwnerCard";
 import ContactList from "./ContactList";
 import CustomTour from "./CustomTour";
 import CustomTourLink from "./CustomTourLink";
+import DistilleriesList from "./DistilleriesList";
 import Loading from "./Loading";
 import Error from "./Error";
 import TourImages from "./TourImages";
@@ -34,6 +36,7 @@ export {
   Navbar,
   TourLogo,
   CartButtons,
+  Cancelation,
   Footer,
   LinkButton,
   Sidebar,
@@ -45,6 +48,7 @@ export {
   ContactList,
   CustomTour,
   CustomTourLink,
+  DistilleriesList,
   Loading,
   Error,
   TourImages,

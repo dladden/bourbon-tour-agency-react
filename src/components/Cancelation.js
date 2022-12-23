@@ -1,27 +1,27 @@
 import React from "react";
-import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
+import { MdFreeCancellation, MdCancelPresentation } from "react-icons/md";
 import styled from "styled-components";
-import facebook from "../assets/facebook.svg";
-import instagram from "../assets/instagram.svg";
+// import facebook from "../assets/facebook.svg";
+// import instagram from "../assets/instagram.svg";
 // import { Link } from "react-router-dom";
 //List View is responsible for displaying the tours in an inline view
-const ContactList = () => {
+const Cancelation = () => {
   return (
     <Wrapper>
       <div>
         <div className="contact">
-          <h2 className="heading">Contact Us</h2>
+          <h2 className="heading">Quick & Easy Cancelation</h2>
 
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-1">
-                <img src={facebook} alt="" style={{ height: 60, width: 60 }} />
+                <MdFreeCancellation size={80} />
               </div>
 
               <div className="event-info">
                 <h3 className="event-name">
                   {" "}
-                  <FaFacebookMessenger /> Messenger
+                  <MdCancelPresentation /> Flexible Cancelation
                 </h3>
 
                 <p className="event-detail">
@@ -32,93 +32,12 @@ const ContactList = () => {
             </div>
 
             <div className="right">
-              <a
+              {/* <a
                 href="https://business.facebook.com/latest/inbox/all?bpn_id=679586316341571&asset_id=106294562241990&nav_ref=redirect_biz_inbox_comet_profile_plus_ap_page_inbox_message_button"
                 className="add-to-calender"
               >
                 Contact
-              </a>
-            </div>
-          </div>
-
-          <div className="event-card">
-            <div className="left">
-              <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
-              </div>
-
-              <div className="event-info">
-                <h3 className="event-name">
-                  <FaInstagram /> Instagram
-                </h3>
-
-                <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia.
-                </p>
-              </div>
-            </div>
-
-            <div className="right">
-              <a
-                href="https://www.facebook.com/shelbybourbontours"
-                className="add-to-calender"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-
-          <div className="event-card">
-            <div className="left">
-              <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
-              </div>
-
-              <div className="event-info">
-                <h3 className="event-name">WhatsApp</h3>
-
-                <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia.
-                </p>
-              </div>
-            </div>
-
-            <div className="right">
-              <a
-                href="https://www.facebook.com/shelbybourbontours"
-                className="add-to-calender"
-              >
-                Contact
-              </a>
-            </div>
-          </div>
-
-          <div className="event-card">
-            <div className="left">
-              <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
-              </div>
-
-              <div className="event-info">
-                <h3 className="event-name">Email</h3>
-
-                <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia nam atque voluptatem ad
-                  necessitatibus consequuntur, nostrum repellendus.
-                </p>
-              </div>
-            </div>
-
-            <div className="right">
-              <a
-                href="https://www.facebook.com/shelbybourbontours"
-                className="add-to-calender"
-              >
-                Contact
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -197,7 +116,7 @@ const Wrapper = styled.section`
   }
 
   .color-1 {
-    background: #00b2ff;
+    background: #fff;
   }
   .color-2 {
     background-image: linear-gradient(
@@ -257,4 +176,4 @@ const Wrapper = styled.section`
   }
 `;
 
-export default ContactList;
+export default Cancelation;

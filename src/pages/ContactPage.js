@@ -2,7 +2,13 @@ import React from "react";
 import styled from "styled-components";
 // import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 
-import { PageHero, OwnerCard, ContactList, CustomTour } from "../components";
+import {
+  PageHero,
+  OwnerCard,
+  ContactList,
+  Cancelation,
+  CustomTour,
+} from "../components";
 
 const ContactPage = () => {
   return (
@@ -11,6 +17,7 @@ const ContactPage = () => {
       <Wrapper>
         <OwnerCard />
         <ContactList />
+        <Cancelation />
         <CustomTour />
       </Wrapper>
     </main>

@@ -15,7 +15,7 @@ const OwnerCard = ({ tour }) => {
         <div className="team">
           <div className="member">
             <img src={owner} alt="member_image" />
-            <h3>Steve Ladden</h3>
+            <h3>Steven Ladden</h3>
             <span>shelbybourbontours@gmail.com</span>
             <hr />
             <p>
