@@ -24,10 +24,11 @@ const CheckoutForm = () => {
   const history = useHistory();
   console.log(total_amount);
   //STRIPE state variables: If the payment is successful
-  const [succeeded, setSucceeded] = useState(true);
+  const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
+  //clientSecret is Stripe callback API token for user
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -38,19 +39,25 @@ const CheckoutForm = () => {
   const createPaymentIntent = async () => {
     try {
       //post request:
-      const data = await axios.post(
+      const { data } = await axios.post(
         "/.netlify/functions/create-payment-intent",
         //data of the post request as a string:
         JSON.stringify({ cart, total_amount })
       );
-    } catch (error) {}
+      //Secret pulled as soon as the user gets to checkout
+      setClientSecret(data.clientSecret); //pulling client secret from response
+      // console.log(data);
+      console.log(data.clientSecret);
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   //useEffect that only evokes when component mounts bc of empty dependency array
   useEffect(() => {
     createPaymentIntent();
     // eslint-disable-next-line
   }, []);
-  console.log(cart);
+  // console.log(cart);
 
   //handling change
   const handleChange = async (event) => {};
