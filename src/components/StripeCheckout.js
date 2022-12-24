@@ -17,15 +17,18 @@ import { useHistory } from "react-router-dom";
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 //CheckoutForm component returns all stripe
+//this Component makes a post call to Strapi using netlify funcs in create-payment-intent.js
+//, then it gets a callback with clientSecret which is then used to
 const CheckoutForm = () => {
   //globals variables used in createPaymentIntent
   const { cart, total_amount, clearCart } = useCartContext();
   const { tourUser } = useUserContext();
   const history = useHistory();
-  console.log(total_amount);
+  // console.log(total_amount);
   //STRIPE state variables: If the payment is successful
-  const [succeeded, setSucceeded] = useState(false);
+  const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
   const [error, setError] = useState(null);
+  //variables for processing states
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   //clientSecret is Stripe callback API token for user
@@ -44,25 +47,58 @@ const CheckoutForm = () => {
         //data of the post request as a string:
         JSON.stringify({ cart, total_amount })
       );
-      //Secret pulled as soon as the user gets to checkout
+      //unique Secret pulled every time as soon as the user gets to checkout
       setClientSecret(data.clientSecret); //pulling client secret from response
       // console.log(data);
-      console.log(data.clientSecret);
+      // console.log(data.clientSecret);
     } catch (error) {
-      console.log(error.response);
+      // console.log(error.response);
     }
   };
-  //useEffect that only evokes when component mounts bc of empty dependency array
+  //useEffect that only invoked when component mounts bc of empty dependency array
   useEffect(() => {
-    createPaymentIntent();
+    fetch(createPaymentIntent(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart }),
+    });
     // eslint-disable-next-line
   }, []);
   // console.log(cart);
 
-  //handling change
-  const handleChange = async (event) => {};
-  //handling submit
-  const handleSubmit = async (e) => {};
+  //handling change provided by Stripe API
+  const handleChange = async (event) => {
+    //data requested
+    setDisabled(event.empty);
+    setError(event.error ? event.error.message : "");
+  }; //end handleChange
+
+  //handling submit e = event Stripe docs
+  const handleSubmit = async (e) => {
+    e.preventDefault(); //stop the form from being submitted if there's an error
+    setProcessing(true); //on submit the processing beings
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
+    });
+    //handling the error if processing fails
+    if (payload.error) {
+      setError(`Payment Failed: ${payload.error.message}`);
+      setProcessing(false);
+    }
+    //else the processing was successful
+    else {
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
+      //Taking user back to home page, clearing cart
+      setTimeout(() => {
+        clearCart();
+        history.push("/");
+      }, 15000);
+    }
+  }; //end handleSubmit
 
   const cardStyle = {
     style: {
@@ -84,7 +120,21 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      {/*  */}
+      {succeeded ? (
+        <article>
+          <h4>Thank You</h4>
+          <h4>Your Payment Was Successful</h4>
+          <h4>Redirect to home Page</h4>
+        </article>
+      ) : (
+        <article>
+          Hello, {tourUser && tourUser.name}
+          {console.log(tourUser.email)}
+          <p>Your Total is {priceFormat(total_amount)}</p>
+          <p>Test Card Number: 4242424242424242</p>
+        </article>
+      )}
+      {/* CardElement is embedded directly from Stripe */}
       <form id="payment-form" onSubmit={handleSubmit}>
         <CardElement
           id="card-element"

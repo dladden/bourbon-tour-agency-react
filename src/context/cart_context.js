@@ -70,7 +70,7 @@ export const CartProvider = ({ children }) => {
   };
   //TODO: adding the amount of guests in the cart
   const toggleGuest = (id, amount) => {
-    console.log(id, amount);
+    // console.log(id, amount);
     dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, amount } });
   };
   //TODO: functionality to clear the cart

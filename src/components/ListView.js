@@ -23,7 +23,7 @@ const ListView = ({ tours }) => {
               return <GiBarrel size={17} />;
           }
         };
-        console.log(id);
+        // console.log(id);
         return (
           <article key={id}>
             <img src={url} alt={name} />

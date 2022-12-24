@@ -64,7 +64,7 @@ const AddToCart = ({ tour }) => {
         </p>
       )}
 
-      {console.log(date)}
+      {/* {console.log(date)} */}
       <hr />
       <div className="trans">
         <span>Transportation: </span>

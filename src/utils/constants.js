@@ -64,7 +64,7 @@ export const slides = [
   { url: guestsImg1, title: "Our Guests" },
   { url: guestsImg2, title: "Our Guests" },
 ];
-console.log(guestsImg0);
+// console.log(guestsImg0);
 
 //"https://course-api.com/react-store-products";
 export const tours_url = "https://sbt-serverless.netlify.app/api/tours";

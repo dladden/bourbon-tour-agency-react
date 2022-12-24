@@ -6,7 +6,6 @@ const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
   //destructuring the properties from auth0 like user: which tells us the user and credentials
   const { loginWithRedirect, logout, user } = useAuth0();
-
   const [tourUser, setTourUser] = useState(null);
 
   //useEffect invoked every-time isAuthenticated changes used in CartButtons.js
@@ -24,7 +23,7 @@ export const UserProvider = ({ children }) => {
     // console.log(`authenticated:${isAuthenticated}`);
     // console.log(`loading..:${isLoading}`);
   }, [user]); //every time user changes setting user to the setTourUser
-
+  console.log(user);
   return (
     //return value
     <UserContext.Provider value={{ loginWithRedirect, logout, tourUser }}>

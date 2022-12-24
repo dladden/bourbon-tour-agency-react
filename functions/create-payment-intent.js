@@ -25,6 +25,7 @@ exports.handler = async function (event, context) {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
         currency: "usd",
+        name: cart.name,
         automatic_payment_methods: {
           enabled: true,
         },
@@ -36,7 +37,7 @@ exports.handler = async function (event, context) {
     } catch (error) {
       return {
         statusCode: 500,
-        body: JSON.stringify({ msg: error.message }),
+        body: JSON.stringify({ error: error.message }),
       };
     }
   } //END if: event.body
