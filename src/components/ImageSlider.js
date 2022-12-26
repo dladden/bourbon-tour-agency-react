@@ -15,7 +15,12 @@ const ImageSlider = () => {
             {slides.map((slideImage, index) => (
               <div className="each-slide each-slide-effect" key={index}>
                 <div
-                  style={{ backgroundImage: `url(${slideImage.url})` }}
+                  style={{
+                    backgroundImage: `url(${slideImage.url})`,
+                    backgroundPosition: "center",
+                    height: "390px",
+                    borderRadius: "20px",
+                  }}
                 ></div>
               </div>
             ))}
@@ -28,7 +33,10 @@ const ImageSlider = () => {
 // console.log(slides);
 const Wrapper = styled.div`
   .slider-section {
-    padding-top: 30px;
+    padding-top: 100px;
+    display: block;
+    overflow: hidden;
+    justify-content: center;
   }
 
   .each-slide-effect > div {
@@ -38,12 +46,20 @@ const Wrapper = styled.div`
     background-size: cover;
     height: 350px;
     border-radius: 20px;
+    overflow: hidden;
+    margin: auto;
+    max-width: 100%;
   }
+
   .each-slide-effect {
     padding: 0px;
-    font-size: 20px;
+    font-size: 1.25rem;
     // background: #fff;
     text-align: center;
+  }
+  @media (min-width: 992px) {
+    .slider-section {
+    }
   }
 
   .prevArrow {

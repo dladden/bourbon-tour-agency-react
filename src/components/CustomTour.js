@@ -335,7 +335,8 @@ const Wrapper = styled.section`
     display: inline-block;
     width: 100%;
     min-height: 40px;
-    min-width: 350px;
+    min-width: 320px;
+    max-width: 400px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 16px;
@@ -392,7 +393,7 @@ const Wrapper = styled.section`
     text-align: left;
     border: 0;
     outline: 0;
-    border-radius: 8px;
+    border-radius: 0.6rem;
     background-color: #fff;
     font-size: 15px;
     font-weight: 300;

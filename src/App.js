@@ -5,6 +5,7 @@ import "react-calendar/dist/Calendar.css";
 //Importing the pages from index.js this is done so that it can be called in the app when needed
 import {
   Home,
+  ConfirmationPage,
   About,
   Cart,
   Checkout,
@@ -45,6 +46,9 @@ function App() {
           <Route exact path="/contact">
             <Contact />
           </Route>
+          <PrivateRoute exact path="/confirmation">
+            <ConfirmationPage />
+          </PrivateRoute>
           <PrivateRoute exact path="/checkout">
             <Checkout />
           </PrivateRoute>

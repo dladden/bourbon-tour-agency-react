@@ -19,7 +19,9 @@ const CartButtons = () => {
       <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
         <span className="cart-container">
           <FaCartArrowDown /> Cart
-          <span className="cart-value">{total_tours}</span>
+          {total_tours > 0 ? (
+            <span className="cart-value">{total_tours}</span>
+          ) : null}
         </span>
       </Link>
       {/* Conditional: LOGIN BUTTON / LOGOUT BUTTON (note: logout set up as a object with Auth0 properties)*/}
@@ -34,7 +36,7 @@ const CartButtons = () => {
             }); //Auth0 specific command to return back to home after logout
           }}
         >
-          <FaUserAlt />
+          <img src={tourUser.picture} />
           Sign out
         </button>
       ) : (
@@ -43,6 +45,7 @@ const CartButtons = () => {
           Sign in
         </button>
       )}
+      {/* {console.log(tourUser.picture)} */}
     </Wrapper>
   );
 };
@@ -54,7 +57,7 @@ const Wrapper = styled.div`
   width: 225px;
   .cart-btn {
     color: var(--clr-grey-1);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: var(--spacing);
     color: var(--clr-grey-1);
     display: flex;
@@ -89,17 +92,19 @@ const Wrapper = styled.div`
     align-items: center;
     background: transparent;
     border-color: transparent;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
     color: var(--clr-grey-1);
-    letter-spacing: var(--spacing);
+    // letter-spacing: var(--spacing);
     svg {
       margin-right: 4px;
     }
   }
   .sign-out {
-    svg {
-      margin-right: 4px;
+    img {
+      margin-right: 5px;
+      height: 26px;
+      border-radius: 50%;
       color: var(--clr-green-dark);
     }
   }
