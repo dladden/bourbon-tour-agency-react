@@ -25,7 +25,7 @@ exports.handler = async function (event, context) {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
         currency: "usd",
-        name: cart.name,
+        // name: cart.name,
         automatic_payment_methods: {
           enabled: true,
         },

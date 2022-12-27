@@ -35,6 +35,8 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  //
+  const [purchaseDate, setPurchaseDate] = useState("");
 
   //createPaymentIntent uses axios to post the data when the component mounts
   //This get request is done with a try and catch to catch errors its equvilent
@@ -64,7 +66,17 @@ const CheckoutForm = () => {
     });
     // eslint-disable-next-line
   }, []);
-  // console.log(cart);
+  console.log(cart);
+
+  // cart.map((item) => {
+  //   setPurchaseDate(item.date);
+  // });
+
+  const tourCart = () => {
+    cart.map((item) => {
+      setPurchaseDate(item.date);
+    });
+  };
 
   //handling change provided by Stripe API
   const handleChange = async (event) => {
@@ -77,9 +89,14 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //stop the form from being submitted if there's an error
     setProcessing(true); //on submit the processing beings
+    tourCart();
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
+        billing_details: {
+          name: e.target.name.value,
+          email: e.target.email.value,
+        },
       },
     });
     //handling the error if processing fails
@@ -129,13 +146,29 @@ const CheckoutForm = () => {
       ) : (
         <article>
           Hello, {tourUser && tourUser.name}
-          {console.log(tourUser.email)}
+          {/* {console.log(tourUser.email)} */}
           <p>Your Total is {priceFormat(total_amount)}</p>
           <p>Test Card Number: 4242424242424242</p>
         </article>
       )}
       {/* CardElement is embedded directly from Stripe */}
       <form id="payment-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          autoComplete="cardholder"
+          className="sr-input"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          autoComplete="cardholder"
+          className="sr-input"
+        />
         <CardElement
           id="card-element"
           options={cardStyle}
