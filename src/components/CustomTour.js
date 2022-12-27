@@ -106,7 +106,20 @@ const CustomTour = () => {
                     <div className="valid-feedback">
                       Point of contact valid email
                     </div>
-                    <br />
+                  </div>
+                  <div className="col-md-12">
+                    <input
+                      className="form-control"
+                      type="text"
+                      name="phone"
+                      pattern="[0-9]*"
+                      minLength="10"
+                      placeholder="(999) 999-9999"
+                      required
+                    />
+                    <div className="valid-feedback">
+                      Point of contact Phone Number
+                    </div>
                   </div>
                   {/* MULTI SELECT DISTILLERIES */}
                   <div className="col-md-12">
@@ -154,9 +167,9 @@ const CustomTour = () => {
                   <div className="col-md-12">
                     <input
                       className="form-control"
-                      type="comment"
-                      name="comment"
-                      placeholder="Comment"
+                      type="text"
+                      name="reservation"
+                      placeholder="Reservation"
                       required
                     />
                     <div className="valid-feedback">
@@ -171,7 +184,7 @@ const CustomTour = () => {
                       <textarea
                         className="form-control status-box"
                         rows="3"
-                        placeholder="Enter your comment here..."
+                        placeholder="Leave us a comment..."
                       ></textarea>
                     </div>
                     {/* </form> */}
