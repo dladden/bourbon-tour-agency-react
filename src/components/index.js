@@ -3,7 +3,9 @@ import CalendarPicker from "./CalendarPicker";
 import MultiCalendarPicker from "./MultiCalendarPicker";
 import Navbar from "./Navbar";
 import TourLogo from "./TourLogo";
+import CartLogo from "./CartLogo";
 import CartButtons from "./CartButtons";
+import Confirmation from "./Confirmation";
 import Cancelation from "./Cancelation";
 import Footer from "./Footer";
 import LinkButton from "./LinkButton";
@@ -37,6 +39,8 @@ export {
   TourLogo,
   CartButtons,
   Cancelation,
+  Confirmation,
+  CartLogo,
   Footer,
   LinkButton,
   Sidebar,

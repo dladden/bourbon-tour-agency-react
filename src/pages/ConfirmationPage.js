@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import {
   PageHero,
-  OwnerCard,
+  Confirmation,
   ContactList,
   Cancelation,
   CustomTour,
@@ -13,12 +13,9 @@ import {
 const ConfirmationPage = () => {
   return (
     <main>
-      <PageHero title="Contact" />
+      <PageHero title="Confirmation" />
       <Wrapper>
-        <OwnerCard />
-        <ContactList />
-        <Cancelation />
-        <CustomTour />
+        <Confirmation />
       </Wrapper>
     </main>
   );

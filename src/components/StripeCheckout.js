@@ -13,6 +13,7 @@ import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
 import { priceFormat } from "../utils/helpers";
 import { useHistory } from "react-router-dom";
+import { FaAssistiveListeningSystems } from "react-icons/fa";
 //This is test public API key which is passed with the component for authentication
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
@@ -22,6 +23,16 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 const CheckoutForm = () => {
   //globals variables used in createPaymentIntent
   const { cart, total_amount, clearCart } = useCartContext();
+  console.log(cart);
+
+  const { ids, names, guests, transports } = {
+    ids: cart.map((a) => a.id),
+    names: cart.map((a) => a.name),
+    guests: cart.map((a) => a.guests),
+    transports: cart.map((a) => a.trans),
+  };
+  console.log(ids, names, guests, transports);
+
   const { tourUser } = useUserContext();
   const history = useHistory();
   // console.log(total_amount);
@@ -35,10 +46,12 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+
   //
   const [purchaseDate, setPurchaseDate] = useState("");
 
-  //createPaymentIntent uses axios to post the data when the component mounts
+  //createPaymentIntent uses axios to POST the data when the component mounts to Stripe.
+  //This is done with netlify serverless functions to post it to the server
   //This get request is done with a try and catch to catch errors its equvilent
   //to an https request from a server (in this case serverless netlify func.)
   const createPaymentIntent = async () => {
@@ -57,16 +70,46 @@ const CheckoutForm = () => {
       // console.log(error.response);
     }
   };
+  // const createCheckout = async () => {
+  //   try {
+  //     //post request:
+  //     const session = await stripe.checkout.session.create({
+  //       line_items: {
+  //         price: ids,
+  //         quantity: guests,
+  //       },
+  //       mode: "payment",
+  //       success_url: "http://localhost:3000/checkout",
+  //       cancel_url: "http://localhost:3000/cancel",
+  //     });
+  //     //unique Secret pulled every time as soon as the user gets to checkout
+  //     // setClientSecret(data.clientSecret); //pulling client secret from response
+  //     // console.log(data);
+  //     // console.log(data.clientSecret);
+  //   } catch (error) {
+  //     // console.log(error.response);
+  //   }
+  // };
+
   //useEffect that only invoked when component mounts bc of empty dependency array
   useEffect(() => {
-    fetch(createPaymentIntent(), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart }),
-    });
+    fetch(
+      createPaymentIntent(),
+
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          line_items: {
+            id: ids,
+            quantity: guests,
+          },
+        }),
+      }
+    );
     // eslint-disable-next-line
   }, []);
-  console.log(cart);
+  console.log(ids);
 
   // cart.map((item) => {
   //   setPurchaseDate(item.date);
@@ -112,7 +155,7 @@ const CheckoutForm = () => {
       //Taking user back to home page, clearing cart
       setTimeout(() => {
         clearCart();
-        history.push("/");
+        history.push("/confirmation");
       }, 15000);
     }
   }; //end handleSubmit

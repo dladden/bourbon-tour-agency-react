@@ -6,12 +6,13 @@ require("dotenv").config(); //importing dotenv
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
 
 exports.handler = async function (event, context) {
+  console.log(event);
   //if: if event body property exists on event object only then create POST request,
   //prase the data, else return create payment intent
   if (event.body) {
-    //converting string data into javascript JSON object
+    //parsing: converting string data into javascript JSON object
     const { cart, total_amount } = JSON.parse(event.body);
-
+    console.log(cart);
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
@@ -25,6 +26,7 @@ exports.handler = async function (event, context) {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
         currency: "usd",
+        // statement_descriptor_suffix: "Bourbon Tours",
         // name: cart.name,
         automatic_payment_methods: {
           enabled: true,
@@ -32,7 +34,10 @@ exports.handler = async function (event, context) {
       });
       return {
         statusCode: 200,
-        body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
+        body: JSON.stringify({
+          cart,
+          clientSecret: paymentIntent.client_secret,
+        }),
       };
     } catch (error) {
       return {

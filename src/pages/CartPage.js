@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
 import { Link } from "react-router-dom";
-import { CartContent, PageHero, CustomTourLink } from "../components";
+import { CartContent, PageHero, CustomTourLink, CartLogo } from "../components";
 
 const CartPage = () => {
   //importing cart array from context
@@ -10,6 +10,7 @@ const CartPage = () => {
   if (cart.length < 1) {
     return (
       <Wrapper className="page-100">
+        <CartLogo />
         <div className="empty">
           <h2>Cart is Empty</h2>
           <Link to="/tours" className="btn">
@@ -48,7 +49,7 @@ const Wrapper = styled.main`
   @media (min-width: 900px) {
     padding: 0;
     .section-center {
-      transform: translateY(5rem);
+      // transform: translateY(5rem);
     }
   }
 `;
