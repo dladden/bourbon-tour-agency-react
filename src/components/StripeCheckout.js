@@ -31,7 +31,7 @@ const CheckoutForm = () => {
     guests: cart.map((a) => a.guests),
     transports: cart.map((a) => a.trans),
   };
-  console.log(ids, names, guests, transports);
+  // console.log(ids, names, guests, transports);
 
   const { tourUser } = useUserContext();
   const history = useHistory();
@@ -100,10 +100,9 @@ const CheckoutForm = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          line_items: {
-            id: ids,
-            quantity: guests,
-          },
+          name: names,
+          currency: "USD",
+          quantity: guests,
         }),
       }
     );

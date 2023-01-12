@@ -12,6 +12,7 @@ const CalendarPicker = ({ date, setDate }) => {
   // const onChange = (date) => {
   //   setDate(date);
   // };
+
   //onChange is a property of Calendar dependency
   //onChange is called on and the value store is date
   return (

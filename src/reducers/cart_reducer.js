@@ -12,15 +12,16 @@ const cart_reducer = (state, action) => {
   if (action.type === ADD_TO_CART) {
     const { id, date, trans, guests, tour } = action.payload; //getting data from payload
     // date.toDateString();
+    var dateId = new Date(date).toLocaleDateString();
 
     //using javascript find to search the cart to see if item + trans + date already exist
     //if true ... if not a new entry is incoming else takes care of that
-    const tempItem = state.cart.find((i) => i.id === id + trans + date);
+    const tempItem = state.cart.find((i) => i.id === id + trans + dateId);
     if (tempItem) {
       //already in the cart
       const tempCart = state.cart.map((cartItem) => {
         //if: id = match:
-        if (cartItem.id === id + trans + date) {
+        if (cartItem.id === id + trans + dateId) {
           let newGuestAmount = cartItem.guests + guests; //++ the guests by incoming amount
           //if bound: setting bounds to data max guests (currently max is 20)
           if (newGuestAmount > cartItem.max_guests) {
@@ -40,7 +41,7 @@ const cart_reducer = (state, action) => {
       //new object constructed on 'BOOK TOUR" button
       const newItem = {
         date, //receiving the date from the react-calendar
-        id: id + trans + date, //id + trans + date used to alow multiple tours with dif transportation
+        id: id + trans + dateId, //id + trans + date used to alow multiple tours with dif transportation
         name: tour.name, //name from the data
         trans, //transportation chosen in the single tour page from addToCart
         guests, //guests passed from addToCart

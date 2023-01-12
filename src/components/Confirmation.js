@@ -30,7 +30,7 @@ const Confirmation = () => {
                   <strong>{tourUser.email}</strong>
                 </p>
                 {/* TODO: Setup validate */}
-                <Link to="/home" className="btn">
+                <Link to="/" className="btn">
                   Return Home
                 </Link>
               </div>

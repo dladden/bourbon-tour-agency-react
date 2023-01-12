@@ -12,7 +12,23 @@ exports.handler = async function (event, context) {
   if (event.body) {
     //parsing: converting string data into javascript JSON object
     const { cart, total_amount } = JSON.parse(event.body);
-    console.log(cart);
+
+    const { ids, names, guests, transports } = {
+      ids: cart.map((a) => a.id),
+      names: cart.map((a) => a.name),
+      guests: cart.map((a) => a.guests),
+      transports: cart.map((a) => a.trans),
+    };
+    console.log(ids);
+    const lineItems = [
+      {
+        id: ids,
+        name: names,
+        currency: "USD",
+        quantity: guests,
+      },
+    ];
+
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
@@ -26,12 +42,14 @@ exports.handler = async function (event, context) {
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
         currency: "usd",
+
         // statement_descriptor_suffix: "Bourbon Tours",
         // name: cart.name,
         automatic_payment_methods: {
           enabled: true,
         },
       });
+      console.log(cart.id);
       return {
         statusCode: 200,
         body: JSON.stringify({
