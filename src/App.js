@@ -1,5 +1,5 @@
 import React from "react"; //adding React functionality into the file from the node_modules
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navbar, Sidebar, Footer } from "./components";
 import "react-calendar/dist/Calendar.css";
 //Importing the pages from index.js this is done so that it can be called in the app when needed
@@ -30,33 +30,32 @@ function App() {
       <Router>
         <Navbar />
         <Sidebar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/cart">
-            <Cart />
-          </Route>
-          <Route exact path="/tours">
-            <Tours />
-          </Route>
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <PrivateRoute exact path="/confirmation">
-            <ConfirmationPage />
-          </PrivateRoute>
-          <PrivateRoute exact path="/checkout">
-            <Checkout />
-          </PrivateRoute>
-          <Route exact path="/tours/:id" children={<SingleTour />} />
-          <Route path="*">
-            <Error />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="tours" element={<Tours />} />
+          <Route path="tours/:id" element={<SingleTour />} />
+          <Route
+            path="confirmation"
+            element={
+              <PrivateRoute>
+                <ConfirmationPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="checkout"
+            element={
+              <PrivateRoute>
+                <Checkout />
+              </PrivateRoute>
+            }
+          />
+
+          <Route path="*" element={<Error />} />
+        </Routes>
         <Footer />
       </Router>
     </AuthWrapper>

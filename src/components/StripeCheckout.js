@@ -12,7 +12,7 @@ import axios from "axios"; //axios for post function request
 import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
 import { priceFormat } from "../utils/helpers";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaAssistiveListeningSystems } from "react-icons/fa";
 //This is test public API key which is passed with the component for authentication
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
@@ -34,7 +34,7 @@ const CheckoutForm = () => {
   // console.log(ids, names, guests, transports);
 
   const { tourUser } = useUserContext();
-  const history = useHistory();
+  const navigate = useNavigate();
   // console.log(total_amount);
   //STRIPE state variables: If the payment is successful
   const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
@@ -154,7 +154,7 @@ const CheckoutForm = () => {
       //Taking user back to home page, clearing cart
       setTimeout(() => {
         clearCart();
-        history.push("/confirmation");
+        navigate("/confirmation");
       }, 15000);
     }
   }; //end handleSubmit

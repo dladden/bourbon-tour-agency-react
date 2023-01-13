@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { GiBarrel, GiSaloon, GiGlassShot, GiBeerBottle } from "react-icons/gi";
-import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
+import { useParams, useNavigate } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
 import { priceFormat } from "../utils/helpers";
@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
   const { id } = useParams(); //getting the id property in the object
-  const history = useHistory(); //getting the history from reactRouter Dom
+  const navigate = useNavigate(); //getting the history from reactRouter Dom
   // console.log(useParams());
   //pulling the variables from the context hook
 
@@ -44,7 +44,7 @@ const SingleTourPage = () => {
     // console.log(error);
     if (error) {
       setTimeout(() => {
-        history.push("/");
+        navigate("/");
       }, 3000); //3000 miliseconds
     }
     //eslint-disable-next-line
