@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import info_data from "../utils/info_data"; //default export always resolves to default name
-import { Question, Cancelation } from "../components";
+import { Question, Cancelation, TourLogo } from "../components";
+import logo from "../assets/indent_logo.svg";
 
 //Simple Information Page with Q&A/FAQ style
 const InfoPage = () => {
@@ -11,8 +12,15 @@ const InfoPage = () => {
     <Wrapper>
       <main>
         <div className="container">
-          <h3>Shelby Bourbon Tours Common FAQ</h3>
-          <section className="info">
+          <h3>
+            Shelby Bourbon Tours FAQ:
+            <br />
+            <div className="sbt-logo-center">
+              <img src={logo} alt="SBT Logo" className="sbt-logo" />
+            </div>
+          </h3>
+
+          <section className="info" id="questions">
             {/* This map method passes the data from info_data to the Question component */}
             {questions.map((question) => {
               return <Question key={question.id} {...question} />;
@@ -35,10 +43,6 @@ const Wrapper = styled.main`
     box-sizing: border-box;
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: var(--clr-purple);
-    color: var(--clr-grey-1);
     line-height: 1.5;
     font-size: 0.875rem;
   }
@@ -99,6 +103,18 @@ const Wrapper = styled.main`
   /*  global classes */
 
   /* section */
+
+  .sbt-logo {
+    max-width: 100%;
+    height: 140px;
+    width: 140px;
+  }
+  .sbt-logo-center {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;
+  }
+
   .section {
     width: 90vw;
     margin: 0 auto;
@@ -107,7 +123,11 @@ const Wrapper = styled.main`
 
   @media screen and (min-width: 992px) {
     .section {
-      width: 95vw;
+      width: 110vw;
+    }
+    .sbt-logo {
+      height: 140px;
+      width: 140px;
     }
   }
 
@@ -141,8 +161,9 @@ Questions
   }
   @media screen and (min-width: 992px) {
     .container {
+      width: 140rem;
       display: grid;
-      grid-template-columns: 250px 1fr;
+      grid-template-columns: 150px 1fr;
     }
   }
 `;

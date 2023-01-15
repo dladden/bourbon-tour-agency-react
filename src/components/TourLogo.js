@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../assets/indent_logo.svg";
 // import { Link } from "react-router-dom";
-const TourLogo = ({ title, tour }) => {
+const TourLogo = () => {
   return (
     <Wrapper>
       <div className="section-center">

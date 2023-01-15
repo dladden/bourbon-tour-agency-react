@@ -140,7 +140,7 @@ const Wrapper = styled.section`
 
   .contact {
     width: 100%;
-    max-width: 700px;
+    max-width: var(--fixed-width);
     margin: 0 auto;
     margin-top: 50px;
     display: flex;

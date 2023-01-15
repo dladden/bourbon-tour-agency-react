@@ -10,7 +10,7 @@ const AboutPage = () => {
     <main>
       <PageHero title="about" />
       <section id="about-shelby-bourbon-tours"></section>
-      <TourLogo />
+      <TourLogo style={{ height: 250, width: 250 }} />
       <Wrapper className="page section section-center">
         <div id="parallax-world-of-ugg">
           <section>

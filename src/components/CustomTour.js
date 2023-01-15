@@ -61,11 +61,13 @@ const CustomTour = () => {
             <h2 className="heading">Custom Tours</h2>
             <div className="form-content">
               <div className="form-items">
-                <img
-                  src={c_tour}
-                  alt="Custom Tour"
-                  className={{ height: 100, width: 100 }}
-                />
+                <div className="custom-logo-center">
+                  <img
+                    src={c_tour}
+                    alt="Custom Tour"
+                    style={{ height: 340, width: 340 }}
+                  />
+                </div>
                 <h3>Custom Tour Form</h3>
                 <p>Sumbit the form and we will contact you within 24 hours.</p>
                 {/* TODO: Setup validate */}
@@ -318,6 +320,11 @@ const Wrapper = styled.section`
     height: 100%;
     background-color: #152733;
   }
+  .custom-logo-center {
+    display: flex;
+    justify-content: center; /* horizontally center */
+    align-items: center;
+  }
 
   .form-holder {
     display: flex;
@@ -344,7 +351,7 @@ const Wrapper = styled.section`
   }
 
   .form-content .form-items {
-    border: 2px solid #fff;
+    border: 4px solid #fff;
     padding: 20px;
     display: inline-block;
     width: 100%;
