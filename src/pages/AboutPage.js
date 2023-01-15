@@ -9,6 +9,7 @@ const AboutPage = () => {
   return (
     <main>
       <PageHero title="about" />
+      <section id="about-shelby-bourbon-tours"></section>
       <TourLogo />
       <Wrapper className="page section section-center">
         <div id="parallax-world-of-ugg">
@@ -74,10 +75,14 @@ const AboutPage = () => {
                 doloremque ad facere sit rerum maxime maiores quae sequi animi.
                 Ad!
               </p>
-              <div>
-                <h5> The Distilleries:</h5>
-                <DistilleriesList />
-              </div>
+
+              <section id="distilleries">
+                <div>
+                  <h5> The Distilleries:</h5>
+
+                  <DistilleriesList />
+                </div>
+              </section>
               {/* dist */}
             </div>
           </section>

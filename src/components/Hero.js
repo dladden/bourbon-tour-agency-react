@@ -13,10 +13,13 @@ const Hero = () => {
           Distilleries in the Heart of Kentucky
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
-          temporibus dolores, cupiditate repudiandae nisi officia perspiciatis
-          obcaecati sapiente nesciunt aut debitis totam explicabo quos ex optio,
-          deserunt accusamus dicta quae? lor
+          Shelby Bourbon Tours provides bourbon trail tour transportation to all
+          of the major Bourbon distillery locations. Whether you are a group of
+          2 or 20, we can ensure that you visit all of your favorite
+          distilleries while having peace of mind that you can participate and
+          enjoy all of the tastings and not have to worry about driving. So
+          leave the driving to us and contact us today to craft your personal
+          favorite Bourbon distilleries day.
         </p>
         <Link to="/tours" className="btn hero-btn">
           Find A Tour

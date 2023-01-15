@@ -26,7 +26,9 @@ const Cancelation = () => {
 
                 <p className="event-detail">
                   Contact us on Facebook Messenger and we will respond within 24
-                  hours!
+                  hours! Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s.
                 </p>
               </div>
             </div>
@@ -158,18 +160,6 @@ const Wrapper = styled.section`
     }
   }
 
-  .add-to-calender {
-    width: 100px;
-    // display: inline-block;
-    background: var(--clr-primary-4);
-    color: white;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 5px;
-    border-radius: 6px;
-  }
   .add-to-calender:hover {
     box-shadow: #cfd5e0 0 0 10px 5px;
     transform: scale(1.1);

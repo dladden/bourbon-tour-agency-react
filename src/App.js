@@ -8,6 +8,7 @@ import {
   ConfirmationPage,
   About,
   Cart,
+  InfoPage,
   Checkout,
   Contact,
   Error,
@@ -32,13 +33,14 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="tours" element={<Tours />} />
-          <Route path="tours/:id" element={<SingleTour />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/info" element={<InfoPage />} />
+          <Route path="/tours" element={<Tours />} />
+          <Route path="/tours/:id" element={<SingleTour />} />
           <Route
-            path="confirmation"
+            path="/confirmation"
             element={
               <PrivateRoute>
                 <ConfirmationPage />
@@ -46,7 +48,7 @@ function App() {
             }
           />
           <Route
-            path="checkout"
+            path="/checkout"
             element={
               <PrivateRoute>
                 <Checkout />

@@ -3,6 +3,7 @@ import Home from "./HomePage";
 import ConfirmationPage from "./ConfirmationPage";
 import About from "./AboutPage";
 import Cart from "./CartPage";
+import InfoPage from "./InfoPage";
 import Checkout from "./CheckoutPage";
 import Contact from "./ContactPage";
 import Error from "./ErrorPage";
@@ -17,6 +18,7 @@ export {
   ConfirmationPage,
   About,
   Cart,
+  InfoPage,
   Checkout,
   Contact,
   Error,

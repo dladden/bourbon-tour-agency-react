@@ -58,6 +58,7 @@ const CustomTour = () => {
       <div className="form-body">
         <div className="row">
           <div className="form-holder">
+            <h2 className="heading">Custom Tours</h2>
             <div className="form-content">
               <div className="form-items">
                 <img
@@ -339,7 +340,7 @@ const Wrapper = styled.section`
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 20px;
   }
 
   .form-content .form-items {

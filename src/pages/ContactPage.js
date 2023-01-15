@@ -16,9 +16,15 @@ const ContactPage = () => {
       <PageHero title="Contact" />
       <Wrapper>
         <OwnerCard />
-        <ContactList />
-        <Cancelation />
-        <CustomTour />
+        <section id="contact-us">
+          <ContactList />
+        </section>
+        <section id="cancellations">
+          <Cancelation />
+        </section>
+        <section id="custom-tour">
+          <CustomTour />
+        </section>
       </Wrapper>
     </main>
   );

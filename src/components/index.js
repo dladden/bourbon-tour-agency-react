@@ -8,6 +8,7 @@ import CartButtons from "./CartButtons";
 import Confirmation from "./Confirmation";
 import Cancelation from "./Cancelation";
 import Footer from "./Footer";
+import Question from "./Question";
 import LinkButton from "./LinkButton";
 import Sidebar from "./Sidebar";
 import Hero from "./Hero";
@@ -42,6 +43,7 @@ export {
   Confirmation,
   CartLogo,
   Footer,
+  Question,
   LinkButton,
   Sidebar,
   Hero,

@@ -43,10 +43,11 @@ const DistilleriesList = () => {
     <Wrapper>
       <div className="distil">
         <ul className="distil-col">
-          {distilleries.map(function (distil) {
+          {distilleries.map(function (distill, index) {
             return (
-              <li>
-                <GiBeerBottle /> {distil}{" "}
+              <li key={index}>
+                <GiBeerBottle />
+                {distill}{" "}
               </li>
             );
           })}

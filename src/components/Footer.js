@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import seal from "../assets/seal.webp";
 import socialLinks from "../utils/social_links";
+import { HashLink as Link } from "react-router-hash-link";
 //Footer is used to show the footer as one of the global components
 const Footer = () => {
   return (
@@ -15,7 +16,9 @@ const Footer = () => {
             <h2 className="ft-title">About</h2>
             <ul>
               <li>
-                <a href="/about">About</a>
+                <Link smooth to="/about#about-shelby-bourbon-tours">
+                  About
+                </Link>
               </li>
               <li>
                 <a href="/about">Our Services</a>
@@ -26,16 +29,13 @@ const Footer = () => {
               <li>
                 <a href="/about">Customers</a>
               </li>
-              <li>
-                <a href="/about">Careers</a>
-              </li>
             </ul>
           </div>
           <div className="ft-main-item">
             <h2 className="ft-title">Resources</h2>
             <ul>
               <li>
-                <a href="/about">Distilleries</a>
+                <Link to="/about#distilleries">Distilleries</Link>
               </li>
               <li>
                 <a href="/about">Other Tours</a>
@@ -52,10 +52,17 @@ const Footer = () => {
             <h2 className="ft-title">Contact</h2>
             <ul>
               <li>
-                <a href="/about">Contact Us</a>
+                <Link smooth to="/contact#contact-us">
+                  Contact Us
+                </Link>
               </li>
               <li>
-                <a href="/about">Sales</a>
+                <Link smooth to="/contact#custom-tour">
+                  Custom Tour
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact#cancellations">Cancellations</Link>
               </li>
               <li>
                 <a href="/about">Advertise</a>
