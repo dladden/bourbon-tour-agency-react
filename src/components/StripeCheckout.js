@@ -91,21 +91,34 @@ const CheckoutForm = () => {
   //   }
   // };
 
+  const orderSubmission = async () => {
+    try {
+      const response = await axios.post(
+        "/.netlify/functions/order-submission",
+
+        JSON.stringify({ cart, total_amount, tourUser })
+      );
+      if (!response.ok) {
+        //all OK
+        return;
+      }
+    } catch (error) {
+      //error
+    }
+  };
+  console.log(tourUser);
+
   //useEffect that only invoked when component mounts bc of empty dependency array
   useEffect(() => {
-    fetch(
-      createPaymentIntent(),
-
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: names,
-          currency: "USD",
-          quantity: guests,
-        }),
-      }
-    );
+    fetch(createPaymentIntent(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: names,
+        currency: "USD",
+        quantity: guests,
+      }),
+    });
     // eslint-disable-next-line
   }, []);
   console.log(ids);
@@ -121,6 +134,7 @@ const CheckoutForm = () => {
   };
 
   //handling change provided by Stripe API
+  //This function uses the event which points to the event object
   const handleChange = async (event) => {
     //data requested
     setDisabled(event.empty);
@@ -151,7 +165,8 @@ const CheckoutForm = () => {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
-      //Taking user back to home page, clearing cart
+      orderSubmission();
+      //Taking user back to home page, clearing cart --------------------------------------------------------------------
       setTimeout(() => {
         clearCart();
         navigate("/confirmation");
