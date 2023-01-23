@@ -46,6 +46,7 @@ const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState("");
   const stripe = useStripe();
   const elements = useElements();
+  const total_formatted = priceFormat(total_amount);
 
   //
   const [purchaseDate, setPurchaseDate] = useState("");
@@ -91,6 +92,9 @@ const CheckoutForm = () => {
   //   }
   // };
 
+  //orderSubmission is SMTP email which sends the a order confirmation to the sbt
+  //business email with the data needed to further process the registration for
+  //a tour. this email is sent using the serverless functions
   const orderSubmission = async () => {
     try {
       const response = await axios.post(
@@ -105,8 +109,26 @@ const CheckoutForm = () => {
     } catch (error) {
       //error
     }
+  }; //end async orderSubmission
+
+  //this function takes care of the sendgrid dynamic email template that is sent to the signed-in
+  //user upon payment confirmation passing the data needed to be shown to the user as a order
+  //confirmation
+  const orderConfirmation = async () => {
+    try {
+      const response = await axios.post(
+        "/.netlify/functions/order-confirmation",
+
+        JSON.stringify({ cart, total_formatted, tourUser })
+      );
+      if (!response.ok) {
+        //all OK
+        return;
+      }
+    } catch (error) {
+      //error
+    }
   };
-  console.log(tourUser);
 
   //useEffect that only invoked when component mounts bc of empty dependency array
   useEffect(() => {
@@ -166,6 +188,7 @@ const CheckoutForm = () => {
       setProcessing(false);
       setSucceeded(true);
       orderSubmission();
+      orderConfirmation();
       //Taking user back to home page, clearing cart --------------------------------------------------------------------
       setTimeout(() => {
         clearCart();

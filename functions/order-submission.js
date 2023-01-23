@@ -3,7 +3,7 @@ require("dotenv").config();
 const {
   REACT_APP_SENDGRID_API_KEY,
   REACT_APP_SENDGRID_TO_EMAIL,
-  REACT_APP_SENDGRID_FROM_EMAIL,
+  REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
 } = process.env;
 
 exports.handler = async (event, context, callback) => {
@@ -24,7 +24,7 @@ exports.handler = async (event, context, callback) => {
 
   const msg = {
     to: REACT_APP_SENDGRID_TO_EMAIL,
-    from: REACT_APP_SENDGRID_FROM_EMAIL,
+    from: REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
     subject: order(),
     text: JSON.stringify({ cart, total_amount, tourUser }),
     number: JSON.stringify(total_amount),
