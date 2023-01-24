@@ -6,7 +6,7 @@ const questionsList = [
   },
   {
     id: 2,
-    question_title: "How do we schedule a tour of the distillery?",
+    question_title: "How do I schedule a tour of the distillery?",
     info: "Coloring book forage photo booth gentrify lumbersexual. Migas chillwave poutine synth shoreditch, enamel pin thundercats fashion axe roof party polaroid chartreuse.",
   },
   {
@@ -29,6 +29,12 @@ const questionsList = [
     id: 6,
     question_title:
       "How long does one day tour take and can you have a multiple day tours?",
+    info: "Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ",
+  },
+  {
+    id: 7,
+    question_title:
+      "How do I cancel a tour? Upon cancelation, how long will it take to get my refund? ",
     info: "Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ",
   },
 ];

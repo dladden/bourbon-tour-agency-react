@@ -11,7 +11,6 @@ const ContactList = () => {
       <div>
         <div className="contact">
           <h2 className="heading">Contact Us</h2>
-
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-1">

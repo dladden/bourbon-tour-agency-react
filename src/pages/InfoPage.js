@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import info_data from "../utils/info_data"; //default export always resolves to default name
-import { Question, Cancelation, TourLogo } from "../components";
+import { Question, Cancelation, ContactList } from "../components";
 import logo from "../assets/indent_logo.svg";
 
 //Simple Information Page with Q&A/FAQ style
@@ -25,10 +25,10 @@ const InfoPage = () => {
             {questions.map((question) => {
               return <Question key={question.id} {...question} />;
             })}
+            <Cancelation />
           </section>
         </div>
       </main>
-      <Cancelation />
     </Wrapper>
   );
 };
@@ -36,6 +36,9 @@ const InfoPage = () => {
 const Wrapper = styled.main`
   background-color: var(--clr-background-main);
   *,
+
+  padding: 20px;
+
   ::after,
   ::before {
     margin: 0;
@@ -147,9 +150,9 @@ Questions
 
   .container {
     width: 90vw;
-    margin: 5rem auto;
+    margin-top: 5rem;
     background: var(--clr-white);
-    border-radius: var(--radius);
+    border-radius: var(--content-radius);
     padding: 2.5rem 2rem;
     max-width: var(--fixed-width);
     display: grid;

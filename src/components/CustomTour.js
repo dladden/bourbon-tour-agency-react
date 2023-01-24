@@ -326,6 +326,12 @@ const Wrapper = styled.section`
     align-items: center;
   }
 
+  .heading {
+    margin-top: 50px;
+    text-align: center;
+    font-weight: bold;
+  }
+
   .form-holder {
     display: flex;
     flex-direction: column;

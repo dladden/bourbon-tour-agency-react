@@ -89,7 +89,7 @@ const Wrapper = styled.section`
   .event-card {
     width: 100%;
     background: white;
-    border-radius: 15px;
+    border-radius: var(--content-radius);
     padding: 20px;
     display: flex;
     align-items: center;
