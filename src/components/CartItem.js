@@ -105,7 +105,7 @@ const Wrapper = styled.article`
   gap: 3rem 1rem;
   justify-items: center;
   margin-bottom: 3rem;
-  align-items: center;
+  align-items: left;
   .title {
     grid-template-rows: 75px;
     display: grid;
@@ -139,7 +139,7 @@ const Wrapper = styled.article`
     text-transform: capitalize;
     margin-bottom: 0;
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: flex-start;
     span {
       display: inline-block;

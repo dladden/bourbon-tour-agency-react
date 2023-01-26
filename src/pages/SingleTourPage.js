@@ -179,7 +179,7 @@ const Wrapper = styled.main`
     .tour-center {
       grid-template-columns: 20fr 20fr;
       grid-column-gap: 20px;
-      align-items: center;
+      align-items: top;
     }
     .price {
       font-size: 1.25rem;

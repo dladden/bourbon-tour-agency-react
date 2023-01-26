@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 const CartTotals = () => {
   //values from cart_context.js
   const { total_amount, tax } = useCartContext();
+
+  const total_tax = total_amount * (tax / 100);
+
   //values from user_context.js for functional rendering (if user not logged in set login)
   const { tourUser, loginWithRedirect } = useUserContext();
   return (
@@ -21,11 +24,11 @@ const CartTotals = () => {
             </span>
           </h5>
           <p>
-            Tax: <span>{tax}</span>
+            Taxes & Fees: <span>{priceFormat(total_tax)}</span>
           </p>
           <hr />
           <h4>
-            Order Total : <span>{priceFormat(total_amount)}</span>
+            Order Total : <span>{priceFormat(total_amount + total_tax)}</span>
           </h4>
         </article>
         {tourUser ? (
@@ -47,8 +50,8 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   article {
-    border: 1px solid var(--clr-grey-8);
-    border-radius: var(--radius);
+    border: 2px solid var(--clr-primary-10);
+    border-radius: var(--content-radius);
     padding: 1.5rem 3rem;
   }
   h4,

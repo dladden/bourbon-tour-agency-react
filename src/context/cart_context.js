@@ -32,6 +32,7 @@ const getLocalStorage = () => {
 //twoSuv_fee - fee for 2 extra suv's
 //van_fee - fee for the van
 //bus_fee - fee for the bus
+//tax - gst rate of the state in which the business practices
 const initialState = {
   cart: getLocalStorage(),
   total_tours: 0,
@@ -40,7 +41,7 @@ const initialState = {
   twoSuv_fee: 39999,
   van_fee: 9999,
   bus_fee: 19999,
-  tax: 0,
+  tax: 6,
 };
 
 const CartContext = React.createContext(); //this initialization of context comes from React
