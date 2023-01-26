@@ -91,7 +91,7 @@ const SidebarContainer = styled.div`
   .links a:hover {
     padding: 1rem 0rem;
     padding-left: 2rem;
-    background: var(--clr-grey-10);
+    background: var(--clr-primary-10);
     color: var(--clr-grey-2);
   }
   // this will hide the sidebar until show-sidebar is called

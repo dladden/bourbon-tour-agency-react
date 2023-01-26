@@ -38,7 +38,7 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
     <Wrapper>
       <div className="title">
         <img src={image} alt={name} />
-        <div>
+        <div className="cart-item">
           {/* TOUR NAME */}
           <h5 className="name">{name}</h5>
           {/* END TOUR NAME */}
@@ -129,6 +129,9 @@ const Wrapper = styled.article`
     margin-bottom: 0;
     text-align: left;
   }
+  .cart-item {
+    text-align: left;
+  }
   .transport {
     color: var(--clr-main-1);
     font-size: 0.75rem;
@@ -182,6 +185,7 @@ const Wrapper = styled.article`
     }
     .price-small {
       display: none;
+      text-align: left;
     }
     .price {
       display: block;

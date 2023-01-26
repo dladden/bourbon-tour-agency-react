@@ -5,15 +5,37 @@ import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
-import { MultiCalendarPicker } from "../components";
+import { guests, trans } from "../utils/constants";
+import { MultiCalendarPicker, AmountButtons } from "../components";
 // import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
-  // const { id, trans } = tour;
+  const [guest, setGuest] = useState(1);
+  console.log(guest);
+  //The increase function uses count variable as storage and increments value by on
+  //The function then prevents incremented amount from getting larger then the set max guests data
+  const increase = () => {
+    setGuest((count) => {
+      let tempGuest = count + 1;
+      if (tempGuest > guests) {
+        tempGuest = guests;
+      }
+      return tempGuest;
+    });
+  };
+  const decrease = () => {
+    setGuest((count) => {
+      let tempGuest = count - 1;
+      if (tempGuest < 1) {
+        tempGuest = 1;
+      }
+      return tempGuest;
+    });
+  };
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be firs array item
   //in this case it is suv
-  const trans = ["suv", "van", "bus"];
+  // const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
 
   const [date, setDate] = useState(new Date());
@@ -107,7 +129,7 @@ const CustomTour = () => {
                       required
                     />
                     <div className="valid-feedback">
-                      Point of contact valid email
+                      Valid point of contact email.
                     </div>
                   </div>
                   <div className="col-md-12">
@@ -121,7 +143,7 @@ const CustomTour = () => {
                       required
                     />
                     <div className="valid-feedback">
-                      Point of contact Phone Number
+                      Point of contact phone number.
                     </div>
                   </div>
                   {/* MULTI SELECT DISTILLERIES */}
@@ -176,8 +198,9 @@ const CustomTour = () => {
                       required
                     />
                     <div className="valid-feedback">
-                      Leave us a comment with as much information about your
-                      tour as possible!
+                      If you are looking for private tour reservation, add a
+                      distillery name here. Reservation must be made 4 weeks in
+                      advance.
                     </div>
                   </div>
                   {/* Comment Section */}
@@ -186,8 +209,8 @@ const CustomTour = () => {
                     <div className="form-group">
                       <textarea
                         className="form-control status-box"
-                        rows="3"
-                        placeholder="Leave us a comment..."
+                        rows="2"
+                        placeholder="Add as much details as possible..."
                       ></textarea>
                     </div>
                     {/* </form> */}
@@ -266,6 +289,18 @@ const CustomTour = () => {
                     </p>
                   )}
                   {/* TRANSPORTATION END  */}
+                  {/* GUESTS */}
+                  <div className="btn-container">
+                    <AmountButtons
+                      guest={guest}
+                      increase={increase}
+                      decrease={decrease}
+                    />
+                    Select Total Guests
+                    {/* Link passes the arguments for addToCart context to be used in the cart */}
+                  </div>
+                  <hr className="hr" />
+                  {/* GUESTS END  */}
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -276,10 +311,10 @@ const CustomTour = () => {
                     />
                     <label className="form-check-label">
                       {" "}
-                      I confirm that my Tour will be first reviewed
+                      I confirm that my tour will be reviewed.
                     </label>
                     <div className="invalid-feedback">
-                      By checking the box you aknowledge that your tour will be
+                      By checking the box you acknowledge that your tour will be
                       first reviewed, there after receiving confirmation.
                     </div>
                   </div>
@@ -385,7 +420,7 @@ const Wrapper = styled.section`
   }
 
   .form-content h3 {
-    color: #fff;
+    color: var(--clr-primary-7);
     text-align: left;
     font-size: 28px;
     font-weight: 600;
@@ -397,7 +432,7 @@ const Wrapper = styled.section`
   }
 
   .form-content p {
-    color: #fff;
+    color: var(--clr-primary-4);
     text-align: left;
     font-size: 17px;
     font-weight: 300;
@@ -408,7 +443,7 @@ const Wrapper = styled.section`
   .form-content label,
   .was-validated .form-check-input:invalid ~ .form-check-label,
   .was-validated .form-check-input:valid ~ .form-check-label {
-    color: #fff;
+    color: var(--clr-primary-4);
   }
 
   .form-content input[type="text"],
@@ -420,7 +455,7 @@ const Wrapper = styled.section`
     text-align: left;
     border: 0;
     outline: 0;
-    border-radius: 0.6rem;
+    border-radius: var(--input-radius);
     background-color: #fff;
     font-size: 15px;
     font-weight: 300;
@@ -445,16 +480,16 @@ const Wrapper = styled.section`
   }
 
   .form-content textarea {
+    font-family: "Times New Roman", Times, serif;
     position: static !important;
     width: 100%;
-    padding: 8px 20px;
+    padding: 9px 20px;
     border-radius: 6px;
     text-align: left;
     background-color: #fff;
     border: 0;
     font-size: 15px;
     font-weight: 300;
-    color: #8d8d8d;
     outline: none;
     resize: none;
     height: 120px;
@@ -465,9 +500,13 @@ const Wrapper = styled.section`
 
   .form-content textarea:hover,
   .form-content textarea:focus {
+    font-family: "Times New Roman", Times, serif;
     border: 0;
-    background-color: #ebeff8;
+    background-color: var(--clr-primary-11);
     color: #8d8d8d;
+  }
+  .form-group {
+    margin-top: 16px;
   }
 
   .mv-up {
@@ -534,7 +573,11 @@ Comment Section
     opacity: 1;
   }
   .btn-container {
-    margin-top: 2rem;
+    margin-top: 0rem;
+  }
+  .hr {
+    border-top: 4px solid var(--clr-white);
+    width: auto;
   }
   .btn {
     margin-top: 1rem;

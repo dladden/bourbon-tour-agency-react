@@ -18,6 +18,7 @@ Variables
   --clr-primary-8: #baa795;
   --clr-primary-9: #c3c1b8;
   --clr-primary-10: #e8e6df;
+  --clr-primary-11: #f9f7f0;
   /* darkest grey - used for headings */
   --clr-grey-1: #4e4741;
   --clr-grey-2: #534c46;
@@ -33,7 +34,7 @@ Variables
   --clr-white: #fff;
   --clr-background-main: #e8e6df;
   --clr-red-dark: hsl(360, 67%, 44%);
-  --clr-red-light: rgb(195, 72, 72);
+  --clr-red-light: rgb(241, 92, 92);
   --clr-green-dark: #007560;
   --clr-green-light: #09c8a5;
   --clr-black: #222;

@@ -248,10 +248,10 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
     padding: 10px 5px;
-    border-radius: 6px;
+    border-radius: var(--btn-radius);
   }
   .add-to-calender:hover {
-    box-shadow: #cfd5e0 0 0 10px 5px;
+    box-shadow: var(--clr-primary-9) 0 0 5px 1px;
     transform: scale(1.1);
   }
 `;

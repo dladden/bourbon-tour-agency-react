@@ -1,3 +1,4 @@
+import AmountButtons from "./AmountButtons";
 import FeaturedTours from "./FeaturedTours";
 import CalendarPicker from "./CalendarPicker";
 import MultiCalendarPicker from "./MultiCalendarPicker";
@@ -33,6 +34,7 @@ import PageHero from "./PageHero";
 import StripeCheckout from "./StripeCheckout";
 
 export {
+  AmountButtons,
   FeaturedTours,
   CalendarPicker,
   MultiCalendarPicker,
