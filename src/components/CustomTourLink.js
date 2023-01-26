@@ -1,7 +1,7 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
+// import ReactDOM from "react-dom"
 import styled from "styled-components";
+import { HashLink as Link } from "react-router-hash-link";
 
 const CustomTourLink = () => {
   return (
@@ -10,7 +10,7 @@ const CustomTourLink = () => {
         <h3>
           Custom Tours
           <br />
-          <Link to="/contact" className="btn hero-btn">
+          <Link smooth to="/contact#custom-tour" className="btn">
             Create
           </Link>
         </h3>
@@ -74,11 +74,10 @@ const Wrapper = styled.section`
       transform: translateY(5rem);
     }
   }
-  .hero-btn {
-    margin-left: auto;
-    // padding: 0.75rem 1rem;
-    // font-size: 1rem;
-    // height: 3rem;
+  .btn {
+    margin-top: 0.5rem;
+    padding: 0.8rem 0.8rem;
+    font-size: 1rem;
   }
 `;
 export default CustomTourLink;

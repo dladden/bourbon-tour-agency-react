@@ -69,7 +69,7 @@ const Wrapper = styled.section`
       width: 100%;
       height: 550px;
       position: relative;
-      border-radius: var(--radius);
+      border-radius: var(--images-radius);
       display: block;
       object-fit: cover;
     }

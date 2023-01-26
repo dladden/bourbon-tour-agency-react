@@ -10,6 +10,7 @@ const CartPage = () => {
   if (cart.length < 1) {
     return (
       <Wrapper className="page-100">
+        <PageHero title="cart" />
         <CartLogo />
         <div className="empty">
           <h2>Cart is Empty</h2>
@@ -28,6 +29,7 @@ const CartPage = () => {
     <main>
       <PageHero title="cart" />
       <Wrapper className="page">
+        <CartLogo />
         <CartContent />
       </Wrapper>
     </main>
@@ -42,6 +44,7 @@ const Wrapper = styled.main`
   .empty {
     text-align: center;
     h2 {
+      margin-top: 1rem;
       margin-bottom: 1rem;
       text-transform: none;
     }

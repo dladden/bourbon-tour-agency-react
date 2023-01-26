@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
@@ -10,6 +11,9 @@ const ImageSlider = () => {
   return (
     <Wrapper>
       <div className="section-center slider-section">
+        <a href="https://www.facebook.com/shelbybourbontours">
+          <h4>Visit Our Facebook Page</h4>
+        </a>
         <div className="slide-container ">
           <Slide>
             {slides.map((slideImage, index) => (
@@ -33,10 +37,15 @@ const ImageSlider = () => {
 // console.log(slides);
 const Wrapper = styled.div`
   .slider-section {
-    padding-top: 100px;
+    padding-top: 5rem;
     display: block;
     overflow: hidden;
     justify-content: center;
+  }
+  h4 {
+    text-decoration: underline;
+    color: var(--clr-primary-9);
+    text-align: center;
   }
 
   .each-slide-effect > div {
@@ -59,6 +68,9 @@ const Wrapper = styled.div`
   }
   @media (min-width: 992px) {
     .slider-section {
+    }
+    h4 {
+      text-align: right;
     }
   }
 

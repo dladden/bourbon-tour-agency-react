@@ -21,13 +21,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="/about">Our Services</a>
+                <Link smooth to="/#image-slider">
+                  Customers
+                </Link>
               </li>
               <li>
-                <a href="/about">Pricing</a>
+                <Link smooth to="/info#questions">
+                  Our Services
+                </Link>
               </li>
               <li>
-                <a href="/about">Customers</a>
+                <Link smooth to="/#featured-tours">
+                  Featured Tours
+                </Link>
               </li>
             </ul>
           </div>
@@ -35,16 +41,24 @@ const Footer = () => {
             <h2 className="ft-title">Resources</h2>
             <ul>
               <li>
-                <Link to="/about#distilleries">Distilleries</Link>
+                <Link smooth to="/about#distilleries">
+                  Distilleries
+                </Link>
               </li>
               <li>
-                <a href="/about">Other Tours</a>
+                <Link smooth to="/info#questions">
+                  Other Tours
+                </Link>
               </li>
               <li>
-                <a href="/about">Events</a>
+                <Link smooth to="/tours#filters-section">
+                  Events
+                </Link>
               </li>
               <li>
-                <Link to="/info#questions">FAQ</Link>
+                <Link smooth to="/info#questions">
+                  FAQ
+                </Link>
               </li>
             </ul>
           </div>
@@ -62,11 +76,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/contact#cancellations">Cancellations</Link>
+                <Link smooth to="/contact#cancellations">
+                  Cancellations
+                </Link>
               </li>
-              <li>
-                <a href="/about">Advertise</a>
-              </li>
+              <Link smooth to="/info#questions">
+                Advertise
+              </Link>
             </ul>
           </div>
           <div className="ft-main-item">

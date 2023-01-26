@@ -41,14 +41,13 @@ const Tour = ({ url, category, name, price, id }) => {
 const Wrapper = styled.article`
   .container {
     position: relative;
-    background: var(--clr-black);
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
   }
   img {
     width: 100%;
     display: block;
     object-fit: cover;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     transition: var(--transition);
   }
   .link {

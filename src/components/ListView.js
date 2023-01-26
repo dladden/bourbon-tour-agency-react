@@ -52,7 +52,7 @@ const Wrapper = styled.section`
     width: 300px;
     height: 200px;
     object-fit: cover;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     margin-bottom: 1rem;
   }
   h4 {
@@ -73,6 +73,7 @@ const Wrapper = styled.section`
     vertical-align: middle;
   }
   .btn {
+    border-radius: var(--small-btn-radius);
     font-size: 0.5rem;
     padding: 0.25rem 0.5rem;
   }

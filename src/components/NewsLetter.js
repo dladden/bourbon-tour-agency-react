@@ -53,19 +53,19 @@ const Wrapper = styled.section`
   .form-input {
     border-right: none;
     color: var(--clr-grey-3);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
+    border-top-left-radius: var(--input-radius);
+    border-bottom-left-radius: var(--input-radius);
   }
   .submit-btn {
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
+    border-top-right-radius: var(--input-radius);
+    border-bottom-right-radius: var(--input-radius);
   }
   .form-input::placeholder {
-    color: var(--clr-black);
+    color: var(--clr-primary-3);
     text-transform: capitalize;
   }
   .submit-btn {
-    background: var(--clr-primary-5);
+    background: var(--clr-primary-9);
     text-transform: capitalize;
     letter-spacing: var(--spacing);
     cursor: pointer;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import logo1 from "../assets/logo1.svg";
-import logo2 from "../assets/logo2.svg";
+import logo1 from "../assets/logo1.svg"; //large main logo on the page
+import logo2 from "../assets/logo2.svg"; //logo which appears in the sidebar
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
@@ -14,11 +14,11 @@ const MyComponent = () => {
   // The current width of the viewport
   const width = window.innerWidth;
   // The width below which the mobile view should be rendered
-  const breakpoint = 620;
+  const breakpoint = 820;
   /* If the viewport is more narrow than the breakpoint render the
      mobile component, else render the desktop component */
   return width < breakpoint ? (
-    <img src={logo2} alt="Shelby Bourbon Tours" />
+    <img src={logo2} alt="Shelby Bourbon" />
   ) : (
     <img src={logo1} alt="Shelby Bourbon Tours" />
   );
@@ -83,6 +83,9 @@ const NavContainer = styled.nav`
     svg {
       font-size: 2rem;
     }
+  }
+  .nav-toggle:hover {
+    color: var(--clr-primary-6);
   }
   .nav-links {
     display: none;

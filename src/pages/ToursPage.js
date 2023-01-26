@@ -8,7 +8,9 @@ const ToursPage = () => {
       <PageHero title="tours" />
       <Wrapper className="page">
         <div className="section-center tours">
-          <Filters />
+          <section id="filters-section">
+            <Filters />
+          </section>
           <div>
             <Sort />
             <TourList />

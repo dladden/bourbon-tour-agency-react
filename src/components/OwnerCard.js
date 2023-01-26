@@ -80,7 +80,7 @@ const Wrapper = styled.section`
     width: 325px;
     margin: 10px;
     background: #fff;
-    border-radius: 6px;
+    border-radius: var(--content-radius);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
     padding: 25px;
   }

@@ -11,23 +11,26 @@ const InfoPage = () => {
   return (
     <Wrapper>
       <main>
-        <div className="container">
-          <h3>
-            Shelby Bourbon Tours FAQ:
-            <br />
-            <div className="sbt-logo-center">
-              <img src={logo} alt="SBT Logo" className="sbt-logo" />
-            </div>
-          </h3>
+        <section id="questions">
+          <div className="container">
+            <h3>
+              Shelby Bourbon Tours FAQ:
+              <br />
+              <div className="sbt-logo-center">
+                <img src={logo} alt="SBT Logo" className="sbt-logo" />
+              </div>
+            </h3>
 
-          <section className="info" id="questions">
-            {/* This map method passes the data from info_data to the Question component */}
-            {questions.map((question) => {
-              return <Question key={question.id} {...question} />;
-            })}
-            <Cancelation />
-          </section>
-        </div>
+            <div className="info">
+              {/* This map method passes the data from info_data to the Question component */}
+              {questions.map((question) => {
+                return <Question key={question.id} {...question} />;
+              })}
+
+              <Cancelation />
+            </div>
+          </div>
+        </section>
       </main>
     </Wrapper>
   );

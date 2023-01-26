@@ -165,7 +165,7 @@ const Wrapper = styled.section`
   .search-input {
     padding: 0.5rem;
     background: var(--clr-grey-10);
-    border-radius: var(--radius);
+    border-radius: var(--input-radius);
     border-color: transparent;
     letter-spacing: var(--spacing);
   }
@@ -189,7 +189,7 @@ const Wrapper = styled.section`
   }
   .distillery-select {
     background: var(--clr-grey-10);
-    border-radius: var(--radius);
+    border-radius: var(--input-radius);
     border-color: transparent;
     padding: 0.25rem;
   }
@@ -259,7 +259,7 @@ const Wrapper = styled.section`
     background: var(--clr-red-dark);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
-    border-radius: var(--radius);
+    border-radius: var(--small-btn-radius);
   }
   @media (min-width: 768px) {
     .content {

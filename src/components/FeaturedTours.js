@@ -47,6 +47,7 @@ const Wrapper = styled.section`s
     display: grid;
     gap: 2.5rem;
     img {
+      border-radius: var(--images-radius);
       height: 225px;
     }
   }

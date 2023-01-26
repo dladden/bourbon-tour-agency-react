@@ -122,6 +122,9 @@ const Wrapper = styled.article`
     object-fit: cover;
   }
   h5 {
+    padding: 0;
+    margin: 0;
+    color: var(--clr-primary-4);
     font-size: 0.75rem;
     margin-bottom: 0;
     text-align: left;
@@ -142,9 +145,6 @@ const Wrapper = styled.article`
       margin-left: 0rem;
       // border-radius: var(--radius);
     }
-  }
-  .price-small {
-    color: var(--clr-primary-5);
   }
   .amount-btns {
     width: 75px;
@@ -190,6 +190,7 @@ const Wrapper = styled.article`
       font-weight: 400;
     }
     .name {
+      text-align: left;
       font-size: 0.85rem;
     }
     .transport {
@@ -209,7 +210,7 @@ const Wrapper = styled.article`
       height: 100%;
       display: grid;
       grid-template-columns: 100px 200px;
-      align-items: center;
+      align-items: left;
       gap: 1rem;
       text-align: left;
     }

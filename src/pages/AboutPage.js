@@ -210,7 +210,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-image: url(${aboutImg0});
     background-position: fixed;
     background-size: cover;
@@ -226,7 +226,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-attachment: fixed;
     background-size: cover;
     -moz-background-size: cover;
@@ -242,7 +242,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-image: url(${aboutImg1});
     background-position: fixed;
     background-size: cover;
@@ -259,7 +259,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-attachment: fixed;
     background-size: cover;
     -moz-background-size: cover;
@@ -274,7 +274,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-image: url(${aboutImg2});
     background-position: fixed;
     background-size: cover;
@@ -291,7 +291,7 @@ const Wrapper = styled.section`
     overflow: hidden;
     position: relative;
     width: 100%;
-    border-radius: var(--radius);
+    border-radius: var(--images-radius);
     background-attachment: fixed;
     background-size: cover;
     -moz-background-size: cover;

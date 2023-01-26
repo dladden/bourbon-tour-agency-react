@@ -14,10 +14,14 @@ const HomePage = () => {
   return (
     <main>
       <Hero />
-      <TourLogo />
-      <FeaturedTours />
+      <section id="featured-tours">
+        <TourLogo />
+        <FeaturedTours />
+      </section>
       <Services />
-      <ImageSlider />
+      <section id="image-slider">
+        <ImageSlider />
+      </section>
       <NewsLetter />
     </main>
   );
