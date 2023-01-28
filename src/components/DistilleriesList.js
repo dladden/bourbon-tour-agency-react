@@ -1,43 +1,9 @@
 import React from "react";
 import { GiBeerBottle } from "react-icons/gi";
 import styled from "styled-components";
+import { distilleries } from "../utils/constants";
 // import { Link } from "react-router-dom";
-//
-var distilleries = [
-  "Buffalo Trace",
-  "Castle & Key",
-  "Woodford Reserve",
-  "Bulleit Distilling",
-  "Castle & Key",
-  "Angel's Envy",
-  "Four Roses",
-  "Jim Beam",
-  "Maker's Mark",
-  "Willett Distillery",
-  "Evan Williams",
-  "Heaven Hill",
-  "Old Forester",
-  "The Old Crow",
-  "Glenns Creek",
-  "Stitzel Weller",
-  "Wild Turkey",
-  "Three Boys",
-  "Town Branch",
-  "Rabbit Hole",
-  "Preservation",
-  "Limestone Branch",
-  "Lux Row Distillers",
-  "Jefferson's",
-  "James E. Pepper",
-  "Bardstown Bourbon",
-  "Michter's Shively",
-  "Jeptha Creed",
-  "Bourbon Company",
-  "Peerless Distillery",
-  "Prohibition Spirits",
-  "Cooperage",
-];
-
+//This component lists the distilleries
 const DistilleriesList = () => {
   return (
     <Wrapper>

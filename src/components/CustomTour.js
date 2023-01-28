@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Multiselect from "multiselect-react-dropdown";
+import Multiselect from "react-select";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
-import { guests, trans } from "../utils/constants";
+import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
 // import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
-  const [guest, setGuest] = useState(1);
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {
@@ -31,49 +30,38 @@ const CustomTour = () => {
       return tempGuest;
     });
   };
+  //useState VARIABLES:
+  //variables for tour name:
+  const [tour_name, setTour_name] = useState("");
+  console.log(tour_name);
+  //variable for name of the poc
+  const [guest_name, setGuest_name] = useState("");
+  console.log(guest_name);
+  //email
+  const [guest_email, setGuest_email] = useState("");
+  console.log(guest_email);
+  //phone number
+  const [phone_number, setPhone_number] = useState("");
+  console.log(phone_number);
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be firs array item
-  //in this case it is suv
-  // const trans = ["suv", "van", "bus"];
+  //in this case it is suv: const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
+  //Reservation for a distillery
+  const [reservation, setReservation] = useState("");
+  console.log(reservation);
+  //variable for comment portion
+  const [guest_comment, setGuest_comment] = useState("");
+  console.log(guest_comment);
+  const [guest, setGuest] = useState(1);
 
   const [date, setDate] = useState(new Date());
 
-  const [mainDist, setDist] = useState([
-    "Buffalo Trace ",
-    "Castle & Key",
-    "Woodford Reserve",
-    "Bulleit Distilling",
-    "Castle & Key",
-    "Angel's Envy",
-    "Four Roses",
-    "Jim Beam",
-    "Maker's Mark",
-    "Willett Distillery",
-    "Evan Williams",
-    "Heaven Hill",
-    "Old Forester",
-    "The Old Crow",
-    "Stitzel Weller",
-    "Wild Turkey",
-    "Three Boys",
-    "Glenns Creek",
-    "Town Branch",
-    "Rabbit Hole",
-    "Preservation",
-    "Limestone Branch",
-    "Lux Row Distillers",
-    "Jefferson's",
-    "James E. Pepper",
-    "Bardstown Bourbon",
-    "Michter's Shively",
-    "Jeptha Creed",
-    "Bourbon Company",
-    "Peerless Distillery",
-    "Prohibition Spirits",
-    "Cooperage",
-  ]);
-  // console.log(mainDist);
+  //using react-select dependency to store arrays of distilleries that the
+  //customer chooses:
+  const [distill, setDistill] = useState(null);
+  console.log(distill);
+
   return (
     <Wrapper>
       <div className="form-body">
@@ -91,13 +79,16 @@ const CustomTour = () => {
                 </div>
                 <h3>Custom Tour Form</h3>
                 <p>Sumbit the form and we will contact you within 24 hours.</p>
-                {/* TODO: Setup validate */}
+                {/* TOUR NAME */}
                 <form className="requires-validation">
                   <div className="col-md-12">
                     <input
+                      onChange={(e) => setTour_name(e.target.value)}
+                      value={tour_name}
+                      id="tour_name"
                       className="form-control"
                       type="text"
-                      name="title"
+                      name="tour_name"
                       placeholder="Tour Name"
                       required
                     />
@@ -105,12 +96,16 @@ const CustomTour = () => {
                       Give your tour a unique name.
                     </div>
                   </div>
-
+                  {/* END TOUR NAME */}
+                  {/*GUEST NAME */}
                   <div className="col-md-12">
                     <input
+                      onChange={(e) => setGuest_name(e.target.value)}
+                      value={guest_name}
+                      id="guest_name"
                       className="form-control"
                       type="text"
-                      name="name"
+                      name="guest_name"
                       placeholder="Full Name"
                       required
                     />
@@ -118,12 +113,16 @@ const CustomTour = () => {
                       Provide a point of contact for your tour.
                     </div>
                   </div>
-
+                  {/*END GUEST NAME */}
+                  {/* EMAIL */}
                   <div className="col-md-12">
                     <input
+                      onChange={(e) => setGuest_email(e.target.value)}
+                      value={guest_email}
+                      id="guest_email"
                       className="form-control"
                       type="email"
-                      name="email"
+                      name="guest_email"
                       placeholder="E-mail Address"
                       required
                     />
@@ -131,11 +130,16 @@ const CustomTour = () => {
                       Valid point of contact email.
                     </div>
                   </div>
+                  {/* END EMAIL */}
+                  {/* PHONE NUMBER */}
                   <div className="col-md-12">
                     <input
+                      onChange={(e) => setPhone_number(e.target.value)}
+                      value={phone_number}
+                      id="phone_number"
                       className="form-control"
                       type="text"
-                      name="phone"
+                      name="phone_number"
                       pattern="[0-9]*"
                       minLength="10"
                       placeholder="(999) 999-9999"
@@ -152,18 +156,18 @@ const CustomTour = () => {
                         <Multiselect
                           closeIcon={"circle"}
                           isObject={false}
-                          onRemove={(event) => {
-                            // console.log(event);
-                          }}
-                          onSelect={(event) => {
-                            // console.log(event);
-                          }}
-                          options={mainDist}
-                          placeholder="Select Distilleries"
+                          // value={selectedValue}
+                          onChange={setDistill}
+                          // onRemove={handleChange}
+                          // onSelect={handleChange}
+                          options={distilleries_select}
+                          isMulti
+                          isClearable
+                          placeholder="Search Distilleries"
                           style={{
                             chips: {
                               background: "var(--clr-primary-4)",
-                              borderRadius: "5px",
+                              borderRadius: "8px",
                               margin: "4px",
                               padding: "2px",
                               fontWeight: "bold",
@@ -188,8 +192,12 @@ const CustomTour = () => {
                     </div>
                   </div>
                   {/* MULTI SELECT DISTILLERIES END */}
+                  {/* RESERVATION */}
                   <div className="col-md-12">
                     <input
+                      onChange={(e) => setReservation(e.target.value)}
+                      value={reservation}
+                      id="reservation"
                       className="form-control"
                       type="text"
                       name="reservation"
@@ -198,15 +206,18 @@ const CustomTour = () => {
                     />
                     <div className="valid-feedback">
                       If you are looking for private tour reservation, add a
-                      distillery name here. Reservation must be made 4 weeks in
-                      advance.
+                      distillery name here. PLEASE NOTE: Reservation must be
+                      made 4 weeks in advance.
                     </div>
                   </div>
-                  {/* Comment Section */}
+                  {/* COMMENT */}
                   <div className="container">
                     {/* <form> */}
                     <div className="form-group">
                       <textarea
+                        onChange={(e) => setGuest_comment(e.target.value)}
+                        value={guest_comment}
+                        id="guest_comment"
                         className="form-control status-box"
                         rows="2"
                         placeholder="Add as much details as possible..."
@@ -216,7 +227,7 @@ const CustomTour = () => {
 
                     <ul className="posts"></ul>
                   </div>
-                  {/* Form Continuation */}
+                  {/* END COMMENT */}
 
                   {/* MULTI CALENDAR PICKER */}
                   <MultiCalendarPicker value={date} setDate={setDate} />
