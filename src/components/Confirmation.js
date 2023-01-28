@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Multiselect from "multiselect-react-dropdown";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";

@@ -47,20 +47,27 @@ const CustomTour = () => {
   //default transportation will always be firs array item
   //in this case it is suv: const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
+  console.log(mainTrans);
   //Reservation for a distillery
   const [reservation, setReservation] = useState("");
   console.log(reservation);
   //variable for comment portion
   const [guest_comment, setGuest_comment] = useState("");
   console.log(guest_comment);
+  //Guests to be on the tour
   const [guest, setGuest] = useState(1);
-
+  console.log(guest);
+  //Multi-day calendar selection
   const [date, setDate] = useState(new Date());
-
+  console.log(date);
   //using react-select dependency to store arrays of distilleries that the
   //customer chooses:
   const [distill, setDistill] = useState(null);
   console.log(distill);
+  //checkbox confirming that the tour must be reviewed
+  const [checked, setChecked] = useState(false);
+  const handleClick = () => setChecked(!checked);
+  console.log(checked);
 
   return (
     <Wrapper>
@@ -164,26 +171,19 @@ const CustomTour = () => {
                           isMulti
                           isClearable
                           placeholder="Search Distilleries"
-                          style={{
-                            chips: {
-                              background: "var(--clr-primary-4)",
-                              borderRadius: "8px",
-                              margin: "4px",
-                              padding: "2px",
-                              fontWeight: "bold",
-                              fontSize: 14,
+                          theme={(theme) => ({
+                            ...theme,
+                            borderRadius: 10,
+                            colors: {
+                              ...theme.colors,
+                              primary25: "var(--clr-primary-8)",
+                              primary: "var(--clr-primary-8)",
+                              neutral10: "var(--clr-primary-8)",
+                              neutral80: "var(--clr-white)",
+                              dangerLight: "var(--clr-primary-7)",
+                              danger: "var(--clr-white)",
                             },
-                            multiselectContainer: {
-                              color: "black",
-                            },
-                            searchBox: {
-                              border: "none",
-                            },
-                            option: {
-                              color: "black",
-                              background: "white",
-                            },
-                          }}
+                          })}
                         />
                       </div>
                     </div>
@@ -313,6 +313,8 @@ const CustomTour = () => {
                   {/* GUESTS END  */}
                   <div className="form-check">
                     <input
+                      onClick={handleClick}
+                      defaultChecked={checked}
                       className="form-check-input"
                       type="checkbox"
                       value=""
@@ -439,6 +441,10 @@ const Wrapper = styled.section`
 
   .form-content h3.form-title {
     margin-bottom: 30px;
+  }
+
+  .form-select {
+    margin-top: 16px;
   }
 
   .form-content p {
