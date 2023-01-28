@@ -11,7 +11,6 @@ import { MultiCalendarPicker, AmountButtons } from "../components";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
   const [guest, setGuest] = useState(1);
-  console.log(guest);
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {

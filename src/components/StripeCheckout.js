@@ -22,8 +22,9 @@ const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 //, then it gets a callback with clientSecret which is then used to
 const CheckoutForm = () => {
   //globals variables used in createPaymentIntent
-  const { cart, total_amount, clearCart } = useCartContext();
+  const { cart, total_amount, tax, clearCart } = useCartContext();
   console.log(cart);
+  const total_tax = total_amount * (tax / 100);
 
   const { ids, names, guests, transports } = {
     ids: cart.map((a) => a.id),
@@ -61,7 +62,7 @@ const CheckoutForm = () => {
       const { data } = await axios.post(
         "/.netlify/functions/create-payment-intent",
         //data of the post request as a string:
-        JSON.stringify({ cart, total_amount })
+        JSON.stringify({ cart, total_amount, tax })
       );
       //unique Secret pulled every time as soon as the user gets to checkout
       setClientSecret(data.clientSecret); //pulling client secret from response
@@ -227,7 +228,7 @@ const CheckoutForm = () => {
         <article>
           Hello, {tourUser && tourUser.name}
           {/* {console.log(tourUser.email)} */}
-          <p>Your Total is {priceFormat(total_amount)}</p>
+          <p>Your Total is {priceFormat(total_amount + total_tax)}</p>
           <p>Test Card Number: 4242424242424242</p>
         </article>
       )}

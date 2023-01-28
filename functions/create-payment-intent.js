@@ -11,7 +11,7 @@ exports.handler = async function (event, context) {
   //prase the data, else return create payment intent
   if (event.body) {
     //parsing: converting string data into javascript JSON object
-    const { cart, total_amount } = JSON.parse(event.body);
+    const { cart, total_amount, tax } = JSON.parse(event.body);
 
     const { ids, names, guests, transports } = {
       ids: cart.map((a) => a.id),
@@ -33,7 +33,8 @@ exports.handler = async function (event, context) {
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
     const calculateOrderAmount = () => {
-      return total_amount; //total formatted in cents
+      const total_tax = total_amount * (tax / 100);
+      return total_amount + total_tax; //total formatted in cents
     };
     //try-catch: for connection to stripe
     try {
