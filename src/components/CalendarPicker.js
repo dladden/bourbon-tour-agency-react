@@ -12,12 +12,16 @@ const CalendarPicker = ({ date, setDate }) => {
   // const onChange = (date) => {
   //   setDate(date);
   // };
+  //disabling past dates
+  const tileDisabled = ({ activeStartDate, date, view }) => {
+    return date < new Date();
+  };
 
   //onChange is a property of Calendar dependency
   //onChange is called on and the value store is date
   return (
     <Wrapper>
-      <Calendar onChange={setDate} value={date} />
+      <Calendar tileDisabled={tileDisabled} onChange={setDate} value={date} />
       {/* {console.log(date)} */}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
     </Wrapper>

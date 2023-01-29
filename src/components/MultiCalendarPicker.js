@@ -14,9 +14,20 @@ const MultiCalendarPicker = ({ date, setDate }) => {
   // };
   //onChange is a property of Calendar dependency
   //onChange is called on and the value store is date
+
+  //disabling past dates
+  const tileDisabled = ({ activeStartDate, date, view }) => {
+    return date < new Date();
+  };
+
   return (
     <Wrapper>
-      <Calendar onChange={setDate} value={date} selectRange={true} />
+      <Calendar
+        tileDisabled={tileDisabled}
+        onChange={setDate}
+        value={date}
+        selectRange={true}
+      />
       {/* {console.log(date)} */}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
     </Wrapper>

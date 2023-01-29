@@ -17,10 +17,11 @@ const CustomTourLink = () => {
         {/* <Route path="/contact" element={<CustomTour />} />
           </Router> */}
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et expedita
-          doloribus ducimus similique, laborum facere minima magni architecto
-          sint distinctio nisi non eligendi velit consectetur quo sunt
-          voluptatem provident molestias.
+          Fill out the custom tour form, and within 24 hours we will review it
+          and send you an invoice with details about your custom tour. In some
+          instances, when we modify your custom tour, the changes and reasons
+          are reviewed with you. Our goal is to accommodate your requirements
+          while making the experience fluid and pleasant!
         </p>
       </article>
     </Wrapper>
