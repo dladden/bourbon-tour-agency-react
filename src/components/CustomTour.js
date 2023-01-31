@@ -75,6 +75,7 @@ const CustomTour = () => {
   // const recaptchaRef = useRef(null);
   const [captchaIsDone, setCaptchaIsDone] = useState(false);
 
+  const recaptchaRef = useRef(null);
   // const onChange = () => {
   //   console.log("changed");
   //   setCaptchaIsDone(true);
@@ -395,9 +396,17 @@ const CustomTour = () => {
                     </button>
                   </div>
                   <ReCAPTCHA
-                    sitekey="Your client site key"
+                    ref={recaptchaRef}
+                    sitekey={process.env.REACT_APP_CAPTCHA_TEST_SITE_KEY}
                     onChange={onChange}
+                    size="compact"
+                    theme="dark"
                   />
+                  <script
+                    src="https://www.recaptcha.net/recaptcha/api.js"
+                    async
+                    defer
+                  ></script>
                 </form>
               </div>
             </div>

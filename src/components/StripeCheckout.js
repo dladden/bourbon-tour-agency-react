@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
 import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
 //Hook imports from Stripe for React
@@ -72,26 +73,6 @@ const CheckoutForm = () => {
       // console.log(error.response);
     }
   };
-  // const createCheckout = async () => {
-  //   try {
-  //     //post request:
-  //     const session = await stripe.checkout.session.create({
-  //       line_items: {
-  //         price: ids,
-  //         quantity: guests,
-  //       },
-  //       mode: "payment",
-  //       success_url: "http://localhost:3000/checkout",
-  //       cancel_url: "http://localhost:3000/cancel",
-  //     });
-  //     //unique Secret pulled every time as soon as the user gets to checkout
-  //     // setClientSecret(data.clientSecret); //pulling client secret from response
-  //     // console.log(data);
-  //     // console.log(data.clientSecret);
-  //   } catch (error) {
-  //     // console.log(error.response);
-  //   }
-  // };
 
   //orderSubmission is SMTP email which sends the a order confirmation to the sbt
   //business email with the data needed to further process the registration for
@@ -112,7 +93,7 @@ const CheckoutForm = () => {
     }
   }; //end async orderSubmission
 
-  //this function takes care of the sendgrid dynamic email template that is sent to the signed-in
+  //this function takes care of the SendGrid dynamic email template that is sent to the signed-in
   //user upon payment confirmation passing the data needed to be shown to the user as a order
   //confirmation
   const orderConfirmation = async () => {
@@ -201,9 +182,15 @@ const CheckoutForm = () => {
   const cardStyle = {
     style: {
       base: {
-        color: "#32325d",
+        iconColor: "red",
+        color: "red",
+        lineHeight: "24px",
+        fontWeight: "600",
         fontFamily: "Arial, sans-serif",
         fontSmoothing: "antialiased",
+        ":-webkit-autofill": {
+          color: "#fce883",
+        },
         fontSize: "16px",
         "::placeholder": {
           color: "#32325d",
@@ -218,65 +205,124 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      {succeeded ? (
-        <article>
-          <h4>Thank You</h4>
-          <h4>Your Payment Was Successful</h4>
-          <h4>Redirect to home Page</h4>
-        </article>
-      ) : (
-        <article>
-          Hello, {tourUser && tourUser.name}
-          {/* {console.log(tourUser.email)} */}
-          <p>Your Total is {priceFormat(total_amount + total_tax)}</p>
-          <p>Test Card Number: 4242424242424242</p>
-        </article>
-      )}
+      <div class="wrapper">
+        <div class="container">
+          <form id="payment-form" onSubmit={handleSubmit}>
+            <div>
+              <img src={card} alt="Secure Checkout Logo" />
+            </div>
+            {/* ----------------------------------- */}
+            <div class="card">
+              <div class="img">
+                <img src={tourUser.picture} alt="guest" />
+              </div>
+              <div class="infos">
+                <div class="name">
+                  <h2>{tourUser && tourUser.name}</h2>
+                </div>
+                <h4 class="text">
+                  Total: {priceFormat(total_amount + total_tax)}
+                </h4>
+              </div>
+            </div>
+
+            {/* ------------------------------------ */}
+            <h1>
+              <i class="fas fa-shipping-fast"></i>
+              Shipping Details
+            </h1>
+            <div class="name">
+              <div>
+                <label for="f-name">First</label>
+                <input type="text" name="f-name" />
+              </div>
+              <div>
+                <label for="l-name">Last</label>
+                <input type="text" name="l-name" />
+              </div>
+            </div>
+            <div class="street">
+              <label for="name">Street</label>
+              <input type="text" name="address" />
+            </div>
+            <div class="address-info">
+              <div>
+                <label for="city">City</label>
+                <input type="text" name="city" />
+              </div>
+              <div>
+                <label for="state">State</label>
+                <input type="text" name="state" />
+              </div>
+              <div>
+                <label for="zip">Zip</label>
+                <input type="text" name="zip" />
+              </div>
+            </div>
+            <h1>
+              <i class="far fa-credit-card"></i> Payment Information
+            </h1>
+            <div class="cc-num">
+              <label for="card-num">Credit Card No.</label>
+              <input type="text" name="card-num" />
+            </div>
+            <div class="cc-info">
+              <div>
+                <label for="card-num">Exp</label>
+                <input type="text" name="expire" />
+              </div>
+              <div>
+                <label for="card-num">CCV</label>
+                <input type="text" name="security" />
+              </div>
+            </div>
+            <div class="btns">
+              <button>Purchase</button>
+            </div>
+            <div>
+              <CardElement
+                id="card-element"
+                options={cardStyle}
+                onChange={handleChange}
+              />
+              {/* Submit Button is disabled if the payment is processing or disabled or succeeded */}
+              <button
+                disabled={processing || disabled || succeeded}
+                id="submit"
+              >
+                <span id="button-text">
+                  {processing ? (
+                    <div className="spinner" id="spinner"></div>
+                  ) : (
+                    "Pay"
+                  )}
+                </span>
+              </button>
+              {/* Error Handling */}
+              {error && (
+                <div className="card-error" role="alert">
+                  {error}
+                </div>
+              )}
+              {/* Success Message */}
+              <p
+                className={
+                  succeeded ? "result-message" : "result-message hidden"
+                }
+              >
+                {" "}
+                Payment Successful Stripe link:{" "}
+                <a href={`https://dashboard.stripe.com/test/payments`}>
+                  Stripe Dashboard
+                </a>
+                Refresh the Page
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
       {/* CardElement is embedded directly from Stripe */}
-      <form id="payment-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Name"
-          autoComplete="cardholder"
-          className="sr-input"
-        />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          autoComplete="cardholder"
-          className="sr-input"
-        />
-        <CardElement
-          id="card-element"
-          options={cardStyle}
-          onChange={handleChange}
-        />
-        {/* Submit Button is disabled if the payment is processing or disabled or succeeded */}
-        <button disabled={processing || disabled || succeeded} id="submit">
-          <span id="button-text">
-            {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
-          </span>
-        </button>
-        {/* Error Handling */}
-        {error && (
-          <div className="card-error" role="alert">
-            {error}
-          </div>
-        )}
-        {/* Success Message */}
-        <p className={succeeded ? "result-message" : "result-message hidden"}>
-          {" "}
-          Payment Successful Stripe link:{" "}
-          <a href={`https://dashboard.stripe.com/test/payments`}>
-            Stripe Dashboard
-          </a>
-          Refresh the Page
-        </p>
-      </form>
     </div>
   );
 }; //end CheckoutForm
@@ -300,8 +346,9 @@ const Wrapper = styled.section`
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
       0px 2px 5px 0px rgba(50, 50, 93, 0.1),
       0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
-    border-radius: 7px;
-    padding: 40px;
+    border-radius: var(--content-radius);
+    padding: 60px;
+    background-color: var(--clr-primary-10);
   }
 
   #payment-message {
@@ -440,6 +487,308 @@ const Wrapper = styled.section`
     form {
       width: 80vw;
       min-width: initial;
+    }
+  }
+
+  /*
+=============== 
+Container
+===============
+*/
+
+  @keyframes slideUp {
+    0% {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      visibility: visible;
+    }
+
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+
+  .container {
+    align-self: center;
+    width: 100%;
+    padding: 5% 5%;
+  }
+
+  h1 {
+    align-self: left;
+  }
+
+  form {
+    width: 100%;
+
+    > * {
+      margin-top: 20px;
+    }
+
+    input {
+      width: 100%;
+      min-height: 25px;
+      border: 0;
+      font-size: 1rem;
+      letter-spacing: 0.15rem;
+      font-family: "Arimo";
+      margin-top: 5px;
+      color: $maroon;
+      border-radius: 4px;
+    }
+
+    label {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: $maroon;
+    }
+
+    h1 {
+      font-size: 24px;
+      line-height: 10px;
+      color: $title;
+      letter-spacing: 1px;
+    }
+
+    h1:nth-of-type(2) {
+      margin-top: 10%;
+    }
+  }
+
+  .name {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+
+    div {
+      width: 45%;
+    }
+  }
+
+  .address-info {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 30%;
+    }
+  }
+
+  .cc-info {
+    display: flex;
+    justify-content: space-between;
+
+    div {
+      width: 45%;
+    }
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    button {
+      margin: 3px 0;
+      height: 30px;
+      width: 40%;
+      color: #cfc9e1;
+      background-color: #4a3b76;
+      text-transform: uppercase;
+      border: 0;
+      border-radius: 0.3rem;
+      letter-spacing: 2px;
+
+      &:hover {
+        animation-name: btn-hov;
+        animation-duration: 550ms;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+
+  @keyframes btn-hov {
+    100% {
+      background-color: #cfc9e1;
+      color: #4a3b76;
+      transform: scale(1.05);
+    }
+  }
+
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+
+  @media (max-width: 736px) {
+    .wrapper {
+      width: 100%;
+    }
+
+    .container {
+      color: #eb9478;
+      width: 100%;
+    }
+
+    .btns {
+      align-items: center;
+
+      button {
+        width: 50%;
+      }
+    }
+
+    form h1 {
+      text-align: left;
+    }
+
+    .name,
+    .address-info,
+    .cc-info {
+      flex-direction: column;
+      width: 100%;
+      justify-content: space-between;
+
+      div {
+        align-items: left;
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+      }
+    }
+
+    .street,
+    .cc-num {
+      text-align: center;
+    }
+
+    input {
+      margin: 5px 0;
+      min-height: 30px;
+    }
+  }
+
+  /*
+=============== 
+Container
+===============
+*/
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  /* Utilities */
+  .card::after,
+  .card img {
+    border-radius: 50%;
+  }
+  body,
+  .card,
+  .stats {
+    display: flex;
+  }
+
+  .card {
+    padding: 2.5rem 2rem;
+    border-radius: var(--content-radius);
+    background-color: var(--clr-white);
+    max-width: 500px;
+    // box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    margin: 1rem;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+  }
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  .card::before {
+  }
+  .card::after {
+    height: 15rem;
+    width: 15rem;
+    background-color: #4172f5aa;
+    top: -8rem;
+    right: -8rem;
+    box-shadow: 2rem 6rem 0 -3rem #fff;
+  }
+
+  .card img {
+    width: 8rem;
+    min-width: 80px;
+    box-shadow: 0 0 0 5px #fff;
+  }
+
+  .infos {
+    margin-left: 1.5rem;
+  }
+
+  .name {
+    margin-bottom: 1rem;
+  }
+  .name h2 {
+    font-size: 1.3rem;
+  }
+  .name h4 {
+    font-size: 0.8rem;
+    color: #333;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    margin-bottom: 1rem;
+  }
+  .stats li {
+    min-width: 5rem;
+  }
+  .stats li h3 {
+    font-size: 0.99rem;
+  }
+  .stats li h4 {
+    font-size: 0.75rem;
+  }
+
+  .links button {
+    font-family: "Poppins", sans-serif;
+    min-width: 120px;
+    padding: 0.5rem;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s linear;
+  }
+  .links .follow,
+  .links .view:hover {
+    background-color: #222;
+    color: #fff;
+  }
+  .links .view,
+  .links .follow:hover {
+    background-color: transparent;
+    color: #222;
+  }
+
+  @media screen and (max-width: 450px) {
+    .card {
+      display: block;
+    }
+    .infos {
+      margin-left: 0;
+      margin-top: 1.5rem;
+    }
+    .links button {
+      min-width: 100px;
     }
   }
 `;
