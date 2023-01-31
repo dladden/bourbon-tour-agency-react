@@ -7,28 +7,61 @@ const {
 } = process.env;
 
 exports.handler = async (event, context, callback) => {
-  const { cart, total_amount, tourUser } = JSON.parse(event.body);
+  const {
+    tour_name,
+    guest_name,
+    guest_email,
+    phone_number,
+    distill,
+    reservation,
+    guest_comment,
+    date,
+    mainTrans,
+    guests,
+    checked,
+  } = JSON.parse(event.body);
   client.setApiKey(REACT_APP_SENDGRID_API_KEY);
 
-  const { ids } = {
-    ids: cart.map((a) => a.id),
-  };
+  var formatted_date = date.map((str) => {
+    return new Date(str).toLocaleDateString();
+  });
 
   console.log(event);
-  console.log(cart);
-  console.log(total_amount);
 
   const order = () => {
-    return "CUSTOM ORDER REQUEST FROM:" + `${name}`; //total formatted in cents
+    return "CUSTOM TOUR REQUEST FROM: " + `${guest_name}`; //total formatted in cents
   };
 
   const msg = {
     to: REACT_APP_SENDGRID_TO_EMAIL,
     from: REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
     subject: order(),
-    text: JSON.stringify({ cart, total_amount, tourUser }),
-    number: JSON.stringify(total_amount),
-    html: JSON.stringify({ cart, total_amount, tourUser }),
+    text: JSON.stringify({
+      tour_name,
+      guest_name,
+      guest_email,
+      phone_number,
+      distill,
+      reservation,
+      guest_comment,
+      formatted_date,
+      mainTrans,
+      guests,
+      checked,
+    }),
+    html: JSON.stringify({
+      tour_name,
+      guest_name,
+      guest_email,
+      phone_number,
+      distill,
+      reservation,
+      guest_comment,
+      formatted_date,
+      mainTrans,
+      guests,
+      checked,
+    }),
   };
 
   try {

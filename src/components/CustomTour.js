@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import axios from "axios"; //axios for post function request
 import styled from "styled-components";
 import Multiselect from "react-select";
 import bus from "../assets/bus.svg";
@@ -7,6 +8,7 @@ import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
 import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
+import { ReCAPTCHA } from "react-google-recaptcha";
 // import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
@@ -30,6 +32,7 @@ const CustomTour = () => {
       return tempGuest;
     });
   };
+
   //useState VARIABLES:
   //variables for tour name:
   const [tour_name, setTour_name] = useState("");
@@ -55,8 +58,8 @@ const CustomTour = () => {
   const [guest_comment, setGuest_comment] = useState("");
   console.log(guest_comment);
   //Guests to be on the tour
-  const [guest, setGuest] = useState(1);
-  console.log(guest);
+  const [tour_guests, setGuest] = useState(1);
+  console.log(tour_guests);
   //Multi-day calendar selection
   const [date, setDate] = useState(new Date());
   console.log(date);
@@ -68,7 +71,50 @@ const CustomTour = () => {
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
   console.log(checked);
+  //invisible reCaptcha
+  // const recaptchaRef = useRef(null);
+  const [captchaIsDone, setCaptchaIsDone] = useState(false);
 
+  // const onChange = () => {
+  //   console.log("changed");
+  //   setCaptchaIsDone(true);
+  // };
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
+
+  //HANDLE ON SUBMIT:
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await axios
+        .post(
+          "/.netlify/functions/custom-order-submission",
+
+          JSON.stringify({
+            tour_name,
+            guest_name,
+            guest_email,
+            phone_number,
+            distill,
+            reservation,
+            guest_comment,
+            date,
+            mainTrans,
+            guests,
+            checked,
+          })
+        )
+        .then((response) => response.json());
+      if (!response.ok) {
+        //all OK
+        return;
+      }
+    } catch (error) {
+      //error
+    }
+  } //end async Custom Order Submission
   return (
     <Wrapper>
       <div className="form-body">
@@ -85,9 +131,9 @@ const CustomTour = () => {
                   />
                 </div>
                 <h3>Custom Tour Form</h3>
-                <p>Sumbit the form and we will contact you within 24 hours.</p>
+                <p>Submit the form and we will contact you within 24 hours.</p>
                 {/* TOUR NAME */}
-                <form className="requires-validation">
+                <form className="requires-validation" onSubmit={handleSubmit}>
                   <div className="col-md-12">
                     <input
                       onChange={(e) => setTour_name(e.target.value)}
@@ -95,6 +141,8 @@ const CustomTour = () => {
                       id="tour_name"
                       className="form-control"
                       type="text"
+                      maxLength={30}
+                      pattern="[\w\s]+"
                       name="tour_name"
                       placeholder="Tour Name"
                       required
@@ -112,6 +160,8 @@ const CustomTour = () => {
                       id="guest_name"
                       className="form-control"
                       type="text"
+                      maxLength={30}
+                      pattern="^[a-zA-Z\s]+"
                       name="guest_name"
                       placeholder="Full Name"
                       required
@@ -129,7 +179,9 @@ const CustomTour = () => {
                       id="guest_email"
                       className="form-control"
                       type="email"
+                      maxLength={100}
                       name="guest_email"
+                      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                       placeholder="E-mail Address"
                       required
                     />
@@ -170,7 +222,7 @@ const CustomTour = () => {
                           options={distilleries_select}
                           isMulti
                           isClearable
-                          placeholder="Search Distilleries"
+                          placeholder="Select Distilleries"
                           theme={(theme) => ({
                             ...theme,
                             borderRadius: 10,
@@ -200,14 +252,15 @@ const CustomTour = () => {
                       id="reservation"
                       className="form-control"
                       type="text"
+                      maxLength={30}
+                      pattern="^[\w\s]+"
                       name="reservation"
                       placeholder="Reservation"
-                      required
                     />
                     <div className="valid-feedback">
                       If you are looking for private tour reservation, add a
-                      distillery name here. PLEASE NOTE: Reservation must be
-                      made 4 weeks in advance.
+                      distillery name here. NOTE: Reservation must be made 4
+                      weeks in advance.
                     </div>
                   </div>
                   {/* COMMENT */}
@@ -217,6 +270,8 @@ const CustomTour = () => {
                       <textarea
                         onChange={(e) => setGuest_comment(e.target.value)}
                         value={guest_comment}
+                        maxLength={200}
+                        pattern="^[a-zA-Z0-9 ]*$"
                         id="guest_comment"
                         className="form-control status-box"
                         rows="2"
@@ -228,7 +283,6 @@ const CustomTour = () => {
                     <ul className="posts"></ul>
                   </div>
                   {/* END COMMENT */}
-
                   {/* MULTI CALENDAR PICKER */}
                   <MultiCalendarPicker value={date} setDate={setDate} />
                   {date.length > 0 ? (
@@ -302,7 +356,7 @@ const CustomTour = () => {
                   {/* GUESTS */}
                   <div className="btn-container">
                     <AmountButtons
-                      guest={guest}
+                      guest={tour_guests}
                       increase={increase}
                       decrease={decrease}
                     />
@@ -330,7 +384,7 @@ const CustomTour = () => {
                       first reviewed, there after receiving confirmation.
                     </div>
                   </div>
-
+                  {/* ReCaptureRef */}
                   <div className="form-button mt-3">
                     <button
                       id="submit"
@@ -340,6 +394,10 @@ const CustomTour = () => {
                       Send Request
                     </button>
                   </div>
+                  <ReCAPTCHA
+                    sitekey="Your client site key"
+                    onChange={onChange}
+                  />
                 </form>
               </div>
             </div>
