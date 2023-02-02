@@ -5,7 +5,7 @@ import owner from "../assets/owner.jpg";
 import socialLinks from "../utils/social_links";
 // import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
-const OwnerCard = ({ tour }) => {
+const OwnerCard = ({}) => {
   // const { tour_url } = tour;
   //   console.log(tour_url);
 

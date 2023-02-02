@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react"; //hook from auth0
 const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
   //destructuring the properties from auth0 like user: which tells us the user and credentials
-  const { loginWithRedirect, logout, user } = useAuth0();
+  const { loginWithRedirect, logout, user, isLoading, error } = useAuth0();
   const [tourUser, setTourUser] = useState(null);
 
   //useEffect invoked every-time isAuthenticated changes used in CartButtons.js
@@ -17,7 +17,6 @@ export const UserProvider = ({ children }) => {
     //   setTourUser(false); //else set user to false
     // } //end if else Authenticated is true
     setTourUser(user); //set user to setTourUser
-
     //viewing the returns:
     // console.log(`user:${user}`);
     // console.log(`authenticated:${isAuthenticated}`);
@@ -25,7 +24,9 @@ export const UserProvider = ({ children }) => {
   }, [user]); //every time user changes setting user to the setTourUser
   return (
     //return value
-    <UserContext.Provider value={{ loginWithRedirect, logout, tourUser }}>
+    <UserContext.Provider
+      value={{ loginWithRedirect, logout, tourUser, isLoading, error }}
+    >
       {children}
     </UserContext.Provider>
   );

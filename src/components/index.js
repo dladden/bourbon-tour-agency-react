@@ -17,6 +17,7 @@ import ImageSlider from "./ImageSlider";
 import Services from "./Services";
 import NewsLetter from "./NewsLetter";
 import OwnerCard from "./OwnerCard";
+import GuestCard from "./GuestCard";
 import ContactList from "./ContactList";
 import CustomTour from "./CustomTour";
 import CustomTourLink from "./CustomTourLink";
@@ -53,6 +54,7 @@ export {
   Services,
   NewsLetter,
   OwnerCard,
+  GuestCard,
   ContactList,
   CustomTour,
   CustomTourLink,

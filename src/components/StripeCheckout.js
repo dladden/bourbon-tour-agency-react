@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
 import Multiselect from "react-select";
-import { country } from "../utils/constants";
+import { country_data } from "../utils/constants";
 import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
 //Hook imports from Stripe for React
 import {
@@ -11,6 +11,7 @@ import {
   Elements,
   useElements,
 } from "@stripe/react-stripe-js";
+import { GuestCard } from "../components";
 import axios from "axios"; //axios for post function request
 import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
@@ -36,7 +37,7 @@ const CheckoutForm = () => {
     transports: cart.map((a) => a.trans),
   };
 
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState(null);
 
   // console.log(ids, names, guests, transports);
 
@@ -161,7 +162,7 @@ const CheckoutForm = () => {
         billing_details: {
           address: {
             city: e.target.city.value,
-            country: country,
+            country: "United States",
             line1: e.target.street.value,
             postal_code: e.target.postal_code.value,
             state: e.target.state.value,
@@ -172,7 +173,6 @@ const CheckoutForm = () => {
         },
       },
     });
-    console.log(country);
     //handling the error if processing fails
     if (payload.error) {
       setError(`Payment Failed: ${payload.error.message}`);
@@ -226,20 +226,9 @@ const CheckoutForm = () => {
               <img src={card} alt="Secure Checkout Logo" />
             </div>
             {/* USER CARD */}
-            <div className="card">
-              <div className="img">
-                <img src={tourUser.picture} />
-              </div>
-              <div className="infos">
-                <div className="name">
-                  <h2>Hello, {tourUser && tourUser.name}</h2>
-                </div>
-                <h4 className="text">
-                  Your Total: {priceFormat(total_amount + total_tax)}
-                </h4>
-              </div>
-            </div>
+            <GuestCard />
             {/* END USER CARD */}
+            {/* BILLING PORTION (name, phone_number, country, street, city, state, postal_code)*/}
             <h1>
               <i className="fas fa-shipping-fast"></i>
               Billing Details
@@ -284,7 +273,8 @@ const CheckoutForm = () => {
                     onChange={setCountry}
                     // onRemove={handleChange}
                     // onSelect={handleChange}
-                    options={country}
+
+                    options={country_data}
                     defaultValue={{
                       label: "United States",
                       value: "United States",
@@ -357,6 +347,7 @@ const CheckoutForm = () => {
                 />
               </div>
             </div>
+            {/* END BILLING PORTION */}
             <h1>
               <i className="far fa-credit-card"></i> Contact Information
             </h1>
@@ -608,7 +599,7 @@ STRIPE STYLING
 
   /*
 =============== 
-FROM CONTAINER
+FORM CONTAINER
 ===============
 */
 

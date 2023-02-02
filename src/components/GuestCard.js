@@ -1,0 +1,152 @@
+import React from "react";
+import styled from "styled-components";
+import { priceFormat } from "../utils/helpers";
+import { useCartContext } from "../context/cart_context"; //cart context
+import { useUserContext } from "../context/user_context"; //user context
+// import { Link } from "react-router-dom";
+//Component responsible for the OwnerCard used in Contact page
+const GuestCard = () => {
+  // const { tour_url } = tour;
+  //   console.log(tour_url);
+  const { total_amount, tax } = useCartContext();
+  const { tourUser } = useUserContext();
+  console.log(tourUser);
+  const total_tax = total_amount * (tax / 100);
+
+  // const [image, setImage] = React.useState(tourUser.picture);
+
+  // setImage(localStorage.setItem("image", JSON.stringify(tourUser.picture)));
+
+  return (
+    <Wrapper>
+      <div className="card">
+        <div className="img">
+          <img src={tourUser?.picture} alt="guest" />
+        </div>
+        <div className="infos">
+          <div className="name">
+            <h2>Hello, {tourUser && tourUser.name}</h2>
+          </div>
+          <h4 className="text">
+            Your Total: {priceFormat(total_amount + total_tax)}
+          </h4>
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
+
+//This wrapper does not effect the functionality it is used for styling
+const Wrapper = styled.section`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  /* Utilities */
+  .card::after,
+  .card img {
+    border-radius: 50%;
+  }
+  body,
+  .card,
+  .stats {
+    display: flex;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
+    background-color: var(--clr-white);
+    max-width: 460px;
+    align-items: center;
+  }
+  .card::before,
+  .card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+  .card::before {
+  }
+
+  .card img {
+    width: 6rem;
+    min-width: 80px;
+  }
+
+  .infos {
+    margin-left: 1.5rem;
+  }
+
+  .name {
+    margin-bottom: 1rem;
+  }
+  .name h2 {
+    font-size: 1.3rem;
+  }
+  .name h4 {
+    font-size: 0.8rem;
+    color: #333;
+  }
+
+  .text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .stats {
+    margin-bottom: 1rem;
+  }
+  .stats li {
+    min-width: 5rem;
+  }
+  .stats li h3 {
+    font-size: 0.99rem;
+  }
+  .stats li h4 {
+    font-size: 0.75rem;
+  }
+
+  .links button {
+    font-family: "Poppins", sans-serif;
+    min-width: 120px;
+    padding: 0.5rem;
+    border: 1px solid #222;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s linear;
+  }
+  .links .follow,
+  .links .view:hover {
+    background-color: #222;
+    color: #fff;
+  }
+  .links .view,
+  .links .follow:hover {
+    background-color: transparent;
+    color: #222;
+  }
+
+  @media screen and (max-width: 450px) {
+    .card {
+      display: block;
+    }
+    .infos {
+      margin-left: 0;
+      margin-top: 1.5rem;
+    }
+    .links button {
+      min-width: 100px;
+    }
+  }
+`;
+export default GuestCard;

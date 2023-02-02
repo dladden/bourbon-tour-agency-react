@@ -140,7 +140,7 @@ export const distilleries_select = [
   { value: "Cooperage", label: "Cooperage" },
 ];
 
-export const country = [
+export const country_data = [
   { value: "United States", label: "United States" },
   { value: "Canada", label: "Canada" },
 ];
