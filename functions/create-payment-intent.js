@@ -1,8 +1,8 @@
 //domain/.netlify/functions/create-payment-intent
 //handler (async) with two arguments event and context that return a promise (all NODE)
 
-require("dotenv").config(); //importing dotenv
-
+const dotenv = require("dotenv"); //importing dotenv
+dotenv.config();
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
 
 exports.handler = async function (event, context) {
@@ -13,28 +13,14 @@ exports.handler = async function (event, context) {
     //parsing: converting string data into javascript JSON object
     const { cart, total_amount, tax } = JSON.parse(event.body);
 
-    const { ids, names, guests, transports } = {
-      ids: cart.map((a) => a.id),
-      names: cart.map((a) => a.name),
-      guests: cart.map((a) => a.guests),
-      transports: cart.map((a) => a.trans),
-    };
-    console.log(ids);
-    const lineItems = [
-      {
-        id: ids,
-        name: names,
-        currency: "USD",
-        quantity: guests,
-      },
-    ];
-
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
     const calculateOrderAmount = () => {
       const total_tax = total_amount * (tax / 100);
-      return total_amount + total_tax; //total formatted in cents
+      var total_amount_int = Math.ceil(total_amount + total_tax);
+      console.log(total_amount_int);
+      return total_amount_int; //total formatted in cents
     };
     //try-catch: for connection to stripe
     try {
@@ -50,11 +36,9 @@ exports.handler = async function (event, context) {
           enabled: true,
         },
       });
-      console.log(cart.id);
       return {
         statusCode: 200,
         body: JSON.stringify({
-          cart,
           clientSecret: paymentIntent.client_secret,
         }),
       };

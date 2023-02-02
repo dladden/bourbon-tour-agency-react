@@ -55,13 +55,11 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const total_formatted = priceFormat(total_amount);
-
-  //
-  const [purchaseDate, setPurchaseDate] = useState("");
+  console.log(clientSecret);
 
   //createPaymentIntent uses axios to POST the data when the component mounts to Stripe.
   //This is done with netlify serverless functions to post it to the server
-  //This get request is done with a try and catch to catch errors its equvilent
+  //This get request is done with a try and catch to catch errors its equivalent
   //to an https request from a server (in this case serverless netlify func.)
   const createPaymentIntent = async () => {
     try {
@@ -120,28 +118,10 @@ const CheckoutForm = () => {
 
   //useEffect that only invoked when component mounts bc of empty dependency array
   useEffect(() => {
-    fetch(createPaymentIntent(), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: names,
-        currency: "USD",
-        quantity: guests,
-      }),
-    });
+    createPaymentIntent();
     // eslint-disable-next-line
   }, []);
   console.log(ids);
-
-  // cart.map((item) => {
-  //   setPurchaseDate(item.date);
-  // });
-
-  const tourCart = () => {
-    cart.map((item) => {
-      setPurchaseDate(item.date);
-    });
-  };
 
   //handling change provided by Stripe API
   //This function uses the event which points to the event object
@@ -155,14 +135,13 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //stop the form from being submitted if there's an error
     setProcessing(true); //on submit the processing beings
-    tourCart();
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
           address: {
             city: e.target.city.value,
-            country: "United States",
+            country: "US",
             line1: e.target.street.value,
             postal_code: e.target.postal_code.value,
             state: e.target.state.value,
@@ -196,8 +175,8 @@ const CheckoutForm = () => {
   const cardStyle = {
     style: {
       base: {
-        iconColor: "red",
-        color: "red",
+        iconColor: "#7f7367",
+        color: "#3e3b35",
         lineHeight: "24px",
         fontWeight: "600",
         fontFamily: "Arial, sans-serif",
@@ -219,6 +198,20 @@ const CheckoutForm = () => {
 
   return (
     <div>
+      {succeeded ? (
+        <article>
+          <h4>Thank You</h4>
+          <h4>Your Payment Was Successful</h4>
+          <h4>Redirect to home Page</h4>
+        </article>
+      ) : (
+        <article>
+          Hello, {tourUser && tourUser.name}
+          {/* {console.log(tourUser.email)} */}
+          <p>Your Total is {priceFormat(total_amount + total_tax)}</p>
+          <p>Test Card Number: 4242424242424242</p>
+        </article>
+      )}
       <div className="wrapper">
         <div className="container">
           <form id="payment-form" onSubmit={handleSubmit}>
@@ -242,19 +235,19 @@ const CheckoutForm = () => {
                   id="name"
                   name="name"
                   maxLength={30}
-                  pattern="[\w\s]+"
+                  // pattern="[\w\s]+"
                   placeholder="First & Last Name"
                   required
                 />
               </div>
               <div>
-                <label for="l-name">Phone Number</label>
+                <label>Phone Number</label>
                 <input
                   className="text"
                   id="phone_number"
                   type="text"
                   name="phone_number"
-                  pattern="[0-9]*"
+                  // pattern="[0-9]*"
                   minLength="10"
                   placeholder="(999) 999-9999"
                   required
@@ -263,7 +256,7 @@ const CheckoutForm = () => {
             </div>
             <div className="">
               <div>
-                <label for="zip">Country</label>
+                <label>Country</label>
                 <div>
                   <Multiselect
                     className="text"
@@ -298,50 +291,50 @@ const CheckoutForm = () => {
               </div>
             </div>
             <div className="street">
-              <label for="name">Street</label>
+              <label>Street</label>
               <input
                 id="street"
                 type="text"
                 name="street"
                 maxLength={100}
-                pattern="^[a-zA-Z0-9 ]*$"
+                // pattern="^[a-zA-Z0-9 ]*$"
                 className="text"
                 placeholder="Street Name*"
               />
             </div>
             <div className="address-info">
               <div>
-                <label for="city">City</label>
+                <label>City</label>
                 <input
                   id="city"
                   name="city"
                   type="text"
                   maxLength={50}
-                  pattern="^[a-zA-Z0-9 ]*$"
+                  // pattern="^[a-zA-Z0-9 ]*$"
                   className="text"
                   placeholder="City*"
                 />
               </div>
               <div>
-                <label for="state">State</label>
+                <label>State</label>
                 <input
                   id="state"
                   name="state"
                   type="text"
                   maxLength={5}
-                  pattern="^[a-zA-Z0-9 ]*$"
+                  // pattern="^[a-zA-Z0-9 ]*$"
                   className="text"
                   placeholder="State*"
                 />
               </div>
               <div>
-                <label for="zip">Zip</label>
+                <label>Zip</label>
                 <input
                   id="postal_code"
                   name="postal_code"
                   type="text"
                   maxLength={10}
-                  pattern="^[0-9]*"
+                  // pattern="^[0-9]*"
                   className="text"
                   placeholder="Zip-Code*"
                 />
@@ -352,25 +345,25 @@ const CheckoutForm = () => {
               <i className="far fa-credit-card"></i> Contact Information
             </h1>
             <div className="cc-num">
-              <label for="card-num">Email</label>
+              <label>Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 className="form-control"
                 maxLength={100}
-                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                // pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                 placeholder="E-mail Address"
                 required
               />
             </div>
             <div className="cc-info">
               <div>
-                <label for="card-num">Exp</label>
+                <label>Exp</label>
                 <input type="text" name="expire" />
               </div>
               <div>
-                <label for="card-num">CCV</label>
+                <label>CCV</label>
                 <input type="text" name="security" />
               </div>
             </div>
