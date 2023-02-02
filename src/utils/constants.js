@@ -105,7 +105,7 @@ export const distilleries = [
   "Prohibition Spirits",
   "Cooperage",
 ];
-//
+//All the distilleries
 export const distilleries_select = [
   { value: "Buffalo Trace", label: "Buffalo Trace" },
   { value: "Castle & Key", label: "Castle & Key" },
@@ -138,6 +138,11 @@ export const distilleries_select = [
   { value: "Peerless Distillery", label: "Peerless Distillery" },
   { value: "Prohibition Spirits", label: "Prohibition Spirits" },
   { value: "Cooperage", label: "Cooperage" },
+];
+
+export const country = [
+  { value: "United States", label: "United States" },
+  { value: "Canada", label: "Canada" },
 ];
 
 // console.log(guestsImg0);

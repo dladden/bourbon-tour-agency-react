@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
+import Multiselect from "react-select";
+import { country } from "../utils/constants";
 import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
 //Hook imports from Stripe for React
 import {
@@ -33,6 +35,9 @@ const CheckoutForm = () => {
     guests: cart.map((a) => a.guests),
     transports: cart.map((a) => a.trans),
   };
+
+  const [country, setCountry] = useState("");
+
   // console.log(ids, names, guests, transports);
 
   const { tourUser } = useUserContext();
@@ -154,11 +159,20 @@ const CheckoutForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
+          address: {
+            city: e.target.city.value,
+            country: country,
+            line1: e.target.street.value,
+            postal_code: e.target.postal_code.value,
+            state: e.target.state.value,
+          },
           name: e.target.name.value,
           email: e.target.email.value,
+          phone: e.target.phone_number.value,
         },
       },
     });
+    console.log(country);
     //handling the error if processing fails
     if (payload.error) {
       setError(`Payment Failed: ${payload.error.message}`);
@@ -205,68 +219,161 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      <div class="wrapper">
-        <div class="container">
+      <div className="wrapper">
+        <div className="container">
           <form id="payment-form" onSubmit={handleSubmit}>
-            <div>
+            <div className="from-logo">
               <img src={card} alt="Secure Checkout Logo" />
             </div>
-            {/* ----------------------------------- */}
-            <div class="card">
-              <div class="img">
-                <img src={tourUser.picture} alt="guest" />
+            {/* USER CARD */}
+            <div className="card">
+              <div className="img">
+                <img src={tourUser.picture} />
               </div>
-              <div class="infos">
-                <div class="name">
-                  <h2>{tourUser && tourUser.name}</h2>
+              <div className="infos">
+                <div className="name">
+                  <h2>Hello, {tourUser && tourUser.name}</h2>
                 </div>
-                <h4 class="text">
-                  Total: {priceFormat(total_amount + total_tax)}
+                <h4 className="text">
+                  Your Total: {priceFormat(total_amount + total_tax)}
                 </h4>
               </div>
             </div>
-
-            {/* ------------------------------------ */}
+            {/* END USER CARD */}
             <h1>
-              <i class="fas fa-shipping-fast"></i>
-              Shipping Details
+              <i className="fas fa-shipping-fast"></i>
+              Billing Details
             </h1>
-            <div class="name">
+            <div className="name">
               <div>
-                <label for="f-name">First</label>
-                <input type="text" name="f-name" />
+                <label>Full Name</label>
+                <input
+                  className="text"
+                  type="text"
+                  id="name"
+                  name="name"
+                  maxLength={30}
+                  pattern="[\w\s]+"
+                  placeholder="First & Last Name"
+                  required
+                />
               </div>
               <div>
-                <label for="l-name">Last</label>
-                <input type="text" name="l-name" />
+                <label for="l-name">Phone Number</label>
+                <input
+                  className="text"
+                  id="phone_number"
+                  type="text"
+                  name="phone_number"
+                  pattern="[0-9]*"
+                  minLength="10"
+                  placeholder="(999) 999-9999"
+                  required
+                />
               </div>
             </div>
-            <div class="street">
+            <div className="">
+              <div>
+                <label for="zip">Country</label>
+                <div>
+                  <Multiselect
+                    className="text"
+                    closeIcon={"circle"}
+                    isObject={false}
+                    // value={selectedValue}
+                    onChange={setCountry}
+                    // onRemove={handleChange}
+                    // onSelect={handleChange}
+                    options={country}
+                    defaultValue={{
+                      label: "United States",
+                      value: "United States",
+                    }}
+                    placeholder="Select Country"
+                    theme={(theme) => ({
+                      ...theme,
+                      borderRadius: 10,
+                      colors: {
+                        ...theme.colors,
+                        primary25: "var(--clr-primary-8)",
+                        primary: "var(--clr-primary-8)",
+                        neutral10: "var(--clr-primary-8)",
+                        neutral80: "black",
+                        dangerLight: "var(--clr-primary-7)",
+                        danger: "var(--clr-white)",
+                      },
+                    })}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="street">
               <label for="name">Street</label>
-              <input type="text" name="address" />
+              <input
+                id="street"
+                type="text"
+                name="street"
+                maxLength={100}
+                pattern="^[a-zA-Z0-9 ]*$"
+                className="text"
+                placeholder="Street Name*"
+              />
             </div>
-            <div class="address-info">
+            <div className="address-info">
               <div>
                 <label for="city">City</label>
-                <input type="text" name="city" />
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  maxLength={50}
+                  pattern="^[a-zA-Z0-9 ]*$"
+                  className="text"
+                  placeholder="City*"
+                />
               </div>
               <div>
                 <label for="state">State</label>
-                <input type="text" name="state" />
+                <input
+                  id="state"
+                  name="state"
+                  type="text"
+                  maxLength={5}
+                  pattern="^[a-zA-Z0-9 ]*$"
+                  className="text"
+                  placeholder="State*"
+                />
               </div>
               <div>
                 <label for="zip">Zip</label>
-                <input type="text" name="zip" />
+                <input
+                  id="postal_code"
+                  name="postal_code"
+                  type="text"
+                  maxLength={10}
+                  pattern="^[0-9]*"
+                  className="text"
+                  placeholder="Zip-Code*"
+                />
               </div>
             </div>
             <h1>
-              <i class="far fa-credit-card"></i> Payment Information
+              <i className="far fa-credit-card"></i> Contact Information
             </h1>
-            <div class="cc-num">
-              <label for="card-num">Credit Card No.</label>
-              <input type="text" name="card-num" />
+            <div className="cc-num">
+              <label for="card-num">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="form-control"
+                maxLength={100}
+                pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                placeholder="E-mail Address"
+                required
+              />
             </div>
-            <div class="cc-info">
+            <div className="cc-info">
               <div>
                 <label for="card-num">Exp</label>
                 <input type="text" name="expire" />
@@ -275,9 +382,6 @@ const CheckoutForm = () => {
                 <label for="card-num">CCV</label>
                 <input type="text" name="security" />
               </div>
-            </div>
-            <div class="btns">
-              <button>Purchase</button>
             </div>
             <div>
               <CardElement
@@ -339,6 +443,12 @@ const StripeCheckout = () => {
 };
 
 const Wrapper = styled.section`
+  /*
+=============== 
+STRIPE STYLING
+===============
+*/
+
   form {
     width: 30vw;
     min-width: 500px;
@@ -395,7 +505,7 @@ const Wrapper = styled.section`
 
   /* Buttons and links */
   button {
-    background: #5469d4;
+    background: var(--clr-green-dark);
     font-family: Arial, sans-serif;
     color: #ffffff;
     border-radius: 4px;
@@ -490,24 +600,17 @@ const Wrapper = styled.section`
     }
   }
 
+  .from-logo {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /*
 =============== 
-Container
+FROM CONTAINER
 ===============
 */
-
-  @keyframes slideUp {
-    0% {
-      -webkit-transform: translateY(100%);
-      transform: translateY(100%);
-      visibility: visible;
-    }
-
-    100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-    }
-  }
 
   .container {
     align-self: center;
@@ -527,15 +630,15 @@ Container
     }
 
     input {
+      padding: 9px 15px;
       width: 100%;
-      min-height: 25px;
+      min-height: 35px;
       border: 0;
       font-size: 1rem;
-      letter-spacing: 0.15rem;
-      font-family: "Arimo";
+      letter-spacing: 0rem;
       margin-top: 5px;
       color: $maroon;
-      border-radius: 4px;
+      border-radius: var(--input-radius);
     }
 
     label {
@@ -672,7 +775,7 @@ Container
 
   /*
 =============== 
-Container
+USER CARD
 ===============
 */
 
@@ -692,15 +795,15 @@ Container
   }
 
   .card {
-    padding: 2.5rem 2rem;
-    border-radius: var(--content-radius);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 1.5rem;
     background-color: var(--clr-white);
-    max-width: 500px;
-    // box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-    margin: 1rem;
-    position: relative;
-    transform-style: preserve-3d;
-    overflow: hidden;
+    max-width: 460px;
+    align-items: center;
   }
   .card::before,
   .card::after {
@@ -710,19 +813,10 @@ Container
   }
   .card::before {
   }
-  .card::after {
-    height: 15rem;
-    width: 15rem;
-    background-color: #4172f5aa;
-    top: -8rem;
-    right: -8rem;
-    box-shadow: 2rem 6rem 0 -3rem #fff;
-  }
 
   .card img {
-    width: 8rem;
+    width: 6rem;
     min-width: 80px;
-    box-shadow: 0 0 0 5px #fff;
   }
 
   .infos {
@@ -741,7 +835,7 @@ Container
   }
 
   .text {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-bottom: 1rem;
   }
 

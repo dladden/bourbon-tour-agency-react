@@ -23,7 +23,6 @@ export const UserProvider = ({ children }) => {
     // console.log(`authenticated:${isAuthenticated}`);
     // console.log(`loading..:${isLoading}`);
   }, [user]); //every time user changes setting user to the setTourUser
-  console.log(user);
   return (
     //return value
     <UserContext.Provider value={{ loginWithRedirect, logout, tourUser }}>
