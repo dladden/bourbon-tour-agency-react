@@ -359,13 +359,20 @@ const CheckoutForm = () => {
             </div>
             <div className="cc-info">
               <div>
-                <label>Exp</label>
-                <input type="text" name="expire" />
+                <label>Discount Code</label>
+                <input
+                  id="coupon_code"
+                  name="coupon_code"
+                  type="text"
+                  maxLength={20}
+                  // pattern="^[0-9]*"
+                  className="text"
+                  placeholder="If Applicable Add Discount Code"
+                />
               </div>
-              <div>
-                <label>CCV</label>
-                <input type="text" name="security" />
-              </div>
+              <h5 className="total-form">
+                Your Total: {priceFormat(total_amount + total_tax)}
+              </h5>
             </div>
             <div>
               <CardElement
