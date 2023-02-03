@@ -52,7 +52,7 @@ const Wrapper = styled.section`
   article {
     border: 2px solid var(--clr-primary-10);
     border-radius: var(--content-radius);
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 1rem;
   }
   h4,
   h5,
@@ -68,12 +68,29 @@ const Wrapper = styled.section`
   }
   @media (min-width: 776px) {
     justify-content: flex-end;
+    article {
+      border: 2px solid var(--clr-primary-10);
+      border-radius: var(--content-radius);
+      padding: 1.5rem 3rem;
+    }
   }
   .btn {
     width: 100%;
     margin-top: 1rem;
     text-align: center;
     font-weight: 700;
+  }
+
+  @media screen and (max-width: 450px) {
+    .btn {
+      margin: 0 auto;
+      display: block;
+      width: 100%;
+      max-width: 280px;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 700;
+    }
   }
 `;
 

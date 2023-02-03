@@ -45,7 +45,7 @@ const Wrapper = styled.section`
     padding: 0.25rem 0.5rem;
     background: var(--clr-primary-5);
     color: var(--clr-white);
-    border-radius: var(--radius);
+    border-radius: var(--btn-radius);
     letter-spacing: var(--spacing);
     font-weight: 400;
     cursor: pointer;

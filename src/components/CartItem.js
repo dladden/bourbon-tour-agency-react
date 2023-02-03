@@ -79,15 +79,17 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
         {trans === "VAN" ? priceFormat(price + van_fee) : null}
         {trans === "BUS" ? priceFormat(price + bus_fee) : null}
       </h5>
-      <button
-        type="button"
-        className="remove-btn"
-        onClick={() => {
-          removeTour(id);
-        }}
-      >
-        <CgClose />
-      </button>
+      <div className="remove-btn-container">
+        <button
+          type="button"
+          className="remove-btn"
+          onClick={() => {
+            removeTour(id);
+          }}
+        >
+          <CgClose />
+        </button>
+      </div>
     </Wrapper>
   );
 };
@@ -159,6 +161,11 @@ const Wrapper = styled.article`
     h2 {
       font-size: 1rem;
     }
+  }
+  .remove-btn-container {
+    margin: 0 auto;
+    position: relative;
+    margin: auto;
   }
   .remove-btn {
     color: var(--clr-white);
