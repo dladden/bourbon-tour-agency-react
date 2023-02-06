@@ -1,8 +1,10 @@
 import React from "react";
+import { FaShoppingCart } from "react-icons/fa";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers";
 import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
+import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
 const GuestCard = () => {
@@ -30,6 +32,12 @@ const GuestCard = () => {
           <h4 className="text">
             Your Total: {priceFormat(total_amount + total_tax)}
           </h4>
+          <div className="">
+            <Link className="btn" smooth to="/cart#user-cart">
+              <FaShoppingCart />
+              &nbsp; View Cart
+            </Link>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -55,6 +63,18 @@ const Wrapper = styled.section`
   .card,
   .stats {
     display: flex;
+  }
+  .btn {
+    background: var(--clr-primary-9);
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: var(--spacing);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .card {
@@ -87,7 +107,7 @@ const Wrapper = styled.section`
   }
 
   .name {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   .name h2 {
     font-size: 1.3rem;
@@ -99,7 +119,7 @@ const Wrapper = styled.section`
 
   .text {
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .stats {
@@ -142,7 +162,7 @@ const Wrapper = styled.section`
     }
     .infos {
       margin-left: 0;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
     .links button {
       min-width: 100px;

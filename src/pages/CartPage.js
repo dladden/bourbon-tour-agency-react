@@ -29,8 +29,10 @@ const CartPage = () => {
     <main>
       <PageHero title="cart" />
       <Wrapper className="page">
-        <CartLogo />
-        <CartContent />
+        <section id="user-cart">
+          <CartLogo />
+          <CartContent />
+        </section>
       </Wrapper>
     </main>
   );

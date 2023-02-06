@@ -24,7 +24,9 @@ const CheckoutPage = () => {
             </div>
           </div>
         ) : (
-          <StripeCheckout />
+          <section id="checkout-form">
+            <StripeCheckout />
+          </section>
         )}
       </Wrapper>
     </main>

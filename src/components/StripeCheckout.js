@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
 import Multiselect from "react-select";
-import { country_data } from "../utils/constants";
+import { country_data, info_clause } from "../utils/constants";
 import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
 //Hook imports from Stripe for React
 import {
@@ -198,20 +198,6 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      {succeeded ? (
-        <article>
-          <h4>Thank You</h4>
-          <h4>Your Payment Was Successful</h4>
-          <h4>Redirect to home Page</h4>
-        </article>
-      ) : (
-        <article>
-          Hello, {tourUser && tourUser.name}
-          {/* {console.log(tourUser.email)} */}
-          <p>Your Total is {priceFormat(total_amount + total_tax)}</p>
-          <p>Test Card Number: 4242424242424242</p>
-        </article>
-      )}
       <div className="wrapper">
         <div className="container">
           <form id="payment-form" onSubmit={handleSubmit}>
@@ -358,21 +344,30 @@ const CheckoutForm = () => {
               />
             </div>
             <div className="cc-info">
-              <div>
-                <label>Discount Code</label>
+              <div class="discount-container">
                 <input
+                  class="discount-input"
                   id="coupon_code"
                   name="coupon_code"
                   type="text"
                   maxLength={20}
                   // pattern="^[0-9]*"
                   className="text"
-                  placeholder="If Applicable Add Discount Code"
+                  placeholder="Add Discount Code"
                 />
+                <button class="apply-button">Apply</button>
               </div>
-              <h5 className="total-form">
-                Your Total: {priceFormat(total_amount + total_tax)}
-              </h5>
+              <div className="totals">
+                <h6 className="totals-text">
+                  Subtotal: {priceFormat(total_amount)}
+                </h6>
+                <h6 className="totals-text">
+                  Taxes & Fees: {priceFormat(total_tax)}
+                </h6>
+                <h5 className="totals-text">
+                  Total: {priceFormat(total_amount + total_tax)}
+                </h5>
+              </div>
             </div>
             <div>
               <CardElement
@@ -414,6 +409,7 @@ const CheckoutForm = () => {
               </p>
             </div>
           </form>
+          <h6 className="clause">{info_clause}</h6>
         </div>
       </div>
 
@@ -763,118 +759,34 @@ FORM CONTAINER
       min-height: 30px;
     }
   }
-
+  .clause {
+    color: var(--clr-primary-10);
+    margin-top: 12px;
+    margin-bottom: 30px;
+  }
   /*
 =============== 
-USER CARD
+DISCOUNT INPUT BUTTON
 ===============
 */
 
-  img {
-    max-width: 100%;
-    display: block;
+  .discount-container {
+    display: inline-block;
+    position: relative;
   }
-  /* Utilities */
-  .card::after,
-  .card img {
-    border-radius: 50%;
-  }
-  body,
-  .card,
-  .stats {
-    display: flex;
-  }
-
-  .card {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-    padding: 1rem 1.5rem;
-    border-radius: 1.5rem;
-    background-color: var(--clr-white);
-    max-width: 460px;
-    align-items: center;
-  }
-  .card::before,
-  .card::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-  }
-  .card::before {
-  }
-
-  .card img {
-    width: 6rem;
-    min-width: 80px;
-  }
-
-  .infos {
-    margin-left: 1.5rem;
-  }
-
-  .name {
-    margin-bottom: 1rem;
-  }
-  .name h2 {
-    font-size: 1.3rem;
-  }
-  .name h4 {
-    font-size: 0.8rem;
-    color: #333;
-  }
-
-  .text {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .stats {
-    margin-bottom: 1rem;
-  }
-  .stats li {
-    min-width: 5rem;
-  }
-  .stats li h3 {
-    font-size: 0.99rem;
-  }
-  .stats li h4 {
-    font-size: 0.75rem;
-  }
-
-  .links button {
-    font-family: "Poppins", sans-serif;
-    min-width: 120px;
-    padding: 0.5rem;
-    border: 1px solid #222;
-    border-radius: 5px;
-    font-weight: bold;
+  .apply-button {
     cursor: pointer;
-    transition: all 0.25s linear;
+    padding: 0px;
+    background-color: var(--clr-primary-9);
+    border-radius: var(--input-radius);
+    position: absolute;
+    right: 0.2em;
+    top: 0.5em;
+    width: 4em;
+    height: 1.9em;
   }
-  .links .follow,
-  .links .view:hover {
-    background-color: #222;
-    color: #fff;
-  }
-  .links .view,
-  .links .follow:hover {
-    background-color: transparent;
-    color: #222;
-  }
-
-  @media screen and (max-width: 450px) {
-    .card {
-      display: block;
-    }
-    .infos {
-      margin-left: 0;
-      margin-top: 1.5rem;
-    }
-    .links button {
-      min-width: 100px;
-    }
+  .discount-input {
+    padding: 0.5em 3.5em 0.5em 0.5em;
   }
 `;
 

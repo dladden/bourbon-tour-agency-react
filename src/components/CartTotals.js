@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
 import { useUserContext } from "../context/user_context";
 import { priceFormat } from "../utils/helpers";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const CartTotals = () => {
   //values from cart_context.js
@@ -27,12 +27,13 @@ const CartTotals = () => {
             Taxes & Fees: <span>{priceFormat(total_tax)}</span>
           </p>
           <hr />
-          <h4>
-            Order Total : <span>{priceFormat(total_amount + total_tax)}</span>
-          </h4>
+          <h5>
+            Reservation Total :{" "}
+            <span>{priceFormat(total_amount + total_tax)}</span>
+          </h5>
         </article>
         {tourUser ? (
-          <Link to="/checkout" className="btn">
+          <Link smooth to="/checkout#checkout-form" className="btn">
             Proceed to Checkout
           </Link>
         ) : (
