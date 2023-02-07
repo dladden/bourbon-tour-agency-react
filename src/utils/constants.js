@@ -141,14 +141,20 @@ export const distilleries_select = [
 ];
 
 export const country_data = [
-  { value: "United States", label: "United States" },
-  { value: "Canada", label: "Canada" },
+  { value: "US", label: "United States" },
+  { value: "CA", label: "Canada" },
 ];
 
 export const info_clause =
   "This Data Processing Agreement only applies to you if you have a Stripe Account located in the United States, the United Kingdom, the European Economic Area and Switzerland. If you have a Stripe Account located elsewhere or would like more information on our Data Processing Agreement, please see our FAQs. Need a copy of this Data Processing Agreement? Click here.";
 
 // console.log(guestsImg0);
+
+// https://stripe.com/legal/dpa/faqs
+
+// https://stripe.com/legal/ssa
+
+//https://stripe.com/legal/dpa#download-the-dpa
 
 //"https://course-api.com/react-store-products";
 export const tours_url = process.env.REACT_APP_TOURS_URL;

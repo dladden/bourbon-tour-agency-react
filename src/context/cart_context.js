@@ -5,6 +5,7 @@ import {
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
   CLEAR_CART,
+  CALCULATE_DISC,
   COUNT_CART_TOTALS,
 } from "../actions";
 //Reducers Specify how the apps state changes in response to action sent to the store.
@@ -33,15 +34,18 @@ const getLocalStorage = () => {
 //van_fee - fee for the van
 //bus_fee - fee for the bus
 //tax - gst rate of the state in which the business practices
+//disc - is the discount offered on the site
 const initialState = {
   cart: getLocalStorage(),
   total_tours: 0,
   total_amount: 0,
+  discountAmount: 0,
   oneSuv_fee: 19999,
   twoSuv_fee: 39999,
   van_fee: 9999,
   bus_fee: 19999,
   tax: 6,
+  disc: 10,
 };
 
 const CartContext = React.createContext(); //this initialization of context comes from React
@@ -79,16 +83,28 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
+  //
+  const calculateDiscount = () => {
+    dispatch({ type: CALCULATE_DISC, payload: { initialState } });
+  };
+
   //useEffect: saving "item" cart in the local storage
   //(only accepts strings) & every-time a change in cart occurs
   useEffect(() => {
-    dispatch({ type: COUNT_CART_TOTALS });
+    dispatch({ type: COUNT_CART_TOTALS, payload: { initialState } });
     localStorage.setItem("cart", JSON.stringify(state.cart));
   }, [state.cart]);
 
   return (
     <CartContext.Provider
-      value={{ ...state, addToCart, removeTour, toggleGuest, clearCart }}
+      value={{
+        ...state,
+        addToCart,
+        removeTour,
+        toggleGuest,
+        clearCart,
+        calculateDiscount,
+      }}
     >
       {children}
     </CartContext.Provider>

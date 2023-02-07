@@ -1,6 +1,7 @@
 import {
   ADD_TO_CART,
   CLEAR_CART,
+  CALCULATE_DISC,
   COUNT_CART_TOTALS,
   REMOVE_CART_ITEM,
   TOGGLE_CART_ITEM_AMOUNT,
@@ -93,11 +94,15 @@ const cart_reducer = (state, action) => {
   //REDUCER must return total: this
   if (action.type === COUNT_CART_TOTALS) {
     const tempCart = state.cart; //tempCart used to get the array size of tours in the cart
+    const { initialState } = action.payload;
     // const { bus_fee } = action.payload;
-    const oneSuv_fee = 19999;
-    const twoSuv_fee = 19999;
-    const van_fee = 9999;
-    const bus_fee = 19999;
+
+    const { oneSuv_fee, twoSuv_fee, van_fee, bus_fee } = initialState;
+
+    // const oneSuv_fee = 19999;
+    // const twoSuv_fee = 19999;
+    // const van_fee = 9999;
+    // const bus_fee = 19999;
     const { total_tours, total_amount } = state.cart.reduce(
       (total, cartItem) => {
         const { price, trans, guests } = cartItem;
@@ -140,6 +145,28 @@ const cart_reducer = (state, action) => {
 
     return { ...state, total_tours, total_amount };
   } //END COUNT CART TOTALS
+
+  //simple calculation of the discount amount
+  if (action.type === CALCULATE_DISC) {
+    const { initialState } = action.payload;
+    // const { total_amount } = state.cart;
+    const { tax, disc } = initialState;
+    console.log(state.total_amount);
+
+    const { discountAmount } = state.cart.reduce(
+      (total) => {
+        //calculating percentage off
+        total.discountAmount = disc * (state.total_amount / 100);
+        return total;
+      },
+      {
+        discountAmount: 0,
+        total_tax: 0,
+      }
+    ); //returning objects
+
+    return { ...state, discountAmount };
+  } //END CALCULATE DISC
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };

@@ -16,7 +16,9 @@ export const UPDATE_SORT = "UPDATE_SORT";
 export const SORT_TOURS = "SORT_TOURS";
 export const UPDATE_FILTERS = "UPDATE_FILTERS";
 export const FILTER_TOURS = "FILTER_TOURS";
+//These actions are responsible for all the calculations / states of the cart totals
 export const CLEAR_FILTERS = "CLEAR_FILTERS";
+export const CALCULATE_DISC = "CALCULATE_DISC";
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const TOGGLE_CART_ITEM_AMOUNT = "TOGGLE_CART_ITEM_AMOUNT";

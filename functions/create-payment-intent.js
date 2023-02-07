@@ -11,12 +11,16 @@ exports.handler = async function (event, context) {
   //prase the data, else return create payment intent
   if (event.body) {
     //parsing: converting string data into javascript JSON object
-    const { cart, total_amount, tax } = JSON.parse(event.body);
+    const { total_amount, tax, discountAmount } = JSON.parse(event.body);
 
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
     const calculateOrderAmount = () => {
+      //if discount amount is not null return new total amount
+      if (discountAmount) {
+        return total_amount - discountAmount;
+      }
       const total_tax = total_amount * (tax / 100);
       var total_amount_int = Math.ceil(total_amount + total_tax);
       console.log(total_amount_int);

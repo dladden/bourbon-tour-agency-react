@@ -11,7 +11,7 @@ import {
   Elements,
   useElements,
 } from "@stripe/react-stripe-js";
-import { GuestCard } from "../components";
+import { GuestCard, StripeTotals } from "../components";
 import axios from "axios"; //axios for post function request
 import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
@@ -20,26 +20,24 @@ import { useNavigate } from "react-router-dom";
 import { FaAssistiveListeningSystems } from "react-icons/fa";
 //This is test public API key which is passed with the component for authentication
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+// const discount_code = process.env.REACT_APP_DISC_CODE;
 
 //CheckoutForm component returns all stripe
 //this Component makes a post call to Strapi using netlify funcs in create-payment-intent.js
 //, then it gets a callback with clientSecret which is then used to
 const CheckoutForm = () => {
   //globals variables used in createPaymentIntent
-  const { cart, total_amount, tax, clearCart } = useCartContext();
-  console.log(cart);
+  const { cart, total_amount, tax, discountAmount, clearCart } =
+    useCartContext();
+  //calculating total with tax
   const total_tax = total_amount * (tax / 100);
-
-  const { ids, names, guests, transports } = {
+  //mapping through ids
+  const { ids } = {
     ids: cart.map((a) => a.id),
-    names: cart.map((a) => a.name),
-    guests: cart.map((a) => a.guests),
-    transports: cart.map((a) => a.trans),
   };
-
+  //country selection from us to ca
   const [country, setCountry] = useState(null);
-
-  // console.log(ids, names, guests, transports);
+  //state variables for discount code
 
   const { tourUser } = useUserContext();
   const navigate = useNavigate();
@@ -67,7 +65,7 @@ const CheckoutForm = () => {
       const { data } = await axios.post(
         "/.netlify/functions/create-payment-intent",
         //data of the post request as a string:
-        JSON.stringify({ cart, total_amount, tax })
+        JSON.stringify({ cart, total_amount, tax, discountAmount })
       );
       //unique Secret pulled every time as soon as the user gets to checkout
       setClientSecret(data.clientSecret); //pulling client secret from response
@@ -222,7 +220,7 @@ const CheckoutForm = () => {
                   name="name"
                   maxLength={30}
                   // pattern="[\w\s]+"
-                  placeholder="First & Last Name"
+                  placeholder="First & Last Name*"
                   required
                 />
               </div>
@@ -235,7 +233,7 @@ const CheckoutForm = () => {
                   name="phone_number"
                   // pattern="[0-9]*"
                   minLength="10"
-                  placeholder="(999) 999-9999"
+                  placeholder="(999) 999-9999*"
                   required
                 />
               </div>
@@ -327,6 +325,7 @@ const CheckoutForm = () => {
               </div>
             </div>
             {/* END BILLING PORTION */}
+            {/* DISCOUNT & EMAIL PORTION */}
             <h1>
               <i className="far fa-credit-card"></i> Contact Information
             </h1>
@@ -343,32 +342,9 @@ const CheckoutForm = () => {
                 required
               />
             </div>
-            <div className="cc-info">
-              <div class="discount-container">
-                <input
-                  class="discount-input"
-                  id="coupon_code"
-                  name="coupon_code"
-                  type="text"
-                  maxLength={20}
-                  // pattern="^[0-9]*"
-                  className="text"
-                  placeholder="Add Discount Code"
-                />
-                <button class="apply-button">Apply</button>
-              </div>
-              <div className="totals">
-                <h6 className="totals-text">
-                  Subtotal: {priceFormat(total_amount)}
-                </h6>
-                <h6 className="totals-text">
-                  Taxes & Fees: {priceFormat(total_tax)}
-                </h6>
-                <h5 className="totals-text">
-                  Total: {priceFormat(total_amount + total_tax)}
-                </h5>
-              </div>
-            </div>
+
+            <StripeTotals />
+
             <div>
               <CardElement
                 id="card-element"
@@ -603,6 +579,9 @@ FORM CONTAINER
     align-self: center;
     width: 100%;
     padding: 5% 5%;
+    max-width: 850px;
+    margin: 0 auto !important;
+    // float: none !important;
   }
 
   h1 {
@@ -669,7 +648,6 @@ FORM CONTAINER
   .cc-info {
     display: flex;
     justify-content: space-between;
-
     div {
       width: 45%;
     }
@@ -760,33 +738,9 @@ FORM CONTAINER
     }
   }
   .clause {
-    color: var(--clr-primary-10);
-    margin-top: 12px;
-    margin-bottom: 30px;
-  }
-  /*
-=============== 
-DISCOUNT INPUT BUTTON
-===============
-*/
-
-  .discount-container {
-    display: inline-block;
-    position: relative;
-  }
-  .apply-button {
-    cursor: pointer;
-    padding: 0px;
-    background-color: var(--clr-primary-9);
-    border-radius: var(--input-radius);
-    position: absolute;
-    right: 0.2em;
-    top: 0.5em;
-    width: 4em;
-    height: 1.9em;
-  }
-  .discount-input {
-    padding: 0.5em 3.5em 0.5em 0.5em;
+    color: var(--clr-primary-9);
+    margin-top: 1rem;
+    margin-bottom: 3rem;
   }
 `;
 

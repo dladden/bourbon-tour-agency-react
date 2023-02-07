@@ -12,12 +12,12 @@ const questionsList = [
   {
     id: 3,
     question_title: "Does Shelby Bourbon Tours offer military discount?",
-    info: "Coloring book forage photo booth gentrify lumbersexual. Migas chillwave poutine synth shoreditch, enamel pin thundercats fashion axe roof party polaroid chartreuse.",
+    info: "Yes, contact us via via shelbybourbontours@gmail.com and simply request a military discount. We will get back to you as soon as we can with a discount code, which is used at the checkout.",
   },
   {
     id: 4,
-    question_title: "What are the prices of the tour based on?",
-    info: "Enamel pin fam sustainable woke whatever venmo. Authentic asymmetrical put a bird on it, lumbersexual activated charcoal kinfolk banjo cred pickled sartorial.",
+    question_title: "How do I cancel a tour?",
+    info: "Contact us through our contact page or by emailing us through shelbybourbontours@gmail.com. Provide simple information",
   },
   {
     id: 5,
@@ -38,8 +38,7 @@ const questionsList = [
   },
   {
     id: 8,
-    question_title:
-      "How do I cancel a tour? Upon cancelation, how long will it take to get my refund? ",
+    question_title: "What are the prices of the tour based on?",
     info: "Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ",
   },
 ];

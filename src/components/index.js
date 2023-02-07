@@ -15,6 +15,7 @@ import Sidebar from "./Sidebar";
 import Hero from "./Hero";
 import ImageSlider from "./ImageSlider";
 import Services from "./Services";
+import StripeTotals from "./StripeTotals";
 import NewsLetter from "./NewsLetter";
 import OwnerCard from "./OwnerCard";
 import GuestCard from "./GuestCard";
@@ -49,6 +50,7 @@ export {
   Question,
   LinkButton,
   Sidebar,
+  StripeTotals,
   Hero,
   ImageSlider,
   Services,
