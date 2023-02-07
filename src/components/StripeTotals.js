@@ -11,13 +11,11 @@ const StripeTotals = () => {
   const { total_amount, tax, discountAmount } = useCartContext();
   const { calculateDiscount } = useCartContext();
 
-  // if (discountAmount) {
-  //   total_amount -= discountAmount;
-  // }
-  // total_amount -= discountAmount;
+  const total_amount_disc = total_amount - discountAmount;
+
   const discAmount = discountAmount;
   //calculating total with tax
-  const total_tax = total_amount * (tax / 100);
+  const total_tax = total_amount_disc * (tax / 100);
 
   const [coupon_code, setCoupon_code] = useState("");
 
@@ -54,13 +52,20 @@ const StripeTotals = () => {
         {/* END DISCOUNT & EMAIL PORTION */}
         {/* TOTALS */}
         <div className="totals">
-          <h6 className="totals-text">Subtotal: {priceFormat(total_amount)}</h6>
-          <h6 className="totals-text">Subtotal: {priceFormat(total_amount)}</h6>
-          <h6 className="totals-text">
-            Taxes & Fees: {priceFormat(total_tax)}
+          <h6 className="disc-totals-text">
+            Discount:{" "}
+            <span>
+              {discountAmount ? priceFormat(discountAmount) : "Not Valid"}
+            </span>
+          </h6>
+          <h6 className="subtotals-text">
+            Subtotal: <span>{priceFormat(total_amount_disc)}</span>
+          </h6>
+          <h6 className="subtotals-text">
+            Taxes & Fees: <span>{priceFormat(total_tax)}</span>
           </h6>
           <h6 className="totals-text">
-            Total: {priceFormat(total_amount + total_tax)}
+            Total: <span>{priceFormat(total_amount_disc + total_tax)}</span>
           </h6>
         </div>
       </div>
@@ -70,6 +75,28 @@ const StripeTotals = () => {
 
 //This wrapper does not effect the functionality it is used for styling
 const Wrapper = styled.section`
+  h4,
+  h5,
+  h6,
+  p {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    text-transform: capitalize;
+  }
+  .disc-totals-text {
+    color: var(--clr-grey-4);
+  }
+
+  .subtotals-text {
+    color: var(--clr-primary-7);
+  }
+
+  .totals-text {
+    font-weight: 800;
+    font-size: 0.7em;
+    color: var(--clr-primary-5);
+  }
+
   /*
 =============== 
 DISCOUNT INPUT BUTTON

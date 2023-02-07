@@ -25,12 +25,12 @@ Variables
   --clr-grey-3: #897c71;
   --clr-grey-4: #9c8e82;
   /* grey used for paragraphs */
-  --clr-grey-5: #3a3732;
-  --clr-grey-6: hsl(209, 23%, 60%);
-  --clr-grey-7: hsl(211, 27%, 70%);
-  --clr-grey-8: hsl(210, 31%, 80%);
-  --clr-grey-9: hsl(212, 33%, 89%);
-  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-grey-5: #79756e;
+  --clr-grey-6: hsl(210, 2%, 67%);
+  --clr-grey-7: hsl(0, 0%, 78%);
+  --clr-grey-8: hsl(210, 3%, 85%);
+  --clr-grey-9: hsl(0, 0%, 93%);
+  --clr-grey-10: hsl(0, 0%, 96%);
   --clr-white: #fff;
   --clr-background-main: #e8e6df;
   --clr-red-dark: hsl(360, 67%, 44%);
