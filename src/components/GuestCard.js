@@ -80,7 +80,7 @@ const Wrapper = styled.section`
   .card {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 1rem 1.5rem;
     border-radius: 1.5rem;
@@ -156,16 +156,52 @@ const Wrapper = styled.section`
     color: #222;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 520px) {
+    .name h2 {
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    img {
+      margin: auto;
+      max-width: 10%;
+      display: block;
+    }
+    .card img {
+      width: 6rem;
+      min-width: 80px;
+    }
+    .text {
+      text-align: center;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
     .card {
       display: block;
     }
     .infos {
+      margin: auto;
       margin-left: 0;
       margin-top: 1rem;
     }
     .links button {
       min-width: 100px;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    img {
+      margin: auto;
+      max-width: 15%;
+      display: block;
+    }
+
+    .card {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      display: block;
     }
   }
 `;

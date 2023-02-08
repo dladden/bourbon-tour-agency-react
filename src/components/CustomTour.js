@@ -145,7 +145,7 @@ const CustomTour = () => {
                       maxLength={30}
                       pattern="[\w\s]+"
                       name="tour_name"
-                      placeholder="Tour Name"
+                      placeholder="Tour Name*"
                       required
                     />
                     <div className="valid-feedback">
@@ -164,7 +164,7 @@ const CustomTour = () => {
                       maxLength={30}
                       pattern="^[a-zA-Z\s]+"
                       name="guest_name"
-                      placeholder="Full Name"
+                      placeholder="Full Name*"
                       required
                     />
                     <div className="valid-feedback">
@@ -183,7 +183,7 @@ const CustomTour = () => {
                       maxLength={100}
                       name="guest_email"
                       pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
-                      placeholder="E-mail Address"
+                      placeholder="E-mail Address*"
                       required
                     />
                     <div className="valid-feedback">
@@ -202,7 +202,7 @@ const CustomTour = () => {
                       name="phone_number"
                       pattern="[0-9]*"
                       minLength="10"
-                      placeholder="(999) 999-9999"
+                      placeholder="(999) 999-9999*"
                       required
                     />
                     <div className="valid-feedback">
@@ -260,8 +260,8 @@ const CustomTour = () => {
                     />
                     <div className="valid-feedback">
                       If you are looking for private tour reservation, add a
-                      distillery name here. NOTE: Reservation must be made 4
-                      weeks in advance.
+                      distillery name here. NOTE: Private tour reservation must
+                      be made 4 weeks in advance.
                     </div>
                   </div>
                   {/* COMMENT */}

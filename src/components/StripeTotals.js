@@ -1,28 +1,18 @@
 import React, { useState } from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers";
 import { useCartContext } from "../context/cart_context"; //cart context
-import { useUserContext } from "../context/user_context"; //user context
-import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
 const StripeTotals = () => {
   const { total_amount, tax, discountAmount } = useCartContext();
   const { calculateDiscount } = useCartContext();
-
+  //total with subtracted disc
   const total_amount_disc = total_amount - discountAmount;
-
-  const discAmount = discountAmount;
   //calculating total with tax
   const total_tax = total_amount_disc * (tax / 100);
-
+  //using state variable for the code input
   const [coupon_code, setCoupon_code] = useState("");
-
-  console.log(priceFormat(discountAmount));
-  console.log(coupon_code);
-
-  console.log(process.env.REACT_APP_DISC_CODE);
 
   return (
     <Wrapper>
@@ -54,18 +44,23 @@ const StripeTotals = () => {
         <div className="totals">
           <h6 className="disc-totals-text">
             Discount:{" "}
-            <span>
+            <span className="total-span">
               {discountAmount ? priceFormat(discountAmount) : "Not Valid"}
             </span>
           </h6>
           <h6 className="subtotals-text">
-            Subtotal: <span>{priceFormat(total_amount_disc)}</span>
+            Subtotal:{" "}
+            <span className="total-span">{priceFormat(total_amount_disc)}</span>
           </h6>
           <h6 className="subtotals-text">
-            Taxes & Fees: <span>{priceFormat(total_tax)}</span>
+            Taxes & Fees:{" "}
+            <span className="total-span">{priceFormat(total_tax)}</span>
           </h6>
           <h6 className="totals-text">
-            Total: <span>{priceFormat(total_amount_disc + total_tax)}</span>
+            Total:{" "}
+            <span className="total-span">
+              {priceFormat(total_amount_disc + total_tax)}
+            </span>
           </h6>
         </div>
       </div>
@@ -95,6 +90,26 @@ const Wrapper = styled.section`
     font-weight: 800;
     font-size: 0.7em;
     color: var(--clr-primary-5);
+  }
+
+  @media screen and (max-width: 736px) {
+    h4,
+    h5,
+    h6,
+    p {
+      display: grid;
+      grid-template-columns: 80% 22%;
+      text-transform: capitalize;
+    }
+
+    .totals-text .total-span {
+      // margin-right: 0;
+      // float: right;
+    }
+
+    .total-span {
+      align-items: end;
+    }
   }
 
   /*

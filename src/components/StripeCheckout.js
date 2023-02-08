@@ -175,7 +175,6 @@ const CheckoutForm = () => {
       base: {
         iconColor: "#7f7367",
         color: "#3e3b35",
-        lineHeight: "24px",
         fontWeight: "600",
         fontFamily: "Arial, sans-serif",
         fontSmoothing: "antialiased",
@@ -327,7 +326,7 @@ const CheckoutForm = () => {
             {/* END BILLING PORTION */}
             {/* DISCOUNT & EMAIL PORTION */}
             <h1>
-              <i className="far fa-credit-card"></i> Contact Information
+              <i className="far fa-credit-card"></i> Contact Info.
             </h1>
             <div className="cc-num">
               <label>Billing Email</label>
@@ -611,7 +610,7 @@ FORM CONTAINER
       text-transform: uppercase;
       font-size: 12px;
       letter-spacing: 2px;
-      color: $maroon;
+      color: var(--clr-primary-7);
     }
 
     h1 {
@@ -696,7 +695,6 @@ FORM CONTAINER
     }
 
     .container {
-      color: #eb9478;
       width: 100%;
     }
 
@@ -726,10 +724,12 @@ FORM CONTAINER
         display: flex;
       }
     }
-
+    .far fa-credit-card {
+      margin: 5px;
+    }
     .street,
     .cc-num {
-      text-align: center;
+      text-align: left;
     }
 
     input {

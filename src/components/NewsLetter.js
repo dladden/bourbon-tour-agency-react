@@ -12,15 +12,14 @@ const NewsLetter = () => {
             Fill out the Shelby Bourbon Tours Newsletter Form, and we will send
             you a confirmation with a discount code which can be used at the
             checkout! Our Newsletter sends out exciting events, distillery
-            tours, and our promotions bimonthly. Be sure to be on the lookout
-            for all the 🥃 you don't want to miss out on.
+            tours, and our promotions bimonthly so you do not miss out on all
+            your favorite 🥃.
           </p>
           <form action="" className="contact-form">
             <div className="form-example">
               <p>In Our Form Provide: First, Last Name & Email</p>
             </div>
             <a
-              type="submit"
               className="submit-btn"
               href="https://cdn.forms-content.sg-form.com/7fb68344-a742-11ed-ab44-4289808bb666"
             >
@@ -44,11 +43,14 @@ const Wrapper = styled.section`
   }
 
   p {
+    margin: 0;
+    padding: 0;
     line-height: 2;
     max-width: 45em;
     color: var(--clr-grey-5);
   }
   .contact-form {
+    padding-top: 1rem;
     width: 90vw;
     max-width: 550px;
     display: grid;
@@ -56,7 +58,7 @@ const Wrapper = styled.section`
   }
   .form-example,
   .submit-btn {
-    font-size: 1rem;
+    font-size: 0.55rem;
     padding: 0.5rem 0.5rem;
     border: 2px solid var(--clr-black);
   }
@@ -99,6 +101,13 @@ const Wrapper = styled.section`
     .form-example,
     .submit-btn {
       font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  @media (min-width: 480px) {
+    .form-example,
+    .submit-btn {
+      font-size: 0.8rem;
       padding: 0.5rem 1rem;
     }
   }
