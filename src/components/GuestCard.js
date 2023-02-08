@@ -12,7 +12,7 @@ const GuestCard = () => {
   //   console.log(tour_url);
   const { total_amount, tax } = useCartContext();
   const { tourUser } = useUserContext();
-  console.log(tourUser);
+  // console.log(tourUser);
   const total_tax = total_amount * (tax / 100);
 
   // const [image, setImage] = React.useState(tourUser.picture);

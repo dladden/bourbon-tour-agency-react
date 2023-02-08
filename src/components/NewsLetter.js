@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NewsLetter = () => {
   return (
@@ -8,20 +9,23 @@ const NewsLetter = () => {
         <h3>Join Shelby Bourbon Tours Newsletter and receive 10% off</h3>
         <div className="content">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis
-            possimus ipsum, nemo odio ratione error quasi veniam at ea nobis,
-            totam modi, veritatis minus eum? Laudantium exercitationem error
-            voluptas odit.
+            Fill out the Shelby Bourbon Tours Newsletter Form, and we will send
+            you a confirmation with a discount code which can be used at the
+            checkout! Our Newsletter sends out exciting events, distillery
+            tours, and our promotions bimonthly. Be sure to be on the lookout
+            for all the 🥃 you don't want to miss out on.
           </p>
           <form action="" className="contact-form">
-            <input
-              type="email"
-              className="form-input"
-              placeholder="enter email"
-            />
-            <button type="submit" className="submit-btn">
-              Subscribe
-            </button>
+            <div className="form-example">
+              <p>In Our Form Provide: First, Last Name & Email</p>
+            </div>
+            <a
+              type="submit"
+              className="submit-btn"
+              href="https://cdn.forms-content.sg-form.com/7fb68344-a742-11ed-ab44-4289808bb666"
+            >
+              Fill Out The Form
+            </a>
           </form>
         </div>
       </div>
@@ -33,6 +37,12 @@ const Wrapper = styled.section`
   h3 {
     text-transform: none;
   }
+
+  a {
+    margin: 0;
+    padding: 0;
+  }
+
   p {
     line-height: 2;
     max-width: 45em;
@@ -40,17 +50,17 @@ const Wrapper = styled.section`
   }
   .contact-form {
     width: 90vw;
-    max-width: 500px;
+    max-width: 550px;
     display: grid;
     grid-template-columns: 1fr auto;
   }
-  .form-input,
+  .form-example,
   .submit-btn {
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     border: 2px solid var(--clr-black);
   }
-  .form-input {
+  .form-example {
     border-right: none;
     color: var(--clr-grey-3);
     border-top-left-radius: var(--input-radius);
@@ -60,12 +70,12 @@ const Wrapper = styled.section`
     border-top-right-radius: var(--input-radius);
     border-bottom-right-radius: var(--input-radius);
   }
-  .form-input::placeholder {
+  .form-example::placeholder {
     color: var(--clr-primary-3);
     text-transform: capitalize;
   }
   .submit-btn {
-    background: var(--clr-primary-9);
+    background: var(--clr-primary-8);
     text-transform: capitalize;
     letter-spacing: var(--spacing);
     cursor: pointer;
@@ -80,11 +90,16 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      gap: 8rem;
+      gap: 6rem;
       margin-top: 2rem;
     }
     p {
       margin-bottom: 0;
+    }
+    .form-example,
+    .submit-btn {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
     }
   }
   @media (min-width: 1280px) {

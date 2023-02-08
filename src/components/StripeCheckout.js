@@ -53,7 +53,7 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const total_formatted = priceFormat(total_amount);
-  console.log(clientSecret);
+  // console.log(clientSecret);
 
   //createPaymentIntent uses axios to POST the data when the component mounts to Stripe.
   //This is done with netlify serverless functions to post it to the server
@@ -118,8 +118,8 @@ const CheckoutForm = () => {
   useEffect(() => {
     createPaymentIntent();
     // eslint-disable-next-line
-  }, []);
-  console.log(ids);
+  }, [discountAmount]);
+  // console.log(ids);
 
   //handling change provided by Stripe API
   //This function uses the event which points to the event object
@@ -166,7 +166,7 @@ const CheckoutForm = () => {
       setTimeout(() => {
         clearCart();
         navigate("/confirmation");
-      }, 15000);
+      }, 6000);
     }
   }; //end handleSubmit
 
@@ -330,7 +330,7 @@ const CheckoutForm = () => {
               <i className="far fa-credit-card"></i> Contact Information
             </h1>
             <div className="cc-num">
-              <label>Email</label>
+              <label>Billing Email</label>
               <input
                 type="email"
                 id="email"
@@ -338,7 +338,7 @@ const CheckoutForm = () => {
                 className="form-control"
                 maxLength={100}
                 // pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
-                placeholder="E-mail Address"
+                placeholder="E-mail Address*"
                 required
               />
             </div>

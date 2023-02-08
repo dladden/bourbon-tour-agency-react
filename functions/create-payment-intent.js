@@ -12,19 +12,25 @@ exports.handler = async function (event, context) {
   if (event.body) {
     //parsing: converting string data into javascript JSON object
     const { total_amount, tax, discountAmount } = JSON.parse(event.body);
-
+    console.log(discountAmount);
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
     const calculateOrderAmount = () => {
+      // const total_amount_disc = 0;
       //if discount amount is not null return new total amount
       if (discountAmount) {
-        return total_amount - discountAmount;
+        var total_amount_disc = total_amount - discountAmount;
+
+        const total_tax = total_amount_disc * (tax / 100);
+        var total_amount_int = Math.ceil(total_amount_disc + total_tax);
+        return total_amount_int;
+      } else {
+        const total_tax = total_amount * (tax / 100);
+        var total_amount_int = Math.ceil(total_amount + total_tax);
+        // console.log(total_amount_int);
+        return total_amount_int; //total formatted in cents
       }
-      const total_tax = total_amount * (tax / 100);
-      var total_amount_int = Math.ceil(total_amount + total_tax);
-      console.log(total_amount_int);
-      return total_amount_int; //total formatted in cents
     };
     //try-catch: for connection to stripe
     try {
