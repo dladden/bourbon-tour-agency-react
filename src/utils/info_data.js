@@ -7,12 +7,12 @@ const questionsList = [
   {
     id: 2,
     question_title: "How do I schedule a tour of the distillery?",
-    info: "Coloring book forage photo booth gentrify lumbersexual. Migas chillwave poutine synth shoreditch, enamel pin thundercats fashion axe roof party polaroid chartreuse.",
+    info: "Let us take care of that for you! Keep in mind, most .",
   },
   {
     id: 3,
     question_title: "Does Shelby Bourbon Tours offer military discount?",
-    info: "Yes, contact us via via shelbybourbontours@gmail.com and simply request a military discount. We will get back to you as soon as we can with a discount code, which is used at the checkout.",
+    info: "Yes, contact us via shelbybourbontours@gmail.com and simply request a military discount. We will get back to you as soon as we can with a discount code, which is used at the checkout.",
   },
   {
     id: 4,

@@ -1,6 +1,7 @@
 //importing the pages for the export
 import Home from "./HomePage";
 import ConfirmationPage from "./ConfirmationPage";
+import CustomConfirmationPage from "./CustomConfirmationPage";
 import About from "./AboutPage";
 import Cart from "./CartPage";
 import InfoPage from "./InfoPage";
@@ -16,6 +17,7 @@ import AuthWrapper from "./AuthWrapper";
 export {
   Home,
   ConfirmationPage,
+  CustomConfirmationPage,
   About,
   Cart,
   InfoPage,

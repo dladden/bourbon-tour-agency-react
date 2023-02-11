@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import info_data from "../utils/info_data"; //default export always resolves to default name
-import { Question, Cancelation, ContactList } from "../components";
+import { PageHero, Question, Cancelation } from "../components";
 import logo from "../assets/indent_logo.svg";
 
 //Simple Information Page with Q&A/FAQ style

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import logo from "../assets/checkout_list_border.svg";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
 import Multiselect from "react-select";
@@ -195,6 +196,7 @@ const CheckoutForm = () => {
 
   return (
     <div>
+      <img className="cart-logo" src={logo} alt="Cart" style={{ width: 400 }} />
       <div className="wrapper">
         <div className="container">
           <form id="payment-form" onSubmit={handleSubmit}>
@@ -405,6 +407,14 @@ const StripeCheckout = () => {
 };
 
 const Wrapper = styled.section`
+  .cart-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: auto;
+  }
+
   /*
 =============== 
 STRIPE STYLING

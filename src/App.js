@@ -6,6 +6,7 @@ import "react-calendar/dist/Calendar.css";
 import {
   Home,
   ConfirmationPage,
+  CustomConfirmationPage,
   About,
   Cart,
   InfoPage,
@@ -36,6 +37,10 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/submission-confirmation"
+            element={<CustomConfirmationPage />}
+          />
           <Route path="/info" element={<InfoPage />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={<SingleTour />} />

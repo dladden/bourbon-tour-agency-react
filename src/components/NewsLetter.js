@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import logo from "../assets/newsletter_frontpage.svg";
+
 import { Link } from "react-router-dom";
 
 const NewsLetter = () => {
@@ -7,6 +9,7 @@ const NewsLetter = () => {
     <Wrapper>
       <div className="section-center">
         <h3>Join Shelby Bourbon Tours Newsletter and receive 10% off</h3>
+        <img className="newsletter" src={logo} alt="Newsletter" />
         <div className="content">
           <p>
             Fill out the Shelby Bourbon Tours Newsletter Form, and we will send
@@ -34,6 +37,7 @@ const NewsLetter = () => {
 const Wrapper = styled.section`
   padding: 5rem 0;
   h3 {
+    padding-bottom: 0.5rem;
     text-transform: none;
   }
 
@@ -48,6 +52,8 @@ const Wrapper = styled.section`
     line-height: 2;
     max-width: 45em;
     color: var(--clr-grey-5);
+  }
+  .newsletter {
   }
   .contact-form {
     padding-top: 1rem;
@@ -93,7 +99,7 @@ const Wrapper = styled.section`
       grid-template-columns: 1fr 1fr;
       align-items: center;
       gap: 6rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     p {
       margin-bottom: 0;

@@ -7,7 +7,7 @@ import { links } from "../utils/constants";
 import styled from "styled-components";
 import CartButtons from "./CartButtons";
 import { useUserContext } from "../context/user_context";
-//Sidebar is used to display the side menu when the display is set to be below 992px functionality for phones or tablets
+//Sidebar is used to display the side menu when the display is set to be below 1080px (992px) functionality for phones or tablets
 //It will display the same pages links and it includes functionality for ONLY logged-in user where checkout will be displayed
 //Using template literals
 const Sidebar = () => {
@@ -113,7 +113,7 @@ const SidebarContainer = styled.div`
   .cart-btn-wrapper {
     margin: 2rem auto;
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1080px) {
     .sidebar {
       display: none;
     }

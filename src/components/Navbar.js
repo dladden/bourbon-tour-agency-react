@@ -93,7 +93,8 @@ const NavContainer = styled.nav`
   .cart-btn-wrapper {
     display: none;
   }
-  @media (min-width: 992px) {
+  //NAVBAR Break point
+  @media (min-width: 1080px) {
     .nav-toggle {
       display: none;
     }

@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 // import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
 
-import { PageHero, Confirmation } from "../components";
+import { PageHero, CustomConfirmation } from "../components";
 
-const ConfirmationPage = () => {
+const CustomConfirmationPage = () => {
   return (
     <main>
-      <PageHero title="Confirmation" />
+      <PageHero title="Submission Confirmed" />
       <Wrapper>
-        <Confirmation />
+        <CustomConfirmation />
       </Wrapper>
     </main>
   );
@@ -29,4 +29,4 @@ const Wrapper = styled.div`
   }
 `;
 
-export default ConfirmationPage;
+export default CustomConfirmationPage;

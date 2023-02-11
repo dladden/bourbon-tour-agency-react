@@ -9,6 +9,7 @@ import c_tour from "../assets/custom_tour.svg";
 import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
 import { ReCAPTCHA } from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
@@ -80,14 +81,40 @@ const CustomTour = () => {
   //   console.log("changed");
   //   setCaptchaIsDone(true);
   // };
+  //useNavigate for navigation with timeout
+  const navigate = useNavigate();
 
   function onChange(value) {
     console.log("Captcha value:", value);
   }
 
-  //HANDLE ON SUBMIT:
-  async function handleSubmit(event) {
-    event.preventDefault();
+  const orderConfirmation = async () => {
+    try {
+      const response = await axios
+        .post(
+          "/.netlify/functions/custom-order-confirmation",
+
+          JSON.stringify({
+            guest_email,
+            tour_name,
+            guest_name,
+            date,
+            mainTrans,
+            guests,
+          })
+        )
+        .then((response) => response.json());
+      if (!response.ok) {
+        //all OK
+        return;
+      }
+    } catch (error) {
+      //error
+    }
+  }; //end Order Submission
+
+  //async function for handling the submission of the custom order
+  const orderSubmission = async () => {
     try {
       const response = await axios
         .post(
@@ -115,6 +142,16 @@ const CustomTour = () => {
     } catch (error) {
       //error
     }
+  }; //end Order Submission
+
+  //HANDLE ON SUBMIT: async's two functions and times out to a custom confirmation page
+  async function handleSubmit(event) {
+    event.preventDefault();
+    orderSubmission();
+    orderConfirmation();
+    setTimeout(() => {
+      navigate("/submission-confirmation");
+    }, 2500);
   } //end async Custom Order Submission
   return (
     <Wrapper>
@@ -125,11 +162,7 @@ const CustomTour = () => {
             <div className="form-content">
               <div className="form-items">
                 <div className="custom-logo-center">
-                  <img
-                    src={c_tour}
-                    alt="Custom Tour"
-                    style={{ height: 340, width: 340 }}
-                  />
+                  <img className="custom-logo" src={c_tour} alt="Custom Tour" />
                 </div>
                 <h3>Custom Tour Form</h3>
                 <p>Submit the form and we will contact you within 24 hours.</p>
@@ -432,11 +465,14 @@ const Wrapper = styled.section`
   html,
   body {
     height: 100%;
-    background-color: #152733;
+  }
+
+  .custom-logo {
+    max-width: 25rem;
   }
   .custom-logo-center {
     display: flex;
-    justify-content: center; /* horizontally center */
+    justify-content: center;
     align-items: center;
   }
 
