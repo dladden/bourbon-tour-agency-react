@@ -164,7 +164,9 @@ const CustomTour = () => {
                 <div className="custom-logo-center">
                   <img className="custom-logo" src={c_tour} alt="Custom Tour" />
                 </div>
-                <h3>Custom Tour Form</h3>
+                <div className="form-heading">
+                  <h3>Custom Tour Form</h3>
+                </div>
                 <p>Submit the form and we will contact you within 24 hours.</p>
                 {/* TOUR NAME */}
                 <form className="requires-validation" onSubmit={handleSubmit}>
@@ -468,14 +470,18 @@ const Wrapper = styled.section`
   }
 
   .custom-logo {
-    max-width: 25rem;
+    max-width: 20rem;
+    padding-top: 20px;
   }
   .custom-logo-center {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
+  .form-heading h3 {
+    // text-align: center;
+    // display: inline;
+  }
   .heading {
     margin-top: 50px;
     text-align: center;
@@ -536,10 +542,11 @@ const Wrapper = styled.section`
 
   .form-content h3 {
     color: var(--clr-primary-7);
-    text-align: left;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .form-content h3.form-title {

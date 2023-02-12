@@ -3,7 +3,8 @@ import styled from "styled-components";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
-import c_tour from "../assets/custom_tour.svg";
+import confirmation from "../assets/confirmation.svg";
+import logo from "../assets/indent_logo_color.svg";
 import { useUserContext } from "../context/user_context";
 import { Link } from "react-router-dom";
 import { NewsLetter } from "../components";
@@ -17,17 +18,28 @@ const CustomConfirmation = () => {
           <div className="form-holder">
             <div className="form-content">
               <div className="form-items">
-                <img src={c_tour} alt="Custom Tour" />
-                <h3>Thank You For Your Purchase!</h3>
+                <img
+                  className="form-logo"
+                  src={confirmation}
+                  alt="Custom Tour"
+                />
+                <div className="container-logo">
+                  <img className="form-logo" src={logo} alt="Custom Tour" />
+                </div>
+                <h3>Thank You For Submitting Custom Tour Form.</h3>
                 <p>
-                  An Email Confirmation will be sent to{" "}
-                  <strong>
-                    The Email you provided will receive confirmation
-                  </strong>
+                  An Email Confirmation is sent to{" "}
+                  <strong>the Email you provided</strong>. Please allow us to
+                  review your request. We will contact you within 24 hours with
+                  a confirmation and an invoice!
+                </p>
+                <p>
+                  If you are curious about our cost rages per tour, visit our
+                  Tour page and select tour in the Category.
                 </p>
                 {/* TODO: Setup validate */}
-                <Link to="/" className="btn">
-                  Return Home
+                <Link to="/tours" className="btn">
+                  OUR TOURS
                 </Link>
               </div>
             </div>
@@ -62,7 +74,8 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 
   .form-holder .form-content {
@@ -77,7 +90,14 @@ const Wrapper = styled.section`
     justify-content: center;
     -webkit-align-items: center;
     align-items: center;
-    padding-top: 40px;
+    padding-top: 10px;
+  }
+  .container-logo {
+    margin: auto;
+    width: 50%;
+  }
+  .form-logo {
+    justify-content: center;
   }
 
   .form-content .form-items {
@@ -94,6 +114,8 @@ const Wrapper = styled.section`
     text-align: left;
   }
   @media (min-width: 690px) {
+    .form-logo {
+    }
     .form-content .form-items {
       padding: 40px;
       width: 100%;
@@ -110,7 +132,7 @@ const Wrapper = styled.section`
 
   .form-content h3 {
     color: var(--clr-primary-4);
-    text-align: left;
+    text-align: center;
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 5px;
@@ -122,7 +144,7 @@ const Wrapper = styled.section`
 
   .form-content p {
     color: var(--clr-primary-4);
-    text-align: left;
+    text-align: center;
     font-size: 17px;
     font-weight: 300;
     line-height: 20px;
@@ -134,40 +156,12 @@ const Wrapper = styled.section`
   .was-validated .form-check-input:valid ~ .form-check-label {
     color: #fff;
   }
-
-  .form-content input[type="text"],
-  .form-content input[type="comment"],
-  .form-content input[type="email"],
-  .form-content select {
-    width: 100%;
-    padding: 9px 20px;
-    text-align: left;
-    border: 0;
-    outline: 0;
-    border-radius: 0.6rem;
-    background-color: #fff;
-    font-size: 15px;
-    font-weight: 300;
-    color: #8d8d8d;
-    margin-top: 16px;
-  }
-
-  .btn-primary {
-    background-color: #6c757d;
-    outline: none;
-    border: 0px;
-    box-shadow: none;
-  }
-
-  .form-content textarea:hover,
-  .form-content textarea:focus {
-    border: 0;
-    background-color: #ebeff8;
-    color: #8d8d8d;
-  }
-
-  .valid-feedback {
-    color: var(--clr-primary-4);
+  .btn {
+    display: block;
+    width: 148px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
   }
 `;
 export default CustomConfirmation;

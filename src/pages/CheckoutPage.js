@@ -14,7 +14,7 @@ const CheckoutPage = () => {
       <Wrapper className="page">
         {cart.length < 1 ? (
           <div className="empty">
-            <h2>Nothing to Book. Add Tours to Your Cart Here: </h2>
+            <h2>Nothing to Book </h2>
             <Link to="/tours" className="btn">
               Find A Tour
             </Link>
@@ -33,6 +33,19 @@ const CheckoutPage = () => {
   );
 };
 const Wrapper = styled.div`
+  h5 {
+    padding-top: 1rem;
+    text-align: center;
+  }
+  .empty {
+    text-align: center;
+    h2 {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      text-transform: none;
+    }
+  }
+
   display: flex;
   align-items: center;
   justify-content: center;

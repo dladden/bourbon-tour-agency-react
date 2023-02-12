@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import heroSBT from "../assets/SBT_Cover.png";
-import heroSBT2 from "../assets/SBT_Cover2.png";
+import heroSBT from "../assets/sbt_cover.webp";
+import heroSBT2 from "../assets/sbt_cover2.webp";
 
 const Hero = () => {
   return (
@@ -75,7 +75,7 @@ const Wrapper = styled.section`
     }
     .accent-img {
       position: absolute;
-      bottom: 0;
+      bottom: -4px;
       left: 0;
       width: 250px;
       transform: translateX(-50%);

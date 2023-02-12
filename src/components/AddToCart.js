@@ -7,6 +7,7 @@ import van from "../assets/van.svg";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
 import CalendarPicker from "./CalendarPicker";
+import { HashLink } from "react-router-hash-link";
 //Component responsible for transportation type and count of guests
 //
 const AddToCart = ({ tour }) => {
@@ -113,13 +114,14 @@ const AddToCart = ({ tour }) => {
         Select Total Guests
         <hr className="hr" />
         {/* Link passes the arguments for addToCart context to be used in the cart */}
-        <Link
-          to="/cart"
+        <HashLink
+          smooth
+          to="/cart#user-cart"
           className="btn"
           onClick={() => addToCart(date, id, mainTrans, guest, tour)}
         >
           Book Tour
-        </Link>
+        </HashLink>
       </div>
     </Wrapper>
   );

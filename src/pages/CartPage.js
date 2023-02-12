@@ -40,8 +40,8 @@ const CartPage = () => {
 
 const Wrapper = styled.main`
   h5 {
-    margin-top: 0.3rem;
-    text-align: left;
+    padding-top: 1rem;
+    text-align: center;
   }
   .empty {
     text-align: center;
