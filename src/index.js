@@ -8,6 +8,7 @@ import { FilterProvider } from "./context/filter_context";
 import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { HelmetProvider } from "react-helmet-async";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 //using npm package to disable dev tools in development
 if (process.env.NODE_ENV === "production") {
@@ -36,7 +37,9 @@ root.render(
       <ToursProvider>
         <FilterProvider>
           <CartProvider>
-            <App />
+            <HelmetProvider>
+              <App />
+            </HelmetProvider>
           </CartProvider>
         </FilterProvider>
       </ToursProvider>

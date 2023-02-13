@@ -14,7 +14,8 @@ const NewsLetter = () => {
             you a confirmation with a discount code which can be used at the
             checkout! Our Newsletter sends out exciting events, distillery
             tours, and our promotions bimonthly so you do not miss out on all
-            your favorite 🥃.
+            your favorite 🥃. Finally, we respect your privacy. Unsubscribe at
+            any time.
           </p>
           <form action="" className="contact-form">
             <div className="form-example">

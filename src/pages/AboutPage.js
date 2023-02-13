@@ -4,10 +4,16 @@ import { PageHero, TourLogo, OwnerCard, DistilleriesList } from "../components";
 import aboutImg0 from "../assets/about_cover0.jpeg";
 import aboutImg1 from "../assets/about_cover1.jpeg";
 import aboutImg2 from "../assets/about_cover2.png";
-
+import { Helmet } from "react-helmet-async";
+//Simple About page which multiple sections
 const AboutPage = () => {
   return (
     <main>
+      <Helmet>
+        <title>About</title>
+        <meta name="description" content="About Shelby Bourbon Tours" />
+        <link rel="canonical" href="/about" />
+      </Helmet>
       <PageHero title="about" />
       <section id="about-shelby-bourbon-tours"></section>
       <TourLogo style={{ height: 250, width: 250 }} />
