@@ -12,16 +12,6 @@ export const priceFormat = (number) => {
   return newNumber;
 };
 
-function removeElementsWithValue(arr, val) {
-  var i = arr.length;
-  while (i--) {
-    if (arr[i] === val) {
-      arr.splice(i, 1);
-    }
-  }
-  return arr;
-}
-
 //getUniqueValues values takes in the raw data and based on name of array string "type"
 //maps through the selected array or if the name type contains multiple arrays
 export const getUniqueValues = (data, type) => {

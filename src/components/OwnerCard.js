@@ -4,7 +4,7 @@ import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.jpg";
 import socialLinks from "../utils/social_links";
 //Component responsible for the OwnerCard used in Contact page
-const OwnerCard = ({}) => {
+const OwnerCard = () => {
   return (
     <Wrapper>
       <div className="container">

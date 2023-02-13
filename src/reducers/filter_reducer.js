@@ -112,11 +112,11 @@ const filter_reducer = (state, action) => {
       // and push it to filtered_tours with "filtered_tours: tempTours"
     } //end if search_text
 
-    if (category != "all") {
+    if (category !== "all") {
       tempTours = tempTours.filter((tour) => tour.category === category);
     } //if not "all" then filter when chosen category matches the category data in the tour 'tour.category'
 
-    if (distillery != "all") {
+    if (distillery !== "all") {
       tempTours = tempTours.filter((tour) => {
         return tour.dist.find((d) => d === distillery);
       });

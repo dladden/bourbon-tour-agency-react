@@ -18,7 +18,6 @@ import { useCartContext } from "../context/cart_context"; //cart context
 import { useUserContext } from "../context/user_context"; //user context
 import { priceFormat } from "../utils/helpers";
 import { useNavigate } from "react-router-dom";
-import { FaAssistiveListeningSystems } from "react-icons/fa";
 //This is test public API key which is passed with the component for authentication
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // const discount_code = process.env.REACT_APP_DISC_CODE;
