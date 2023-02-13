@@ -26,7 +26,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link smooth to="/info#questions">
+                <Link smooth to="/faq#questions">
                   Our Services
                 </Link>
               </li>
@@ -46,7 +46,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link smooth to="/info#questions">
+                <Link smooth to="/faq#questions">
                   Other Tours
                 </Link>
               </li>
@@ -56,7 +56,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link smooth to="/info#questions">
+                <Link smooth to="/faq#questions">
                   FAQ
                 </Link>
               </li>
@@ -80,7 +80,7 @@ const Footer = () => {
                   Cancellations
                 </Link>
               </li>
-              <Link smooth to="/info#questions">
+              <Link smooth to="/faq#questions">
                 Advertise
               </Link>
             </ul>
@@ -153,7 +153,6 @@ const Wrapper = styled.footer`
   }
   .ft-title {
     color: black;
-
     font-size: 1.375rem;
     padding-bottom: 0.625rem;
   }

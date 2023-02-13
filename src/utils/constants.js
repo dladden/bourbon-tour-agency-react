@@ -39,7 +39,7 @@ export const services = [
     id: 1,
     icon: <GiBarrel />,
     title: "Lots of Bourbon",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+    text: "We will take you on the best bourbon trail tours while ensuring you do not leave your taste buds and hands empty-handed! Tour distilleries and enjoy bourbon at every step.",
   },
   {
     id: 2,

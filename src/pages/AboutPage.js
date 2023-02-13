@@ -11,7 +11,10 @@ const AboutPage = () => {
     <main>
       <Helmet>
         <title>About</title>
-        <meta name="description" content="About Shelby Bourbon Tours" />
+        <meta
+          name="description"
+          content="Since 2020 Shelby Bourbon Tours provided tours on a trail to all distillers around Kentucky. If you are as curious about distilling process as we are, contact us."
+        />
         <link rel="canonical" href="/about" />
       </Helmet>
       <PageHero title="about" />

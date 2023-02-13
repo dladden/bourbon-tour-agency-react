@@ -2,7 +2,7 @@ const questionsList = [
   {
     id: 1,
     question_title: "What services do we provide?",
-    info: "Unicorn vinyl poutine brooklyn, next level direct trade iceland. Shaman copper mug church-key coloring book, whatever poutine normcore fixie cred kickstarter post-ironic street art.",
+    info: "All Bourbon is Whiskey but not all Whiskey is Bourbon. All tours we provide take you to Kentucky distilleries,  ",
   },
   {
     id: 2,
@@ -40,6 +40,11 @@ const questionsList = [
     id: 8,
     question_title: "What are the prices of the tour based on?",
     info: "Locavore franzen fashion axe live-edge neutra irony synth af tilde shabby chic man braid chillwave waistcoat copper mug messenger bag. Banjo snackwave blog, microdosing thundercats migas vaporware viral lo-fi seitan ",
+  },
+  {
+    id: 8,
+    question_title: "Looking to tour New Riff Distilling?",
+    info: "Please contact us directly through our CONTACT page if you are looking to tour New Riff Distilling.",
   },
 ];
 export default questionsList;

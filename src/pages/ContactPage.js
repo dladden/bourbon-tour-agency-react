@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Helmet } from "react-helmet-async";
 //hooks from react router dom to access the url parameters
 
 import {
@@ -13,6 +14,11 @@ import {
 const ContactPage = () => {
   return (
     <main>
+      <Helmet>
+        <title>Contact</title>
+        <meta name="description" content="" />
+        <link rel="canonical" href="/contact" />
+      </Helmet>
       <PageHero title="Contact" />
       <Wrapper>
         <OwnerCard />
