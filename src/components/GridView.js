@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Tour from "./Tour";
-
 //GridView displays the styled view with passed tours data from TourList.js
 const GridView = ({ tours }) => {
   return (

@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-// import { useUserContext } from "../context/user_context";
 import { useAuth0 } from "@auth0/auth0-react";
 //Above: importing useAuth Hook getting the user from the Auth0 just like from the context
 

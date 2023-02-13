@@ -5,8 +5,8 @@ const {
   REACT_APP_SENDGRID_TO_EMAIL,
   REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
 } = process.env;
-
-exports.handler = async (event, context, callback) => {
+//event, context, callback
+exports.handler = async (event) => {
   const {
     tour_name,
     guest_name,
@@ -25,8 +25,6 @@ exports.handler = async (event, context, callback) => {
   var formatted_date = date.map((str) => {
     return new Date(str).toLocaleDateString();
   });
-
-  console.log(event);
 
   const order = () => {
     return "CUSTOM TOUR REQUEST FROM: " + `${guest_name}`; //total formatted in cents

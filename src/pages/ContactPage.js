@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-// import { useParams, useHistory } from "react-router-dom"; //hooks from react router dom to access the url parameters
+//hooks from react router dom to access the url parameters
 
 import {
   PageHero,

@@ -3,7 +3,6 @@ import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
-// import { Link } from "react-router-dom";
 //List View is responsible for displaying the tours in an inline view
 const ContactList = () => {
   return (

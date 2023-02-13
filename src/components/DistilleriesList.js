@@ -2,7 +2,6 @@ import React from "react";
 import { GiBeerBottle } from "react-icons/gi";
 import styled from "styled-components";
 import { distilleries } from "../utils/constants";
-// import { Link } from "react-router-dom";
 //This component lists the distilleries
 const DistilleriesList = () => {
   return (

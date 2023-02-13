@@ -22,7 +22,6 @@ const CalendarPicker = ({ date, setDate }) => {
   return (
     <Wrapper>
       <Calendar tileDisabled={tileDisabled} onChange={setDate} value={date} />
-      {/* {console.log(date)} */}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
     </Wrapper>
   );

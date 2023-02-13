@@ -4,7 +4,6 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 //Component responsible for displaying plus and minus button for the tour guests
 const AmountButtons = ({ increase, decrease, guest }) => {
   //outside styling added into the styled components wrapper 'amount-btns'
-  // console.log(guest);
   return (
     <Wrapper className="amount-btns">
       {/* decrease passed as a reference to AddToCart */}

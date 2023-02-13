@@ -1,9 +1,6 @@
 import React from "react";
 import { MdFreeCancellation, MdCancelPresentation } from "react-icons/md";
 import styled from "styled-components";
-// import facebook from "../assets/facebook.svg";
-// import instagram from "../assets/instagram.svg";
-// import { Link } from "react-router-dom";
 //List View is responsible for displaying the tours in an inline view
 const Cancelation = () => {
   return (

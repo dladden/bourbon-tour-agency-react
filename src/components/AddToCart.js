@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import bus from "../assets/bus.svg";
 import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
@@ -24,10 +23,6 @@ const AddToCart = ({ tour }) => {
   //Prop passed to CalendarPicker: date used to store the date and setDate to set the date
   //used with the useState takes the current date Date() and stores it in the date constant
   const [date, setDate] = useState(new Date());
-  // console.log(date);
-  // const onChange = (date) => {
-  //   setDate(date);
-  // };
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {
@@ -65,7 +60,6 @@ const AddToCart = ({ tour }) => {
         </p>
       )}
 
-      {/* {console.log(date)} */}
       <hr />
       <div className="trans">
         <span>Transportation: </span>
@@ -82,8 +76,6 @@ const AddToCart = ({ tour }) => {
                 }`}
                 onClick={() => setTrans(car)}
               >
-                {/* {console.log(guest)} */}
-                {/* {trans} */}
                 {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
                 {car === "VAN" ? <img src={van} alt="DL logo" /> : null}
                 {car === "BUS" ? <img src={bus} alt="DL logo" /> : null}

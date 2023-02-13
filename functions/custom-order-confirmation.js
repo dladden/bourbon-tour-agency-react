@@ -5,9 +5,10 @@ const {
   REACT_APP_SENDGRID_TEMPLATE_ID2,
   REACT_APP_SENDGRID_FROM_NOREPLY_EMAIL,
 } = process.env;
+//event, context, callback
 //Order Confirmation sends en order confirmation email to the customer
 //with details like tour picked, date, total cost etc..
-exports.handler = async (event, context, callback) => {
+exports.handler = async (event) => {
   const { guest_email, tour_name, guest_name, date, mainTrans, guests } =
     JSON.parse(event.body);
   client.setApiKey(REACT_APP_SENDGRID_API_KEY);

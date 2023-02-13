@@ -1,5 +1,4 @@
 import React from "react";
-// const dotenv = require("dotenv");
 import guestsImg0 from "../assets/guests0.jpeg";
 import guestsImg1 from "../assets/guests1.jpeg";
 import guestsImg2 from "../assets/guests2.jpeg";

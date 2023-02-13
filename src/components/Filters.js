@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { getUniqueValues, priceFormat } from "../utils/helpers";
-
 const Filters = () => {
   //importing the filter context
   //search_text - used in the SEARCH INPUT to get the value: actual text and the name of the action: "search_text"
