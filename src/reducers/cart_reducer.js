@@ -106,10 +106,7 @@ const cart_reducer = (state, action) => {
     const { total_tours, total_amount } = state.cart.reduce(
       (total, cartItem) => {
         const { price, trans, guests } = cartItem;
-        // console.log(price);
-        // console.log(trans);
-        // console.log(guests);
-        // console.log(bus_fee);
+
         total.total_tours = tempCart.length; //retrieving array size of tours in the cart for cart icon
 
         if (trans === "VAN") {
@@ -150,8 +147,7 @@ const cart_reducer = (state, action) => {
   if (action.type === CALCULATE_DISC) {
     const { initialState } = action.payload;
     // const { total_amount } = state.cart;
-    const { tax, disc } = initialState;
-    console.log(state.total_amount);
+    const { disc } = initialState;
 
     const { discountAmount } = state.cart.reduce(
       (total) => {

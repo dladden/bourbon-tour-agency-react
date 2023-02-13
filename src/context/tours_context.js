@@ -52,7 +52,6 @@ export const ToursProvider = ({ children }) => {
     } catch (error) {
       dispatch({ type: GET_TOURS_ERROR }); //handling error in reducer
     }
-    // console.log(response);
   }; //end fetchTours
   //dispatch for all the tours
   const fetchSingleTour = async (url) => {
@@ -60,7 +59,6 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url); //using axios for asynchronous http request
       const singleTour = response.data;
-      // console.log(singleTour);
       dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour.fields }); //dispatching an action with payload of the singleTour with data
     } catch (error) {
       dispatch({ type: GET_SINGLE_TOUR_ERROR });

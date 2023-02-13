@@ -13,8 +13,6 @@ import { useUserContext } from "../context/user_context";
 const Sidebar = () => {
   const { isSidebarOpen, closeSidebar } = useToursContext();
   const { tourUser } = useUserContext();
-  // console.log(data);
-  // const isOpen = false;
   return (
     <SidebarContainer>
       <aside

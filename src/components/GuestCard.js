@@ -8,16 +8,9 @@ import { HashLink as Link } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
 const GuestCard = () => {
-  // const { tour_url } = tour;
-  //   console.log(tour_url);
   const { total_amount, tax } = useCartContext();
   const { tourUser } = useUserContext();
-  // console.log(tourUser);
   const total_tax = total_amount * (tax / 100);
-
-  // const [image, setImage] = React.useState(tourUser.picture);
-
-  // setImage(localStorage.setItem("image", JSON.stringify(tourUser.picture)));
 
   return (
     <Wrapper>

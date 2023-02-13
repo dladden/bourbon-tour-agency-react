@@ -148,8 +148,6 @@ export const country_data = [
 export const info_clause =
   "This Data Processing Agreement only applies to you if you have a Stripe Account located in the United States, the United Kingdom, the European Economic Area and Switzerland. If you have a Stripe Account located elsewhere or would like more information on our Data Processing Agreement, please see our FAQs. Need a copy of this Data Processing Agreement? Click here.";
 
-// console.log(guestsImg0);
-
 // https://stripe.com/legal/dpa/faqs
 
 // https://stripe.com/legal/ssa

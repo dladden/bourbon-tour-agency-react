@@ -20,7 +20,6 @@ const filter_reducer = (state, action) => {
     let maxPrice = action.payload.map((tour) => tour.price);
     //using math package to get the max price
     maxPrice = Math.max(...maxPrice);
-    // console.log(maxPrice);
     return {
       ...state,
       all_tours: [...action.payload],
@@ -49,7 +48,6 @@ const filter_reducer = (state, action) => {
   if (action.type === SORT_TOURS) {
     const { sort, filtered_tours } = state;
     let tempTours = [...filtered_tours]; //making sure array is not empty
-    // console.log(tempTours.best_sel);
     if (sort === "all") {
       tempTours = tempTours.sort((x, y) => y.price - x.price);
     }
@@ -101,9 +99,8 @@ const filter_reducer = (state, action) => {
 
   //FILTERS TOURS filtering logic is handled here
   if (action.type === FILTER_TOURS) {
-    // console.log("FILTERING TEST");
     const { all_tours } = state;
-    const { search_text, category, distillery, transport, price, special_res } =
+    const { search_text, category, distillery, price, special_res } =
       state.filters;
     let tempTours = [...all_tours]; //using all tours for filtering and as default when no if-statements hit
     //(value overwritten in every if-statement)

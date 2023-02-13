@@ -34,7 +34,6 @@ const ImageSlider = () => {
     </Wrapper>
   );
 };
-// console.log(slides);
 const Wrapper = styled.div`
   .slider-section {
     padding-top: 5rem;

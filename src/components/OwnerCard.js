@@ -3,12 +3,8 @@ import styled from "styled-components";
 import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.jpg";
 import socialLinks from "../utils/social_links";
-// import { Link } from "react-router-dom";
 //Component responsible for the OwnerCard used in Contact page
 const OwnerCard = ({}) => {
-  // const { tour_url } = tour;
-  //   console.log(tour_url);
-
   return (
     <Wrapper>
       <div className="container">

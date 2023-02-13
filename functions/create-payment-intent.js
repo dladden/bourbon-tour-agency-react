@@ -5,14 +5,12 @@ const dotenv = require("dotenv"); //importing dotenv
 dotenv.config();
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
 
-exports.handler = async function (event, context) {
-  console.log(event);
+exports.handler = async function (event) {
   //if: if event body property exists on event object only then create POST request,
   //prase the data, else return create payment intent
   if (event.body) {
     //parsing: converting string data into javascript JSON object
     const { total_amount, tax, discountAmount } = JSON.parse(event.body);
-    console.log(discountAmount);
     //IMPORTANT: this is where total is actually calculated for security purposes
     //Connect to the back end, pass in the id and get values of the total
     //TODO: set up calculation for the total amount like in the reducer
@@ -28,7 +26,6 @@ exports.handler = async function (event, context) {
       } else {
         const total_tax = total_amount * (tax / 100);
         var total_amount_int = Math.ceil(total_amount + total_tax);
-        // console.log(total_amount_int);
         return total_amount_int; //total formatted in cents
       }
     };

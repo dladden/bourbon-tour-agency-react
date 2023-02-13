@@ -20,13 +20,8 @@ exports.handler = async (event, context, callback) => {
     images: cart.map((a) => a.image),
   };
   var dateId = new Date(dates).toLocaleDateString();
-
+  //destructuring user
   const { email, name } = tourUser;
-  // const [image] = cart;
-
-  console.log(event);
-  console.log(images);
-  console.log(total_formatted);
 
   const orderSubject = () => {
     return "Order Confirmation: " + `${names}`; //total formatted in cents
@@ -49,9 +44,6 @@ exports.handler = async (event, context, callback) => {
       currency: "USD",
       total_amount: total_formatted,
     },
-    // text: JSON.stringify({ cart, total_amount, tourUser }),
-    // number: JSON.stringify(total_amount),
-    // html: JSON.stringify({ cart, total_amount, tourUser }),
   };
 
   try {

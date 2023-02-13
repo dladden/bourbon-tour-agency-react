@@ -28,7 +28,6 @@ const MultiCalendarPicker = ({ date, setDate }) => {
         value={date}
         selectRange={true}
       />
-      {/* {console.log(date)} */}
       {/* console output: Thu Nov 17 2022 00:00:00 GMT-0500 (Eastern Standard Time) */}
     </Wrapper>
   );

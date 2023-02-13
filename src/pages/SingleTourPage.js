@@ -21,7 +21,6 @@ const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
   const { id } = useParams(); //getting the id property in the object
   const navigate = useNavigate(); //getting the history from reactRouter Dom
-  // console.log(useParams());
   //pulling the variables from the context hook
 
   const {
@@ -37,11 +36,9 @@ const SingleTourPage = () => {
     fetchSingleTour(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
-  // console.log(tour);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
-    // console.log(error);
     if (error) {
       setTimeout(() => {
         navigate("/");
@@ -68,7 +65,7 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
-  // console.log(id);//id is passed to addToCart to check uniqueness in the cart
+  //id is passed to addToCart to check uniqueness in the cart
 
   const renderIcon = () => {
     switch (category) {
@@ -85,8 +82,6 @@ const SingleTourPage = () => {
       default:
     }
   };
-  // console.log(stars);
-  // console.log(tour);
 
   return (
     <Wrapper>
@@ -111,7 +106,6 @@ const SingleTourPage = () => {
             <p className="info-title">Distilleries: </p>
             <p className="info">
               {dist?.map((distillery, index) => {
-                // console.log(distillery);
                 return (
                   <span
                     key={index}

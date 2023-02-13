@@ -10,7 +10,6 @@ import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
 import { ReCAPTCHA } from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
   //The increase function uses count variable as storage and increments value by on
@@ -37,53 +36,38 @@ const CustomTour = () => {
   //useState VARIABLES:
   //variables for tour name:
   const [tour_name, setTour_name] = useState("");
-  console.log(tour_name);
   //variable for name of the poc
   const [guest_name, setGuest_name] = useState("");
-  console.log(guest_name);
   //email
   const [guest_email, setGuest_email] = useState("");
-  console.log(guest_email);
   //phone number
   const [phone_number, setPhone_number] = useState("");
-  console.log(phone_number);
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be firs array item
   //in this case it is suv: const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
-  console.log(mainTrans);
   //Reservation for a distillery
   const [reservation, setReservation] = useState("");
-  console.log(reservation);
   //variable for comment portion
   const [guest_comment, setGuest_comment] = useState("");
-  console.log(guest_comment);
   //Guests to be on the tour
   const [tour_guests, setGuest] = useState(1);
-  console.log(tour_guests);
   //Multi-day calendar selection
   const [date, setDate] = useState(new Date());
-  console.log(date);
   //using react-select dependency to store arrays of distilleries that the
   //customer chooses:
   const [distill, setDistill] = useState(null);
-  console.log(distill);
   //checkbox confirming that the tour must be reviewed
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
-  console.log(checked);
   //invisible reCaptcha
   // const recaptchaRef = useRef(null);
-  const [captchaIsDone, setCaptchaIsDone] = useState(false);
+  // const [captchaIsDone, setCaptchaIsDone] = useState(false);
 
   const recaptchaRef = useRef(null);
-  // const onChange = () => {
-  //   console.log("changed");
-  //   setCaptchaIsDone(true);
-  // };
   //useNavigate for navigation with timeout
   const navigate = useNavigate();
-
+  //ReCaptcha
   function onChange(value) {
     console.log("Captcha value:", value);
   }
@@ -319,7 +303,7 @@ const CustomTour = () => {
                     <ul className="posts"></ul>
                   </div>
                   {/* END COMMENT */}
-                  {/* MULTI CALENDAR PICKER */}
+                  {/* MULTI-CALENDAR PICKER */}
                   <MultiCalendarPicker value={date} setDate={setDate} />
                   {date.length > 0 ? (
                     <p className="text-center">
@@ -335,14 +319,12 @@ const CustomTour = () => {
                       {date.toDateString()}
                     </p>
                   )}
-                  {console.log(date)}
-                  {/* END MULTICALENDAR */}
+                  {/* END MULTI-CALENDAR */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
                     <span>Transportation: </span>
                     <div>
                       {trans.map((car, index) => {
-                        // console.log(trans);
                         return (
                           <button
                             key={index}

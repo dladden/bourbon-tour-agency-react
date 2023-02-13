@@ -4,7 +4,6 @@ import styled from "styled-components";
 //Component responsible for transportation type and count of guests
 const LinkButton = ({ tour }) => {
   const { tour_url } = tour;
-  //   console.log(tour_url);
 
   return (
     <Wrapper>

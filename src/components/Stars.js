@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 // Data passed from SingleTourPage.js this component displays the stars
 const Stars = ({ stars, rev_url, category }) => {
-  // console.log(stars, rev_url);
-
   //Using the array we can dynamically insert numbers which are checked against the data's numbers
   //array .from method with 5 empty objects
   //array .from second argument is callback function
@@ -23,7 +21,6 @@ const Stars = ({ stars, rev_url, category }) => {
       </span>
     );
   });
-  // console.log(tempStars);
 
   return (
     <Wrapper>
@@ -35,7 +32,6 @@ const Stars = ({ stars, rev_url, category }) => {
       <a href={rev_url} target="_blank" rel="noreferrer">
         <p className="reviews">
           {category === "stay" ? "(Airbnb Reviews)" : "(Facebook Reviews)"}
-          {console.log(category)}
         </p>
       </a>
     </Wrapper>

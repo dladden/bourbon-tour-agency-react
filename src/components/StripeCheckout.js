@@ -30,19 +30,13 @@ const CheckoutForm = () => {
   //globals variables used in createPaymentIntent
   const { cart, total_amount, tax, discountAmount, clearCart } =
     useCartContext();
-  //calculating total with tax
-  const total_tax = total_amount * (tax / 100);
-  //mapping through ids
-  const { ids } = {
-    ids: cart.map((a) => a.id),
-  };
+
   //country selection from us to ca
   const [country, setCountry] = useState(null);
   //state variables for discount code
 
   const { tourUser } = useUserContext();
   const navigate = useNavigate();
-  // console.log(total_amount);
   //STRIPE state variables: If the payment is successful
   const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
   const [error, setError] = useState(null);
@@ -54,7 +48,6 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const total_formatted = priceFormat(total_amount);
-  // console.log(clientSecret);
 
   //createPaymentIntent uses axios to POST the data when the component mounts to Stripe.
   //This is done with netlify serverless functions to post it to the server
@@ -70,11 +63,7 @@ const CheckoutForm = () => {
       );
       //unique Secret pulled every time as soon as the user gets to checkout
       setClientSecret(data.clientSecret); //pulling client secret from response
-      // console.log(data);
-      // console.log(data.clientSecret);
-    } catch (error) {
-      // console.log(error.response);
-    }
+    } catch (error) {}
   };
 
   //orderSubmission is SMTP email which sends the a order confirmation to the sbt
@@ -120,7 +109,6 @@ const CheckoutForm = () => {
     createPaymentIntent();
     // eslint-disable-next-line
   }, [discountAmount]);
-  // console.log(ids);
 
   //handling change provided by Stripe API
   //This function uses the event which points to the event object

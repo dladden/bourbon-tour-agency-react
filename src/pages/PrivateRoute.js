@@ -19,17 +19,8 @@ const PrivateRoute = ({ children }) => {
     return <Navigate to="/" />;
   }
   return children;
-  // console.log(children);
-  // console.log(rest); //rest of the children params :{} path:"/checkout" url:"/checkout" etc..
-
+  //rest of the children params :{} path:"/checkout" url:"/checkout" etc..
   //returning the Route component from this code & spreading the "...rest" of the items
   //using render function, if user exists pass the children if not return redirect home "/"
-
-  // <Route
-  //   {...rest}
-  //   render={() => {
-  //     return user ? children : <Redirect to="/"></Redirect>;
-  //   }}
-  // ></Route>
 };
 export default PrivateRoute;

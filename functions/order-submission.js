@@ -9,14 +9,10 @@ const {
 exports.handler = async (event, context, callback) => {
   const { cart, total_amount, tourUser } = JSON.parse(event.body);
   client.setApiKey(REACT_APP_SENDGRID_API_KEY);
-
+  //mapping through ids
   const { ids } = {
     ids: cart.map((a) => a.id),
   };
-
-  console.log(event);
-  console.log(cart);
-  console.log(total_amount);
 
   const order = () => {
     return "ORDER CONFIRMED:" + `${ids}`; //total formatted in cents

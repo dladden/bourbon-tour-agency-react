@@ -48,7 +48,6 @@ export const FilterProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: LOAD_TOURS, payload: tours });
   }, [tours]);
-  // console.log(tours);
 
   //IMPORTANT: this useEffect dispatches the call for filtering
   //useEffect uses the dependency array to change the sate of the data
@@ -73,7 +72,7 @@ export const FilterProvider = ({ children }) => {
   const updateSort = (e) => {
     // const name = e.target.name;
     const value = e.target.value;
-    // console.log(name, value); //you can see actual selection
+    //you can see actual selection
     //dispatching an action with value which was selected
     dispatch({ type: UPDATE_SORT, payload: value });
   }; //end updateSort
@@ -100,8 +99,6 @@ export const FilterProvider = ({ children }) => {
     if (name === "special_res") {
       value = e.target.checked;
     }
-
-    // console.log(name, value);
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
   };
   //function which clears filters on click
