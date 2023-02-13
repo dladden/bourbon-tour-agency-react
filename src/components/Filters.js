@@ -12,7 +12,6 @@ const Filters = () => {
       search_text,
       category,
       distillery,
-      transport,
       min_price,
       max_price,
       price,
@@ -25,7 +24,7 @@ const Filters = () => {
   //These functions pass in the raw data and a string with a name for an array which are used in getUniqueValues
   const categories = getUniqueValues(all_tours, "category");
   const distilleries = getUniqueValues(all_tours, "dist");
-  const transportation = getUniqueValues(all_tours, "trans");
+  // const transportation = getUniqueValues(all_tours, "trans");
   return (
     <Wrapper>
       <div className="content">
@@ -86,29 +85,6 @@ const Filters = () => {
           </div>
           {/* END DISTILLERIES SELECTION*/}
           {/* TRANSPORTATION SELECTION -----------------NEEDS TO BE FIXED*/}
-          <div className="form-control">
-            <h5>Transportation</h5>
-            <div className="transport">
-              {transportation.map((car, index) => {
-                if (car === "all") {
-                  return (
-                    <button
-                      key={index}
-                      name="transport"
-                      // onClick={() => setTrans(car)}
-                      onClick={updateFilters}
-                      data-transport="all"
-                      className={`${
-                        transport === "all" ? "all-btn active" : "all-btn"
-                      }`}
-                    >
-                      All
-                    </button>
-                  );
-                }
-              })}
-            </div>
-          </div>
           {/* END TRANSPORTATION SELECTION*/}
           {/* PRICE (controlled input)*/}
           <div className="form-control">
@@ -138,7 +114,7 @@ const Filters = () => {
           {/* END Special Reservation */}
         </form>
         <button type="button" className="clear-btn" onClick={clearFilters}>
-          Clear Filter
+          Clear Filters
         </button>
       </div>
     </Wrapper>
@@ -253,7 +229,7 @@ const Wrapper = styled.section`
     max-width: 200px;
   }
   .clear-btn {
-    background: var(--clr-red-dark);
+    background: var(--clr-primary-8);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--small-btn-radius);

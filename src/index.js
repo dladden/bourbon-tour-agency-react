@@ -8,6 +8,11 @@ import { FilterProvider } from "./context/filter_context";
 import { CartProvider } from "./context/cart_context";
 import { UserProvider } from "./context/user_context";
 import { Auth0Provider } from "@auth0/auth0-react";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+//using npm package to disable dev tools in development
+if (process.env.NODE_ENV === "production") {
+  disableReactDevTools();
+}
 
 //Auth0 info:
 //react router dom setting up the root which is then used in the root.render()

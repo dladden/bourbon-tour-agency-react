@@ -162,7 +162,6 @@ const Wrapper = styled.section`
     padding-top: 4px;
     padding-right: 8px;
     padding-left: 3px;
-    font-family: "Source Sans Pro", sans-serif;
   }
 
 

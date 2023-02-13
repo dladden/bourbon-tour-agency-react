@@ -40,12 +40,15 @@ const Wrapper = styled.section`
   }
 
   a {
-    margin: 0;
+    font-weight: 900;
+    margin: auto;
     padding: 0;
+    line-height: 2;
   }
 
   p {
-    margin: 0;
+    font-weight: 900;
+    margin: auto;
     padding: 0;
     line-height: 2;
     max-width: 45em;
