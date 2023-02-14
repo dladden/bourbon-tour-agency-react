@@ -51,7 +51,7 @@ export const services = [
     id: 3,
     icon: <GiGlassShot />,
     title: "Food & Events",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+    text: "Being in the business, we accumulated unique a list of locations to stay, eat and visit on your bourbon whiskey tour! All to ensure you get all the beauty of Kentucky and have some of its best bourbons.",
   },
   {
     id: 4,

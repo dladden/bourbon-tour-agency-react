@@ -91,9 +91,10 @@ const NavContainer = styled.nav`
     display: none;
   }
   .cart-btn-wrapper {
+    margin: 0px;
     display: none;
   }
-  //NAVBAR Break point
+  //NAVBAR Brake point
   @media (min-width: 1080px) {
     .nav-toggle {
       display: none;
