@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
-import facebook from "../assets/facebook.svg";
+import messenger from "../assets/messenger_qr_code.svg";
 import instagram from "../assets/instagram.svg";
 //List View is responsible for displaying the tours in an inline view
 const ContactList = () => {
@@ -13,7 +13,11 @@ const ContactList = () => {
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-1">
-                <img src={facebook} alt="" style={{ height: 60, width: 60 }} />
+                <img
+                  src={messenger}
+                  alt="QR Code to Messenger"
+                  style={{ height: 60, width: 60 }}
+                />
               </div>
 
               <div className="event-info">

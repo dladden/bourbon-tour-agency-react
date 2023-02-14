@@ -3,6 +3,7 @@ import styled from "styled-components";
 import info_data from "../utils/info_data"; //default export always resolves to default name
 import { Question, Cancelation } from "../components";
 import logo from "../assets/indent_logo.svg";
+import { Helmet } from "react-helmet-async";
 
 //Simple Information Page with Q&A/FAQ style
 const InfoPage = () => {
@@ -10,6 +11,14 @@ const InfoPage = () => {
   return (
     <Wrapper>
       <main>
+        <Helmet>
+          <title>FAQ</title>
+          <meta
+            name="description"
+            content="Whiskey or Bourbon? What is bourbon? Our FAQ helps with any question relating to bourbon or bourbon tours."
+          />
+          <link rel="canonical" href="/faq" />
+        </Helmet>
         <section id="questions">
           <div className="container">
             <h3>

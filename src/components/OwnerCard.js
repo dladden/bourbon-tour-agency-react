@@ -12,7 +12,9 @@ const OwnerCard = () => {
           <div className="member">
             <img src={owner} alt="member_image" />
             <h3>Steven Ladden</h3>
-            <span>shelbybourbontours@gmail.com</span>
+            <span>
+              <h5>shelbybourbontours@gmail.com</h5>
+            </span>
             <hr />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.amet
@@ -23,14 +25,19 @@ const OwnerCard = () => {
             <div className="date-time">
               <img
                 src={contactQR}
-                alt=""
+                alt="QR Code Contact Page"
                 className={{ height: 90, width: 90 }}
               />
             </div>
             <div className="social-links ">
               {socialLinks.map((link) => {
                 return (
-                  <a href={link.url} key={link.id} className="social-link">
+                  <a
+                    href={link.url}
+                    key={link.id}
+                    className="social-link"
+                    alt="Social Links"
+                  >
                     {link.icon}
                   </a>
                 );
@@ -48,6 +55,10 @@ const Wrapper = styled.section`
   * {
     margin: 0;
     padding: 0;
+  }
+
+  h5 {
+    text-transform: none;
   }
 
   body {
@@ -111,7 +122,7 @@ const Wrapper = styled.section`
     padding: 10px;
     border-radius: 6px;
     color: #444;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     transition: all 0.3s ease;
   }
 

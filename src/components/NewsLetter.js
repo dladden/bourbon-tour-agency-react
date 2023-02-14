@@ -19,7 +19,9 @@ const NewsLetter = () => {
           </p>
           <form action="" className="contact-form">
             <div className="form-example">
-              <p>In Our Form Provide: First, Last Name & Email</p>
+              <p>
+                In Our Form Provide: First Name, Last Name & Email to Signup
+              </p>
             </div>
             <a
               className="submit-btn"

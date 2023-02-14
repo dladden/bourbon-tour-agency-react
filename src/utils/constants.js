@@ -39,13 +39,13 @@ export const services = [
     id: 1,
     icon: <GiBarrel />,
     title: "Lots of Bourbon",
-    text: "We will take you on the best bourbon trail tours while ensuring you do not leave your taste buds and hands empty-handed! Tour distilleries and enjoy bourbon at every step.",
+    text: "We will take you on the best bourbon trail tours while ensuring you do not leave your taste buds and hands empty-handed! Tour any distilleries in Kentucky and enjoy bourbon at every step.",
   },
   {
     id: 2,
     icon: <GiSaloon />,
     title: "Places to Stay",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+    text: "Whether it is out in the country, all distilleries in Kentucky are close to places hand-picked as stays, or in urban Louisville, all distilleries in Louisville are ready for your visit.",
   },
   {
     id: 3,
@@ -57,7 +57,7 @@ export const services = [
     id: 4,
     icon: <GiSteamLocomotive />,
     title: "On the Mission",
-    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, ea. Perferendis corrupti reiciendis nesciunt rerum velit autem unde numquam nisi",
+    text: "In 8 hours, we can visit up to 4 to 5 distilleries. Our goal is to make it a day's worth of enjoyable visitations while having time to eat and drink! One day bourbon trail or 3 day itinerary, we got your back!",
   },
 ];
 //CUSTOMER SLIDES

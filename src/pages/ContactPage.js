@@ -16,7 +16,10 @@ const ContactPage = () => {
     <main>
       <Helmet>
         <title>Contact</title>
-        <meta name="description" content="" />
+        <meta
+          name="description"
+          content="Contact us to tour bourbon distilleries in Kentucky and find the best bourbon you’ve been looking for."
+        />
         <link rel="canonical" href="/contact" />
       </Helmet>
       <PageHero title="Contact" />
