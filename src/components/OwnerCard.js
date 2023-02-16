@@ -12,14 +12,16 @@ const OwnerCard = () => {
           <div className="member">
             <img src={owner} alt="member_image" />
             <h3>Steven Ladden</h3>
+            <h5>(502) 216-4530</h5>
             <span>
               <h5>shelbybourbontours@gmail.com</h5>
             </span>
             <hr />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.amet
-              consecteturamet consecteturamet. You can also reach me at 502
-              216..
+              Do not hesitate to reach us over our official email. You can also
+              call us if you like to make a quick reservation. If we cannot get
+              to your call, please leave us a simple message! Share our Contact
+              Page effortlessly with this QR:
             </p>
 
             <div className="date-time">

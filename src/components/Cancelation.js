@@ -22,10 +22,13 @@ const Cancelation = () => {
                 </h3>
 
                 <p className="event-detail">
-                  Contact us on Facebook Messenger and we will respond within 24
-                  hours! Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text ever since the 1500s.
+                  Please give us a 48-hour notice and receive your money back.
+                  Cancellations are easy; if you made a reservation within our
+                  PRESELECTED TOURS, email us your name, the date of your tour,
+                  and your tour order number. If you made a CUSTOM TOUR
+                  reservation, email us: the tour's name and your name. We will
+                  confirm your cancellation, and a refund takes about a week to
+                  appear on your statement.
                 </p>
               </div>
             </div>
@@ -68,12 +71,12 @@ const Wrapper = styled.section`
   .event-info {
   }
   .event-name {
-    font-size: 10px;
+    font-size: 17px;
   }
   @media (min-width: 576px) {
     .event-name {
       width: 100%;
-      font-size: 15px;
+      font-size: 17px;
     }
   }
 
@@ -117,43 +120,16 @@ const Wrapper = styled.section`
   .color-1 {
     background: #fff;
   }
-  .color-2 {
-    background-image: linear-gradient(
-      220deg,
-      #405de6,
-      #5851db,
-      #833ab4,
-      #c13584,
-      #e1306c,
-      #fd1d1d
-    );
-  }
-  .color-3 {
-    background: #f8ecec;
-  }
-  .color-4 {
-    background: #eef8ec;
-  }
-
-  .date {
-    font-size: 12px;
-    font-weight: 600;
-  }
-
-  .time {
-    font-size: 22px;
-    font-weight: 700;
-  }
 
   .event-detail {
-    font-size: 9px;
+    font-size: 11px;
     color: #4b4b4b;
     margin-top: 5px;
   }
   @media (min-width: 576px) {
     .event-detail {
       width: 100%;
-      font-size: 15px;
+      font-size: 14px;
     }
   }
 

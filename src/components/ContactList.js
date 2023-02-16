@@ -5,6 +5,12 @@ import {
   RiWhatsappFill,
   RiInstagramFill,
 } from "react-icons/ri";
+import {
+  messenger_link,
+  instagram_link,
+  whats_app_link,
+  email_link,
+} from "../utils/constants";
 import styled from "styled-components";
 import messenger from "../assets/messenger_qr_code.svg";
 import instagram from "../assets/instagram.svg";
@@ -33,14 +39,16 @@ const ContactList = () => {
 
                 <p className="event-detail">
                   Contact us on Facebook Messenger and we will respond within 24
-                  hours!
+                  hours with any question!
                 </p>
               </div>
             </div>
-
+            <div className="right-gap"></div>
             <div className="right">
               <a
-                href="https://business.facebook.com/latest/inbox/all?bpn_id=679586316341571&asset_id=106294562241990&nav_ref=redirect_biz_inbox_comet_profile_plus_ap_page_inbox_message_button"
+                href={messenger_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="add-to-calender"
               >
                 Contact
@@ -60,15 +68,18 @@ const ContactList = () => {
                 </h3>
 
                 <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia.
+                  Follow us on Instagram, and don't hesitate to send us a
+                  message at your convenience. We will respond within 24 hours
+                  with any questions!
                 </p>
               </div>
             </div>
-
+            <div className="right-gap"></div>
             <div className="right">
               <a
-                href="https://www.facebook.com/shelbybourbontours"
+                href={instagram_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="add-to-calender"
               >
                 Contact
@@ -88,15 +99,17 @@ const ContactList = () => {
                 </h3>
 
                 <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia.
+                  Are you a fan of WhatsApp? We are too. If this is your
+                  preferred method of communication, reach out to us there.
                 </p>
               </div>
             </div>
-
+            <div className="right-gap"></div>
             <div className="right">
               <a
-                href="https://www.facebook.com/shelbybourbontours"
+                href={whats_app_link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="add-to-calender"
               >
                 Contact
@@ -116,18 +129,16 @@ const ContactList = () => {
                 </h3>
 
                 <p className="event-detail">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempora saepe similique officia nam atque voluptatem ad
-                  necessitatibus consequuntur, nostrum repellendus.
+                  Our Email <u>shelbybourbontours@gmail.com</u> is a sure way to
+                  contact us with any technical questions or book a tour if you
+                  need to create something more unique. Whether it is a larger
+                  group than 20 or the need for more accommodation.
                 </p>
               </div>
             </div>
-
+            <div className="right-gap"></div>
             <div className="right">
-              <a
-                href="https://www.facebook.com/shelbybourbontours"
-                className="add-to-calender"
-              >
+              <a href={"mailto:" + email_link} className="add-to-calender">
                 Contact
               </a>
             </div>
@@ -170,10 +181,8 @@ const Wrapper = styled.section`
     }
   }
 
-  .right {
-    // position: relative;
-    // width: -10px;
-    // margin-right: 30px;
+  .right-gap {
+    margin-right: 15px;
   }
 
   .event-card {
@@ -189,6 +198,13 @@ const Wrapper = styled.section`
   }
 
   .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .right {
     display: flex;
     justify-content: flex-start;
     align-items: center;

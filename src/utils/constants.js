@@ -9,6 +9,12 @@ import {
   GiGlassShot,
 } from "react-icons/gi";
 
+//SOCIAL LINKS to be inserted in the pages:
+export const messenger_link = "https://www.facebook.com/shelbybourbontours";
+export const instagram_link = "https://www.instagram.com/shelbybourbontours";
+export const whats_app_link = "https://www.whatsapp.com";
+export const email_link = "shelbybourbontours@gmail.com";
+
 //links which are used globally to eliminate repetitive code
 //LINKS FOR
 export const links = [
@@ -39,7 +45,7 @@ export const services = [
     id: 1,
     icon: <GiBarrel />,
     title: "Lots of Bourbon",
-    text: "We will take you on the best bourbon trail tours while ensuring you do not leave your taste buds and hands empty-handed! Tour any distilleries in Kentucky and enjoy bourbon at every step.",
+    text: "We will take you on the best bourbon trail tour while ensuring you do not leave your taste buds and hands empty-handed! Tour any distilleries in Kentucky and enjoy bourbon at every step.",
   },
   {
     id: 2,

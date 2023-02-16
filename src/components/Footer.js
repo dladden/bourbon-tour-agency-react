@@ -88,9 +88,11 @@ const Footer = () => {
           <div className="ft-main-item">
             <h2 className="ft-title">Stay Updated</h2>
             <h5>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nobis
-              possimus fuga nam ratione ab sint aut optio quas doloribus harum,
-              suscipit eius voluptatum. Sit et quae impedit porro rem.
+              If you like to stay one step ahead on your bourbon game, subscribe
+              to our newsletter and follow us on Instagram or Facebook! We not
+              only talk about distilleries and tours but also talk about the
+              history and share our favorite recipes and, of course, our
+              favorite bourbon!
             </h5>
           </div>
         </section>
@@ -146,13 +148,19 @@ const Wrapper = styled.footer`
   }
   footer a {
     text-decoration: none;
-    color: black;
+    color: var(--clr-primary-5);
   }
+
+  h5 {
+    text-transform: none;
+    color: var(--clr-grey-3);
+  }
+
   a:hover {
     text-decoration: underline;
   }
   .ft-title {
-    color: black;
+    color: var(--clr-primary-5);
     font-size: 1.375rem;
     padding-bottom: 0.625rem;
   }
@@ -224,7 +232,7 @@ const Wrapper = styled.footer`
   .ft-social-list {
     display: flex;
     justify-content: center;
-    border-top: 1px #777 solid;
+    border-top: 2px #777 solid;
     padding-top: 1.25rem;
   }
   .ft-social-list li {
@@ -234,7 +242,7 @@ const Wrapper = styled.footer`
   /* Footer legal */
   .ft-legal {
     padding: 0.9375rem 1.875rem;
-    background-color: #3e3b35;
+    background-color: var(--clr-grey-3);
   }
   .ft-legal-list {
     width: 100%;
