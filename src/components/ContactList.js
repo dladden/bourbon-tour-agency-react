@@ -1,5 +1,10 @@
 import React from "react";
-import { FaFacebookMessenger, FaInstagram } from "react-icons/fa";
+import {
+  RiMailOpenFill,
+  RiFacebookCircleFill,
+  RiWhatsappFill,
+  RiInstagramFill,
+} from "react-icons/ri";
 import styled from "styled-components";
 import messenger from "../assets/messenger_qr_code.svg";
 import instagram from "../assets/instagram.svg";
@@ -23,7 +28,7 @@ const ContactList = () => {
               <div className="event-info">
                 <h3 className="event-name">
                   {" "}
-                  <FaFacebookMessenger /> Messenger
+                  <RiFacebookCircleFill /> Messenger
                 </h3>
 
                 <p className="event-detail">
@@ -51,7 +56,7 @@ const ContactList = () => {
 
               <div className="event-info">
                 <h3 className="event-name">
-                  <FaInstagram /> Instagram
+                  <RiInstagramFill /> Instagram
                 </h3>
 
                 <p className="event-detail">
@@ -78,7 +83,9 @@ const ContactList = () => {
               </div>
 
               <div className="event-info">
-                <h3 className="event-name">WhatsApp</h3>
+                <h3 className="event-name">
+                  <RiWhatsappFill /> WhatsApp
+                </h3>
 
                 <p className="event-detail">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -104,7 +111,9 @@ const ContactList = () => {
               </div>
 
               <div className="event-info">
-                <h3 className="event-name">Email</h3>
+                <h3 className="event-name">
+                  <RiMailOpenFill /> Email
+                </h3>
 
                 <p className="event-detail">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -152,7 +161,7 @@ const Wrapper = styled.section`
   .event-info {
   }
   .event-name {
-    font-size: 10px;
+    font-size: 17px;
   }
   @media (min-width: 576px) {
     .event-name {
@@ -230,7 +239,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 9px;
+    font-size: 11px;
     color: #4b4b4b;
     margin-top: 5px;
   }
@@ -246,7 +255,7 @@ const Wrapper = styled.section`
     // display: inline-block;
     background: var(--clr-primary-4);
     color: white;
-    font-size: 12px;
+    font-size: 17px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -3,7 +3,7 @@ import logo from "../assets/checkout_list_border.svg";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
 import Multiselect from "react-select";
-import { country_data, info_clause } from "../utils/constants";
+import { country_data, checkout_clause } from "../utils/constants";
 import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
 //Hook imports from Stripe for React
 import {
@@ -163,8 +163,7 @@ const CheckoutForm = () => {
       base: {
         iconColor: "#7f7367",
         color: "#3e3b35",
-        fontWeight: "600",
-        fontFamily: "Arial, sans-serif",
+        fontWeight: "500",
         fontSmoothing: "antialiased",
         ":-webkit-autofill": {
           color: "#fce883",
@@ -373,7 +372,7 @@ const CheckoutForm = () => {
               </p>
             </div>
           </form>
-          <h6 className="clause">{info_clause}</h6>
+          <h6 className="clause">{checkout_clause}</h6>
         </div>
       </div>
 
@@ -465,7 +464,6 @@ STRIPE STYLING
   /* Buttons and links */
   button {
     background: var(--clr-green-dark);
-    font-family: Arial, sans-serif;
     color: #ffffff;
     border-radius: 4px;
     border: 0;

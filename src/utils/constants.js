@@ -60,6 +60,7 @@ export const services = [
     text: "In 8 hours, we can visit up to 4 to 5 distilleries. Our goal is to make it a day's worth of enjoyable visitations while having time to eat and drink! One day bourbon trail or 3 day itinerary, we got your back!",
   },
 ];
+
 //CUSTOMER SLIDES
 export const slides = [
   { url: guestsImg0, title: "Our Guests" },
@@ -96,13 +97,13 @@ export const distilleries = [
   "Lux Row Distillers",
   "Jefferson's",
   "James E. Pepper",
-  "Bardstown Bourbon",
-  "Michter's Shively",
+  "Bardstown Bourbon CO.",
+  "Michter's",
   "Jeptha Creed",
-  "Bourbon Company",
   "Peerless Distillery",
   "Prohibition Spirits",
-  "Cooperage",
+  "KY Cooperage",
+  "Barton 1792",
 ];
 //All the distilleries
 export const distilleries_select = [
@@ -130,13 +131,12 @@ export const distilleries_select = [
   { value: "Lux Row Distillers", label: "Lux Row Distillers" },
   { value: "Jefferson's", label: "Jefferson's" },
   { value: "James E. Pepper", label: "James E. Pepper" },
-  { value: "Bardstown Bourbon", label: "Bardstown Bourbon" },
-  { value: "Michter's Shively", label: "Michter's Shively" },
+  { value: "Bardstown Bourbon", label: "Bardstown Bourbon CO." },
+  { value: "Michter's", label: "Michter's" },
   { value: "Jeptha Creed", label: "Jeptha Creed" },
-  { value: "Bourbon Company", label: "Bourbon Company" },
   { value: "Peerless Distillery", label: "Peerless Distillery" },
   { value: "Prohibition Spirits", label: "Prohibition Spirits" },
-  { value: "Cooperage", label: "Cooperage" },
+  { value: "KY Cooperage", label: "KY Cooperage" },
 ];
 
 export const country_data = [
@@ -144,7 +144,7 @@ export const country_data = [
   { value: "CA", label: "Canada" },
 ];
 
-export const info_clause =
+export const checkout_clause =
   "This Data Processing Agreement only applies to you if you have a Stripe Account located in the United States, the United Kingdom, the European Economic Area and Switzerland. If you have a Stripe Account located elsewhere or would like more information on our Data Processing Agreement, please see our FAQs. Need a copy of this Data Processing Agreement? Click here.";
 
 // https://stripe.com/legal/dpa/faqs

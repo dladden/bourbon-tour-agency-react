@@ -24,7 +24,7 @@ const Wrapper = styled.section`
   align-items: center;
   color: var(--clr-primary-1);
   a {
-    color: var(--clr-primary-3);
+    color: var(--clr-grey-3);
     padding: 0.5rem;
     transition: var(--transition);
   }

@@ -242,7 +242,7 @@ const CustomTour = () => {
                           options={distilleries_select}
                           isMulti
                           isClearable
-                          placeholder="Select Distilleries"
+                          placeholder="Select Distilleries*"
                           theme={(theme) => ({
                             ...theme,
                             borderRadius: 10,
@@ -275,7 +275,7 @@ const CustomTour = () => {
                       maxLength={30}
                       pattern="^[\w\s]+"
                       name="reservation"
-                      placeholder="Reservation"
+                      placeholder="Reservations & Tastings"
                     />
                     <div className="valid-feedback">
                       If you are looking for private tour reservation, add a

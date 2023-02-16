@@ -103,7 +103,7 @@ const SingleTourPage = () => {
             <Stars stars={stars} rev_url={rev_url} category={category} />
             <h5 className="price">{priceFormat(price)}</h5>
             <p className="desc">{desc}</p>
-            <p className="info-title">Distilleries: </p>
+            <p className="info-title">Distillery Choices:</p>
             <p className="info">
               {dist?.map((distillery, index) => {
                 return (
@@ -154,11 +154,13 @@ const Wrapper = styled.main`
     max-width: 45em;
   }
   .info-title {
+    color: var(--clr-primary-5);
     text-transform: capitalize;
     font-weight: 700;
     margin-bottom: 0rem;
   }
   .info {
+    color: var(--clr-primary-5);
     text-transform: capitalize;
     width: 300px;
     display: grid;
