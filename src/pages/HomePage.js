@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Helmet } from "react-helmet-async";
 import {
   FeaturedTours,
   Hero,
@@ -13,6 +13,10 @@ const HomePage = () => {
 
   return (
     <main>
+      <Helmet>
+        <title>Home</title>
+        <link rel="canonical" href="/" />
+      </Helmet>
       <Hero />
       <section id="featured-tours">
         <TourLogo />

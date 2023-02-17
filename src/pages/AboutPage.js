@@ -13,7 +13,7 @@ const AboutPage = () => {
         <title>About</title>
         <meta
           name="description"
-          content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
+          content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
         />
         <link rel="canonical" href="/about" />
       </Helmet>

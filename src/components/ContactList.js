@@ -14,6 +14,7 @@ import {
 import styled from "styled-components";
 import messenger from "../assets/messenger_qr_code.svg";
 import instagram from "../assets/instagram.svg";
+import whats_app from "../assets/whatsapp_link.svg";
 //List View is responsible for displaying the tours in an inline view
 const ContactList = () => {
   return (
@@ -26,7 +27,8 @@ const ContactList = () => {
               <div className="qr-code color-1">
                 <img
                   src={messenger}
-                  alt="QR Code to Messenger"
+                  title="Messenger QR Code"
+                  alt="QR Code to Our Facebook Messenger"
                   style={{ height: 60, width: 60 }}
                 />
               </div>
@@ -59,7 +61,12 @@ const ContactList = () => {
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
+                <img
+                  src={instagram}
+                  title="Instagram QR Code"
+                  alt="QR Code to Our Instagram Page"
+                  style={{ height: 60, width: 60 }}
+                />
               </div>
 
               <div className="event-info">
@@ -90,7 +97,12 @@ const ContactList = () => {
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
+                <img
+                  src={whats_app}
+                  title="WhatsApp QR Code"
+                  alt="QR Code to Our WhatsApp"
+                  style={{ height: 60, width: 60 }}
+                />
               </div>
 
               <div className="event-info">

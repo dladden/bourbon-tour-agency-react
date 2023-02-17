@@ -35,7 +35,11 @@ const CartButtons = () => {
             }); //Auth0 specific command to return back to home after logout
           }}
         >
-          <img src={tourUser?.picture} alt="User" />
+          <img
+            src={tourUser?.picture}
+            title="Profile Avatar"
+            alt="Profile Avatar"
+          />
           Sign out
         </button>
       ) : (

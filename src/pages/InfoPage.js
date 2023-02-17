@@ -15,7 +15,7 @@ const InfoPage = () => {
           <title>FAQ</title>
           <meta
             name="description"
-            content="Whiskey or Bourbon? What is bourbon? Our FAQ helps with any question relating to bourbon or bourbon tours."
+            content="Whiskey or Bourbon? What is bourbon? Our FAQ helps with any question relating to bourbon and our bourbon tours."
           />
           <link rel="canonical" href="/faq" />
         </Helmet>

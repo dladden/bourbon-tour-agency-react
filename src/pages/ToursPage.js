@@ -10,7 +10,7 @@ const ToursPage = () => {
         <title>Tours</title>
         <meta
           name="description"
-          content="Providing touring to all Kentucky distilleries. Such as Buffalo Trace, Woodford Reserve, Maker's Mark, Bulleit, Four Roses, Wild Turkey, Angel's Envy, and much more."
+          content="Kentucky Bourbon Tours. Such as Buffalo Trace, Woodford Reserve, Maker's Mark, Bulleit, Four Roses, Wild Turkey, Angel's Envy, and much more."
         />
         <link rel="canonical" href="/tours" />
       </Helmet>

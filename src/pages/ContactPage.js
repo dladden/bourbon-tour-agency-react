@@ -18,7 +18,7 @@ const ContactPage = () => {
         <title>Contact</title>
         <meta
           name="description"
-          content="Contact us to tour bourbon distilleries in Kentucky and find the best bourbon you’ve been looking for."
+          content="Contact us to tour bourbon distilleries in Kentucky and find the best bourbon you've been looking for or create a customizable tour."
         />
         <link rel="canonical" href="/contact" />
       </Helmet>

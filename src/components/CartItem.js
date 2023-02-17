@@ -37,7 +37,7 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
   return (
     <Wrapper>
       <div className="title">
-        <img src={image} alt={name} />
+        <img src={image} title={name} alt={name} />
         <div className="cart-item">
           {/* TOUR NAME */}
           <h5 className="name">{name}</h5>
@@ -59,9 +59,27 @@ const CartItem = ({ id, image, name, trans, price, guests, date }) => {
           {/* TRANSPORTATION */}
           <p className="transport">
             <span>
-              {trans === "SUV" ? <img src={suv} alt="DL logo" /> : null}
-              {trans === "VAN" ? <img src={van} alt="DL logo" /> : null}
-              {trans === "BUS" ? <img src={bus} alt="DL logo" /> : null}
+              {trans === "SUV" ? (
+                <img
+                  src={suv}
+                  tittle="Suv Vehicle"
+                  alt="Tour Transportation vehicle suv"
+                />
+              ) : null}
+              {trans === "VAN" ? (
+                <img
+                  src={van}
+                  tittle="Van Vehicle"
+                  alt="Tour Transportation vehicle van"
+                />
+              ) : null}
+              {trans === "BUS" ? (
+                <img
+                  src={bus}
+                  tittle="Bus Vehicle"
+                  alt="Tour Transportation vehicle bus"
+                />
+              ) : null}
             </span>
           </p>
           {/* END TRANSPORTATION */}

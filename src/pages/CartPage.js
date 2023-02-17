@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { CartContent, PageHero, CustomTourLink, CartLogo } from "../components";
 
 const CartPage = () => {
@@ -10,6 +11,14 @@ const CartPage = () => {
   if (cart.length < 1) {
     return (
       <Wrapper className="page-100">
+        <Helmet>
+          <title>Cart</title>
+          <meta
+            name="description"
+            content="Secure Bourbon trail Shopping Cart. Shelby Bourbon Tours offers custom trail tours or featured tours made for a quick reservation."
+          />
+          <link rel="canonical" href="/cart" />
+        </Helmet>
         <PageHero title="cart" />
         <CartLogo />
         <div className="empty">
@@ -27,6 +36,14 @@ const CartPage = () => {
   }
   return (
     <main>
+      <Helmet>
+        <title>Cart</title>
+        <meta
+          name="description"
+          content="Secure Bourbon trail Shopping Cart. Shelby Bourbon Tours offers custom trail tours or featured tours made for a quick reservation."
+        />
+        <link rel="canonical" href="/cart" />
+      </Helmet>
       <PageHero title="cart" />
       <Wrapper className="page">
         <section id="user-cart">

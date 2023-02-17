@@ -8,7 +8,8 @@ const CartLogo = () => {
         <img
           className="cart-logo"
           src={logo}
-          alt="Cart"
+          title="Kentucky Cart Logo"
+          alt="State of Kentucky with Shelby Bourbon Tours title"
           style={{ width: 350 }}
         />
       </div>

@@ -66,10 +66,20 @@ export const services = [
   },
 ];
 
-//CUSTOMER SLIDES
+//CUSTOMER SLIDES used in home page
 export const slides = [
-  { url: guestsImg0, title: "Our Guests" },
-  { url: guestsImg1, title: "Our Guests" },
+  {
+    url: guestsImg0,
+    title:
+      "Our Tour Group of eight guests at Buffalo Trace Distillery in Frankfort Kentucky",
+    alt: "Our Tour Group of eight guests at Buffalo Trace Distillery",
+  },
+  {
+    url: guestsImg1,
+    title:
+      "Our Tour Group of five guests at Buffalo Trace Distillery in Frankfort Kentucky",
+    alt: "Our Tour Group of five guests at Buffalo Trace Distillery",
+  },
 ];
 //MAX GUESTS ABLE TO BE RESERVED FOR A TOUR (USED IN CUSTOM TOUR)
 export const guests = 20;

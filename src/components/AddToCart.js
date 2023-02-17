@@ -76,9 +76,27 @@ const AddToCart = ({ tour }) => {
                 }`}
                 onClick={() => setTrans(car)}
               >
-                {car === "SUV" ? <img src={suv} alt="DL logo" /> : null}
-                {car === "VAN" ? <img src={van} alt="DL logo" /> : null}
-                {car === "BUS" ? <img src={bus} alt="DL logo" /> : null}
+                {car === "SUV" ? (
+                  <img
+                    src={suv}
+                    tittle="Suv Vehicle"
+                    alt="Tour Transportation vehicle suv"
+                  />
+                ) : null}
+                {car === "VAN" ? (
+                  <img
+                    src={van}
+                    tittle="Van Vehicle"
+                    alt="Tour Transportation vehicle van"
+                  />
+                ) : null}
+                {car === "BUS" ? (
+                  <img
+                    src={bus}
+                    tittle="Bus Vehicle"
+                    alt="Tour Transportation vehicle bus"
+                  />
+                ) : null}
               </button>
             );
           })}
@@ -117,10 +135,6 @@ const AddToCart = ({ tour }) => {
       </div>
     </Wrapper>
   );
-  //{/* <input type="checkbox" /> */}
-  // <img src={bus} alt="DL logo" />
-  // <img src={van} alt="DL logo" />
-  // <img src={suv} alt="DL logo" />
 };
 
 //This wrapper does not effect the functionality it is used for styling
