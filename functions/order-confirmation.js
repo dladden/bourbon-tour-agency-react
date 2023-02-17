@@ -8,7 +8,7 @@ const {
 //event, context, callback
 //Order Confirmation sends en order confirmation email to the customer
 //with details like tour picked, date, total cost etc..
-exports.handler = async (event) => {
+exports.handler = async (event, context, callback) => {
   const { cart, total_formatted, tourUser } = JSON.parse(event.body);
   client.setApiKey(REACT_APP_SENDGRID_API_KEY);
 

@@ -35,6 +35,7 @@ const CheckoutForm = () => {
   //state variables for discount code
 
   const { tourUser } = useUserContext();
+  console.log(tourUser);
   const navigate = useNavigate();
   //STRIPE state variables: If the payment is successful
   const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
@@ -154,7 +155,7 @@ const CheckoutForm = () => {
       setTimeout(() => {
         clearCart();
         navigate("/confirmation");
-      }, 6000);
+      }, 2500);
     }
   }; //end handleSubmit
 
@@ -363,12 +364,7 @@ const CheckoutForm = () => {
                   succeeded ? "result-message" : "result-message hidden"
                 }
               >
-                {" "}
-                Payment Successful Stripe link:{" "}
-                <a href={`https://dashboard.stripe.com/test/payments`}>
-                  Stripe Dashboard
-                </a>
-                Refresh the Page
+                Payment Successful!
               </p>
             </div>
           </form>
@@ -432,7 +428,7 @@ STRIPE STYLING
   }
 
   #card-element {
-    border-radius: 4px 4px 0 0;
+    border-radius: 10px 10px 0 0;
     padding: 12px;
     max-height: 44px;
     width: 100%;
@@ -463,9 +459,10 @@ STRIPE STYLING
 
   /* Buttons and links */
   button {
+    // background: #5469d4;
     background: var(--clr-green-dark);
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 0 0 10px 10px;
     border: 0;
     padding: 12px 16px;
     font-size: 16px;
@@ -516,7 +513,7 @@ STRIPE STYLING
   .spinner:before {
     width: 10.4px;
     height: 20.4px;
-    background: #5469d4;
+    background: var(--clr-green-dark);
     border-radius: 20.4px 0 0 20.4px;
     top: -0.2px;
     left: -0.2px;
@@ -529,7 +526,7 @@ STRIPE STYLING
   .spinner:after {
     width: 10.4px;
     height: 10.2px;
-    background: #5469d4;
+    background: var(--clr-green-dark);
     border-radius: 0 10.2px 10.2px 0;
     top: -0.1px;
     left: 10.2px;

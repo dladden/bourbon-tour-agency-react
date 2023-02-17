@@ -6,7 +6,7 @@ const {
   REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
 } = process.env;
 //event, context, callback
-exports.handler = async (event) => {
+exports.handler = async (event, context, callback) => {
   const {
     tour_name,
     guest_name,

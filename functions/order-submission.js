@@ -5,8 +5,9 @@ const {
   REACT_APP_SENDGRID_TO_EMAIL,
   REACT_APP_SENDGRID_FROM_ORDER_EMAIL,
 } = process.env;
+//This function sends email with data for a custom tour
 //event, context, callback
-exports.handler = async (event) => {
+exports.handler = async (event, context, callback) => {
   const { cart, total_amount, tourUser } = JSON.parse(event.body);
   client.setApiKey(REACT_APP_SENDGRID_API_KEY);
   //mapping through ids

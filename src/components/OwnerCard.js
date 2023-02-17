@@ -3,6 +3,7 @@ import styled from "styled-components";
 import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.jpg";
 import socialLinks from "../utils/social_links";
+import { email_link } from "../utils/constants";
 //Component responsible for the OwnerCard used in Contact page
 const OwnerCard = () => {
   return (
@@ -14,7 +15,7 @@ const OwnerCard = () => {
             <h3>Steven Ladden</h3>
             <h5>(502) 216-4530</h5>
             <span>
-              <h5>shelbybourbontours@gmail.com</h5>
+              <h5 className="email">{email_link}</h5>
             </span>
             <hr />
             <p>
@@ -132,7 +133,9 @@ const Wrapper = styled.section`
     background: #5a36dd;
     color: #fff;
   }
-
+  .email {
+    font-size: 17px;
+  }
   body {
     background: #eceff8;
   }

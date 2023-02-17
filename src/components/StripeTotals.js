@@ -79,16 +79,18 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
   .disc-totals-text {
+    font-size: 1em;
     color: var(--clr-grey-4);
   }
 
   .subtotals-text {
+    font-size: 1em;
     color: var(--clr-primary-7);
   }
 
   .totals-text {
     font-weight: 800;
-    font-size: 0.7em;
+    font-size: 1.2em;
     color: var(--clr-primary-5);
   }
 

@@ -1,7 +1,6 @@
 import React from "react";
 import guestsImg0 from "../assets/guests0.jpeg";
 import guestsImg1 from "../assets/guests1.jpeg";
-import guestsImg2 from "../assets/guests2.jpeg";
 import {
   GiBarrel,
   GiSaloon,
@@ -10,10 +9,10 @@ import {
 } from "react-icons/gi";
 
 //SOCIAL LINKS to be inserted in the pages:
-export const messenger_link = "https://www.facebook.com/shelbybourbontours";
+export const messenger_link = "https://m.me/shelbybourbontours";
 export const instagram_link = "https://www.instagram.com/shelbybourbontours";
-export const whats_app_link = "https://www.whatsapp.com";
-export const email_link = "shelbybourbontours@gmail.com";
+export const whats_app_link = "https://wa.me/5022164530?text=Hello%20Steve!";
+export const email_link = "steven@shelbybourbontours.com";
 
 //links which are used globally to eliminate repetitive code
 //LINKS FOR
@@ -71,7 +70,6 @@ export const services = [
 export const slides = [
   { url: guestsImg0, title: "Our Guests" },
   { url: guestsImg1, title: "Our Guests" },
-  { url: guestsImg2, title: "Our Guests" },
 ];
 //MAX GUESTS ABLE TO BE RESERVED FOR A TOUR (USED IN CUSTOM TOUR)
 export const guests = 20;
@@ -151,7 +149,7 @@ export const country_data = [
 ];
 
 export const checkout_clause =
-  "This Data Processing Agreement only applies to you if you have a Stripe Account located in the United States, the United Kingdom, the European Economic Area and Switzerland. If you have a Stripe Account located elsewhere or would like more information on our Data Processing Agreement, please see our FAQs. Need a copy of this Data Processing Agreement? Click here.";
+  "On this Website, we have integrated components of Stripe. Stripe is an online payment service provider. Stripe allows paying via various other payment methods, such as credit cards, SOFORT, and so more. The operating company Stripe ensures secure protection of the Services, rights, privacy, safety and property of Stripe, you or others, including against other malicious or fraudulent activity and security incidents.";
 
 // https://stripe.com/legal/dpa/faqs
 

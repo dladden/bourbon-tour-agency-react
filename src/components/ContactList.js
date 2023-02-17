@@ -129,10 +129,10 @@ const ContactList = () => {
                 </h3>
 
                 <p className="event-detail">
-                  Our Email <u>shelbybourbontours@gmail.com</u> is a sure way to
-                  contact us with any technical questions or book a tour if you
-                  need to create something more unique. Whether it is a larger
-                  group than 20 or the need for more accommodation.
+                  Our Email! it is a sure way to contact us with any technical
+                  questions or book a tour if you need to create something more
+                  unique. Whether it is a larger group than 20 or the need for
+                  more accommodation.
                 </p>
               </div>
             </div>
@@ -256,7 +256,7 @@ const Wrapper = styled.section`
 
   .event-detail {
     font-size: 11px;
-    color: #4b4b4b;
+    color: var(--clr-grey-2)
     margin-top: 5px;
   }
   @media (min-width: 576px) {

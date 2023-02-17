@@ -5,7 +5,7 @@ const dotenv = require("dotenv"); //importing dotenv
 dotenv.config();
 const stripe = require("stripe")(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
 
-exports.handler = async function (event) {
+exports.handler = async function (event, context, callback) {
   //if: if event body property exists on event object only then create POST request,
   //prase the data, else return create payment intent
   if (event.body) {
