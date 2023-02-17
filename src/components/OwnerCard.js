@@ -28,7 +28,8 @@ const OwnerCard = () => {
             <div className="date-time">
               <img
                 src={contactQR}
-                alt="QR Code Contact Page"
+                title="QR code to Shelby Bourbon Tours Contact Page"
+                alt="QR code to Shelby Bourbon Tours Contact Page"
                 className={{ height: 90, width: 90 }}
               />
             </div>
@@ -39,7 +40,8 @@ const OwnerCard = () => {
                     href={link.url}
                     key={link.id}
                     className="social-link"
-                    alt="Social Links"
+                    title="Social Links"
+                    alt="Links to Social Media "
                   >
                     {link.icon}
                   </a>

@@ -19,7 +19,12 @@ const Sidebar = () => {
         className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}
       >
         <div className="sidebar-header">
-          <img src={logo1} className="logo" alt="Shelby Bourbon Tours" />
+          <img
+            src={logo1}
+            className="logo"
+            title="Shelby Bourbon Tours Logo"
+            alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+          />
           <button className="close-btn" type="button" onClick={closeSidebar}>
             <FaTimes />
           </button>

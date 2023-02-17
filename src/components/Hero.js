@@ -26,8 +26,18 @@ const Hero = () => {
         </Link>
       </article>
       <article className="img-container">
-        <img src={heroSBT} alt="SBT" className="main-img" />
-        <img src={heroSBT2} alt="Blanton's" className="accent-img" />
+        <img
+          src={heroSBT}
+          title="Best Tasting Bourbon Logo Shelby Bourbon Tours"
+          alt="Best Tasting Bourbon glass with Shelby Bourbon Tours Logo"
+          className="main-img"
+        />
+        <img
+          src={heroSBT2}
+          title="Blanton's Single Barrel Bourbon, Buffalo Trace"
+          alt="Blanton's Single Barrel Bourbon, Buffalo Trace"
+          className="accent-img"
+        />
       </article>
     </Wrapper>
   );

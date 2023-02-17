@@ -18,9 +18,17 @@ const MyComponent = () => {
   /* If the viewport is more narrow than the breakpoint render the
      mobile component, else render the desktop component */
   return width < breakpoint ? (
-    <img src={logo2} alt="Shelby Bourbon" />
+    <img
+      src={logo2}
+      title="Shelby Bourbon Tours Logo"
+      alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+    />
   ) : (
-    <img src={logo1} alt="Shelby Bourbon Tours" />
+    <img
+      src={logo1}
+      title="Shelby Bourbon Tours Logo"
+      alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+    />
   );
 };
 const Nav = () => {

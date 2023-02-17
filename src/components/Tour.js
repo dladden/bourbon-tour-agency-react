@@ -24,7 +24,7 @@ const Tour = ({ url, category, name, price, id }) => {
   return (
     <Wrapper>
       <div className="container">
-        <img src={url} alt={name} />
+        <img src={url} title={name} alt={name} />
         <Link to={`/tours/${id}`} className="link">
           <AiFillSchedule />
         </Link>

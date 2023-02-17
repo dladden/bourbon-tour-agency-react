@@ -16,10 +16,16 @@ const CustomConfirmation = () => {
                 <img
                   className="form-logo"
                   src={confirmation}
-                  alt="Custom Tour"
+                  title="Thank You! Shelby Bourbon Tours"
+                  alt="Thank You! Custom Tour Submission Confirmation, with Bourbon Glass in Hand"
                 />
                 <div className="container-logo">
-                  <img className="form-logo" src={logo} alt="Custom Tour" />
+                  <img
+                    className="form-logo"
+                    src={logo}
+                    title="Shelby Bourbon Tours Logo"
+                    alt="Shelby Bourbon Tours Logo of A Lion with a Bourbon Bottle in the Left Paw"
+                  />
                 </div>
                 <h3>Thank You For Submitting Custom Tour Form.</h3>
                 <p>
@@ -43,11 +49,6 @@ const CustomConfirmation = () => {
       </div>
     </Wrapper>
   );
-
-  //{/* <input type="checkbox" /> */}
-  // <img src={bus} alt="DL logo" />
-  // <img src={van} alt="DL logo" />
-  // <img src={suv} alt="DL logo" />
 };
 
 //This wrapper does not effect the functionality it is used for styling

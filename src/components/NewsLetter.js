@@ -7,7 +7,12 @@ const NewsLetter = () => {
     <Wrapper>
       <div className="section-center">
         <h3>Join Shelby Bourbon Tours Newsletter and receive 10% off</h3>
-        <img className="newsletter" src={logo} alt="Newsletter" />
+        <img
+          className="newsletter"
+          src={logo}
+          title="Shelby Bourbon Tours Newsletter"
+          alt="Our News Letter glass of Bourbon paired with cigar"
+        />
         <div className="content">
           <p>
             Fill out the Shelby Bourbon Tours Newsletter Form, and we will send

@@ -26,7 +26,7 @@ const Confirmation = () => {
                     className="form-logo"
                     src={logo}
                     title="Shelby Bourbon Tours Logo"
-                    alt="Shelby Bourbon Tours Logo of a Lion with Bourbon Bottle in left hand"
+                    alt="Shelby Bourbon Tours Logo of A Lion with a Bourbon Bottle in the Left Paw"
                   />
                 </div>
                 <h3>Thank You For Your Reservation!</h3>

@@ -10,7 +10,11 @@ const Footer = () => {
       <footer>
         <section className="ft-main">
           <div className="seal">
-            <img src={seal} alt="Shelby Bourbon Tours" />
+            <img
+              src={seal}
+              title="Shelby Bourbon Tours Wax Seal"
+              alt="Shelby Bourbon Tours Wax Seal with Lion holding Bourbon Bottle in the Left Paw"
+            />
           </div>
           <div className="ft-main-item">
             <h2 className="ft-title">About</h2>

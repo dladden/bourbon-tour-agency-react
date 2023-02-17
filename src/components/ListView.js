@@ -25,7 +25,7 @@ const ListView = ({ tours }) => {
         };
         return (
           <article key={id}>
-            <img src={url} alt={name} />
+            <img src={url} title={name} alt={name} />
             <div>
               <div className="tour-icon">{renderIcon()}</div>
               <h4>{name}</h4>

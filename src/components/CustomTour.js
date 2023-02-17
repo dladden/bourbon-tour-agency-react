@@ -146,7 +146,12 @@ const CustomTour = () => {
             <div className="form-content">
               <div className="form-items">
                 <div className="custom-logo-center">
-                  <img className="custom-logo" src={c_tour} alt="Custom Tour" />
+                  <img
+                    className="custom-logo"
+                    src={c_tour}
+                    title="Shelby Bourbon Tours Logo"
+                    alt="Shelby Bourbon Tours Logo of A Lion with a Bourbon Bottle in the Left Paw"
+                  />
                 </div>
                 <div className="form-heading">
                   <h3>Custom Tour Form</h3>
@@ -339,13 +344,25 @@ const CustomTour = () => {
                           >
                             {/* {trans} */}
                             {car === "suv" ? (
-                              <img src={suv} alt="DL logo" />
+                              <img
+                                src={suv}
+                                tittle="Suv Vehicle"
+                                alt="Tour Transportation vehicle suv"
+                              />
                             ) : null}
                             {car === "van" ? (
-                              <img src={van} alt="DL logo" />
+                              <img
+                                src={van}
+                                tittle="Van Vehicle"
+                                alt="Tour Transportation vehicle van"
+                              />
                             ) : null}
                             {car === "bus" ? (
-                              <img src={bus} alt="DL logo" />
+                              <img
+                                src={bus}
+                                tittle="Bus Vehicle"
+                                alt="Tour Transportation vehicle bus"
+                              />
                             ) : null}
                           </button>
                         );
@@ -432,11 +449,6 @@ const CustomTour = () => {
       </div>
     </Wrapper>
   );
-
-  //{/* <input type="checkbox" /> */}
-  // <img src={bus} alt="DL logo" />
-  // <img src={van} alt="DL logo" />
-  // <img src={suv} alt="DL logo" />
 };
 
 //This wrapper does not effect the functionality it is used for styling

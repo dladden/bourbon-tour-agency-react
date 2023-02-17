@@ -28,7 +28,7 @@ const ContactList = () => {
                 <img
                   src={messenger}
                   title="Messenger QR Code"
-                  alt="QR Code to Our Facebook Messenger"
+                  alt="QR Code to Our Facebook Messenger for easy connection"
                   style={{ height: 60, width: 60 }}
                 />
               </div>
@@ -64,7 +64,7 @@ const ContactList = () => {
                 <img
                   src={instagram}
                   title="Instagram QR Code"
-                  alt="QR Code to Our Instagram Page"
+                  alt="QR Code to Our Instagram Page for easy connection"
                   style={{ height: 60, width: 60 }}
                 />
               </div>
@@ -100,7 +100,7 @@ const ContactList = () => {
                 <img
                   src={whats_app}
                   title="WhatsApp QR Code"
-                  alt="QR Code to Our WhatsApp"
+                  alt="QR Code to Our WhatsApp for easy connection"
                   style={{ height: 60, width: 60 }}
                 />
               </div>
@@ -132,7 +132,12 @@ const ContactList = () => {
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-2">
-                <img src={instagram} alt="" style={{ height: 60, width: 60 }} />
+                <img
+                  src={instagram}
+                  title="Our Email QR Code"
+                  alt="QR Code to Our Email for easy connection"
+                  style={{ height: 60, width: 60 }}
+                />
               </div>
 
               <div className="event-info">

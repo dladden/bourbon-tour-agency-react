@@ -183,12 +183,22 @@ const CheckoutForm = () => {
 
   return (
     <div>
-      <img className="cart-logo" src={logo} alt="Cart" style={{ width: 400 }} />
+      <img
+        className="cart-logo"
+        src={logo}
+        title="Integrated with Stripe Auth0"
+        alt="Logo with integrated services for this site like Stripe and Auth0"
+        style={{ width: 400 }}
+      />
       <div className="wrapper">
         <div className="container">
           <form id="payment-form" onSubmit={handleSubmit}>
             <div className="from-logo">
-              <img src={card} alt="Secure Checkout Logo" />
+              <img
+                src={card}
+                title="Credit Card Logo"
+                alt="Credit Card Logo with available checkout payments like Visa and Mastercard"
+              />
             </div>
             {/* USER CARD */}
             <GuestCard />

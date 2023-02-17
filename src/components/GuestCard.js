@@ -16,7 +16,11 @@ const GuestCard = () => {
     <Wrapper>
       <div className="card">
         <div className="img">
-          <img src={tourUser?.picture} alt="guest" />
+          <img
+            src={tourUser?.picture}
+            title="Profile Avatar"
+            alt="Profile Avatar"
+          />
         </div>
         <div className="infos">
           <div className="name">
