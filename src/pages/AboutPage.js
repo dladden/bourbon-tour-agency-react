@@ -1,4 +1,5 @@
 import React from "react";
+import { about0, about1, about2 } from "../utils/constants";
 import styled from "styled-components";
 import { PageHero, TourLogo, OwnerCard, DistilleriesList } from "../components";
 import aboutImg0 from "../assets/about_cover0.jpeg";
@@ -31,15 +32,8 @@ const AboutPage = () => {
           <section>
             <div className="block">
               <p>
-                <span className="first-character sc">S</span>Lorem ipsum dolor
-                sit amet, consectetur adipisicing elit. Sapiente neque
-                architecto dolorem unde provident culpa vel natus repudiandae
-                autem doloribus. Dolor, nesciunt. Dolore velit consectetur qui
-                reprehenderit vel atque explicabo. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Repellat excepturi fuga
-                accusantium. At minus quam deleniti excepturi ut maiores
-                necessitatibus, perspiciatis magni tenetur doloremque, accusamus
-                aut ipsa commodi eveniet est.
+                <span className="first-character sc">A</span>
+                {about0}
               </p>
             </div>
           </section>
@@ -53,14 +47,8 @@ const AboutPage = () => {
           <section>
             <div className="block">
               <p>
-                <span className="first-character ny">B</span>Lorem ipsum dolor
-                sit amet consectetur adipisicing elit. Laborum voluptas earum at
-                ad dolores est animi voluptatibus, tempore minima, illum odio
-                cum blanditiis praesentium numquam doloribus fugiat fuga tenetur
-                velit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Consequuntur itaque quibusdam esse adipisci amet nesciunt
-                voluptate temporibus eaque vel magni. Fugit dolores iste maxime
-                minima praesentium cumque voluptas tempora eum.
+                <span className="first-character ny">I</span>
+                {about1}
               </p>
             </div>
           </section>
@@ -74,15 +62,8 @@ const AboutPage = () => {
           <section>
             <div className="block">
               <p>
-                <span className="first-character atw">T</span>ours Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Alias illo
-                voluptate repudiandae dolor repellat unde nulla sunt nam quae,
-                nihil quibusdam ab, quidem, ratione id tenetur optio delectus
-                cumque harum. Lorem, ipsum dolor sit amet consectetur
-                adipisicing elit. Repellendus dolorem voluptates expedita
-                assumenda, natus alias excepturi, reiciendis provident facilis
-                doloremque ad facere sit rerum maxime maiores quae sequi animi.
-                Ad!
+                <span className="first-character atw">T</span>
+                {about2}
               </p>
 
               <section id="distilleries">

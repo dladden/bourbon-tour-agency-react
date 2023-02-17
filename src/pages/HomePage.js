@@ -15,6 +15,10 @@ const HomePage = () => {
     <main>
       <Helmet>
         <title>Home</title>
+        <meta
+          name="description"
+          content="Shelby Bourbon Tours provides bourbon trail tour transportation to all of the major Bourbon distillery locations in the heart of Kentucky."
+        />
         <link rel="canonical" href="/" />
       </Helmet>
       <Hero />

@@ -16,7 +16,12 @@ const ImageSlider = () => {
         <div className="slide-container ">
           <Slide>
             {slides.map((slideImage, index) => (
-              <div className="each-slide each-slide-effect" key={index}>
+              <div
+                className="each-slide each-slide-effect"
+                title={slideImage.title}
+                alt={slideImage.alt}
+                key={index}
+              >
                 <div
                   style={{
                     backgroundImage: `url(${slideImage.url})`,

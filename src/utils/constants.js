@@ -7,7 +7,7 @@ import {
   GiSteamLocomotive,
   GiGlassShot,
 } from "react-icons/gi";
-
+//This constants set up so editing can be done fast and quick
 //SOCIAL LINKS to be inserted in the pages:
 export const messenger_link = "https://m.me/shelbybourbontours";
 export const instagram_link = "https://www.instagram.com/shelbybourbontours";
@@ -111,7 +111,7 @@ export const distilleries = [
   "Lux Row Distillers",
   "Jefferson's",
   "James E. Pepper",
-  "Bardstown Bourbon CO.",
+  "Bardstown Bourbon",
   "Michter's",
   "Jeptha Creed",
   "Peerless Distillery",
@@ -152,14 +152,23 @@ export const distilleries_select = [
   { value: "Prohibition Spirits", label: "Prohibition Spirits" },
   { value: "KY Cooperage", label: "KY Cooperage" },
 ];
+//The clause for the checkout page
+export const checkout_clause =
+  "On this Website, we have integrated components of Stripe. Stripe is an online payment service provider. Stripe allows paying via various other payment methods, such as credit cards, SOFORT, and so more. The operating company Stripe ensures secure protection of the Services, rights, privacy, safety and property of Stripe, you or others, including against other malicious or fraudulent activity and security incidents.";
 
+//country selection
 export const country_data = [
   { value: "US", label: "United States" },
   { value: "CA", label: "Canada" },
 ];
 
-export const checkout_clause =
-  "On this Website, we have integrated components of Stripe. Stripe is an online payment service provider. Stripe allows paying via various other payment methods, such as credit cards, SOFORT, and so more. The operating company Stripe ensures secure protection of the Services, rights, privacy, safety and property of Stripe, you or others, including against other malicious or fraudulent activity and security incidents.";
+//Paragraphs used in the about page. Omit the first letter of each paragraph
+export const about0 =
+  "t Shelby Bourbon Tours, we agree that, ‘You can make bourbon anywhere in the country,’ ‘but if it's not Kentucky bourbon, it's not bourbon.’ Since 2020 Shelby Bourbon Tours has taken our guests on Bourbon Trail Tours to taste Kentucky Bourbon on the soil where it is made. And when we say there is plenty to go about, we mean that Kentucky is home to over 95 distilleries. This number is increasing as craft distilleries are coming to participate in an ever-growing bourbon and distillery tour industry. Shelby County is known as the Saddlebred Capital of the World. Take a drive in any direction and marvel at the beautiful horse farms with horses grazing lazily in the fields. Here in Shelby County, in the center of it all, we accumulated a collection of amazing places to stay to accommodate your bourbon trail adventures.";
+export const about1 =
+  "n 2009 Kentucky had about 19 full-time distilleries producing a 3 Billion dollar bourbon industry. That has grown to 95 distilleries and over 9 billion dollars. Although not all Bourbon is made in Kentucky, according to the Kentucky Distillers' Association, the Bluegrass State produces and ages approximately 95 percent of the world's bourbon whiskey. Why? The secret is in the water. Kentucky sits atop vast blue limestone deposits, which filter out hard iron and impart sweet-tasting calcium and magnesium. The soil is rich and dense to produce the corn and rye used in making Bourbon, and the climate and geographical location of the state make it the ideal place to create the world's finest Bourbon.";
+export const about2 =
+  "he popularity of Bourbon is in the secret of how it’s made. If you are reading this, you  probably already know.  If you have yet to visit a distillery in person and want to hear more about their process and history, this is a great time to book one today to experience Kentucky's finest Bourbon in your own way! Shelby Bourbon Tours is located in Shelby County, Kentucky, at the heart of the bourbon trail. Let us guide you and plan your stay, whether in Shelby County, Louisville, or Frankfort; we will make sure Kentucky's famous distilleries surround you.";
 
 // https://stripe.com/legal/dpa/faqs
 
