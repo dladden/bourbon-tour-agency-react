@@ -25,7 +25,12 @@ const InfoPage = () => {
               Shelby Bourbon Tours FAQ:
               <br />
               <div className="sbt-logo-center">
-                <img src={logo} alt="SBT Logo" className="sbt-logo" />
+                <img
+                  src={logo}
+                  title="Shelby Bourbon Tours Logo"
+                  alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+                  className="sbt-logo"
+                />
               </div>
             </h3>
 

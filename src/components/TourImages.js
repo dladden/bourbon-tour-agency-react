@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-//Default main image is the first in the array
+//Default main image is the first in the array passed from parent SingleTourPage
 //Using the ES6 default parameters to check if images are undefined first 'images = []'
 //'{ url: "" }' is used to update empty url if it is undefined to initialize a nonzero return
 const TourImages = ({ images = [{ url: "" }] }) => {

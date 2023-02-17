@@ -8,7 +8,8 @@ const TourLogo = () => {
       <div className="section-center">
         <img
           src={logo}
-          alt="Custom Tour"
+          title="Shelby Bourbon Tours Logo"
+          alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
           style={{ paddingTop: 20, height: 250, width: 250 }}
         />
       </div>
