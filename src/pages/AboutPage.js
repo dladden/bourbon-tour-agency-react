@@ -2,9 +2,9 @@ import React from "react";
 import { about0, about1, about2 } from "../utils/constants";
 import styled from "styled-components";
 import { PageHero, TourLogo, OwnerCard, DistilleriesList } from "../components";
-import aboutImg0 from "../assets/about_cover0.jpeg";
-import aboutImg1 from "../assets/about_cover1.jpeg";
-import aboutImg2 from "../assets/about_cover2.png";
+import aboutImg0 from "../assets/Shelby-Bourbon-Tours-About-01.jpg";
+import aboutImg1 from "../assets/Shelby-Bourbon-Tours-About-02.jpg";
+import aboutImg2 from "../assets/Shelby-Bourbon-Tours-About-03.jpg";
 import { Helmet } from "react-helmet-async";
 //Simple About page which multiple sections
 const AboutPage = () => {

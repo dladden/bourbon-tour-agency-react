@@ -1,6 +1,6 @@
 import React from "react";
-import guestsImg0 from "../assets/guests0.jpeg";
-import guestsImg1 from "../assets/guests1.jpeg";
+import guestsImg0 from "../assets/Buffalo-Trace-Tour-Guests-01.webp";
+import guestsImg1 from "../assets/Buffalo-Trace-Tour-Guests-02.webp";
 import {
   GiBarrel,
   GiSaloon,
