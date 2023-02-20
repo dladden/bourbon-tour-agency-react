@@ -18,13 +18,13 @@ const questionsList = [
     id: 4,
     question_title:
       "Does Shelby Bourbon Tours offer Military offer Law Enforcement, First Responders or discount?",
-    info: "Yes, contact us via shelbybourbontours@gmail.com and simply request a military discount. We will get back to you as soon as we can with a discount code, which is used at the checkout.",
+    info: "Yes, contact us via steven@shelbybourbontours.com and simply request a military discount. We will get back to you as soon as we can with a discount code, which is used at the checkout.",
   },
   {
     id: 5,
     question_title:
       "Up till what time can I cancel a tour? How do I cancel a tour?",
-    info: "Contact us through our contact page or by emailing us at shelbybourbontours@gmail.com. Please give us a 48-hour notice and receive your money back. Cancellations are easy; if you made a reservation within our PRESELECTED TOURS, email us your name, the date of your tour, and your tour order number. If you made a CUSTOM TOUR reservation, email us: the tour's name and your name. We will confirm your cancellation, and a refund takes about a week to appear on your statement.",
+    info: "Contact us through our contact page or by emailing us at steven@shelbybourbontours.com. Please give us a 48-hour notice and receive your money back. Cancellations are easy; if you made a reservation within our PRESELECTED TOURS, email us your name, the date of your tour, and your tour order number. If you made a CUSTOM TOUR reservation, email us: the tour's name and your name. We will confirm your cancellation, and a refund takes about a week to appear on your statement.",
   },
   {
     id: 6,
@@ -35,7 +35,7 @@ const questionsList = [
     id: 7,
     question_title:
       "How do I advertise my Distillery, Rental, or Event with Shelby Bourbon Tours?",
-    info: "Contact us through our primary email: shelbybourbontours@gmail.com.",
+    info: "Contact us through our primary email: steven@shelbybourbontours.com.",
   },
   {
     id: 8,

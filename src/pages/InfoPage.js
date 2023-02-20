@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 
 //Simple Information Page with Q&A/FAQ style
 const InfoPage = () => {
-  const [questions, setQuestion] = useState(info_data);
+  const [questions] = useState(info_data);
   return (
     <Wrapper>
       <main>
