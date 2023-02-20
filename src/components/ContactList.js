@@ -241,24 +241,17 @@ const Wrapper = styled.section`
   }
 
   .color-1 {
-    background: #00b2ff;
+    background: var(--clr-primary-9);
   }
   .color-2 {
-    background-image: linear-gradient(
-      220deg,
-      #405de6,
-      #5851db,
-      #833ab4,
-      #c13584,
-      #e1306c,
-      #fd1d1d
+    background: var(--clr-primary-9);
     );
   }
   .color-3 {
-    background: #f8ecec;
+    background: var(--clr-primary-9);
   }
   .color-4 {
-    background: #eef8ec;
+    background: var(--clr-primary-9);
   }
 
   .date {
