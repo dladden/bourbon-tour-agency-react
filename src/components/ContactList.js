@@ -13,8 +13,9 @@ import {
 } from "../utils/constants";
 import styled from "styled-components";
 import messenger from "../assets/messenger_qr_code.svg";
-import instagram from "../assets/instagram.svg";
-import whats_app from "../assets/whatsapp_link.svg";
+import instagram from "../assets/instagram_qr_code.svg";
+import whats_app from "../assets/whatsapp_qr_code.svg";
+import email from "../assets/email_qr_code.svg";
 //List View is responsible for displaying the tours in an inline view
 const ContactList = () => {
   return (
@@ -133,7 +134,7 @@ const ContactList = () => {
             <div className="left">
               <div className="qr-code color-2">
                 <img
-                  src={instagram}
+                  src={email}
                   title="Our Email QR Code"
                   alt="QR Code to Our Email for easy connection"
                   style={{ height: 60, width: 60 }}

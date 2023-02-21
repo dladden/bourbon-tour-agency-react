@@ -32,7 +32,6 @@ const CustomTour = () => {
       return tempGuest;
     });
   };
-
   //useState VARIABLES:
   //variables for tour name:
   const [tour_name, setTour_name] = useState("");
@@ -429,7 +428,6 @@ const CustomTour = () => {
                       size="compact"
                       id="recaptcha-google"
                       onChange={onChange}
-                      onExpired={(e) => setIsCaptchaSuccess(false)}
                     />
                   </div>
                   <div className="form-button mt-3">
