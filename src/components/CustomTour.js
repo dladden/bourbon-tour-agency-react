@@ -8,7 +8,7 @@ import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
 import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
-import { ReCAPTCHA } from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
@@ -64,12 +64,13 @@ const CustomTour = () => {
   // const recaptchaRef = useRef(null);
   // const [captchaIsDone, setCaptchaIsDone] = useState(false);
 
-  const recaptchaRef = useRef(null);
+  // const recaptchaRef = useRef(null);
   //useNavigate for navigation with timeout
   const navigate = useNavigate();
   //ReCaptcha
-  function onChange(value) {
-    console.log("Captcha value:", value);
+  const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
+  function onChange() {
+    setIsCaptchaSuccess(true);
   }
 
   const orderConfirmation = async () => {
@@ -210,6 +211,7 @@ const CustomTour = () => {
                       placeholder="E-mail Address*"
                       required
                     />
+                    recaptcha
                     <div className="valid-feedback">
                       Valid point of contact email.
                     </div>
@@ -420,8 +422,19 @@ const CustomTour = () => {
                     </div>
                   </div>
                   {/* ReCaptureRef */}
+                  <div className="recaptcha">
+                    <ReCAPTCHA
+                      sitekey={process.env.REACT_APP_CAPTCHA_SITE_KEY}
+                      theme="dark"
+                      size="compact"
+                      id="recaptcha-google"
+                      onChange={onChange}
+                      onExpired={(e) => setIsCaptchaSuccess(false)}
+                    />
+                  </div>
                   <div className="form-button mt-3">
                     <button
+                      disabled={!isCaptchaSuccessful}
                       id="submit"
                       type="submit"
                       className="btn btn-primary"
@@ -429,18 +442,7 @@ const CustomTour = () => {
                       Send Request
                     </button>
                   </div>
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={process.env.REACT_APP_CAPTCHA_TEST_SITE_KEY}
-                    onChange={onChange}
-                    size="compact"
-                    theme="dark"
-                  />
-                  <script
-                    src="https://www.recaptcha.net/recaptcha/api.js"
-                    async
-                    defer
-                  ></script>
+                  <div></div>
                 </form>
               </div>
             </div>
@@ -582,9 +584,23 @@ const Wrapper = styled.section`
     color: #8d8d8d;
     margin-top: 16px;
   }
+  .recaptcha {
+    padding-top: 0.8rem;
+  }
+  .btn {
+    text-transform: uppercase;
+    padding: 0.375rem 0.75rem;
+    letter-spacing: var(--spacing);
+    transition: var(--transition);
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: var(--btn-radius);
+    margin: 11px;
+  }
 
   .btn-primary {
-    background-color: #6c757d;
+    background-color: var(--clr-primary-5);
     outline: none;
     border: 0px;
     box-shadow: none;
@@ -593,7 +609,7 @@ const Wrapper = styled.section`
   .btn-primary:hover,
   .btn-primary:focus,
   .btn-primary:active {
-    background-color: #495056;
+    background-color: var(--clr-primary-9);
     outline: none !important;
     border: none !important;
     box-shadow: none;
