@@ -8,7 +8,6 @@ import van from "../assets/van.svg";
 import c_tour from "../assets/custom_tour.svg";
 import { guests, trans, distilleries_select } from "../utils/constants";
 import { MultiCalendarPicker, AmountButtons } from "../components";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useNavigate } from "react-router-dom";
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
@@ -67,11 +66,6 @@ const CustomTour = () => {
   //useNavigate for navigation with timeout
   const navigate = useNavigate();
   //ReCaptcha
-  const [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false);
-  function onChange() {
-    setIsCaptchaSuccess(true);
-  }
-
   const orderConfirmation = async () => {
     try {
       const response = await axios
@@ -158,7 +152,13 @@ const CustomTour = () => {
                 </div>
                 <p>Submit the form and we will contact you within 24 hours.</p>
                 {/* TOUR NAME */}
-                <form className="requires-validation" onSubmit={handleSubmit}>
+                <form
+                  className="requires-validation"
+                  onSubmit={handleSubmit}
+                  netlify-honeypot="bot-field"
+                  data-netlify="true"
+                  data-netlify-recaptcha="true"
+                >
                   <div className="col-md-12">
                     <input
                       onChange={(e) => setTour_name(e.target.value)}
@@ -210,7 +210,6 @@ const CustomTour = () => {
                       placeholder="E-mail Address*"
                       required
                     />
-                    recaptcha
                     <div className="valid-feedback">
                       Valid point of contact email.
                     </div>
@@ -421,18 +420,9 @@ const CustomTour = () => {
                     </div>
                   </div>
                   {/* ReCaptureRef */}
-                  <div className="recaptcha">
-                    <ReCAPTCHA
-                      sitekey={process.env.REACT_APP_CAPTCHA_SITE_KEY}
-                      theme="dark"
-                      size="compact"
-                      id="recaptcha-google"
-                      onChange={onChange}
-                    />
-                  </div>
+                  <div data-netlify-recaptcha="true"></div>
                   <div className="form-button mt-3">
                     <button
-                      disabled={!isCaptchaSuccessful}
                       id="submit"
                       type="submit"
                       className="btn btn-primary"

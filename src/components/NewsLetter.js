@@ -22,19 +22,15 @@ const NewsLetter = () => {
             your favorite 🥃. Finally, we respect your privacy. Unsubscribe at
             any time.
           </p>
-          <form action="" className="contact-form">
-            <div className="form-example">
-              <p>
-                In Our Form Provide: First Name, Last Name & Email to Signup
-              </p>
-            </div>
+          <div action="" className="contact-form">
             <a
-              className="submit-btn"
               href="https://cdn.forms-content.sg-form.com/7fb68344-a742-11ed-ab44-4289808bb666"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Fill Out The Form
+              <button className="btn">JOIN NOW</button>
             </a>
-          </form>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -67,29 +63,21 @@ const Wrapper = styled.section`
   .contact-form {
     padding-top: 1rem;
     width: 90vw;
-    max-width: 550px;
+    max-width: 450px;
     display: grid;
     grid-template-columns: 1fr auto;
   }
-  .form-example,
+
   .submit-btn {
     font-size: 0.55rem;
     padding: 0.5rem 0.5rem;
     border: 2px solid var(--clr-black);
   }
-  .form-example {
-    border-right: none;
-    color: var(--clr-grey-3);
-    border-top-left-radius: var(--input-radius);
-    border-bottom-left-radius: var(--input-radius);
-  }
   .submit-btn {
     border-top-right-radius: var(--input-radius);
     border-bottom-right-radius: var(--input-radius);
-  }
-  .form-example::placeholder {
-    color: var(--clr-primary-3);
-    text-transform: capitalize;
+    border-top-left-radius: var(--input-radius);
+    border-bottom-left-radius: var(--input-radius);
   }
   .submit-btn {
     background: var(--clr-primary-8);
@@ -113,21 +101,22 @@ const Wrapper = styled.section`
     p {
       margin-bottom: 0;
     }
-    .form-example,
+
     .submit-btn {
       font-size: 1rem;
       padding: 0.5rem 1rem;
     }
   }
   @media (min-width: 480px) {
-    .form-example,
     .submit-btn {
       font-size: 0.8rem;
+      align-items: center;
       padding: 0.5rem 1rem;
     }
   }
   @media (min-width: 1280px) {
     padding: 4rem 0;
+    align-items: center;
   }
 `;
 
