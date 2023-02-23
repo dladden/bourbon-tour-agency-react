@@ -78,6 +78,7 @@ const Wrapper = styled.section`
     column-gap: 2rem;
   }
   p {
+    font-size: 1rem;
     text-transform: capitalize;
     margin-bottom: 0;
   }

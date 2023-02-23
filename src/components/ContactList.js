@@ -1,4 +1,5 @@
 import React from "react";
+import { Faq } from "../components";
 import {
   RiMailOpenFill,
   RiFacebookCircleFill,
@@ -23,7 +24,7 @@ const ContactList = () => {
       <div>
         <div className="contact">
           <h2 className="heading">Contact Us</h2>
-          <div className="event-card">
+          <div className="contact-car">
             <div className="left">
               <div className="qr-code color-1">
                 <img
@@ -52,14 +53,14 @@ const ContactList = () => {
                 href={messenger_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="add-to-calender"
+                className="contact-button"
               >
                 Contact
               </a>
             </div>
           </div>
 
-          <div className="event-card">
+          <div className="contact-car">
             <div className="left">
               <div className="qr-code color-2">
                 <img
@@ -88,14 +89,14 @@ const ContactList = () => {
                 href={instagram_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="add-to-calender"
+                className="contact-button"
               >
                 Contact
               </a>
             </div>
           </div>
 
-          <div className="event-card">
+          <div className="contact-car">
             <div className="left">
               <div className="qr-code color-2">
                 <img
@@ -123,14 +124,14 @@ const ContactList = () => {
                 href={whats_app_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="add-to-calender"
+                className="contact-button"
               >
                 Contact
               </a>
             </div>
           </div>
 
-          <div className="event-card">
+          <div className="contact-car">
             <div className="left">
               <div className="qr-code color-2">
                 <img
@@ -156,11 +157,12 @@ const ContactList = () => {
             </div>
             <div className="right-gap"></div>
             <div className="right">
-              <a href={"mailto:" + email_link} className="add-to-calender">
+              <a href={"mailto:" + email_link} className="contact-button">
                 Contact
               </a>
             </div>
           </div>
+          <Faq />
         </div>
       </div>
     </Wrapper>
@@ -200,18 +202,17 @@ const Wrapper = styled.section`
   }
 
   .right-gap {
-    margin-right: 15px;
   }
 
-  .event-card {
+  .contact-car {
     width: 100%;
-    background: white;
-    border-radius: 15px;
-    padding: 20px;
+    background: var(--clr-white);
+    border-radius: var(--content-radius);
+    padding: 1rem;
     display: flex;
     align-items: center;
   }
-  .event-card:hover {
+  .contact-car:hover {
     box-shadow: var(--clr-primary-9) 0 0 10px 5px;
   }
 
@@ -270,29 +271,42 @@ const Wrapper = styled.section`
     color: var(--clr-grey-2)
     margin-top: 5px;
   }
-  @media (min-width: 576px) {
-    .event-detail {
-      width: 100%;
-      font-size: 15px;
-    }
-  }
 
-  .add-to-calender {
-    width: 100px;
+  .contact-button {
+    width: 4rem;
     // display: inline-block;
     background: var(--clr-primary-4);
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 5px;
     border-radius: var(--btn-radius);
   }
-  .add-to-calender:hover {
+  .contact-button:hover {
     box-shadow: var(--clr-primary-9) 0 0 5px 1px;
     transform: scale(1.1);
   }
+
+  @media  screen and (min-width: 576px) {
+    .event-detail {
+      width: 100%;
+      font-size: 15px;
+      }
+  }
+  @media  screen and (min-width: 376px) {
+  .contact-button {
+    width: 5rem;
+    font-size: 15px;
+    padding: 10px 5px;
+    }
+  .contact-button:hover {
+    box-shadow: var(--clr-primary-9) 0 0 5px 1px;
+    transform: scale(1.1);
+    }
+  }
+
 `;
 
 export default ContactList;

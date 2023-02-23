@@ -9,6 +9,7 @@ import CartButtons from "./CartButtons";
 import Confirmation from "./Confirmation";
 import CustomConfirmation from "./CustomConfirmation";
 import Cancelation from "./Cancelation";
+import Faq from "./Faq";
 import Footer from "./Footer";
 import Question from "./Question";
 import LinkButton from "./LinkButton";
@@ -45,6 +46,7 @@ export {
   TourLogo,
   CartButtons,
   Cancelation,
+  Faq,
   Confirmation,
   CustomConfirmation,
   CartLogo,

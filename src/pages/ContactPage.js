@@ -8,6 +8,7 @@ import {
   OwnerCard,
   ContactList,
   Cancelation,
+  Faq,
   CustomTour,
 } from "../components";
 
@@ -41,7 +42,7 @@ const ContactPage = () => {
 
 const Wrapper = styled.div`
   background-color: var(--clr-background-main);
-  padding: 20px;
+  padding: 1rem;
 
   * {
     margin: 0;

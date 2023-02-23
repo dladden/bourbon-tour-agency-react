@@ -5,6 +5,7 @@ import suv from "../assets/suv.svg";
 import van from "../assets/van.svg";
 import { useCartContext } from "../context/cart_context";
 import AmountButtons from "./AmountButtons";
+import "react-calendar/dist/Calendar.css";
 import CalendarPicker from "./CalendarPicker";
 import { HashLink } from "react-router-hash-link";
 //Component responsible for transportation type and count of guests
@@ -47,19 +48,20 @@ const AddToCart = ({ tour }) => {
 
   return (
     <Wrapper>
-      <CalendarPicker value={date} setDate={setDate} />
-      {date.length > 0 ? (
-        <p className="text-center">
-          <span className="bold">Start:</span> {date[0].toDateString()}
-          &nbsp;|&nbsp;
-          <span className="bold">End:</span> {date[1].toDateString()}
-        </p>
-      ) : (
-        <p className="text-center">
-          <span className="bold">Current Date:</span> {date.toDateString()}
-        </p>
-      )}
-
+      <div className="calendar">
+        <CalendarPicker value={date} setDate={setDate} />
+        {date.length > 0 ? (
+          <p className="text-center">
+            <span className="bold">Start:</span> {date[0].toDateString()}
+            &nbsp;|&nbsp;
+            <span className="bold">End:</span> {date[1].toDateString()}
+          </p>
+        ) : (
+          <p className="text-center">
+            <span className="bold">Selected Date:</span> {date.toDateString()}
+          </p>
+        )}
+      </div>
       <hr />
       <div className="trans">
         <span>Transportation: </span>
@@ -106,7 +108,7 @@ const AddToCart = ({ tour }) => {
         <p className="text-center">
           <span className="bold">
             {" "}
-            Transportation Chosen: {mainTrans}{" "}
+            Transportation: {mainTrans}{" "}
             {mainTrans === "SUV" ? "(MAX 6 Guests | +1 fee: $199.99)" : null}
             {mainTrans === "VAN" ? "(MAX 15 Guests | fee: $99.99)" : null}
             {mainTrans === "BUS" ? "(MAX 20 Guests | fee: $199.99)" : null}
@@ -140,8 +142,11 @@ const AddToCart = ({ tour }) => {
 //This wrapper does not effect the functionality it is used for styling
 const Wrapper = styled.section`
   margin-top: 2rem;
+
+  .calendar {
+  }
   .trans {
-    display: grid;
+    // display: grid;
     grid-template-columns: 125px 1fr;
     align-items: center;
     margin-bottom: 1rem;

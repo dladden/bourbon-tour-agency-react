@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { priceFormat } from "../utils/helpers"; //component for formatting the price
 import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
-//tour displays the
+//tour displays the featured tours on the home page
 const Tour = ({ url, category, name, price, id }) => {
   const renderIcon = () => {
     switch (category) {

@@ -44,7 +44,7 @@ const Filters = () => {
           {/* END SEARCH INPUT */}
           {/* CATEGORIES */}
           <div className="form-control">
-            <h5>Category</h5>
+            <h4>Category</h4>
             <div>
               {categories.map((c, i) => {
                 return (
@@ -66,7 +66,7 @@ const Filters = () => {
           {/* END CATEGORIES */}
           {/* DISTILLERIES SELECTION*/}
           <div className="form-control">
-            <h5>Distilleries</h5>
+            <h4>Distilleries</h4>
             <select
               id="distillery"
               name="distillery"
@@ -88,7 +88,7 @@ const Filters = () => {
           {/* END TRANSPORTATION SELECTION*/}
           {/* PRICE (controlled input)*/}
           <div className="form-control">
-            <h5>Price</h5>
+            <h4>Price</h4>
             <p className="price">{priceFormat(price)}</p>
             <input
               type="range"
@@ -128,13 +128,6 @@ const Wrapper = styled.section`
       margin-bottom: 0.5rem;
     }
   }
-  // @media (min-width: 770px) {
-  //   .form-control {
-  //   margin-bottom: 1.25rem;
-  //   h5 {
-  //     margin-bottom: 0.5rem;
-  //   }
-  // }
   .search-input {
     padding: 0.5rem;
     background: var(--clr-grey-10);
@@ -146,6 +139,7 @@ const Wrapper = styled.section`
     text-transform: capitalize;
   }
   button {
+    font-size: 17px;
     display: block;
     margin: 0.25em 0;
     padding: 0.25rem 0;
@@ -216,15 +210,16 @@ const Wrapper = styled.section`
     text-decoration: underline;
   }
   .price {
+    font-size: 18px;
     color: var(--clr-grey-5);
     margin-bottom: 0.25rem;
   }
   .reservation {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 2fr;
     align-items: center;
     text-transform: capitalize;
-    column-gap: 0rem;
+    column-gap: 0.5rem;
     font-size: 1rem;
     max-width: 200px;
   }
@@ -240,27 +235,6 @@ const Wrapper = styled.section`
       top: 1rem;
     }
   }
-
-  // input[type="range"] {
-  //   -webkit-appearance: none;
-  //   width: 150px;
-  //   height: 10px;
-  //   margin-right: 10px;
-  //   border-radius: 6px;
-  //   outline: 0;
-  //   background: #ccc;
-  // }
-
-  // input[type="range"]::-webkit-slider-thumb {
-  //   -webkit-appearance: none;
-  //   height: 18px;
-  //   width: 18px;
-  //   border-radius: 3px;
-  //   background: orange;
-  //   border-radius: 50%;
-  //   border: 0;
-  //   cursor: pointer;
-  // }
 `;
 
 export default Filters;

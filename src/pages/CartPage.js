@@ -58,7 +58,7 @@ const CartPage = () => {
 const Wrapper = styled.main`
   h5 {
     padding-top: 1rem;
-    text-align: center;
+    // text-align: center;
   }
   .empty {
     text-align: center;

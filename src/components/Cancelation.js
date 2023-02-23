@@ -88,9 +88,9 @@ const Wrapper = styled.section`
 
   .event-card {
     width: 100%;
-    background: white;
+    background: var(--clr-white);
     border-radius: var(--content-radius);
-    padding: 20px;
+    padding: 1rem;
     display: flex;
     align-items: center;
   }

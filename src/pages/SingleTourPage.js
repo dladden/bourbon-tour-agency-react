@@ -95,7 +95,7 @@ const SingleTourPage = () => {
       </Helmet>
       {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />
-      <div className="page section section-center">
+      <div className="section section-center page">
         <Link to="/tours" className="btn">
           Back
         </Link>
@@ -141,7 +141,6 @@ const SingleTourPage = () => {
 };
 
 const Wrapper = styled.main`
-  // background-color: var(--clr-background-main);
   .tour-center {
     display: grid;
     gap: 2rem;

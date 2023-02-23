@@ -180,6 +180,10 @@ const Wrapper = styled.article`
       font-size: 1rem;
     }
   }
+  .name {
+    text-align: left;
+    font-size: 0.8rem;
+  }
   .remove-btn-container {
     margin: 0 auto;
     position: relative;
@@ -220,7 +224,7 @@ const Wrapper = styled.article`
     }
     .name {
       text-align: left;
-      font-size: 0.85rem;
+      font-size: 1rem;
     }
     .transport {
       font-size: 0.85rem;
@@ -230,7 +234,7 @@ const Wrapper = styled.article`
       }
     }
     grid-template-columns: 1fr 1fr 1fr 1fr auto;
-    align-items: center;
+    // align-items: center;
     grid-template-rows: 75px;
     img {
       height: 100%;
