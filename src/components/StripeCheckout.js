@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/checkout_list_border.svg";
 import card from "../assets/checkout_card.svg";
 import styled from "styled-components";
@@ -186,7 +187,7 @@ const CheckoutForm = () => {
       <img
         className="cart-logo"
         src={logo}
-        title="Integrated with Stripe Auth0"
+        title="Integrated with Stripe, Auth0 and Okta"
         alt="Logo with integrated services for this site like Stripe and Auth0"
         style={{ width: 400 }}
       />
@@ -378,7 +379,12 @@ const CheckoutForm = () => {
               </p>
             </div>
           </form>
-          <h6 className="clause">{checkout_clause}</h6>
+          <h6 className="clause">
+            {checkout_clause}
+            <Link to="/privacy" className="privacy-link">
+              here.
+            </Link>
+          </h6>
         </div>
       </div>
 
@@ -405,6 +411,13 @@ const Wrapper = styled.section`
     margin-right: auto;
     width: 100%;
     height: auto;
+  }
+
+  h6 {
+    font-size: 1rem;
+  }
+  .privacy-link {
+    color: var(--clr-primary-8);
   }
 
   /*

@@ -1,5 +1,5 @@
 import React from "react";
-import { GiBarrel, GiSaloon, GiGlassShot } from "react-icons/gi";
+import { GiBarrel, GiSaloon, GiGlassShot, GiTicket } from "react-icons/gi";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers";
 import { Link } from "react-router-dom";
@@ -18,9 +18,7 @@ const ListView = ({ tours }) => {
             case "food":
               return <GiGlassShot size={17} />;
             case "event":
-              return <GiGlassShot size={17} />;
-            default:
-              return <GiBarrel size={17} />;
+              return <GiTicket size={17} />;
           }
         };
         return (
@@ -62,6 +60,7 @@ const Wrapper = styled.section`
   .price {
     color: var(--clr-primary-5);
     margin-bottom: 0.75rem;
+    font-size: 1.2rem;
   }
   p {
     max-width: 45em;
@@ -73,7 +72,7 @@ const Wrapper = styled.section`
   }
   .btn {
     border-radius: var(--small-btn-radius);
-    font-size: 0.5rem;
+    font-size: 1rem;
     padding: 0.25rem 0.5rem;
   }
   @media (min-width: 992px) {

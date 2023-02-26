@@ -7,6 +7,7 @@ import Cart from "./CartPage";
 import InfoPage from "./InfoPage";
 import Checkout from "./CheckoutPage";
 import Contact from "./ContactPage";
+import PrivacyPage from "./PrivacyPage";
 import Error from "./ErrorPage";
 import SingleTour from "./SingleTourPage";
 import Tours from "./ToursPage";
@@ -22,6 +23,7 @@ export {
   Cart,
   InfoPage,
   Checkout,
+  PrivacyPage,
   Contact,
   Error,
   SingleTour,

@@ -8,5 +8,6 @@ https://shelbybourbontours.com/checkout
 https://shelbybourbontours.com/confirmation
 https://shelbybourbontours.com/faq
 https://shelbybourbontours.com/error
+https://shelbybourbontours.com/privacy
 
 

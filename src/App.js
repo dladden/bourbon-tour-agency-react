@@ -12,6 +12,7 @@ import {
   InfoPage,
   Checkout,
   Contact,
+  PrivacyPage,
   Error,
   SingleTour,
   Tours,
@@ -42,6 +43,7 @@ function App() {
             element={<CustomConfirmationPage />}
           />
           <Route path="/faq" element={<InfoPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/tours" element={<Tours />} />
           <Route path="/tours/:id" element={<SingleTour />} />
           <Route

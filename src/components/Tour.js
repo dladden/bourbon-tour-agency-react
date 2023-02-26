@@ -1,5 +1,5 @@
 import React from "react";
-import { GiBarrel, GiSaloon, GiGlassShot } from "react-icons/gi";
+import { GiBarrel, GiSaloon, GiGlassShot, GiTicket } from "react-icons/gi";
 import styled from "styled-components";
 import { priceFormat } from "../utils/helpers"; //component for formatting the price
 import { AiFillSchedule } from "react-icons/ai";
@@ -15,9 +15,7 @@ const Tour = ({ url, category, name, price, id }) => {
       case "food":
         return <GiGlassShot size={17} />;
       case "event":
-        return <GiGlassShot size={17} />;
-      default:
-        return <GiBarrel size={17} />;
+        return <GiTicket size={17} />;
     }
   };
 
@@ -31,8 +29,8 @@ const Tour = ({ url, category, name, price, id }) => {
       </div>
       <footer>
         <div className="tour-icon">{renderIcon()}</div>
-        <h5>{name}</h5>
-        <p>{priceFormat(price)}</p>
+        <h5 className="name">{name}</h5>
+        <p className="price">{priceFormat(price)}</p>
       </footer>
     </Wrapper>
   );
@@ -71,7 +69,13 @@ const Wrapper = styled.article`
     }
   }
 
-  .tour-icon {
+  .price {
+    color: var(--clr-primary-5);
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+  }
+  .name {
+    font-size: 1rem;
   }
 
   .container:hover img {

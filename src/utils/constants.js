@@ -154,7 +154,7 @@ export const distilleries_select = [
 ];
 //The clause for the checkout page
 export const checkout_clause =
-  "On this Website, we have integrated components of Stripe. Stripe is an online payment service provider. Stripe allows paying via various other payment methods, such as credit cards, SOFORT, and so more. The operating company Stripe ensures secure protection of the Services, rights, privacy, safety and property of Stripe, you or others, including against other malicious or fraudulent activity and security incidents.";
+  "At Shelby Bourbon Tours, we are committed to protecting the privacy of our users' data. To protect you, we integrated components of Stripe. Stripe is an online payment service provider that provides payment via credit cards. The operating company Stripe ensures secure protection of the Services, rights, privacy, safety, and property of Stripe, you (customer) against malicious or fraudulent activity and security incidents. See our Privacy Policy ";
 
 //country selection
 export const country_data = [

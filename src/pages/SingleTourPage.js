@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { GiBarrel, GiSaloon, GiGlassShot, GiBeerBottle } from "react-icons/gi";
+import {
+  GiBarrel,
+  GiSaloon,
+  GiGlassShot,
+  GiBeerBottle,
+  GiTicket,
+} from "react-icons/gi";
 import { useParams, useNavigate } from "react-router-dom"; //hooks from react router dom to access the url parameters
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
@@ -77,10 +83,7 @@ const SingleTourPage = () => {
       case "food":
         return <GiGlassShot />;
       case "event":
-        return <GiGlassShot />;
-      case "":
-        return <GiBarrel />;
-      default:
+        return <GiTicket />;
     }
   };
 

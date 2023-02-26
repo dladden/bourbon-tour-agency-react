@@ -27,7 +27,9 @@ const CartPage = () => {
             Find A Tour
           </Link>
         </div>
-        <h5>Or</h5>
+        <div className="or-h5">
+          <h5>Or</h5>
+        </div>
         <div className="section-center">
           <CustomTourLink />
         </div>
@@ -67,6 +69,9 @@ const Wrapper = styled.main`
       margin-bottom: 1rem;
       text-transform: none;
     }
+  }
+  .or-h5 {
+    text-align: center;
   }
   @media (min-width: 900px) {
     padding: 0;

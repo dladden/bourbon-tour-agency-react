@@ -11,6 +11,7 @@ import CustomConfirmation from "./CustomConfirmation";
 import Cancelation from "./Cancelation";
 import Faq from "./Faq";
 import Footer from "./Footer";
+import Privacy from "./Privacy";
 import Question from "./Question";
 import LinkButton from "./LinkButton";
 import Sidebar from "./Sidebar";
@@ -46,6 +47,7 @@ export {
   TourLogo,
   CartButtons,
   Cancelation,
+  Privacy,
   Faq,
   Confirmation,
   CustomConfirmation,

@@ -16,9 +16,9 @@ const Faq = () => {
               <div className="faq-info">
                 <h3 className="faq-name">
                   {" "}
-                  <TbInfoCircle /> Vist Our FAQ
+                  <TbInfoCircle /> Visit Our FAQ
                 </h3>
-                <p className="faq-detail">
+                <p className="event-detail">
                   Check to see if your question has already been answered in our
                   FAQ page!
                 </p>

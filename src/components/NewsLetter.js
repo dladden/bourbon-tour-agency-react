@@ -6,7 +6,9 @@ const NewsLetter = () => {
   return (
     <Wrapper>
       <div className="section-center">
-        <h3>Join Shelby Bourbon Tours Newsletter and receive 10% off</h3>
+        <h3>
+          Join Shelby Bourbon Tours Newsletter and receive <em>10% off</em>
+        </h3>
         <img
           className="newsletter"
           src={logo}

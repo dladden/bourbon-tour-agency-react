@@ -1,16 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import logo from "../assets/indent_logo_color.svg";
+import { Helmet } from "react-helmet-async";
 //Simple Error Page
 const ErrorPage = () => {
   return (
     <Wrapper className="page-100">
+      <Helmet>
+        <title>Error</title>
+        <meta
+          name="description"
+          content="This is an error page. Please head back to Shelby Bourbon Tours Home page"
+        />
+        <link rel="canonical" href="/error" />
+      </Helmet>
       <section>
+        <div className="form-logo">
+          <img
+            className="logo"
+            src={logo}
+            title="Shelby Bourbon Tours Logo"
+            alt="Shelby Bourbon Tours Logo of A Lion with a Bourbon Bottle in the Left Paw"
+          />
+        </div>
         <h1>404</h1>
         <h3>Sorry, the page you looking for is busy sipping Bourbon</h3>
-        <Link to="/" className="btn">
-          Home Page
-        </Link>
+        <div className="btn-404">
+          <Link to="/" className="btn">
+            Home Page
+          </Link>
+        </div>
       </section>
     </Wrapper>
   );
@@ -28,6 +48,20 @@ const Wrapper = styled.main`
   h3 {
     text-transform: none;
     margin-bottom: 2rem;
+  }
+
+  .btn-404 {
+    padding-bottom: 4rem;
+  }
+
+  .form-logo {
+    margin-top: 3rem;
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+    min-height: 40px;
+    min-width: 320px;
+    max-width: 400px;
   }
 `;
 

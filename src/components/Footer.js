@@ -55,8 +55,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link smooth to="/tours#filters-section">
-                  Events
+                <Link smooth to="/privacy#privacy-section">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
@@ -196,7 +196,7 @@ const Wrapper = styled.footer`
       img {
         width: 30rem;
         align: center;
-        padding-left: 5rem;
+        padding-left: 3rem;
         width: 90%;
       }
       justify-content: left;
@@ -207,7 +207,7 @@ const Wrapper = styled.footer`
       img {
         width: 583px;
         align: center;
-        padding-left: 2rem;
+        padding-left: 1.5rem;
       }
       justify-content: left;
     }

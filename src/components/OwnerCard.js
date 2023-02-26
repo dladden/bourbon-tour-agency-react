@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import contactQR from "../assets/contact_qr.svg";
-import owner from "../assets/owner.jpg";
+import owner from "../assets/owner.webp";
 import socialLinks from "../utils/social_links";
 import { email_link } from "../utils/constants";
 //Component responsible for the OwnerCard used in Contact page
