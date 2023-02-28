@@ -1,27 +1,33 @@
 import React from "react";
 import { about0, about1, about2 } from "../utils/constants";
 import styled from "styled-components";
-import { PageHero, TourLogo, OwnerCard, DistilleriesList } from "../components";
+import {
+  Seo,
+  PageHero,
+  TourLogo,
+  OwnerCard,
+  DistilleriesList,
+} from "../components";
 import aboutImg0 from "../assets/Shelby-Bourbon-Tours-About-01.jpg";
 import aboutImg1 from "../assets/Shelby-Bourbon-Tours-About-02.jpg";
 import aboutImg2 from "../assets/Shelby-Bourbon-Tours-About-03.jpg";
-import { Helmet } from "react-helmet-async";
 //Simple About page which multiple sections
 const AboutPage = () => {
   return (
     <main>
-      <Helmet>
-        <title>About</title>
-        <meta
-          name="description"
-          content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
-        />
-        <link rel="canonical" href="/about" />
-      </Helmet>
+      <Seo
+        title="About"
+        content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
+        robots="index"
+        href="/about"
+      />
       <PageHero title="about" />
       <section id="about-shelby-bourbon-tours"></section>
       <TourLogo style={{ height: 250, width: 250 }} />
       <Wrapper className="page section section-center">
+        <div className="about-heading">
+          <h1 className="about-heading">About the Shelby Bourbon Tours</h1>
+        </div>
         <div id="parallax-world-of-ugg">
           <section>
             <div className="parallax-one">
@@ -93,7 +99,16 @@ const Wrapper = styled.section`
   //   height: 500px;
   //   object-fit: cover;
   // }
-  
+
+  // h1{
+  //   font-size: 1rem;
+  // }
+
+  .about-heading{
+    color: var(--clr-grey-8);
+    text-align: center;
+    font-size: 1.5rem;
+  }
   .title {
     text-align: left;
   }

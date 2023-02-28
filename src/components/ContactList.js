@@ -23,7 +23,7 @@ const ContactList = () => {
     <Wrapper>
       <div>
         <div className="contact">
-          <h2 className="heading">Contact Us</h2>
+          <h1 className="heading">Contact Us</h1>
           <div className="contact-car">
             <div className="left">
               <div className="qr-code color-1">

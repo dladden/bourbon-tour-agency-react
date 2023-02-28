@@ -10,6 +10,7 @@ import Confirmation from "./Confirmation";
 import CustomConfirmation from "./CustomConfirmation";
 import Cancelation from "./Cancelation";
 import Faq from "./Faq";
+import Seo from "./Seo";
 import Footer from "./Footer";
 import Privacy from "./Privacy";
 import Question from "./Question";
@@ -49,6 +50,7 @@ export {
   Cancelation,
   Privacy,
   Faq,
+  Seo,
   Confirmation,
   CustomConfirmation,
   CartLogo,

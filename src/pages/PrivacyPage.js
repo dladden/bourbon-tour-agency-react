@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import privacy_data from "../utils/privacy_data"; //default export always resolves to default name
-import { Privacy } from "../components";
+import { Seo, Privacy } from "../components";
 import logo from "../assets/checkout_list_border.svg";
-import { Helmet } from "react-helmet-async";
 import {
   email_privacy,
   access_privacy,
@@ -21,14 +20,12 @@ const PrivacyPage = () => {
   return (
     <Wrapper>
       <main>
-        <Helmet>
-          <title>Privacy</title>
-          <meta
-            name="description"
-            content="Learn about Shelby Bourbon Tours maintains and meets Privacy requirements and secures customers' data."
-          />
-          <link rel="canonical" href="/privacy" />
-        </Helmet>
+        <Seo
+          title="Privacy"
+          content="Learn about Shelby Bourbon Tours maintains and meets Privacy requirements and secures customers' data."
+          robots="index"
+          href="/privacy"
+        />
         <section id="privacy-section">
           <div className="container">
             <h1>
@@ -43,7 +40,7 @@ const PrivacyPage = () => {
                 />
               </div>
             </h1>
-            <h4>{email_privacy.title}</h4>
+            <h3>{email_privacy.title}</h3>
             <p>{email_privacy.body}</p>
             <p>
               <em>{email_privacy.alt}</em>
@@ -56,38 +53,38 @@ const PrivacyPage = () => {
               })}
             </div>
             {/* ACCESS PRIVACY */}
-            <h4>{access_privacy.title}</h4>
+            <h3>{access_privacy.title}</h3>
             <p>{access_privacy.body}</p>
             <p>
               <em>{access_privacy.alt}</em>
             </p>
             {/* SECURITY PRIVACY */}
-            <h4>{credit_privacy.title}</h4>
+            <h3>{credit_privacy.title}</h3>
             <p>{credit_privacy.body}</p>
             {/* DATA PRIVACY */}
-            <h4>{data_privacy.title}</h4>
+            <h3>{data_privacy.title}</h3>
             <p>{data_privacy.body}</p>
             <p>
               <em>{data_privacy.alt}</em>
             </p>
             <p>
-              <a href={stripe_privacy} target="_blank">
+              <a href={stripe_privacy} target="_blank" without rel="noreferrer">
                 Stripe Privacy Center
               </a>
             </p>
             <p>
-              <a href={auth0_privacy} target="_blank">
+              <a href={auth0_privacy} target="_blank" without rel="noreferrer">
                 Auth0 Data Privacy and Compliance
               </a>
             </p>
             {/* NEWSLETTER PRIVACY */}
-            <h4>{newsletter_privacy.title}</h4>
+            <h3>{newsletter_privacy.title}</h3>
             <p>{newsletter_privacy.body}</p>
             <p>
               <em>{newsletter_privacy.alt}</em>
             </p>
             {/* NOTIFICATION PRIVACY */}
-            <h4>{notification_privacy.title}</h4>
+            <h3>{notification_privacy.title}</h3>
             <p>{notification_privacy.body}</p>
           </div>
         </section>

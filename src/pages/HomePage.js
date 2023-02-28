@@ -1,6 +1,7 @@
 import React from "react";
-import { Helmet } from "react-helmet-async";
+
 import {
+  Seo,
   FeaturedTours,
   Hero,
   ImageSlider,
@@ -13,14 +14,13 @@ const HomePage = () => {
 
   return (
     <main>
-      <Helmet>
-        <title>Home</title>
-        <meta
-          name="description"
-          content="Shelby Bourbon Tours provides bourbon trail tour transportation to all of the major Bourbon distillery locations in the heart of Kentucky."
-        />
-        <link rel="canonical" href="/" />
-      </Helmet>
+      s
+      <Seo
+        title="Home"
+        content="Shelby Bourbon Tours provides bourbon trail tour transportation to all of the major Bourbon distillery locations in the heart of Kentucky."
+        robots="index"
+        href="/"
+      />
       <Hero />
       <section id="featured-tours">
         <TourLogo />

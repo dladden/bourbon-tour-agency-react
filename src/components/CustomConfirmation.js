@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const CustomConfirmation = () => {
   return (
     <Wrapper>
-      scroll(0,0)
       <div className="form-body">
         <div className="row">
           <div className="form-holder">

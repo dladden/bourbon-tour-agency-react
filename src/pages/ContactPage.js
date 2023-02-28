@@ -4,25 +4,23 @@ import { Helmet } from "react-helmet-async";
 //hooks from react router dom to access the url parameters
 
 import {
+  Seo,
   PageHero,
   OwnerCard,
   ContactList,
   Cancelation,
-  Faq,
   CustomTour,
 } from "../components";
 
 const ContactPage = () => {
   return (
     <main>
-      <Helmet>
-        <title>Contact</title>
-        <meta
-          name="description"
-          content="Contact us to tour bourbon distilleries in Kentucky and find the best bourbon you've been looking for or create a customizable tour."
-        />
-        <link rel="canonical" href="/contact" />
-      </Helmet>
+      <Seo
+        title="Confirmation"
+        content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
+        robots="index"
+        href="/about"
+      />
       <PageHero title="Contact" />
       <Wrapper>
         <OwnerCard />

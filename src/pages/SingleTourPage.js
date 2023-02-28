@@ -10,8 +10,8 @@ import { useParams, useNavigate } from "react-router-dom"; //hooks from react ro
 import { useToursContext } from "../context/tours_context";
 import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
 import { priceFormat } from "../utils/helpers";
-import { Helmet } from "react-helmet-async";
 import {
+  Seo,
   Loading,
   Error,
   TourImages,
@@ -89,13 +89,11 @@ const SingleTourPage = () => {
 
   return (
     <Wrapper>
-      <Helmet>
-        <title>Our Tours</title>
-        <meta
-          name="description"
-          content="Tour Distilleries in Kentucky form Shelby Bourbon Tours Selection. Anywhere on the map of Kentucky, from Louisville, Shelby County, Frankfort, and Lexington."
-        />
-      </Helmet>
+      <Seo
+        title="Tours"
+        content="Tour Distilleries in Kentucky form Shelby Bourbon Tours Selection. Anywhere on the map of Kentucky, from Louisville, Shelby County, Frankfort, and Lexington."
+        robots="index"
+      />
       {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />
       <div className="section section-center page">

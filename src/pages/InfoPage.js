@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import info_data from "../utils/info_data"; //default export always resolves to default name
-import { Question, Cancelation } from "../components";
+import { Seo, Question, Cancelation } from "../components";
 import logo from "../assets/indent_logo.svg";
-import { Helmet } from "react-helmet-async";
 
 //Simple Information Page with Q&A/FAQ style
 const InfoPage = () => {
@@ -11,17 +10,15 @@ const InfoPage = () => {
   return (
     <Wrapper>
       <main>
-        <Helmet>
-          <title>FAQ</title>
-          <meta
-            name="description"
-            content="Whiskey or Bourbon? What is bourbon? Our FAQ helps with any question relating to bourbon and our bourbon tours."
-          />
-          <link rel="canonical" href="/faq" />
-        </Helmet>
+        <Seo
+          title="FAQ"
+          content="Whiskey or Bourbon? What is bourbon? Our FAQ helps with any question relating to bourbon and our bourbon tours."
+          robots="index"
+          href="/faq"
+        />
         <section id="questions">
           <div className="container">
-            <h3>
+            <h1>
               Shelby Bourbon Tours FAQ:
               <br />
               <div className="sbt-logo-center">
@@ -32,7 +29,7 @@ const InfoPage = () => {
                   className="sbt-logo"
                 />
               </div>
-            </h3>
+            </h1>
 
             <div className="info">
               {/* This map method passes the data from info_data to the Question component */}
@@ -81,7 +78,8 @@ const Wrapper = styled.main`
     margin-bottom: 0.75rem;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
+    color: var(--clr-primary-7);
   }
   h2 {
     font-size: 2rem;
@@ -98,7 +96,8 @@ const Wrapper = styled.main`
   }
   @media screen and (min-width: 800px) {
     h1 {
-      font-size: 4rem;
+      font-size: 2rem;
+      color: var(--clr-primary-7);
     }
     h2 {
       font-size: 2.5rem;
@@ -129,6 +128,7 @@ const Wrapper = styled.main`
     width: 140px;
   }
   .sbt-logo-center {
+    padding-top: 0.5rem;
     display: flex;
     justify-content: center; /* horizontally center */
     align-items: center;

@@ -2,19 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import logo from "../assets/indent_logo_color.svg";
-import { Helmet } from "react-helmet-async";
+import { Seo } from "../components";
 //Simple Error Page
 const ErrorPage = () => {
   return (
     <Wrapper className="page-100">
-      <Helmet>
-        <title>Error</title>
-        <meta
-          name="description"
-          content="This is an error page. Please head back to Shelby Bourbon Tours Home page"
-        />
-        <link rel="canonical" href="/error" />
-      </Helmet>
+      <Seo
+        title="Error"
+        content="This is an error page. Please head back to Shelby Bourbon Tours Home page"
+        robots="index"
+        href="/error"
+      />
       <section>
         <div className="form-logo">
           <img

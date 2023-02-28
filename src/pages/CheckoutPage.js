@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
+  Seo,
   PageHero,
   StripeCheckout,
   CustomTourLink,
@@ -8,7 +9,6 @@ import {
 } from "../components";
 import { useCartContext } from "../context/cart_context";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 
 const CheckoutPage = () => {
   //cart used to check if the carts length if empty display div with
@@ -16,14 +16,12 @@ const CheckoutPage = () => {
   const { cart } = useCartContext();
   return (
     <main>
-      <Helmet>
-        <title>Checkout</title>
-        <meta
-          name="description"
-          content="Shelby Bourbon Tours Checkout Page find tours to add to the cart from Distilleries like Four Roses, Three Boys, Jeptha Creed and much more"
-        />
-        <link rel="canonical" href="/checkout" />
-      </Helmet>
+      <Seo
+        title="Checkout"
+        content="Shelby Bourbon Tours Checkout Page find tours to add to the cart from Distilleries like Four Roses, Three Boys, Jeptha Creed and much more."
+        robots="index"
+        href="/checkout"
+      />
       <PageHero title="checkout" />
       <Wrapper className="page-checkout">
         {cart.length < 1 ? (
