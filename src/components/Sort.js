@@ -78,7 +78,7 @@ const Wrapper = styled.section`
     column-gap: 2rem;
   }
   p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-transform: capitalize;
     margin-bottom: 0;
   }
@@ -107,6 +107,11 @@ const Wrapper = styled.section`
     }
   }
   .sort-input {
+    width: 12rem;
+    font-family: inherit;
+    color: var(--clr-primary-5);
+    background: var(--clr-grey-10);
+    border-radius: var(--input-radius);
     border-color: transparent;
     font-size: 1rem;
     text-transform: capitalize;

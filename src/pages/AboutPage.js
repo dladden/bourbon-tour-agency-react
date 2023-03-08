@@ -156,8 +156,9 @@ const Wrapper = styled.section`
     z-index: 10;
     opacity: 0.9;
   }
-  
- 
+  p{
+    font-size: 1.1rem;
+  }
   }
   .first-character {
     font-weight: 400;

@@ -84,7 +84,7 @@ const SidebarContainer = styled.div`
   .links a {
     display: block;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.3rem;
     text-transform: capitalize;
     padding: 1rem 1.5rem;
     color: var(--clr-grey-3);

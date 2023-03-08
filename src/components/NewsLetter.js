@@ -53,6 +53,7 @@ const Wrapper = styled.section`
   }
 
   p {
+    font-size: 1.2rem;
     font-weight: 900;
     margin: auto;
     padding: 0;

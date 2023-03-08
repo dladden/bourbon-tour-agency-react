@@ -12,13 +12,13 @@ const ListView = ({ tours }) => {
         const renderIcon = () => {
           switch (category) {
             case "tour":
-              return <GiBarrel size={17} />;
+              return <GiBarrel size={23} />;
             case "stay":
-              return <GiSaloon size={17} />;
+              return <GiSaloon size={23} />;
             case "food":
-              return <GiGlassShot size={17} />;
+              return <GiGlassShot size={23} />;
             case "event":
-              return <GiTicket size={17} />;
+              return <GiTicket size={23} />;
           }
         };
         return (

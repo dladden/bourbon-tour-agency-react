@@ -93,6 +93,7 @@ const Filters = () => {
             <input
               type="range"
               name="price"
+              className="price-input"
               onChange={updateFilters}
               min={min_price}
               max={max_price}
@@ -129,17 +130,21 @@ const Wrapper = styled.section`
     }
   }
   .search-input {
+    font-color: var(--clr-primary-5);
+    font-family: inherit;
+    font-size: 1.2rem;
     padding: 0.5rem;
     background: var(--clr-grey-10);
     border-radius: var(--input-radius);
     border-color: transparent;
     letter-spacing: var(--spacing);
+    width: 12rem;
   }
   .search-input::placeholder {
     text-transform: capitalize;
   }
   button {
-    font-size: 17px;
+    font-size: 1.3rem;
     display: block;
     margin: 0.25em 0;
     padding: 0.25rem 0;
@@ -155,10 +160,19 @@ const Wrapper = styled.section`
     border-color: var(--clr-grey-5);
   }
   .distillery-select {
+    color: var(--clr-primary-5);
+    font-family: inherit;
+    font-size: 1.2rem;
     background: var(--clr-grey-10);
     border-radius: var(--input-radius);
     border-color: transparent;
     padding: 0.25rem;
+    width: 12rem;
+    height: 2rem;
+  }
+  .price-input {
+    background: var(--clr-grey-10);
+    width: 12rem;
   }
   .transport {
     grid-template-columns: (2, 100fr);

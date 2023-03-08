@@ -160,6 +160,7 @@ const Wrapper = styled.main`
   .desc {
     line-height: 2;
     max-width: 45em;
+    font-size: 1.1rem;
   }
   .info-title {
     color: var(--clr-primary-5);
@@ -170,6 +171,7 @@ const Wrapper = styled.main`
   .info {
     color: var(--clr-primary-5);
     text-transform: capitalize;
+    font-size: 1.2rem;
     width: 300px;
     display: grid;
     grid-template-columns: minmax(60px, 950fr);
