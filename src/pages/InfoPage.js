@@ -88,7 +88,7 @@ const Wrapper = styled.main`
     font-size: 1.25rem;
   }
   h4 {
-    font-size: 0.875rem;
+    // font-size: 0.875rem;
   }
   p {
     margin-bottom: 1.25rem;
@@ -106,7 +106,7 @@ const Wrapper = styled.main`
       font-size: 1.75rem;
     }
     h4 {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     body {
       font-size: 1rem;

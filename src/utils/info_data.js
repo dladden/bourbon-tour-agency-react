@@ -2,7 +2,7 @@ const questionsList = [
   {
     id: 1,
     question_title:
-      "Something isn't working correctly on the Shelby Bourbon Tours Website. What should I do?",
+      "Something isn't working correctly on the Website. What should I do?",
     info: "If you are experiencing issues or problems on our site, please email us at developers@shlebybourbontours.com with a simple description. We greatly appreciate your time!",
   },
   {

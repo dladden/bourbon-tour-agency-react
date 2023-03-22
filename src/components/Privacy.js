@@ -11,7 +11,6 @@ const Privacy = ({ privacy_question_title, privacy_answer }) => {
     <Wrapper>
       <article className="question">
         <header>
-          <h4>{privacy_question_title}</h4>
           {/* onClick button sets the opposite of the current info state */}
           <button
             className="info-btn"
@@ -19,7 +18,10 @@ const Privacy = ({ privacy_question_title, privacy_answer }) => {
               setShowInfo(!showInfo);
             }}
           >
-            {showInfo ? <FaMinus /> : <FaPlus />}
+            <div>
+              <h4>{privacy_question_title}</h4>
+            </div>
+            <div className="icon"></div>
           </button>
         </header>
         {/* if showInfo is true show the info*/}
@@ -61,12 +63,17 @@ const Wrapper = styled.section`
     margin-top: 0.5rem;
   }
   .question header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: right;
+    // align-items: center;
   }
   .question header h4 {
     margin-bottom: 0;
+  }
+  .icon {
+    justify-content: center;
+    margin-left: auto;
+    float: right;
   }
 `;
 

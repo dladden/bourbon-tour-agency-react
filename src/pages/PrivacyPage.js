@@ -142,7 +142,7 @@ const Wrapper = styled.main`
     font-size: 1.25rem;
   }
   h4 {
-    font-size: 0.875rem;
+    font-size: 1.1rem;
   }
   p {
     margin-bottom: 1.25rem;

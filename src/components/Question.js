@@ -11,16 +11,19 @@ const Question = ({ question_title, info }) => {
     <Wrapper>
       <article className="question">
         <header>
-          <h4>{question_title}</h4>
           {/* onClick button sets the opposite of the current info state */}
-          <button
+          <div
             className="info-btn"
             onClick={() => {
               setShowInfo(!showInfo);
             }}
           >
-            {showInfo ? <FaMinus /> : <FaPlus />}
-          </button>
+            <div>
+              <h4>{question_title}</h4>
+            </div>
+
+            <div className="icon">{showInfo ? <FaMinus /> : <FaPlus />}</div>
+          </div>
         </header>
         {/* if showInfo is true show the info*/}
         {showInfo && <p>{info}</p>}
@@ -61,12 +64,15 @@ const Wrapper = styled.section`
     margin-top: 0.5rem;
   }
   .question header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
   }
   .question header h4 {
     margin-bottom: 0;
+  }
+  .icon {
+    margin-left: auto;
   }
 `;
 

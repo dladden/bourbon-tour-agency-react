@@ -12,7 +12,7 @@ const OwnerCard = () => {
         <div className="team">
           <div className="member">
             <img src={owner} alt="member_image" />
-            <h3>Steven Ladden</h3>
+            <h3>Steven</h3>
             <h5>(502) 216-4530</h5>
             <span>
               <h5 className="email">{email_link}</h5>
