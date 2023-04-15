@@ -165,6 +165,7 @@ const Wrapper = styled.main`
   .info-title {
     color: var(--clr-primary-5);
     text-transform: capitalize;
+    font-size: 1.4rem;
     font-weight: 700;
     margin-bottom: 0rem;
   }

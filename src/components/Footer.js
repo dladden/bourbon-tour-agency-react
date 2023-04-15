@@ -117,10 +117,10 @@ const Footer = () => {
         <section className="ft-legal">
           <ul className="ft-legal-list">
             <li>
-              <a href="/about">Terms &amp; Conditions</a>
+              <a href="/privacy">Terms &amp; Conditions</a>
             </li>
             <li>
-              <a href="/about">Privacy Policy</a>
+              <a href="/privacy">Privacy Policy</a>
             </li>
             <li>
               &copy; {new Date().getFullYear()} Copyright Shelby Bourbon Tours
