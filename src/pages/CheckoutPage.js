@@ -8,7 +8,7 @@ import {
   CartLogo,
 } from "../components";
 import { useCartContext } from "../context/cart_context";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const CheckoutPage = () => {
   //cart used to check if the carts length if empty display div with
@@ -28,7 +28,7 @@ const CheckoutPage = () => {
           <div className="empty">
             <CartLogo />
             <h2>Nothing to Book </h2>
-            <Link to="/tours" className="btn">
+            <Link smooth to="/tours#tours-list" className="btn">
               Find A Tour
             </Link>
             <div className="or-h5">

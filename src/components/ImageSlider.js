@@ -10,8 +10,12 @@ const ImageSlider = () => {
   return (
     <Wrapper>
       <div className="section-center slider-section">
-        <a href="https://www.facebook.com/shelbybourbontours">
-          <h4>Visit Our Facebook Page</h4>
+        <a
+          href="https://www.instagram.com/shelbybourbontours"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <h4>Visit Our Instagram Page</h4>
         </a>
         <div className="slide-container ">
           <Slide>

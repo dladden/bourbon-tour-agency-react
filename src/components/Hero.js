@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import heroSBT from "../assets/sbt_cover.webp";
 import heroSBT2 from "../assets/sbt_cover2.webp";
 
@@ -21,7 +21,7 @@ const Hero = () => {
           leave the driving to us and contact us today to craft your personal
           favorite Bourbon distilleries day.
         </p>
-        <Link to="/tours" className="btn hero-btn">
+        <Link smooth to="/tours#tours-list" className="btn hero-btn">
           Find A Tour
         </Link>
       </article>

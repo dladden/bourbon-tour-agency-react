@@ -1,6 +1,6 @@
 import React from "react";
 import { useToursContext } from "../context/tours_context"; //hook
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import styled from "styled-components";
 import Error from "./Error";
 import Loading from "./Loading";
@@ -33,7 +33,7 @@ const FeaturedTours = () => {
           return <Tour key={tour.id} {...tour} />; //spreading the tours using the spread operator
         })}
       </div>
-      <Link to="/tours" className="btn">
+      <Link smooth to="/tours#tours-list" className="btn">
         Tours
       </Link>
     </Wrapper>

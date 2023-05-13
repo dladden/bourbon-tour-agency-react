@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import {
   Seo,
   CartContent,
@@ -26,7 +26,7 @@ const CartPage = () => {
         <CartLogo />
         <div className="empty">
           <h2>Cart is Empty</h2>
-          <Link to="/tours" className="btn">
+          <Link smooth to="/tours#tours-list" className="btn">
             Find A Tour
           </Link>
         </div>

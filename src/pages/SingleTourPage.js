@@ -22,7 +22,7 @@ import {
 } from "../components";
 import styled from "styled-components";
 import "react-calendar/dist/Calendar.css";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 //Page responsible for layout of akk component for single tour
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
@@ -97,7 +97,7 @@ const SingleTourPage = () => {
       {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />
       <div className="section section-center page">
-        <Link to="/tours" className="btn">
+        <Link smooth to="/tours#tours-list" className="btn">
           Back
         </Link>
         <div className="tour-center">

@@ -9,9 +9,11 @@ const CustomTourLink = () => {
         <h3>
           Custom Tours
           <br />
-          <Link smooth to="/contact#custom-tour" className="btn">
-            Create
-          </Link>
+          <div className="button-div">
+            <Link smooth to="/contact#custom-tour" className="btn">
+              Create
+            </Link>
+          </div>
         </h3>
         {/* <Route path="/contact" element={<CustomTour />} />
           </Router> */}
@@ -75,10 +77,19 @@ const Wrapper = styled.section`
       transform: translateY(5rem);
     }
   }
+
+  .button-div {
+    padding-top: 3rem;
+  }
+
   .btn {
     margin-top: 0.5rem;
-    padding: 0.8rem 0.8rem;
+    padding: 0.6rem 0.8rem;
     font-size: 1rem;
+    display: block;
+    width: 148px;
+    margin: 0 auto;
+    text-align: center;
   }
 `;
 export default CustomTourLink;

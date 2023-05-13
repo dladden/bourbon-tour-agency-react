@@ -18,8 +18,10 @@ const ToursPage = () => {
             <Filters />
           </section>
           <div>
-            <Sort />
-            <TourList />
+            <section id="tours-list">
+              <Sort />
+              <TourList />
+            </section>
           </div>
         </div>
       </Wrapper>

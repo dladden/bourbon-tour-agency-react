@@ -30,7 +30,9 @@ const NewsLetter = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="btn">JOIN NOW</button>
+              <div className="join-btn">
+                <button className="btn">JOIN NOW</button>
+              </div>
             </a>
           </div>
         </div>
@@ -66,11 +68,21 @@ const Wrapper = styled.section`
   .contact-form {
     padding-top: 1rem;
     width: 90vw;
-    max-width: 450px;
+
     display: grid;
     grid-template-columns: 1fr auto;
   }
-
+  .btn {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    display: block;
+    width: 148px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .join-btn {
+    align-items: center;
+  }
   .submit-btn {
     font-size: 0.55rem;
     padding: 0.5rem 0.5rem;
@@ -104,7 +116,13 @@ const Wrapper = styled.section`
     p {
       margin-bottom: 0;
     }
-
+    .contact-form {
+      padding-top: 1rem;
+      width: 90vw;
+      max-width: 450px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+    }
     .submit-btn {
       font-size: 1rem;
       padding: 0.5rem 1rem;

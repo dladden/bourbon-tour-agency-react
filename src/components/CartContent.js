@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import CartColumns from "./CartColumns";
 import CartItem from "./CartItem";
 import CartTotals from "./CartTotals";
@@ -17,7 +17,7 @@ const CartContent = () => {
       })}
       <hr />
       <div className="link-container">
-        <Link to="/tours" className="link-btn">
+        <Link smooth to="/tours#tours-list" className="link-btn">
           Back to Tours
         </Link>
         <button

@@ -1,6 +1,8 @@
 import React from "react";
-import guestsImg0 from "../assets/Buffalo-Trace-Tour-Guests-01.webp";
-import guestsImg1 from "../assets/Buffalo-Trace-Tour-Guests-02.webp";
+import guestsImg0 from "../assets/Group-Buffalo-Trace-Tour-Guests-01.webp";
+import guestsImg1 from "../assets/Group-Buffalo-Trace-Tour-Guests-02.webp";
+import guestsImg2 from "../assets/Group-Buffalo-Trace-Tour-Guests-03.webp";
+import guestsImg3 from "../assets/Group-Jim-Beam-Distillery-04.webp";
 import {
   GiBarrel,
   GiSaloon,
@@ -79,6 +81,18 @@ export const slides = [
     title:
       "Our Tour Group of five guests at Buffalo Trace Distillery in Frankfort Kentucky",
     alt: "Our Tour Group of five guests at Buffalo Trace Distillery",
+  },
+  {
+    url: guestsImg2,
+    title:
+      "Our Tour Group of five guests at Kentucky Peerless Distillery in Frankfort Kentucky",
+    alt: "Our Tour Group of five guests at Kentucky Peerless Distillery",
+  },
+  {
+    url: guestsImg3,
+    title:
+      "Our Tour Group of five guests at Kentucky Peerless Distillery in Frankfort Kentucky",
+    alt: "Our Tour Group of five guests at Kentucky Peerless Distillery",
   },
 ];
 //MAX GUESTS ABLE TO BE RESERVED FOR A TOUR (USED IN CUSTOM TOUR)

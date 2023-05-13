@@ -1,6 +1,7 @@
 import React from "react";
 import { TbZoomQuestion, TbInfoCircle } from "react-icons/tb";
 import styled from "styled-components";
+import { HashLink as Link } from "react-router-hash-link";
 //List View is responsible for displaying the tours in an inline view
 const Faq = () => {
   return (
@@ -27,9 +28,9 @@ const Faq = () => {
 
             <div className="right-gap"></div>
             <div className="right">
-              <a href="/faq" className="button-faq">
+              <Link smooth to="/faq#questions" className="button-faq">
                 FAQ
-              </a>
+              </Link>
             </div>
           </div>
         </div>
