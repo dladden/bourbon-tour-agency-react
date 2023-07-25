@@ -16,7 +16,7 @@ const HomePage = () => {
     <main>
       <Seo
         title="Home"
-        content="Shelby Bourbon Tours provides bourbon trail tour transportation to all of the major Bourbon distillery locations in the heart of Kentucky."
+        content="Poop Bourbon Tours provides bourbon trail tour transportation to all of the major Bourbon distillery locations in the heart of Kentucky."
         robots="index"
         href="/"
       />
