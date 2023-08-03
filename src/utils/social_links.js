@@ -12,26 +12,31 @@ const data = [
     id: 1,
     icon: <FaFacebook className="social-icon"></FaFacebook>,
     url: "https://www.facebook.com/shelbybourbontours",
+    alt: "Shelby Bourbon Tours on Facebook",
   },
   {
     id: 2,
     icon: <FaInstagram className="social-icon"></FaInstagram>,
     url: "https://www.instagram.com/shelbybourbontours",
+    alt: "Shelby Bourbon Tours on Instagram",
   },
   {
     id: 3,
     icon: <FaFacebookMessenger className="social-icon"></FaFacebookMessenger>,
     url: "https://m.me/shelbybourbontours",
+    alt: "Shelby Bourbon Tours on Messenger",
   },
   {
     id: 4,
     icon: <FaGoogle className="social-icon"></FaGoogle>,
-    url: "https://www.google.com/maps/place/Shelbyville,+KY+40065/@38.1997916,-85.2368135,13z/data=!3m1!4b1!4m5!3m4!1s0x8869c035937a44ff:0xaf76a1f361758931!8m2!3d38.2120144!4d-85.2235666",
+    url: "https://goo.gl/maps/2ERLFVvaPSZGF31s7",
+    alt: "Shelby Bourbon Tours on Google",
   },
   {
     id: 5,
     icon: <FaReddit className="social-icon"></FaReddit>,
     url: "https://www.reddit.com/u/Shelbybourbontours/?utm_source=share&utm_medium=ios_app&utm_name=iossmf",
+    alt: "Shelby Bourbon Tours on Reddit",
   },
 ];
 
