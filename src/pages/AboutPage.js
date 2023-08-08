@@ -157,7 +157,7 @@ const Wrapper = styled.section`
     opacity: 0.9;
   }
   p{
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   }
   .first-character {

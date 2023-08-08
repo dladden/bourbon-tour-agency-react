@@ -3,6 +3,7 @@ import styled from "styled-components";
 import seal from "../assets/seal.webp";
 import socialLinks from "../utils/social_links";
 import { HashLink as Link } from "react-router-hash-link";
+import { MdLocationPin } from "react-icons/md";
 //Footer is used to show the footer as one of the global components
 const Footer = () => {
   return (
@@ -50,8 +51,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link smooth to="/faq#questions">
-                  Other Tours
+                <Link smooth to="/contact#form">
+                  Documents
                 </Link>
               </li>
               <li>
@@ -90,6 +91,15 @@ const Footer = () => {
             </ul>
           </div>
           <div className="ft-main-item">
+            {/* <h2 className="ft-title">Contact</h2> */}
+            <div className="location">
+              <MdLocationPin className="location-item" />
+            </div>
+            <a href="https://goo.gl/maps/epvHggAnfnQE5jLK9" target="_blank">
+              Shelbyville, KY
+            </a>
+          </div>
+          <div className="ft-main-item">
             <h2 className="ft-title">Stay Updated</h2>
             <h5>
               If you like to stay one step ahead on your bourbon game, subscribe
@@ -102,7 +112,7 @@ const Footer = () => {
         </section>
         <section className="ft-social">
           <div className="ft-social-list social-link">
-            <div className="social-links ">
+            <div className="social-links">
               {socialLinks.map((link) => {
                 return (
                   <a
@@ -124,10 +134,14 @@ const Footer = () => {
         <section className="ft-legal">
           <ul className="ft-legal-list">
             <li>
-              <a href="/privacy">Terms &amp; Conditions</a>
+              <Link smooth to="/privacy#privacy-section">
+                Terms &amp; Conditions
+              </Link>
             </li>
             <li>
-              <a href="/privacy">Privacy Policy</a>
+              <Link smooth to="/privacy#privacy-section">
+                Privacy Policy
+              </Link>
             </li>
             <li>
               &copy; {new Date().getFullYear()} Copyright Shelby Bourbon Tours
@@ -236,7 +250,13 @@ const Wrapper = styled.footer`
     color: var(--clr-grey-1);
     transition: var(--transition);
   }
-
+  .location-item {
+    font-size: 1.5rem;
+    color: var(--clr-grey-1);
+  }
+  .location {
+    padding-left: 2.5rem;
+  }
   .ft-social {
     padding: 0 1.875rem 1.25rem;
   }

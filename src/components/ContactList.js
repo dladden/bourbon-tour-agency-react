@@ -1,5 +1,4 @@
 import React from "react";
-import { Faq } from "../components";
 import {
   RiMailOpenFill,
   RiFacebookCircleFill,
@@ -162,7 +161,6 @@ const ContactList = () => {
               </a>
             </div>
           </div>
-          <Faq />
         </div>
       </div>
     </Wrapper>
@@ -197,7 +195,7 @@ const Wrapper = styled.section`
   @media (min-width: 576px) {
     .event-name {
       width: 100%;
-      font-size: 15px;
+      font-size: 20px;
     }
   }
 
@@ -267,7 +265,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 11px;
+    font-size: 15px;
     color: var(--clr-grey-2)
     margin-top: 5px;
   }
@@ -292,7 +290,7 @@ const Wrapper = styled.section`
   @media  screen and (min-width: 576px) {
     .event-detail {
       width: 100%;
-      font-size: 15px;
+      font-size: 17px;
       }
   }
   @media  screen and (min-width: 376px) {

@@ -8,6 +8,8 @@ import {
   PageHero,
   OwnerCard,
   ContactList,
+  Faq,
+  RequestForm,
   Cancelation,
   CustomTour,
 } from "../components";
@@ -16,7 +18,7 @@ const ContactPage = () => {
   return (
     <main>
       <Seo
-        title="Confirmation"
+        title="Contact"
         content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
         robots="index"
         href="/about"
@@ -27,8 +29,14 @@ const ContactPage = () => {
         <section id="contact-us">
           <ContactList />
         </section>
+        <section id="faq">
+          <Faq />
+        </section>
         <section id="cancellations">
           <Cancelation />
+        </section>
+        <section id="form">
+          <RequestForm />
         </section>
         <section id="custom-tour">
           <CustomTour />

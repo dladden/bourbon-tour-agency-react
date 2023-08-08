@@ -1,36 +1,47 @@
 import React from "react";
-import { TbZoomQuestion, TbInfoCircle } from "react-icons/tb";
+import { BsFileEarmarkPdfFill, BsCheckSquare } from "react-icons/bs";
 import styled from "styled-components";
+import form from "../assets/SBT-Request-Form-2023.pdf";
 import { HashLink as Link } from "react-router-hash-link";
-//List View is responsible for displaying the tours in an inline view
-const Faq = () => {
+//Form lets user download document from the site
+
+const downloadPdf = () => {
+  const link = document.createElement("a"); // Create a new <a> (anchor) element
+  link.href = form; // Set the href attribute of the anchor element to the path of the PDF file
+  link.download = "Request-Form-2023.pdf"; // Set the download attribute to specify the desired filename when downloaded
+  document.body.appendChild(link); // Append the anchor element to the <body> of the document
+  link.click(); // Simulate a click event on the anchor element
+  document.body.removeChild(link); // Remove the anchor element from the <body> after the click event
+};
+
+const RequestForm = () => {
   return (
     <Wrapper>
       <div>
-        <div className="contact-faq">
-          <h2 className="heading">Frequently Asked Questions</h2>
-          <div className="event-card-faq">
-            <div className="left-faq">
-              <div className="qr-code-faq color-faq">
-                <TbZoomQuestion size={80} />
+        <div className="contact-form">
+          <h2 className="heading">Forms</h2>
+          <div className="event-card-form">
+            <div className="left-form">
+              <div className="qr-code-form color-form">
+                <BsFileEarmarkPdfFill size={80} />
               </div>
 
-              <div className="faq-info">
-                <h3 className="faq-name">
-                  {" "}
-                  <TbInfoCircle /> Visit Our FAQ
+              <div className="form-info">
+                <h3 className="form-name">
+                  <BsCheckSquare /> Tour Request Form
                 </h3>
                 <p className="event-detail">
-                  Check to see if your question has already been answered in our
-                  FAQ page!
+                  Fill out the tour request form send it to us and we will
+                  respond with a quote in 24 hours.
                 </p>
               </div>
             </div>
 
             <div className="right-gap"></div>
             <div className="right">
-              <Link smooth to="/faq#questions" className="button-faq">
-                FAQ
+              <Link to="#" onClick={downloadPdf} className="button-form">
+                {" "}
+                DOWNLOAD
               </Link>
             </div>
           </div>
@@ -51,7 +62,7 @@ const Wrapper = styled.section`
     text-align: center;
   }
 
-  .contact-faq {
+  .contact-form {
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
@@ -60,17 +71,17 @@ const Wrapper = styled.section`
     flex-direction: column;
     gap: 20px;
   }
-  .faq-name {
+  .form-name {
     font-size: 17px;
   }
   @media (min-width: 576px) {
-    .faq-name {
+    .form-name {
       width: 100%;
       font-size: 20px;
     }
   }
 
-  .event-card-faq {
+  .event-card-form {
     width: 100%;
     background: var(--clr-white);
     border-radius: var(--content-radius);
@@ -78,18 +89,18 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
   }
-  .event-card-faq:hover {
+  .event-card-form:hover {
     box-shadow: var(--clr-primary-9) 0 0 10px 5px;
   }
 
-  .left-faq {
+  .left-form {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
   }
 
-  .qr-code-faq {
+  .qr-code-form {
     flex: 0 0 80px;
     width: 100px;
     height: 80px;
@@ -101,7 +112,7 @@ const Wrapper = styled.section`
     letter-spacing: 2px;
   }
 
-  .color-faq {
+  .color-form {
     background: #fff;
   }
 
@@ -111,19 +122,19 @@ const Wrapper = styled.section`
     margin-top: 5px;
   }
 
-  .button-faq {
-    width: 4rem;
+  .button-form {
+    width: 6rem;
     // display: inline-block;
     background: var(--clr-primary-4);
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 5px;
     border-radius: var(--btn-radius);
   }
-  .button-faq:hover {
+  .button-form:hover {
     box-shadow: var(--clr-primary-9) 0 0 5px 1px;
     transform: scale(1.1);
   }
@@ -135,16 +146,16 @@ const Wrapper = styled.section`
       }
   }
   @media  screen and (min-width: 376px) {
-  .button-faq {
-    width: 5rem;
+  .button-form {
+    width: 8rem;
     font-size: 15px;
-    padding: 10px 5px;
+    padding: 10px 10px;
     }
-  .button-faq:hover {
+  .button-form:hover {
     box-shadow: var(--clr-primary-9) 0 0 5px 1px;
     transform: scale(1.1);
     }
   }
 `;
 
-export default Faq;
+export default RequestForm;

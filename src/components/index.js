@@ -10,6 +10,7 @@ import Confirmation from "./Confirmation";
 import CustomConfirmation from "./CustomConfirmation";
 import Cancelation from "./Cancelation";
 import Faq from "./Faq";
+import RequestForm from "./RequestForm";
 import Seo from "./Seo";
 import Footer from "./Footer";
 import Privacy from "./Privacy";
@@ -50,6 +51,7 @@ export {
   Cancelation,
   Privacy,
   Faq,
+  RequestForm,
   Seo,
   Confirmation,
   CustomConfirmation,

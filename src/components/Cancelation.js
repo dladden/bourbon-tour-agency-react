@@ -33,14 +33,7 @@ const Cancelation = () => {
               </div>
             </div>
 
-            <div className="right">
-              {/* <a
-                href="https://business.facebook.com/latest/inbox/all?bpn_id=679586316341571&asset_id=106294562241990&nav_ref=redirect_biz_inbox_comet_profile_plus_ap_page_inbox_message_button"
-                className="add-to-calender"
-              >
-                Contact
-              </a> */}
-            </div>
+            <div className="right"></div>
           </div>
         </div>
       </div>
@@ -76,14 +69,8 @@ const Wrapper = styled.section`
   @media (min-width: 576px) {
     .event-name {
       width: 100%;
-      font-size: 17px;
+      font-size: 20px;
     }
-  }
-
-  .right {
-    // position: relative;
-    // width: -10px;
-    // margin-right: 30px;
   }
 
   .event-card {
@@ -122,14 +109,14 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 11px;
+    font-size: 15px;
     color: #4b4b4b;
     margin-top: 5px;
   }
   @media (min-width: 576px) {
     .event-detail {
       width: 100%;
-      font-size: 14px;
+      font-size: 17px;
     }
   }
 

@@ -13,7 +13,7 @@ const OwnerCard = () => {
           <div className="member">
             <img src={owner} alt="member_image" />
             <h3>Steven</h3>
-            <h5>(502) 216-4530</h5>
+            <h4>(502) 216-0678</h4>
             <span>
               <h5 className="email">{email_link}</h5>
             </span>
@@ -114,7 +114,7 @@ const Wrapper = styled.section`
     margin: 15px 0;
     font-weight: 400;
     color: #999;
-    font-size: 15px;
+    font-size: 17px;
     text-align: justify;
   }
 
