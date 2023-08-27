@@ -228,6 +228,7 @@ const CustomTour = () => {
                       minLength="10"
                       placeholder="(999) 999-9999*"
                       required
+                      // style={{ fontSize: "20px" }}
                     />
                     <div className="valid-feedback">
                       Point of contact phone number.
@@ -327,7 +328,7 @@ const CustomTour = () => {
                   {/* END MULTI-CALENDAR */}
                   {/* TRANSPORTATION */}
                   <div className="trans">
-                    <span>Transportation: </span>
+                    <span>Auto: </span>
                     <div>
                       {trans.map((car, index) => {
                         return (
@@ -447,12 +448,26 @@ const Wrapper = styled.section`
   body {
     font-weight: 400;
   }
-
+  .form-control {
+    font-size: 1.2rem;
+    font-family: inherit;
+  }
+  .form-control::placeholder {
+    font-size: 1.2rem;
+    font-family: inherit;
+  }
+  .status-box::placeholder {
+    font-size: 1.3rem;
+    font-family: inherit;
+  }
+  .status-box {
+    font-size: 4rem;
+    font-family: inherit;
+  }
   html,
   body {
     height: 100%;
   }
-
   .custom-logo {
     max-width: 20rem;
     padding-top: 20px;
@@ -494,26 +509,33 @@ const Wrapper = styled.section`
     -webkit-align-items: center;
     align-items: center;
     padding-top: 20px;
+    max-width: 695px;
   }
-
-  .form-content .form-items {
-    border: 4px solid #fff;
+  .form-items {
     padding: 20px;
-    display: inline-block;
     width: 100%;
     min-height: 40px;
     min-width: 320px;
-    max-width: 400px;
+    text-align: left;
+  }
+  .form-content {
+    border: 4px solid #fff;
+    // display: inline-block;
+    width: 100%;
+    min-height: 40px;
+    min-width: 320px;
+    max-width: 100%;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 16px;
-    text-align: left;
+    overflow: hidden;
   }
-  @media (min-width: 690px) {
+  @media (min-width: 740px) {
     .form-content .form-items {
       padding: 40px;
       width: 100%;
       min-width: 695px;
+      max-width: 100%;
     }
   }
 
@@ -521,6 +543,7 @@ const Wrapper = styled.section`
     .form-content .form-items {
       width: 100%;
       min-width: 695px;
+      max-width: 400px;
     }
   }
 
@@ -544,9 +567,9 @@ const Wrapper = styled.section`
   .form-content p {
     color: var(--clr-primary-4);
     text-align: left;
-    font-size: 17px;
+    font-size: 1.5rem;
     font-weight: 300;
-    line-height: 20px;
+    line-height: 24px;
     margin-bottom: 20px;
   }
 
@@ -567,7 +590,7 @@ const Wrapper = styled.section`
     outline: 0;
     border-radius: var(--input-radius);
     background-color: #fff;
-    font-size: 15px;
+    font-size: 1.2rem;
     font-weight: 300;
     color: #8d8d8d;
     margin-top: 16px;
@@ -604,7 +627,8 @@ const Wrapper = styled.section`
   }
 
   .form-content textarea {
-    font-family: "Times New Roman", Times, serif;
+    font-size: 1.3rem;
+    font-family: inherit;
     position: static !important;
     width: 100%;
     padding: 9px 20px;
@@ -612,7 +636,6 @@ const Wrapper = styled.section`
     text-align: left;
     background-color: #fff;
     border: 0;
-    font-size: 15px;
     font-weight: 300;
     outline: none;
     resize: none;
@@ -624,7 +647,7 @@ const Wrapper = styled.section`
 
   .form-content textarea:hover,
   .form-content textarea:focus {
-    font-family: "Times New Roman", Times, serif;
+    font-family: inherit;
     border: 0;
     background-color: var(--clr-primary-11);
     color: #8d8d8d;
@@ -641,6 +664,10 @@ const Wrapper = styled.section`
   .valid-feedback {
     color: var(--clr-primary-4);
   }
+  .text-center {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   /*
 =============== 
@@ -653,7 +680,7 @@ Comment Section
     grid-template-columns: 110px 1fr;
     align-items: center;
     margin-bottom: 1rem;
-    font-size: 0.75rem;
+    font-size: 1.3rem;
     span {
       text-transform: capitalize;
       font-weight: 700;
@@ -690,7 +717,7 @@ Comment Section
   }
   @media (min-width: 992px) {
     .trans {
-      font-size: 0.75rem;
+      font-size: 1.3rem;
     }
   }
   .active {

@@ -44,7 +44,7 @@ const Hero = () => {
 };
 
 const Wrapper = styled.section`
-  min-height: 60vh;
+  min-height: 50vh;
   display: grid;
   place-items: center;
   .img-container {
@@ -55,7 +55,7 @@ const Wrapper = styled.section`
     max-width: 45em;
     margin-bottom: 2rem;
     color: var(--clr-grey-5);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   @media (min-width: 992px) {
     height: calc(80vh - 5rem);
@@ -65,7 +65,7 @@ const Wrapper = styled.section`
       margin-bottom: 2rem;
     }
     p {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
     }
     .hero-btn {
       padding: 0.75rem 1.5rem;

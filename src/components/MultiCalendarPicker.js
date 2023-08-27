@@ -41,7 +41,8 @@ const Wrapper = styled.article`
     max-width: 100%;
     background: white;
     border: 0px solid #ffff;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
+    font-size: 1.5rem;
     line-height: 1.125em;
   }
   .react-calendar,
@@ -67,11 +68,13 @@ const Wrapper = styled.article`
   .react-calendar__navigation button {
     min-width: 44px;
     background: none;
+    font-size: 1.5rem;
   }
   .react-calendar__navigation button:enabled:hover,
   .react-calendar__navigation button:enabled:focus {
     background-color: #e6e6e6;
     border-radius: 6px;
+    font-size: 1.5rem;
   }
   .react-calendar__navigation button[disabled] {
     background-color: #f0f0f0;
@@ -111,6 +114,7 @@ const Wrapper = styled.article`
     text-align: center;
     padding: 0.75em 0.5em;
     background: none;
+    font-size: 1.2rem;
   }
   .react-calendar__tile:disabled {
     background-color: #f0f0f0;
@@ -148,8 +152,9 @@ const Wrapper = styled.article`
       max-width: 130%;
       background: white;
       border: 0px solid #ffff;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: inherit;
       line-height: 1.125em;
+      font-size: 1.5rem;
     }
     .price {
       font-size: 1.25rem;

@@ -160,7 +160,7 @@ const Wrapper = styled.main`
   .desc {
     line-height: 2;
     max-width: 45em;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .info-title {
     color: var(--clr-primary-5);

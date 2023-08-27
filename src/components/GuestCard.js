@@ -133,7 +133,7 @@ const Wrapper = styled.section`
   }
 
   .links button {
-    font-family: "Poppins", sans-serif;
+    font-family: inherit;
     min-width: 120px;
     padding: 0.5rem;
     border: 1px solid #222;

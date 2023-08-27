@@ -38,7 +38,7 @@ const Wrapper = styled.section`
     margin-bottom: 2rem;
   }
   p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 0.4rem;
     line-height: 1.8;
     color: var(--clr-primary-3);

@@ -36,23 +36,25 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(2, minmax(155px, 1fr));
     grid-auto-rows: 1.5rem;
     grid-gap: 0rem;
+    font-size: 1.2rem;
   }
   @media (min-width: 992px) {
     .distil-col {
       display: grid;
       grid-template-columns: repeat(4, minmax(155px, 1fr));
       grid-auto-rows: 1.5rem;
-      grid-gap: 0rem;
+      font-size: 1.3rem;
+      grid-gap: 0.5rem;
     }
   }
 
   @media screen and (max-width: 479px) {
     .distil-col {
       display: grid;
-
+      font-size: 1rem;
       grid-template-columns: repeat(2, minmax(150px, 1fr));
       grid-auto-rows: 1rem;
-      grid-gap: 0rem;
+      grid-gap: 0.5rem;
     }
   }
 

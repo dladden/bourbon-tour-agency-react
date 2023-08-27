@@ -157,7 +157,7 @@ const Wrapper = styled.section`
     opacity: 0.9;
   }
   p{
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   }
   .first-character {
@@ -169,6 +169,9 @@ const Wrapper = styled.section`
     padding-right: 8px;
     padding-left: 3px;
   }
+  h5{
+    font-size: 1.5rem;
+  }
 
 
   /* Section - Title */
@@ -179,9 +182,9 @@ const Wrapper = styled.section`
     margin: 0 auto;
     text-align: center;
   }
-  .title h1 {
-    font-size: 35px;
-    letter-spacing: 8px;
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
   }
 
   /* Section - Block */

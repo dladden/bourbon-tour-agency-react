@@ -101,7 +101,7 @@ const Footer = () => {
           </div>
           <div className="ft-main-item">
             <h2 className="ft-title">Stay Updated</h2>
-            <h5>
+            <h5 className="footer-text">
               If you like to stay one step ahead on your bourbon game, subscribe
               to our newsletter and follow us on Instagram or Facebook! We not
               only talk about distilleries and tours but also talk about the
@@ -143,9 +143,7 @@ const Footer = () => {
                 Privacy Policy
               </Link>
             </li>
-            <li>
-              &copy; {new Date().getFullYear()} Copyright Shelby Bourbon Tours
-            </li>
+            <li>&copy; {new Date().getFullYear()} Shelby Bourbon Tours</li>
           </ul>
         </section>
       </footer>
@@ -176,7 +174,8 @@ const Wrapper = styled.footer`
     color: var(--clr-primary-5);
   }
 
-  h5 {
+  .footer-text {
+    font-size: 1.3rem;
     text-transform: none;
     color: var(--clr-grey-3);
   }

@@ -23,7 +23,7 @@ const RequestForm = () => {
           <div className="event-card-form">
             <div className="left-form">
               <div className="qr-code-form color-form">
-                <BsFileEarmarkPdfFill size={80} />
+                <BsFileEarmarkPdfFill size={70} />
               </div>
 
               <div className="form-info">
@@ -72,7 +72,7 @@ const Wrapper = styled.section`
     gap: 20px;
   }
   .form-name {
-    font-size: 17px;
+    font-size: 20px;
   }
   @media (min-width: 576px) {
     .form-name {
@@ -97,7 +97,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
 
   .qr-code-form {
@@ -117,7 +117,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 15px;
+    font-size: 1.1rem;
     color: var(--clr-grey-2)
     margin-top: 5px;
   }

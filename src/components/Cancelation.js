@@ -12,7 +12,7 @@ const Cancelation = () => {
           <div className="event-card">
             <div className="left">
               <div className="qr-code color-1">
-                <MdFreeCancellation size={80} />
+                <MdFreeCancellation size={70} />
               </div>
 
               <div className="event-info">
@@ -64,7 +64,7 @@ const Wrapper = styled.section`
   .event-info {
   }
   .event-name {
-    font-size: 17px;
+    font-size: 1.3rem;
   }
   @media (min-width: 576px) {
     .event-name {
@@ -89,7 +89,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
 
   .qr-code {
@@ -109,7 +109,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 15px;
+    font-size: 1.1rem;
     color: #4b4b4b;
     margin-top: 5px;
   }

@@ -265,7 +265,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 15px;
+    font-size: 1.1rem;
     color: var(--clr-grey-2)
     margin-top: 5px;
   }

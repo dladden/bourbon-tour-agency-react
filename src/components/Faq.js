@@ -12,7 +12,7 @@ const Faq = () => {
           <div className="event-card-faq">
             <div className="left-faq">
               <div className="qr-code-faq color-faq">
-                <TbZoomQuestion size={80} />
+                <TbZoomQuestion size={70} />
               </div>
 
               <div className="faq-info">
@@ -86,7 +86,7 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
   }
 
   .qr-code-faq {
@@ -106,7 +106,7 @@ const Wrapper = styled.section`
   }
 
   .event-detail {
-    font-size: 15px;
+    font-size: 1.1rem;
     color: var(--clr-grey-2)
     margin-top: 5px;
   }
