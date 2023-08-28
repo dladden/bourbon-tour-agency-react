@@ -147,6 +147,8 @@ const Wrapper = styled.main`
     gap: 2rem;
     margin-top: 2rem;
   }
+  .content {
+  }
   .title-icon {
     display: flex;
     justify-content: space-between;

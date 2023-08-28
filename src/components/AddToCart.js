@@ -144,6 +144,7 @@ const Wrapper = styled.section`
   margin-top: 2rem;
 
   .calendar {
+    width: 100%;
   }
   .trans {
     // display: grid;
@@ -160,7 +161,7 @@ const Wrapper = styled.section`
   }
   .trans-btn {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
     background: none;
     border: none;
     cursor: pointer;

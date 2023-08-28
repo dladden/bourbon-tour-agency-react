@@ -44,7 +44,7 @@ const Wrapper = styled.section`
     footer h5 {
       margin-bottom: 0;
       font-weight: 500;
-      font-size: 15px;
+      font-size: 1rem;
     }
     footer p {
       margin-bottom: 0;

@@ -63,6 +63,7 @@ const Wrapper = styled.section`
     font-size: 1.2rem;
   }
   p {
+    font-size: 1.3rem;
     max-width: 45em;
     margin-bottom: 1rem;
   }

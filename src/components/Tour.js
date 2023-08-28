@@ -72,10 +72,10 @@ const Wrapper = styled.article`
   .price {
     color: var(--clr-primary-5);
     margin-bottom: 0.75rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   .name {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .container:hover img {

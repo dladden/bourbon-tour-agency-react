@@ -33,12 +33,11 @@ const Wrapper = styled.article`
   .react-calendar {
     display: inline;
     float: none;
-    width: 400px;
+    width: 100%;
     max-width: 100%;
     background: white;
     border: 0px solid #ffff;
     font-family: inherit;
-    font-size: 1.5rem;
     line-height: 1.125em;
   }
   .react-calendar,
