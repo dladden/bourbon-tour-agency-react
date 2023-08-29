@@ -95,7 +95,11 @@ const Footer = () => {
             <div className="location">
               <MdLocationPin className="location-item" />
             </div>
-            <a href="https://goo.gl/maps/epvHggAnfnQE5jLK9" target="_blank">
+            <a
+              className="location-text"
+              href="https://goo.gl/maps/epvHggAnfnQE5jLK9"
+              target="_blank"
+            >
               Shelbyville, KY
             </a>
           </div>
@@ -184,6 +188,7 @@ const Wrapper = styled.footer`
     text-decoration: underline;
   }
   .ft-title {
+    text-decoration: underline;
     color: var(--clr-primary-5);
     font-size: 1.375rem;
     padding-bottom: 0.625rem;
@@ -237,6 +242,9 @@ const Wrapper = styled.footer`
     min-width: 12.5rem;
     padding-left: 2rem;
   }
+  .ft-main-item ul li {
+    font-size: 1.3rem;
+  }
 
   /* Footer social */
   .social-links {
@@ -250,11 +258,14 @@ const Wrapper = styled.footer`
     transition: var(--transition);
   }
   .location-item {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--clr-grey-1);
   }
   .location {
     padding-left: 2.5rem;
+  }
+  .location-text {
+    font-size: 1.3rem;
   }
   .ft-social {
     padding: 0 1.875rem 1.25rem;
