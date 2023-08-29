@@ -22,8 +22,6 @@ const LinkButton = ({ tour }) => {
 const Wrapper = styled.section`
   margin-top: 2rem;
   .trans {
-    display: grid;
-    grid-template-columns: 125px 1fr;
     align-items: center;
     margin-bottom: 1rem;
     span {
