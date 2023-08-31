@@ -11,7 +11,7 @@ const CustomConfirmationPage = () => {
       <Seo
         title="Form Submission Confirmation"
         content="Confirmation of submission to Shelby Bourbon Tours Custom Tours Form."
-        robots="noindex"
+        robots="index"
         href="/submission-confirmation"
       />
       <PageHero title="Submission Confirmed" />

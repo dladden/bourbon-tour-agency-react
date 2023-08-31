@@ -19,7 +19,7 @@ const CheckoutPage = () => {
       <Seo
         title="Checkout"
         content="Shelby Bourbon Tours Checkout Page find tours to add to the cart from Distilleries like Four Roses, Three Boys, Jeptha Creed and much more."
-        robots="noindex"
+        robots="index"
         href="/checkout"
       />
       <PageHero title="checkout" />

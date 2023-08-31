@@ -11,7 +11,7 @@ const ConfirmationPage = () => {
       <Seo
         title="Confirmation"
         content="Shelby Bourbon Tours Confirmation of the Order"
-        robots="noindex"
+        robots="index"
         href="/confirmation"
       />
       <PageHero title="Confirmation" />
