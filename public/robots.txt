@@ -1,5 +1,3 @@
 
 User-agent: *
-Disallow: /submission-confirmation
-Disallow: /confirmation
-Disallow: /checkout
+Allow: /
