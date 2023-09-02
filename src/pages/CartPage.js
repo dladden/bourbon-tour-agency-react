@@ -1,3 +1,4 @@
+import "@fontsource/cormorant-garamond/700.css";
 import React from "react";
 import styled from "styled-components";
 import { useCartContext } from "../context/cart_context";

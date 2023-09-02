@@ -1,3 +1,4 @@
+import "@fontsource/cormorant-garamond/700.css";
 import React from "react";
 import { about0, about1, about2 } from "../utils/constants";
 import styled from "styled-components";
@@ -216,7 +217,6 @@ const Wrapper = styled.section`
     padding-top: 200px;
     padding-bottom: 200px;
     overflow: hidden;
-    position: relative;
     width: 100%;
     border-radius: var(--images-radius);
     background-image: url(${aboutImg0});

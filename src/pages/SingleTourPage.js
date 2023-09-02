@@ -1,3 +1,4 @@
+import "@fontsource/cormorant-garamond/700.css";
 import React, { useEffect } from "react";
 import {
   GiBarrel,

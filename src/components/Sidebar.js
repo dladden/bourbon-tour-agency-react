@@ -24,6 +24,8 @@ const Sidebar = () => {
             className="logo"
             title="Shelby Bourbon Tours Logo"
             alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+            width="214"
+            height="45"
           />
           <button className="close-btn" type="button" onClick={closeSidebar}>
             <FaTimes />

@@ -15,6 +15,8 @@ const Footer = () => {
               src={seal}
               title="Shelby Bourbon Tours Wax Seal"
               alt="Shelby Bourbon Tours Wax Seal with Lion holding Bourbon Bottle in the Left Paw"
+              width="904"
+              height="416"
             />
           </div>
           <div className="ft-main-item">
@@ -85,9 +87,11 @@ const Footer = () => {
                   Cancellations
                 </Link>
               </li>
-              <Link smooth to="/faq#questions">
-                Advertise
-              </Link>
+              <li>
+                <Link smooth to="/faq#questions">
+                  Advertise
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="ft-main-item">

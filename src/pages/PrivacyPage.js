@@ -1,3 +1,4 @@
+import "@fontsource/cormorant-garamond/700.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import privacy_data from "../utils/privacy_data"; //default export always resolves to default name

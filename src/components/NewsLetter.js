@@ -14,6 +14,8 @@ const NewsLetter = () => {
           src={logo}
           title="Shelby Bourbon Tours Newsletter"
           alt="Our News Letter glass of Bourbon paired with cigar"
+          width="1170"
+          height="251"
         />
         <div className="content">
           <p>
@@ -64,11 +66,12 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
   }
   .newsletter {
+    max-width: 100%;
+    height: auto;
   }
   .contact-form {
     padding-top: 1rem;
     width: 90vw;
-
     display: grid;
     grid-template-columns: 1fr auto;
   }

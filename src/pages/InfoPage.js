@@ -1,3 +1,4 @@
+import "@fontsource/cormorant-garamond/700.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import info_data from "../utils/info_data"; //default export always resolves to default name

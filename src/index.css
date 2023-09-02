@@ -67,7 +67,7 @@ Global Styles
 }
 /* All body styling + font */
 body {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond", sans-serif;
   background: var(--clr-white);
   color: var(--clr-grey-1);
   line-height: 1.5;
@@ -93,7 +93,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond", sans-serif;
   letter-spacing: var(--spacing);
   text-transform: capitalize;
   line-height: 1.25;
