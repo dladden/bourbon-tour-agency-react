@@ -145,6 +145,8 @@ const CustomTour = () => {
                     src={c_tour}
                     title="Shelby Bourbon Tours Logo"
                     alt="Shelby Bourbon Tours Logo of A Lion with a Bourbon Bottle in the Left Paw"
+                    width="320"
+                    height="345"
                   />
                 </div>
                 <div className="form-heading">

@@ -22,12 +22,16 @@ const MyComponent = () => {
       src={logo2}
       title="Shelby Bourbon Tours Logo"
       alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+      width="250"
+      height="55"
     />
   ) : (
     <img
       src={logo1}
       title="Shelby Bourbon Tours Logo"
       alt="Shelby Bourbon Tours Logo of A Lion and a Bottle of Bourbon in the Left Paw"
+      width="300"
+      height="63"
     />
   );
 };

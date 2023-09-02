@@ -11,7 +11,7 @@ const OwnerCard = () => {
       <div className="container">
         <div className="team">
           <div className="member">
-            <img src={owner} alt="member_image" />
+            <img src={owner} alt="member_image" width="90" height="90" />
             <h3>Steven</h3>
             <h4>(502) 216-0678</h4>
             <span>
@@ -30,7 +30,8 @@ const OwnerCard = () => {
                 src={contactQR}
                 title="QR code to Shelby Bourbon Tours Contact Page"
                 alt="QR code to Shelby Bourbon Tours Contact Page"
-                className={{ height: 90, width: 90 }}
+                width="90"
+                height="90"
               />
             </div>
             <div className="social-links ">
