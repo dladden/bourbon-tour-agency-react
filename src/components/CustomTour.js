@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios"; //axios for post function request
 import styled from "styled-components";
 import Multiselect from "react-select";
@@ -58,11 +58,7 @@ const CustomTour = () => {
   //checkbox confirming that the tour must be reviewed
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
-  //invisible reCaptcha
-  // const recaptchaRef = useRef(null);
-  // const [captchaIsDone, setCaptchaIsDone] = useState(false);
 
-  // const recaptchaRef = useRef(null);
   //useNavigate for navigation with timeout
   const navigate = useNavigate();
   //ReCaptcha

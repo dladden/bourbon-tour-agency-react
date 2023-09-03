@@ -74,7 +74,10 @@ const SingleTourPage = () => {
     rev_url,
   } = tour;
   //id is passed to addToCart to check uniqueness in the cart
-
+  const DefaultIcon = () => {
+    // Return your default icon component here
+    return <GiBarrel />;
+  };
   const renderIcon = () => {
     switch (category) {
       case "tour":
@@ -85,6 +88,8 @@ const SingleTourPage = () => {
         return <GiGlassShot />;
       case "event":
         return <GiTicket />;
+      default:
+        return <DefaultIcon />;
     }
   };
 

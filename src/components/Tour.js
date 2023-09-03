@@ -6,6 +6,10 @@ import { AiFillSchedule } from "react-icons/ai";
 import { Link } from "react-router-dom";
 //tour displays the featured tours on the home page
 const Tour = ({ url, category, name, price, id }) => {
+  const DefaultIcon = () => {
+    // Return your default icon component here
+    return <GiBarrel />;
+  };
   const renderIcon = () => {
     switch (category) {
       case "tour":
@@ -16,6 +20,8 @@ const Tour = ({ url, category, name, price, id }) => {
         return <GiGlassShot size={23} />;
       case "event":
         return <GiTicket size={23} />;
+      default:
+        return <DefaultIcon />;
     }
   };
 

@@ -9,6 +9,10 @@ const ListView = ({ tours }) => {
     <Wrapper>
       {tours.map((tour) => {
         const { id, category, url, name, price, desc } = tour;
+        const DefaultIcon = () => {
+          // Return your default icon component here
+          return <GiBarrel />;
+        };
         const renderIcon = () => {
           switch (category) {
             case "tour":
@@ -19,6 +23,8 @@ const ListView = ({ tours }) => {
               return <GiGlassShot size={23} />;
             case "event":
               return <GiTicket size={23} />;
+            default:
+              return <DefaultIcon />;
           }
         };
         return (

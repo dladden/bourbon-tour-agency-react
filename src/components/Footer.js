@@ -103,6 +103,7 @@ const Footer = () => {
               className="location-text"
               href="https://goo.gl/maps/epvHggAnfnQE5jLK9"
               target="_blank"
+              rel="noreferrer"
             >
               Shelbyville, KY
             </a>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaPlus, FaMinus } from "react-icons/fa";
 import styled from "styled-components";
 
 //Question component receives passed values from PageInfo and structures
