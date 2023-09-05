@@ -43,7 +43,12 @@ const Nav = () => {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">{MyComponent()}</Link>
-          <button type="button" className="nav-toggle" onClick={openSidebar}>
+          <button
+            type="button"
+            className="nav-toggle"
+            onClick={openSidebar}
+            aria-label={openSidebar ? "Close Menu" : "Open Menu"}
+          >
             <FaBars />
           </button>
         </div>
