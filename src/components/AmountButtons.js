@@ -7,11 +7,21 @@ const AmountButtons = ({ increase, decrease, guest }) => {
   return (
     <Wrapper className="amount-btns">
       {/* decrease passed as a reference to AddToCart */}
-      <button type="button" className="amount-btn" onClick={decrease}>
+      <button
+        type="button"
+        className="amount-btn"
+        onClick={decrease}
+        aria-label="Decrease Amount"
+      >
         <FaMinus />
       </button>
       <h2 className="guests">{guest}</h2>
-      <button type="button" className="amount-btn" onClick={increase}>
+      <button
+        type="button"
+        className="amount-btn"
+        onClick={increase}
+        aria-label="Increase Amount"
+      >
         <FaPlus />
       </button>
       <div className="guest-selector"></div>

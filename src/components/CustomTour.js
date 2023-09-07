@@ -170,9 +170,9 @@ const CustomTour = () => {
                       placeholder="Tour Name*"
                       required
                     />
-                    <div className="valid-feedback">
+                    <label for="tour_name" className="valid-feedback">
                       Give your tour a unique name.
-                    </div>
+                    </label>
                   </div>
                   {/* END TOUR NAME */}
                   {/*GUEST NAME */}
@@ -189,9 +189,9 @@ const CustomTour = () => {
                       placeholder="Full Name*"
                       required
                     />
-                    <div className="valid-feedback">
+                    <label for="guest_name" className="valid-feedback">
                       Provide a point of contact for your tour.
-                    </div>
+                    </label>
                   </div>
                   {/*END GUEST NAME */}
                   {/* EMAIL */}
@@ -208,9 +208,9 @@ const CustomTour = () => {
                       placeholder="E-mail Address*"
                       required
                     />
-                    <div className="valid-feedback">
+                    <label for="guest_email" className="valid-feedback">
                       Valid point of contact email.
-                    </div>
+                    </label>
                   </div>
                   {/* END EMAIL */}
                   {/* PHONE NUMBER */}
@@ -228,15 +228,16 @@ const CustomTour = () => {
                       required
                       // style={{ fontSize: "20px" }}
                     />
-                    <div className="valid-feedback">
+                    <label for="phone_number" className="valid-feedback">
                       Point of contact phone number.
-                    </div>
+                    </label>
                   </div>
                   {/* MULTI SELECT DISTILLERIES */}
                   <div className="col-md-12">
                     <div className="form-select mt-3" required>
                       <div>
                         <Multiselect
+                          id="distillery_select"
                           closeIcon={"circle"}
                           isObject={false}
                           // value={selectedValue}
@@ -263,9 +264,9 @@ const CustomTour = () => {
                         />
                       </div>
                     </div>
-                    <div className="valid-feedback">
+                    <label for="distillery_select" className="valid-feedback">
                       Select distilleries you are interested in.
-                    </div>
+                    </label>
                   </div>
                   {/* MULTI SELECT DISTILLERIES END */}
                   {/* RESERVATION */}
@@ -281,11 +282,11 @@ const CustomTour = () => {
                       name="reservation"
                       placeholder="Reservations & Tastings"
                     />
-                    <div className="valid-feedback">
+                    <label for="reservation" className="valid-feedback">
                       If you are looking for private tour reservation, add a
                       distillery name here. NOTE: Private tour reservation must
                       be made 4 weeks in advance.
-                    </div>
+                    </label>
                   </div>
                   {/* COMMENT */}
                   <div className="container">
@@ -301,6 +302,9 @@ const CustomTour = () => {
                         rows="2"
                         placeholder="Add as much details as possible..."
                       ></textarea>
+                      <label for="guest_comment" className="valid-feedback">
+                        Leave a comment.
+                      </label>
                     </div>
                     {/* </form> */}
 
@@ -402,14 +406,13 @@ const CustomTour = () => {
                   <div className="form-check">
                     <input
                       onClick={handleClick}
-                      defaultChecked={checked}
                       className="form-check-input"
                       type="checkbox"
                       value=""
                       id="invalidCheck"
                       required
                     />
-                    <label className="form-check-label">
+                    <label for="invalidCheck" className="form-check-label">
                       {" "}
                       I confirm that my tour will be reviewed.
                     </label>
@@ -640,7 +643,6 @@ const Wrapper = styled.section`
     height: 120px;
     -webkit-transition: none;
     transition: none;
-    margin-bottom: 14px;
   }
 
   .form-content textarea:hover,
