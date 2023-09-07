@@ -27,7 +27,14 @@ const Sidebar = () => {
             width="214"
             height="45"
           />
-          <button className="close-btn" type="button" onClick={closeSidebar}>
+          <button
+            alt="Close Button"
+            role="button"
+            aria-label="Close Menu"
+            className="close-btn"
+            type="button"
+            onClick={closeSidebar}
+          >
             <FaTimes />
           </button>
         </div>

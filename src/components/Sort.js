@@ -20,15 +20,17 @@ const Sort = () => {
           type="button"
           className={`${grid_view ? "active" : null}`}
           onClick={setGridView}
+          aria-label="Grid View of the Tours"
         >
-          <BsGridFill size={28} />
+          <BsGridFill size={28} alt="Grid View Button" />
         </button>
         <button
+          aria-label="List View of the Tours"
           type="button"
           className={`${!grid_view ? "active" : null}`}
           onClick={setListView}
         >
-          <FaList size={30} />
+          <FaList size={30} alt="List View Button" />
         </button>
       </div>
       <p> Total {tours.length}: Tours, Stays, Events. </p>

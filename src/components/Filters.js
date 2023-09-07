@@ -44,7 +44,7 @@ const Filters = () => {
           {/* END SEARCH INPUT */}
           {/* CATEGORIES */}
           <div className="form-control">
-            <h4>Category</h4>
+            <h4>Category:</h4>
             <div>
               {categories.map((c, i) => {
                 return (
@@ -66,10 +66,12 @@ const Filters = () => {
           {/* END CATEGORIES */}
           {/* DISTILLERIES SELECTION*/}
           <div className="form-control">
-            <h4>Distilleries</h4>
+            <label className="label" for="whiskey-bourbon-distilleries">
+              Distilleries:
+            </label>
             <select
-              id="distillery"
-              name="distillery"
+              id="whiskey-bourbon-distilleries"
+              name="whiskey-bourbon-distilleries"
               value={distillery}
               onChange={updateFilters}
               className="distillery-select"
@@ -88,11 +90,14 @@ const Filters = () => {
           {/* END TRANSPORTATION SELECTION*/}
           {/* PRICE (controlled input)*/}
           <div className="form-control">
-            <h4>Price</h4>
+            <label for="price-input" className="label">
+              Price Range:
+            </label>
             <p className="price">{priceFormat(price)}</p>
             <input
               type="range"
               name="price"
+              id="price-input"
               className="price-input"
               onChange={updateFilters}
               min={min_price}
@@ -143,6 +148,12 @@ const Wrapper = styled.section`
   .search-input::placeholder {
     text-transform: capitalize;
   }
+  .label {
+    line-height: 1.25;
+    padding-bottom: rem;
+    letter-spacing: var(--spacing);
+    font-size: 1.3rem;
+  }
   button {
     font-size: 1.3rem;
     display: block;
@@ -160,6 +171,7 @@ const Wrapper = styled.section`
     border-color: var(--clr-grey-5);
   }
   .distillery-select {
+    display: block;
     color: var(--clr-primary-5);
     font-family: inherit;
     font-size: 1.2rem;
@@ -234,11 +246,11 @@ const Wrapper = styled.section`
     align-items: center;
     text-transform: capitalize;
     column-gap: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     max-width: 200px;
   }
   .clear-btn {
-    background: var(--clr-primary-8);
+    background: var(--clr-primary-5);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--small-btn-radius);

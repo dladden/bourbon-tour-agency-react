@@ -33,7 +33,13 @@ const FeaturedTours = () => {
           return <Tour key={tour.id} {...tour} />; //spreading the tours using the spread operator
         })}
       </div>
-      <Link smooth to="/tours#tours-list" className="btn">
+      <Link
+        smooth
+        to="/tours#tours-list"
+        className="btn"
+        alt="Link to All Tours"
+        aria-label="Link to All Tours"
+      >
         Tours
       </Link>
     </Wrapper>

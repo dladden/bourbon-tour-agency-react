@@ -29,8 +29,8 @@ const Tour = ({ url, category, name, price, id }) => {
     <Wrapper>
       <div className="container">
         <img src={url} title={name} alt={name} />
-        <Link to={`/tours/${id}`} className="link">
-          <AiFillSchedule />
+        <Link to={`/tours/${id}`} className="link" aria-label="Link to Tour">
+          <AiFillSchedule alt="Link to Tour" />
         </Link>
       </div>
       <footer>
