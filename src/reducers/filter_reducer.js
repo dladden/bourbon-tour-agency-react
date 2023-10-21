@@ -7,7 +7,7 @@ import {
   CLEAR_FILTERS,
   SORT_TOURS,
   FILTER_TOURS,
-} from "../actions";
+} from '../actions';
 //HOOKS can only be invoked in another hook or in react component
 //This filter reducer is a simple function responsible for filtering functionality
 
@@ -48,22 +48,22 @@ const filter_reducer = (state, action) => {
   if (action.type === SORT_TOURS) {
     const { sort, filtered_tours } = state;
     let tempTours = [...filtered_tours]; //making sure array is not empty
-    if (sort === "all") {
+    if (sort === 'all') {
       tempTours = tempTours.sort((x, y) => y.price - x.price);
     }
 
-    if (sort === "best-sell") {
+    if (sort === 'best-sell') {
       //sort function with access to x=current item and y = next item
       //this sort function works by comparison
       tempTours = tempTours.filter((tour) => tour.best_sell === true);
     }
 
-    if (sort === "price-lowest") {
+    if (sort === 'price-lowest') {
       //sort function with access to x=current item and y = next item
       //this sort function works by comparison
       tempTours = tempTours.sort((x, y) => x.price - y.price);
     }
-    if (sort === "price-highest") {
+    if (sort === 'price-highest') {
       //expanded logic for sorting
       tempTours = tempTours.sort((x, y) => {
         if (x.price < y.price) {
@@ -75,12 +75,12 @@ const filter_reducer = (state, action) => {
         return 0;
       });
     }
-    if (sort === "name-highest") {
+    if (sort === 'name-highest') {
       tempTours = tempTours.sort((x, y) => {
         return x.name.localeCompare(y.name);
       });
     }
-    if (sort === "name-lowest") {
+    if (sort === 'name-lowest') {
       tempTours = tempTours.sort((x, y) => {
         return y.name.localeCompare(x.name);
       });
@@ -100,7 +100,7 @@ const filter_reducer = (state, action) => {
   //FILTERS TOURS filtering logic is handled here
   if (action.type === FILTER_TOURS) {
     const { all_tours } = state;
-    const { search_text, category, distillery, price, special_res } =
+    const { search_text, category, distillery, transport, price, special_res } =
       state.filters;
     let tempTours = [...all_tours]; //using all tours for filtering and as default when no if-statements hit
     //(value overwritten in every if-statement)
@@ -112,11 +112,11 @@ const filter_reducer = (state, action) => {
       // and push it to filtered_tours with "filtered_tours: tempTours"
     } //end if search_text
 
-    if (category !== "all") {
+    if (category !== 'all') {
       tempTours = tempTours.filter((tour) => tour.category === category);
     } //if not "all" then filter when chosen category matches the category data in the tour 'tour.category'
 
-    if (distillery !== "all") {
+    if (distillery !== 'all') {
       tempTours = tempTours.filter((tour) => {
         return tour.dist.find((d) => d === distillery);
       });
@@ -136,10 +136,10 @@ const filter_reducer = (state, action) => {
       ...state,
       filters: {
         ...state.filters,
-        search_text: "",
-        category: "all",
-        distillery: "all",
-        transport: "all",
+        search_text: '',
+        category: 'all',
+        distillery: 'all',
+        transport: 'all',
         price: state.filters.max_price, //accessing max price through state
         special_res: false,
       },

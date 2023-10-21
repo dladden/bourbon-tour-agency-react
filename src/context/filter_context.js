@@ -1,5 +1,5 @@
-import React, { useEffect, useContext, useReducer } from "react";
-import reducer from "../reducers/filter_reducer";
+import React, { useEffect, useContext, useReducer } from 'react';
+import reducer from '../reducers/filter_reducer';
 import {
   LOAD_TOURS,
   SET_GRIDVIEW,
@@ -9,9 +9,9 @@ import {
   UPDATE_FILTERS,
   FILTER_TOURS,
   CLEAR_FILTERS,
-} from "../actions";
+} from '../actions';
 //Grabbing the context from the tour_context hook
-import { useToursContext } from "./tours_context";
+import { useToursContext } from './tours_context';
 //Filter Context is responsible for providing
 //two properties: filtered - changes as the user changes the filter;
 //all_tours - stays the same, used to return to default
@@ -22,12 +22,12 @@ const initialState = {
   filtered_tours: [], //initially an empty array
   all_tours: [],
   grid_view: false,
-  sort: "all",
+  sort: 'all',
   filters: {
-    search_text: "",
-    category: "all",
-    distillery: "all",
-    transport: "all",
+    search_text: '',
+    category: 'all',
+    distillery: 'all',
+    transport: 'all',
     min_price: 0,
     max_price: 0,
     price: 0,
@@ -84,19 +84,19 @@ export const FilterProvider = ({ children }) => {
     let value = e.target.value; //the value of the action
     //unable to reach the value using dot value in category
     //to bypass this we use a textContent property to get the text in the button
-    if (name === "category") {
+    if (name === 'category') {
       value = e.target.textContent;
     }
     //catching the data from the filter.js transportation portion
-    if (name === "transport") {
+    if (name === 'transport') {
       value = e.target.dataset.transport;
     }
     //using javascript Number package to confirm/covert value to integer always
-    if (name === "price") {
+    if (name === 'price') {
       value = Number(value);
     }
     //getting the checked target from the Special Reservation in filters.js
-    if (name === "special_res") {
+    if (name === 'special_res') {
       value = e.target.checked;
     }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } });

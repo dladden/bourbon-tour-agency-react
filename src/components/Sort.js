@@ -1,8 +1,8 @@
-import React from "react";
-import { useFilterContext } from "../context/filter_context";
-import { BsGridFill } from "react-icons/bs";
-import { FaList } from "react-icons/fa";
-import styled from "styled-components";
+import React from 'react';
+import { useFilterContext } from '../context/filter_context';
+import { BsGridFill } from 'react-icons/bs';
+import { FaList } from 'react-icons/fa';
+import styled from 'styled-components';
 const Sort = () => {
   //accessing context from filter_context.js
   const {
@@ -18,7 +18,7 @@ const Sort = () => {
       <div className="btn-container">
         <button
           type="button"
-          className={`${grid_view ? "active" : null}`}
+          className={`${grid_view ? 'active' : null}`}
           onClick={setGridView}
           aria-label="Grid View of the Tours"
         >
@@ -27,7 +27,7 @@ const Sort = () => {
         <button
           aria-label="List View of the Tours"
           type="button"
-          className={`${!grid_view ? "active" : null}`}
+          className={`${!grid_view ? 'active' : null}`}
           onClick={setListView}
         >
           <FaList size={30} alt="List View Button" />
@@ -37,7 +37,7 @@ const Sort = () => {
       <hr />
       {/* //sort with LABEL: sort */}
       <form>
-        <label htmlFor="sort">Sort By</label>
+        <label htmlFor="sort">Sort By </label>
         <select
           name="sort"
           id="sort"

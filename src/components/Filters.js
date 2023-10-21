@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { useFilterContext } from "../context/filter_context";
-import { getUniqueValues, priceFormat } from "../utils/helpers";
+import React from 'react';
+import styled from 'styled-components';
+import { useFilterContext } from '../context/filter_context';
+import { getUniqueValues, priceFormat } from '../utils/helpers';
 const Filters = () => {
   //importing the filter context
   //search_text - used in the SEARCH INPUT to get the value: actual text and the name of the action: "search_text"
@@ -22,8 +22,8 @@ const Filters = () => {
     all_tours,
   } = useFilterContext();
   //These functions pass in the raw data and a string with a name for an array which are used in getUniqueValues
-  const categories = getUniqueValues(all_tours, "category");
-  const distilleries = getUniqueValues(all_tours, "dist");
+  const categories = getUniqueValues(all_tours, 'category');
+  const distilleries = getUniqueValues(all_tours, 'dist');
   // const transportation = getUniqueValues(all_tours, "trans");
   return (
     <Wrapper>
@@ -54,7 +54,7 @@ const Filters = () => {
                     name="category"
                     type="button"
                     className={`${
-                      category === c.toLowerCase() ? "active" : null
+                      category === c.toLowerCase() ? 'active' : null
                     }`}
                   >
                     {c}
@@ -70,8 +70,8 @@ const Filters = () => {
               Distilleries:
             </label>
             <select
-              id="whiskey-bourbon-distilleries"
-              name="whiskey-bourbon-distilleries"
+              id="distillery"
+              name="distillery"
               value={distillery}
               onChange={updateFilters}
               className="distillery-select"
