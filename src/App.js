@@ -1,7 +1,7 @@
-import React from "react"; //adding React functionality into the file from the node_modules
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, Sidebar, Footer } from "./components";
-import "react-calendar/dist/Calendar.css";
+import React from 'react'; //adding React functionality into the file from the node_modules
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar, Sidebar, Footer } from './components';
+import 'react-calendar/dist/Calendar.css';
 //Importing the pages from index.js this is done so that it can be called in the app when needed
 import {
   Home,
@@ -18,7 +18,7 @@ import {
   Tours,
   PrivateRoute,
   AuthWrapper,
-} from "./pages";
+} from './pages';
 
 //Using tag-template-literals with styled-component called button
 // const Button = styled.button``;
@@ -45,7 +45,7 @@ function App() {
           <Route path="/faq" element={<InfoPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/tours" element={<Tours />} />
-          <Route path="/tours/:id" element={<SingleTour />} />
+          <Route path="/tours/:url_id" element={<SingleTour />} />
           <Route
             path="/confirmation"
             element={

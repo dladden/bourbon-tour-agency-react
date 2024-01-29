@@ -1,24 +1,24 @@
-import React from "react";
-import { GiBarrel, GiSaloon, GiGlassShot, GiTicket } from "react-icons/gi";
-import styled from "styled-components";
-import { priceFormat } from "../utils/helpers"; //component for formatting the price
-import { AiFillSchedule } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { GiBarrel, GiSaloon, GiGlassShot, GiTicket } from 'react-icons/gi';
+import styled from 'styled-components';
+import { priceFormat } from '../utils/helpers'; //component for formatting the price
+import { AiFillSchedule } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 //tour displays the featured tours on the home page
-const Tour = ({ url, category, name, price, id }) => {
+const Tour = ({ url, category, name, price, url_id }) => {
   const DefaultIcon = () => {
     // Return your default icon component here
     return <GiBarrel />;
   };
   const renderIcon = () => {
     switch (category) {
-      case "tour":
+      case 'tour':
         return <GiBarrel size={23} />;
-      case "stay":
+      case 'stay':
         return <GiSaloon size={23} />;
-      case "food":
+      case 'food':
         return <GiGlassShot size={23} />;
-      case "event":
+      case 'event':
         return <GiTicket size={23} />;
       default:
         return <DefaultIcon />;
@@ -29,7 +29,11 @@ const Tour = ({ url, category, name, price, id }) => {
     <Wrapper>
       <div className="container">
         <img src={url} title={name} alt={name} />
-        <Link to={`/tours/${id}`} className="link" aria-label="Link to Tour">
+        <Link
+          to={`/tours/${url_id}`}
+          className="link"
+          aria-label="Link to Tour"
+        >
           <AiFillSchedule alt="Link to Tour" />
         </Link>
       </div>

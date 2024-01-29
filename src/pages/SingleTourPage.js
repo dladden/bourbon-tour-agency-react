@@ -1,16 +1,16 @@
-import "@fontsource/cormorant-garamond/700.css";
-import React, { useEffect } from "react";
+import '@fontsource/cormorant-garamond/700.css';
+import React, { useEffect } from 'react';
 import {
   GiBarrel,
   GiSaloon,
   GiGlassShot,
   GiBeerBottle,
   GiTicket,
-} from "react-icons/gi";
-import { useParams, useNavigate } from "react-router-dom"; //hooks from react router dom to access the url parameters
-import { useToursContext } from "../context/tours_context";
-import { single_tour_url as url } from "../utils/constants"; //single product url ending with ending: '?id=' calling it url
-import { priceFormat } from "../utils/helpers";
+} from 'react-icons/gi';
+import { useParams, useNavigate } from 'react-router-dom'; //hooks from react router dom to access the url parameters
+import { useToursContext } from '../context/tours_context';
+import { single_tour_url as url } from '../utils/constants'; //single product url ending with ending: '?id=' calling it url
+import { priceFormat } from '../utils/helpers';
 import {
   Seo,
   Loading,
@@ -20,14 +20,14 @@ import {
   LinkButton,
   Stars,
   PageHero,
-} from "../components";
-import styled from "styled-components";
-import "react-calendar/dist/Calendar.css";
-import { HashLink as Link } from "react-router-hash-link";
+} from '../components';
+import styled from 'styled-components';
+import 'react-calendar/dist/Calendar.css';
+import { HashLink as Link } from 'react-router-hash-link';
 //Page responsible for layout of akk component for single tour
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
-  const { id } = useParams(); //getting the id property in the object
+  const { url_id } = useParams(); //getting the id property in the object
   const navigate = useNavigate(); //getting the history from reactRouter Dom
   //pulling the variables from the context hook
 
@@ -41,16 +41,18 @@ const SingleTourPage = () => {
   //React Warning: React Hook useEffect has a missing dependency. to disable the
   //warning "eslint-disable-next-line" is used
   useEffect(() => {
-    fetchSingleTour(`${url}${id}`);
+    fetchSingleTour(`${url}${url_id}`);
     // eslint-disable-next-line
-  }, [id]);
+  }, [url_id]);
+  console.log('usePrams url', url);
+  console.log('usePrams id', url_id);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        navigate("/");
-      }, 3000); //3000 miliseconds
+        navigate('/');
+      }, 3000); //3000 milliseconds
     }
     //eslint-disable-next-line
   }, [error]);
@@ -73,6 +75,7 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
+  console.log('tour from context', tour);
   //id is passed to addToCart to check uniqueness in the cart
   const DefaultIcon = () => {
     // Return your default icon component here
@@ -80,13 +83,13 @@ const SingleTourPage = () => {
   };
   const renderIcon = () => {
     switch (category) {
-      case "tour":
+      case 'tour':
         return <GiBarrel />;
-      case "stay":
+      case 'stay':
         return <GiSaloon />;
-      case "food":
+      case 'food':
         return <GiGlassShot />;
-      case "event":
+      case 'event':
         return <GiTicket />;
       default:
         return <DefaultIcon />;

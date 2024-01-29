@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useContext, useEffect, useReducer } from "react";
-import reducer from "../reducers/tours_reducer";
+import axios from 'axios';
+import React, { useContext, useEffect, useReducer } from 'react';
+import reducer from '../reducers/tours_reducer';
 //tours_url is imported from out constants and called url in this file
-import { tours_url as url } from "../utils/constants";
+import { tours_url as url } from '../utils/constants';
 import {
   SIDEBAR_OPEN,
   SIDEBAR_CLOSE,
@@ -12,7 +12,7 @@ import {
   GET_SINGLE_TOUR_BEGIN,
   GET_SINGLE_TOUR_SUCCESS,
   GET_SINGLE_TOUR_ERROR,
-} from "../actions";
+} from '../actions';
 //the Tours Context uses the useReducer
 //It also uses state to control the application state and dispatch for the control of the state
 const initialState = {
@@ -47,6 +47,7 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url);
       const tours = response.data; //data is in the array property stored to tours
+      console.log('tours ', tours);
       //React dispatch ACTION
       dispatch({ type: GET_TOURS_SUCCESS, payload: tours }); //action setup (dispatch called GET_SINGLE_TOUR_SUCCESS with payload of tours)
     } catch (error) {
@@ -59,6 +60,7 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url); //using axios for asynchronous http request
       const singleTour = response.data;
+      console.log('single tours ', singleTour);
       dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour.fields }); //dispatching an action with payload of the singleTour with data
     } catch (error) {
       dispatch({ type: GET_SINGLE_TOUR_ERROR });
