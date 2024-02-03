@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/checkout_list_border.svg";
-import card from "../assets/checkout_card.svg";
-import styled from "styled-components";
-import Multiselect from "react-select";
-import { country_data, checkout_clause } from "../utils/constants";
-import { loadStripe } from "@stripe/stripe-js"; //function from Stripe for React
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/checkout_list_border.svg';
+import card from '../assets/checkout_card.svg';
+import styled from 'styled-components';
+import Multiselect from 'react-select';
+import { country_data, checkout_clause } from '../utils/constants';
+import { loadStripe } from '@stripe/stripe-js'; //function from Stripe for React
 //Hook imports from Stripe for React
 import {
   CardElement,
   useStripe,
   Elements,
   useElements,
-} from "@stripe/react-stripe-js";
-import { GuestCard, StripeTotals } from "../components";
-import axios from "axios"; //axios for post function request
-import { useCartContext } from "../context/cart_context"; //cart context
-import { useUserContext } from "../context/user_context"; //user context
-import { priceFormat } from "../utils/helpers";
-import { useNavigate } from "react-router-dom";
+} from '@stripe/react-stripe-js';
+import { GuestCard, StripeTotals } from '../components';
+import axios from 'axios'; //axios for post function request
+import { useCartContext } from '../context/cart_context'; //cart context
+import { useUserContext } from '../context/user_context'; //user context
+import { priceFormat } from '../utils/helpers';
+import { useNavigate } from 'react-router-dom';
 //This is test public API key which is passed with the component for authentication
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 // const discount_code = process.env.REACT_APP_DISC_CODE;
@@ -36,16 +36,15 @@ const CheckoutForm = () => {
   //state variables for discount code
 
   const { tourUser } = useUserContext();
-  console.log(tourUser);
   const navigate = useNavigate();
   //STRIPE state variables: If the payment is successful
   const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
   const [error, setError] = useState(null);
   //variables for processing states
-  const [processing, setProcessing] = useState("");
+  const [processing, setProcessing] = useState('');
   const [disabled, setDisabled] = useState(true);
   //clientSecret is Stripe callback API token for user
-  const [clientSecret, setClientSecret] = useState("");
+  const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
   const elements = useElements();
   const total_formatted = priceFormat(total_amount);
@@ -58,7 +57,7 @@ const CheckoutForm = () => {
     try {
       //post request:
       const { data } = await axios.post(
-        "/.netlify/functions/create-payment-intent",
+        '/.netlify/functions/create-payment-intent',
         //data of the post request as a string:
         JSON.stringify({ cart, total_amount, tax, discountAmount })
       );
@@ -73,7 +72,7 @@ const CheckoutForm = () => {
   const orderSubmission = async () => {
     try {
       const response = await axios.post(
-        "/.netlify/functions/order-submission",
+        '/.netlify/functions/order-submission',
 
         JSON.stringify({ cart, total_amount, tourUser })
       );
@@ -92,7 +91,7 @@ const CheckoutForm = () => {
   const orderConfirmation = async () => {
     try {
       const response = await axios.post(
-        "/.netlify/functions/order-confirmation",
+        '/.netlify/functions/order-confirmation',
 
         JSON.stringify({ cart, total_formatted, tourUser })
       );
@@ -116,7 +115,7 @@ const CheckoutForm = () => {
   const handleChange = async (event) => {
     //data requested
     setDisabled(event.empty);
-    setError(event.error ? event.error.message : "");
+    setError(event.error ? event.error.message : '');
   }; //end handleChange
 
   //handling submit e = event Stripe docs
@@ -129,7 +128,7 @@ const CheckoutForm = () => {
         billing_details: {
           address: {
             city: e.target.city.value,
-            country: "US",
+            country: 'US',
             line1: e.target.street.value,
             postal_code: e.target.postal_code.value,
             state: e.target.state.value,
@@ -155,7 +154,7 @@ const CheckoutForm = () => {
       //Taking user back to home page, clearing cart --------------------------------------------------------------------
       setTimeout(() => {
         clearCart();
-        navigate("/confirmation");
+        navigate('/confirmation');
       }, 2500);
     }
   }; //end handleSubmit
@@ -163,21 +162,21 @@ const CheckoutForm = () => {
   const cardStyle = {
     style: {
       base: {
-        iconColor: "#7f7367",
-        color: "#3e3b35",
-        fontWeight: "500",
-        fontSmoothing: "antialiased",
-        ":-webkit-autofill": {
-          color: "#fce883",
+        iconColor: '#7f7367',
+        color: '#3e3b35',
+        fontWeight: '500',
+        fontSmoothing: 'antialiased',
+        ':-webkit-autofill': {
+          color: '#fce883',
         },
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#32325d",
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#32325d',
         },
       },
       invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a",
+        color: '#fa755a',
+        iconColor: '#fa755a',
       },
     },
   };
@@ -243,7 +242,7 @@ const CheckoutForm = () => {
                 <div>
                   <Multiselect
                     className="text"
-                    closeIcon={"circle"}
+                    closeIcon={'circle'}
                     isObject={false}
                     // value={selectedValue}
                     onChange={setCountry}
@@ -252,8 +251,8 @@ const CheckoutForm = () => {
 
                     options={country_data}
                     defaultValue={{
-                      label: "United States",
-                      value: "United States",
+                      label: 'United States',
+                      value: 'United States',
                     }}
                     placeholder="Select Country"
                     theme={(theme) => ({
@@ -261,12 +260,12 @@ const CheckoutForm = () => {
                       borderRadius: 10,
                       colors: {
                         ...theme.colors,
-                        primary25: "var(--clr-primary-8)",
-                        primary: "var(--clr-primary-8)",
-                        neutral10: "var(--clr-primary-8)",
-                        neutral80: "black",
-                        dangerLight: "var(--clr-primary-7)",
-                        danger: "var(--clr-white)",
+                        primary25: 'var(--clr-primary-8)',
+                        primary: 'var(--clr-primary-8)',
+                        neutral10: 'var(--clr-primary-8)',
+                        neutral80: 'black',
+                        dangerLight: 'var(--clr-primary-7)',
+                        danger: 'var(--clr-white)',
                       },
                     })}
                   />
@@ -359,7 +358,7 @@ const CheckoutForm = () => {
                   {processing ? (
                     <div className="spinner" id="spinner"></div>
                   ) : (
-                    "Pay"
+                    'Pay'
                   )}
                 </span>
               </button>
@@ -372,7 +371,7 @@ const CheckoutForm = () => {
               {/* Success Message */}
               <p
                 className={
-                  succeeded ? "result-message" : "result-message hidden"
+                  succeeded ? 'result-message' : 'result-message hidden'
                 }
               >
                 Payment Successful!
