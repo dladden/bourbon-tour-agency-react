@@ -41,7 +41,7 @@ const SingleTourPage = () => {
   //React Warning: React Hook useEffect has a missing dependency. to disable the
   //warning "eslint-disable-next-line" is used
   useEffect(() => {
-    fetchSingleTour(`${url}${id}`);
+    if (id) fetchSingleTour(`${url}${id}`);
     // eslint-disable-next-line
   }, [id]);
 
@@ -50,7 +50,7 @@ const SingleTourPage = () => {
     if (error) {
       setTimeout(() => {
         navigate('/');
-      }, 3000); //3000 milliseconds
+      }, 4000); //3000 milliseconds
     }
     //eslint-disable-next-line
   }, [error]);
@@ -60,6 +60,10 @@ const SingleTourPage = () => {
   }
   if (error) {
     return <Error />;
+  }
+
+  if (!tour || Object.keys(tour).length === 0) {
+    return <Loading />; //fetching issues with airtable have to use this
   }
 
   const {
@@ -73,6 +77,7 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
+  console.log(category);
   //id is passed to addToCart to check uniqueness in the cart
   const DefaultIcon = () => {
     // Return your default icon component here

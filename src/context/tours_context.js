@@ -58,6 +58,7 @@ export const ToursProvider = ({ children }) => {
     dispatch({ type: GET_SINGLE_TOUR_BEGIN }); //dispatching when user click on the tour
     try {
       const response = await axios.get(url); //using axios for asynchronous http request
+      console.log('fetchSingleTour response:', response.data);
       const singleTour = response.data;
       dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour.fields }); //dispatching an action with payload of the singleTour with data
     } catch (error) {

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import axios from "axios"; //axios for post function request
-import styled from "styled-components";
-import Multiselect from "react-select";
-import bus from "../assets/bus.svg";
-import suv from "../assets/suv.svg";
-import van from "../assets/van.svg";
-import c_tour from "../assets/custom_tour.svg";
-import { guests, trans, distilleries_select } from "../utils/constants";
-import { MultiCalendarPicker, AmountButtons } from "../components";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import axios from 'axios'; //axios for post function request
+import styled from 'styled-components';
+import Multiselect from 'react-select';
+import bus from '../assets/bus.svg';
+import suv from '../assets/suv.svg';
+import van from '../assets/van.svg';
+import c_tour from '../assets/custom_tour.svg';
+import { guests, trans, distilleries_select } from '../utils/constants';
+import { MultiCalendarPicker, AmountButtons } from '../components';
+import { useNavigate } from 'react-router-dom';
 //Component responsible for transportation type and count of guests
 const CustomTour = () => {
   //The increase function uses count variable as storage and increments value by on
@@ -33,21 +33,21 @@ const CustomTour = () => {
   };
   //useState VARIABLES:
   //variables for tour name:
-  const [tour_name, setTour_name] = useState("");
+  const [tour_name, setTour_name] = useState('');
   //variable for name of the poc
-  const [guest_name, setGuest_name] = useState("");
+  const [guest_name, setGuest_name] = useState('');
   //email
-  const [guest_email, setGuest_email] = useState("");
+  const [guest_email, setGuest_email] = useState('');
   //phone number
-  const [phone_number, setPhone_number] = useState("");
+  const [phone_number, setPhone_number] = useState('');
   //mainTrans = current transportation, setTrans = sets transportation
   //default transportation will always be firs array item
   //in this case it is suv: const trans = ["suv", "van", "bus"];
   const [mainTrans, setTrans] = useState(trans[0]);
   //Reservation for a distillery
-  const [reservation, setReservation] = useState("");
+  const [reservation, setReservation] = useState('');
   //variable for comment portion
-  const [guest_comment, setGuest_comment] = useState("");
+  const [guest_comment, setGuest_comment] = useState('');
   //Guests to be on the tour
   const [tour_guests, setGuest] = useState(1);
   //Multi-day calendar selection
@@ -66,7 +66,7 @@ const CustomTour = () => {
     try {
       const response = await axios
         .post(
-          "/.netlify/functions/custom-order-confirmation",
+          '/.netlify/functions/custom-order-confirmation',
 
           JSON.stringify({
             guest_email,
@@ -92,7 +92,7 @@ const CustomTour = () => {
     try {
       const response = await axios
         .post(
-          "/.netlify/functions/custom-order-submission",
+          '/.netlify/functions/custom-order-submission',
 
           JSON.stringify({
             tour_name,
@@ -124,7 +124,7 @@ const CustomTour = () => {
     orderSubmission();
     orderConfirmation();
     setTimeout(() => {
-      navigate("/submission-confirmation");
+      navigate('/submission-confirmation');
     }, 2500);
   } //end async Custom Order Submission
   return (
@@ -170,7 +170,7 @@ const CustomTour = () => {
                       placeholder="Tour Name*"
                       required
                     />
-                    <label for="tour_name" className="valid-feedback">
+                    <label htmlFor="tour_name" className="valid-feedback">
                       Give your tour a unique name.
                     </label>
                   </div>
@@ -189,7 +189,7 @@ const CustomTour = () => {
                       placeholder="Full Name*"
                       required
                     />
-                    <label for="guest_name" className="valid-feedback">
+                    <label hrmlFor="guest_name" className="valid-feedback">
                       Provide a point of contact for your tour.
                     </label>
                   </div>
@@ -208,7 +208,7 @@ const CustomTour = () => {
                       placeholder="E-mail Address*"
                       required
                     />
-                    <label for="guest_email" className="valid-feedback">
+                    <label htmlFor="guest_email" className="valid-feedback">
                       Valid point of contact email.
                     </label>
                   </div>
@@ -228,7 +228,7 @@ const CustomTour = () => {
                       required
                       // style={{ fontSize: "20px" }}
                     />
-                    <label for="phone_number" className="valid-feedback">
+                    <label htmlFor="phone_number" className="valid-feedback">
                       Point of contact phone number.
                     </label>
                   </div>
@@ -238,7 +238,7 @@ const CustomTour = () => {
                       <div>
                         <Multiselect
                           id="distillery_select"
-                          closeIcon={"circle"}
+                          closeIcon={'circle'}
                           isObject={false}
                           // value={selectedValue}
                           onChange={setDistill}
@@ -253,18 +253,21 @@ const CustomTour = () => {
                             borderRadius: 10,
                             colors: {
                               ...theme.colors,
-                              primary25: "var(--clr-primary-8)",
-                              primary: "var(--clr-primary-8)",
-                              neutral10: "var(--clr-primary-8)",
-                              neutral80: "var(--clr-white)",
-                              dangerLight: "var(--clr-primary-7)",
-                              danger: "var(--clr-white)",
+                              primary25: 'var(--clr-primary-8)',
+                              primary: 'var(--clr-primary-8)',
+                              neutral10: 'var(--clr-primary-8)',
+                              neutral80: 'var(--clr-white)',
+                              dangerLight: 'var(--clr-primary-7)',
+                              danger: 'var(--clr-white)',
                             },
                           })}
                         />
                       </div>
                     </div>
-                    <label for="distillery_select" className="valid-feedback">
+                    <label
+                      htmlFor="distillery_select"
+                      className="valid-feedback"
+                    >
                       Select distilleries you are interested in.
                     </label>
                   </div>
@@ -282,7 +285,7 @@ const CustomTour = () => {
                       name="reservation"
                       placeholder="Reservations & Tastings"
                     />
-                    <label for="reservation" className="valid-feedback">
+                    <label htmlFor="reservation" className="valid-feedback">
                       If you are looking for private tour reservation, add a
                       distillery name here. NOTE: Private tour reservation must
                       be made 4 weeks in advance.
@@ -302,7 +305,7 @@ const CustomTour = () => {
                         rows="2"
                         placeholder="Add as much details as possible..."
                       ></textarea>
-                      <label for="guest_comment" className="valid-feedback">
+                      <label htmlFor="guest_comment" className="valid-feedback">
                         Leave a comment.
                       </label>
                     </div>
@@ -315,15 +318,15 @@ const CustomTour = () => {
                   <MultiCalendarPicker value={date} setDate={setDate} />
                   {date.length > 0 ? (
                     <p className="text-center">
-                      <span className="bold">Start:</span>{" "}
+                      <span className="bold">Start:</span>{' '}
                       {date[0].toDateString()}
                       &nbsp;|&nbsp;
-                      <span className="bold">End:</span>{" "}
+                      <span className="bold">End:</span>{' '}
                       {date[1].toDateString()}
                     </p>
                   ) : (
                     <p className="text-center">
-                      <span className="bold">Current Date:</span>{" "}
+                      <span className="bold">Current Date:</span>{' '}
                       {date.toDateString()}
                     </p>
                   )}
@@ -340,27 +343,27 @@ const CustomTour = () => {
                             //":" if not: just display "trans-btn" styling
                             className={`${
                               mainTrans === car
-                                ? "trans-btn active"
-                                : "trans-btn"
+                                ? 'trans-btn active'
+                                : 'trans-btn'
                             }`}
                             onClick={() => setTrans(car)}
                           >
                             {/* {trans} */}
-                            {car === "suv" ? (
+                            {car === 'suv' ? (
                               <img
                                 src={suv}
                                 tittle="Suv Vehicle"
                                 alt="Tour Transportation vehicle suv"
                               />
                             ) : null}
-                            {car === "van" ? (
+                            {car === 'van' ? (
                               <img
                                 src={van}
                                 tittle="Van Vehicle"
                                 alt="Tour Transportation vehicle van"
                               />
                             ) : null}
-                            {car === "bus" ? (
+                            {car === 'bus' ? (
                               <img
                                 src={bus}
                                 tittle="Bus Vehicle"
@@ -375,18 +378,18 @@ const CustomTour = () => {
                   {mainTrans.length > 0 ? (
                     <p className="text-center">
                       <span className="bold">
-                        {" "}
-                        Current Transportation Chosen: {mainTrans}{" "}
-                        {mainTrans === "suv" ? "(MAX 6 Guests)" : null}
-                        {mainTrans === "van" ? "(MAX 15 Guests)" : null}
-                        {mainTrans === "bus" ? "(MAX 20 Guests)" : null}
+                        {' '}
+                        Current Transportation Chosen: {mainTrans}{' '}
+                        {mainTrans === 'suv' ? '(MAX 6 Guests)' : null}
+                        {mainTrans === 'van' ? '(MAX 15 Guests)' : null}
+                        {mainTrans === 'bus' ? '(MAX 20 Guests)' : null}
                       </span>
                     </p>
                   ) : (
                     <p className="text-center">
                       <span className="bold">
                         Current Transportation Chosen:
-                      </span>{" "}
+                      </span>{' '}
                       {mainTrans}
                     </p>
                   )}
@@ -412,8 +415,8 @@ const CustomTour = () => {
                       id="invalidCheck"
                       required
                     />
-                    <label for="invalidCheck" className="form-check-label">
-                      {" "}
+                    <label htmlFor="invalidCheck" className="form-check-label">
+                      {' '}
                       I confirm that my tour will be reviewed.
                     </label>
                     <div className="invalid-feedback">

@@ -90,7 +90,7 @@ const Filters = () => {
           {/* END TRANSPORTATION SELECTION*/}
           {/* PRICE (controlled input)*/}
           <div className="form-control">
-            <label for="price-input" className="label">
+            <label htmlFor="price-input" className="label">
               Price Range:
             </label>
             <p className="price">{priceFormat(price)}</p>
