@@ -47,7 +47,6 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url);
       const tours = response.data; //data is in the array property stored to tours
-      console.log('tours ', tours);
       //React dispatch ACTION
       dispatch({ type: GET_TOURS_SUCCESS, payload: tours }); //action setup (dispatch called GET_SINGLE_TOUR_SUCCESS with payload of tours)
     } catch (error) {
@@ -60,7 +59,6 @@ export const ToursProvider = ({ children }) => {
     try {
       const response = await axios.get(url); //using axios for asynchronous http request
       const singleTour = response.data;
-      console.log('single tours ', singleTour);
       dispatch({ type: GET_SINGLE_TOUR_SUCCESS, payload: singleTour.fields }); //dispatching an action with payload of the singleTour with data
     } catch (error) {
       dispatch({ type: GET_SINGLE_TOUR_ERROR });

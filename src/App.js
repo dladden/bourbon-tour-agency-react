@@ -45,7 +45,7 @@ function App() {
           <Route path="/faq" element={<InfoPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/tours" element={<Tours />} />
-          <Route path="/tours/:url_id" element={<SingleTour />} />
+          <Route path="/tours/:id" element={<SingleTour />} />
           <Route
             path="/confirmation"
             element={

@@ -5,7 +5,7 @@ import { priceFormat } from '../utils/helpers'; //component for formatting the p
 import { AiFillSchedule } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 //tour displays the featured tours on the home page
-const Tour = ({ url, category, name, price, url_id }) => {
+const Tour = ({ url, category, name, price, id }) => {
   const DefaultIcon = () => {
     // Return your default icon component here
     return <GiBarrel />;
@@ -29,11 +29,7 @@ const Tour = ({ url, category, name, price, url_id }) => {
     <Wrapper>
       <div className="container">
         <img src={url} title={name} alt={name} />
-        <Link
-          to={`/tours/${url_id}`}
-          className="link"
-          aria-label="Link to Tour"
-        >
+        <Link to={`/tours/${id}`} className="link" aria-label="Link to Tour">
           <AiFillSchedule alt="Link to Tour" />
         </Link>
       </div>

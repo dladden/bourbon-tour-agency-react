@@ -191,6 +191,6 @@ export const about2 =
 //https://stripe.com/legal/dpa#download-the-dpaZ
 
 //"https://course-api.com/react-store-products";
-export const tours_url = 'https://sbt-serverless.netlify.app/api/tours?url_id=';
+export const tours_url = process.env.REACT_APP_TOURS_URL;
 //`https://course-api.com/react-store-single-product?id=`;
 export const single_tour_url = process.env.REACT_APP_SINGLE_TOUR_URL;

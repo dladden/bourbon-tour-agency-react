@@ -27,7 +27,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 //Page responsible for layout of akk component for single tour
 const SingleTourPage = () => {
   //attaching the id (provided in the object) to the url
-  const { url_id } = useParams(); //getting the id property in the object
+  const { id } = useParams(); //getting the id property in the object
   const navigate = useNavigate(); //getting the history from reactRouter Dom
   //pulling the variables from the context hook
 
@@ -41,11 +41,9 @@ const SingleTourPage = () => {
   //React Warning: React Hook useEffect has a missing dependency. to disable the
   //warning "eslint-disable-next-line" is used
   useEffect(() => {
-    fetchSingleTour(`${url}${url_id}`);
+    fetchSingleTour(`${url}${id}`);
     // eslint-disable-next-line
-  }, [url_id]);
-  console.log('usePrams url', url);
-  console.log('usePrams id', url_id);
+  }, [id]);
 
   //setting up error which sends user back to the home page
   useEffect(() => {
@@ -75,7 +73,6 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
-  console.log('tour from context', tour);
   //id is passed to addToCart to check uniqueness in the cart
   const DefaultIcon = () => {
     // Return your default icon component here
