@@ -77,7 +77,6 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
-  console.log(category);
   //id is passed to addToCart to check uniqueness in the cart
   const DefaultIcon = () => {
     // Return your default icon component here
