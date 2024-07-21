@@ -7,7 +7,7 @@
 ## Disclaimer
 
 Please visit [bourbon-tour-agency-react-public](https://github.com/dladden/bourbon-tour-agency-react-public) for cloning. Thank you.
-This repository is the private and proprietary property of Shelby Bourbon tours. Unauthorized access, use, reproduction, or distribution of this repository's content is strictly prohibited and may result in severe legal consequences. Please read the license agreement carefully before proceeding.
+Please read the license agreement carefully before proceeding.
 
 ## Important Notice
 
