@@ -7,6 +7,7 @@ import {
   Container,
   Section,
   Text,
+  Img, // <-- Import Img from @react-email/components
 } from '@react-email/components';
 
 export const OrderConfirmation = ({
@@ -21,7 +22,6 @@ export const OrderConfirmation = ({
   return (
     <Html>
       <Head>
-        {/* Example meta or style resets */}
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
@@ -32,13 +32,17 @@ export const OrderConfirmation = ({
       </Head>
       <Preview>Your order has been confirmed!</Preview>
       <Body style={bodyStyle}>
+        <Section style={zeroPaddingStyle}>
+          <Img
+            src="https://cdn.shelbybourbontours.com/emails/order_confirm_text02.png"
+            alt="Shelby Bourbon Tours Top Banner"
+            style={bannerImgStyle}
+          />
+        </Section>
         <Container style={outerContainerStyle}>
-          {/* Header Section */}
           <Section style={headerStyle}>
             <Text style={headerTextStyle}>Shelby Bourbon Tours</Text>
           </Section>
-
-          {/* Main Content Section */}
           <Section style={contentSectionStyle}>
             <Text style={headingStyle}>Order Confirmation</Text>
             <Text style={normalTextStyle}>Hi {guestName},</Text>
@@ -64,6 +68,13 @@ export const OrderConfirmation = ({
             <Text style={normalTextStyle}>Shelby Bourbon Tours</Text>
           </Section>
         </Container>
+        <Section style={zeroPaddingStyle}>
+          <Img
+            src="https://cdn.shelbybourbontours.com/emails/email_custom_tour_logo.png"
+            alt="Shelby Bourbon Tours Bottom Banner"
+            style={bannerImgStyle}
+          />
+        </Section>
       </Body>
     </Html>
   );
@@ -80,6 +91,18 @@ const bodyStyle = {
   padding: 0,
   backgroundColor: '#f9f9f9',
   fontFamily: 'Arial, sans-serif',
+};
+
+const zeroPaddingStyle = {
+  margin: 0,
+  padding: 0,
+};
+
+const bannerImgStyle = {
+  display: 'block',
+  width: '100%',
+  margin: 0,
+  padding: 0,
 };
 
 const outerContainerStyle = {
