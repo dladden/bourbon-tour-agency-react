@@ -7,7 +7,7 @@ import {
   Container,
   Section,
   Text,
-  Img, // <-- Import Img from @react-email/components
+  Img,
 } from '@react-email/components';
 
 export const OrderConfirmation = ({
@@ -62,7 +62,8 @@ export const OrderConfirmation = ({
               <strong>Transportation Cost:</strong> {totalTrans}
             </Text>
             <Text style={normalTextStyle}>
-              If you have any questions, feel free to reply to this email.
+              If you have any questions, feel free to reply to
+              shelbybourbontours@gmail.com.
             </Text>
             <Text style={normalTextStyle}>Cheers,</Text>
             <Text style={normalTextStyle}>Shelby Bourbon Tours</Text>

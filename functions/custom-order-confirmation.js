@@ -1,23 +1,19 @@
 const React = require('react');
 require('dotenv').config();
-const { render } = require('@react-email/render'); // Renders React components to HTML
+const { render } = require('@react-email/render');
 const nodemailer = require('nodemailer');
 
-// Import your React Email component
-const OrderConfirmation = require('../dist/emails/OrderConfirmation').default;
+const OrderConfirmation = require('../dist/emails/OrderConfirmation').default; //importing your React Email component
 
 exports.handler = async (event, context) => {
   try {
-    // 1. Parse request body (the data sent from your React app)
     const { guest_email, tour_name, guest_name, date, mainTrans, guests } =
-      JSON.parse(event.body);
+      JSON.parse(event.body); // parsing request body (the data sent from your React app)
 
-    // 2. Format dates
     const today = new Date().toLocaleDateString();
     const startDate = new Date(date[0]).toLocaleDateString();
     const endDate = new Date(date[1]).toLocaleDateString();
 
-    // 3. Render the React Email component to HTML
     const emailHtml = await render(
       React.createElement(OrderConfirmation, {
         guestName: guest_name,
@@ -28,11 +24,10 @@ exports.handler = async (event, context) => {
         totalTrans: mainTrans,
         numberOfGuests: guests,
       })
-    );
+    ); // rendering the React Email component to HTML
     console.log('Is this a promise?', emailHtml instanceof Promise);
     console.log('Type of emailHtml:', typeof emailHtml);
 
-    // 4. Configure nodemailer with your AWS SES SMTP credentials
     const transporter = nodemailer.createTransport({
       host: process.env.REACT_AWS_SES_HOST,
       port: Number(process.env.REACT_AWS_SES_PORT),
@@ -41,32 +36,28 @@ exports.handler = async (event, context) => {
         user: process.env.REACT_AWS_SES_SMTP_USER,
         pass: process.env.REACT_AWS_SES_SMTP_PASS,
       },
-    });
+    }); //configure nodemailer with your AWS SES SMTP credentials
 
-    // 5. Define the mail options
     const orderSubject = `Custom Order Submission for: ${tour_name}`;
     const mailOptions = {
       from: process.env.REACT_NO_REPLY_EMAIL, // e.g. no-reply@yourdomain.com
       to: guest_email,
       subject: orderSubject,
       html: emailHtml,
-    };
+    }; // define the mail options
 
-    // 6. Send the email
-    let info = await transporter.sendMail(mailOptions);
+    let info = await transporter.sendMail(mailOptions); // send the email
 
-    // 7. Return success
     return {
       statusCode: 200,
       body: JSON.stringify({
         message: 'Order confirmation email sent successfully!',
         info,
       }),
-    };
+    }; // return success
   } catch (error) {
     console.error('Error sending email:', error);
 
-    // Fallback to 500 if error.code is not a number
     const statusCode = typeof error.code === 'number' ? error.code : 500;
     return {
       statusCode,
@@ -75,5 +66,5 @@ exports.handler = async (event, context) => {
         error: error.message,
       }),
     };
-  }
+  } // fallback to 500 if error.code is not a number
 };

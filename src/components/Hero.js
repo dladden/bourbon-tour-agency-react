@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { HashLink as Link } from "react-router-hash-link";
-import heroSBT from "../assets/sbt_cover.webp";
-import heroSBT2 from "../assets/sbt_cover2.webp";
+import React from 'react';
+import styled from 'styled-components';
+import { HashLink as Link } from 'react-router-hash-link';
+import heroSBT from '../assets/sbt_cover.webp';
+import heroSBT2 from '../assets/sbt_cover2.webp';
 
 const Hero = () => {
   return (
@@ -23,6 +23,9 @@ const Hero = () => {
         </p>
         <Link smooth to="/tours#tours-list" className="btn hero-btn">
           Find A Tour
+        </Link>
+        <Link smooth to="/contact#custom-tour" className="btn hero-btn-custom">
+          Create A Tour
         </Link>
       </article>
       <article className="img-container">
@@ -57,6 +60,10 @@ const Wrapper = styled.section`
     color: var(--clr-grey-5);
     font-size: 1.4rem;
   }
+  .hero-btn-custom {
+      margin-left: 2rem;
+  }
+
   @media (min-width: 992px) {
     height: calc(80vh - 5rem);
     grid-template-columns: 1fr 1fr;
@@ -68,6 +75,11 @@ const Wrapper = styled.section`
       font-size: 1.3rem;
     }
     .hero-btn {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+    .hero-btn-custom {
+      margin-left: 2rem;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
     }
