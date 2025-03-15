@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import confirmation from "../assets/confirmation.svg";
-import logo from "../assets/indent_logo_color.svg";
-import { useUserContext } from "../context/user_context";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import confirmation from '../assets/confirmation.svg';
+import logo from '../assets/indent_logo_color.svg';
+import { useUserContext } from '../context/user_context';
+import { Link } from 'react-router-dom';
 
 //Component responsible for transportation type and count of guests
 const Confirmation = () => {
@@ -32,10 +32,10 @@ const Confirmation = () => {
                 <h3>Thank You For Your Reservation!</h3>
                 <h3>{tourUser.name}</h3>
                 <p>
-                  An Email Confirmation is sent to{" "}
-                  <strong>{tourUser.email}</strong>. We will contact you within
-                  24 hours with more information about your tour! More
-                  importantly, don't forget to set a{" "}
+                  An Email Confirmation is sent to{' '}
+                  <strong>the Email you provided</strong>. We will contact you
+                  within 24 hours with more information about your tour! More
+                  importantly, don't forget to set a{' '}
                   <strong>calendar reminder</strong>!
                 </p>
                 <p>

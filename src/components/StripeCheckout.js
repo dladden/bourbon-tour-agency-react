@@ -37,6 +37,8 @@ const CheckoutForm = () => {
 
   const { tourUser } = useUserContext();
   const navigate = useNavigate();
+  const [userEmail, setUserEmail] = useState(tourUser?.email || '');
+  const [phoneNumber, setPhoneNumber] = useState('');
   //STRIPE state variables: If the payment is successful
   const [succeeded, setSucceeded] = useState(false); //initialized as FALSE
   const [error, setError] = useState(null);
@@ -71,10 +73,15 @@ const CheckoutForm = () => {
   //a tour. this email is sent using the serverless functions
   const orderSubmission = async () => {
     try {
+      const finalTourUser = {
+        ...tourUser,
+        phone: phoneNumber, //including phone from local state
+        email: userEmail, //including email from local state
+      };
       const response = await axios.post(
         '/.netlify/functions/order-submission',
 
-        JSON.stringify({ cart, total_amount, tourUser })
+        JSON.stringify({ cart, total_amount, tourUser: finalTourUser })
       );
       if (!response.ok) {
         //all OK
@@ -90,10 +97,14 @@ const CheckoutForm = () => {
   //confirmation
   const orderConfirmation = async () => {
     try {
+      const finalTourUser = {
+        ...tourUser,
+        email: userEmail, // overwriting or fall back as needed
+      };
       const response = await axios.post(
         '/.netlify/functions/order-confirmation',
 
-        JSON.stringify({ cart, total_formatted, tourUser })
+        JSON.stringify({ cart, total_formatted, tourUser: finalTourUser })
       );
       if (!response.ok) {
         //all OK
@@ -134,7 +145,7 @@ const CheckoutForm = () => {
             state: e.target.state.value,
           },
           name: e.target.name.value,
-          email: e.target.email.value,
+          email: userEmail,
           phone: e.target.phone_number.value,
         },
       },
@@ -233,6 +244,8 @@ const CheckoutForm = () => {
                   minLength="10"
                   placeholder="(999) 999-9999*"
                   required
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </div>
             </div>
@@ -328,7 +341,7 @@ const CheckoutForm = () => {
               <i className="far fa-credit-card"></i> Contact Info.
             </h1>
             <div className="cc-num">
-              <label>Billing Email</label>
+              <label>Billing Email (Editable)</label>
               <input
                 type="email"
                 id="email"
@@ -338,6 +351,8 @@ const CheckoutForm = () => {
                 // pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
                 placeholder="E-mail Address*"
                 required
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
               />
             </div>
 

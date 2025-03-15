@@ -1,62 +1,79 @@
-const client = require("@sendgrid/mail");
-require("dotenv").config();
-const {
-  REACT_APP_SENDGRID_API_KEY,
-  REACT_APP_SENDGRID_TEMPLATE_ID,
-  REACT_APP_SENDGRID_FROM_NOREPLY_EMAIL,
-} = process.env;
-//event, context, callback
-//Order Confirmation sends en order confirmation email to the customer
-//with details like tour picked, date, total cost etc..
-exports.handler = async (event, context, callback) => {
-  const { cart, total_formatted, tourUser } = JSON.parse(event.body);
-  client.setApiKey(REACT_APP_SENDGRID_API_KEY);
+const React = require('react');
+require('dotenv').config();
+const { render } = require('@react-email/render');
+const nodemailer = require('nodemailer');
+const CartOrderConfirmation =
+  require('../dist/emails/CartOrderConfirmation').default;
 
-  const { ids, dates, names, guests, transports, images } = {
-    ids: cart.map((a) => a.id),
-    dates: cart.map((a) => a.date),
-    names: cart.map((a) => a.name),
-    guests: cart.map((a) => a.guests),
-    transports: cart.map((a) => a.trans),
-    images: cart.map((a) => a.image),
-  };
-  var dateId = new Date(dates).toLocaleDateString();
-  //destructuring user
-  const { email, name } = tourUser;
-
-  const orderSubject = () => {
-    return "Order Confirmation: " + `${names}`; //total formatted in cents
-  };
-
-  const msg = {
-    to: email,
-    from: REACT_APP_SENDGRID_FROM_NOREPLY_EMAIL,
-    templateId: REACT_APP_SENDGRID_TEMPLATE_ID,
-    dynamic_template_data: {
-      subject: orderSubject(),
-      ids: ids,
-      tour_date: dateId,
-      url: images,
-      name: name,
-      tour_name: names,
-      tour_guests: guests,
-      total_trans: transports,
-      style: "currency",
-      currency: "USD",
-      total_amount: total_formatted,
-    },
-  };
-
+exports.handler = async (event, context) => {
   try {
-    await client.send(msg);
+    const { cart, total_formatted, tourUser } = JSON.parse(event.body);
+
+    const ids = cart.map((a) => a.id);
+    const dates = cart.map((a) => a.date);
+    const names = cart.map((a) => a.name);
+    const guests = cart.map((a) => a.guests);
+    const transports = cart.map((a) => a.trans);
+    const images = cart.map((a) => a.image);
+
+    const dateId = new Date(dates).toLocaleDateString(); // If there's only one date, or combining them
+
+    const { email, name } = tourUser;
+
+    const cartItems = cart.map((item) => ({
+      name: item.name,
+      guests: item.guests,
+      trans: item.trans,
+    })); // build simpler array for the email
+
+    const emailHtml = await render(
+      React.createElement(CartOrderConfirmation, {
+        cartItems,
+        totalFormatted: total_formatted,
+        userName: name,
+        userEmail: email,
+        images, // array of image URLs
+        dateId,
+      })
+    ); // render the React Email
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.REACT_AWS_SES_HOST,
+      port: Number(process.env.REACT_AWS_SES_PORT),
+      secure: Number(process.env.REACT_AWS_SES_PORT) === 465,
+      auth: {
+        user: process.env.REACT_AWS_SES_SMTP_USER,
+        pass: process.env.REACT_AWS_SES_SMTP_PASS,
+      },
+    }); // create transporter
+
+    const subjectLine = `Order Confirmation: ${names.join(', ')}`;
+
+    const mailOptions = {
+      from: process.env.REACT_NO_REPLY_EMAIL,
+      to: email,
+      subject: subjectLine,
+      html: emailHtml,
+    };
+
+    let info = await transporter.sendMail(mailOptions);
+
     return {
       statusCode: 200,
-      body: "Message sent",
+      body: JSON.stringify({
+        message: 'Order confirmation email sent successfully!',
+        info,
+      }),
     };
   } catch (error) {
+    console.error('Error sending email:', error);
+    const statusCode = typeof error.code === 'number' ? error.code : 500;
     return {
-      statusCode: error.code,
-      body: JSON.stringify({ msg: error.message }),
+      statusCode,
+      body: JSON.stringify({
+        message: 'Failed to send order confirmation email.',
+        error: error.message,
+      }),
     };
   }
 };

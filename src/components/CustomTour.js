@@ -74,7 +74,7 @@ const CustomTour = () => {
             guest_name,
             date,
             mainTrans,
-            guests,
+            guests: tour_guests,
           })
         )
         .then((response) => response.json());
@@ -93,7 +93,6 @@ const CustomTour = () => {
       const response = await axios
         .post(
           '/.netlify/functions/custom-order-submission',
-
           JSON.stringify({
             tour_name,
             guest_name,
@@ -104,7 +103,7 @@ const CustomTour = () => {
             guest_comment,
             date,
             mainTrans,
-            guests,
+            guests: tour_guests,
             checked,
           })
         )
@@ -241,7 +240,12 @@ const CustomTour = () => {
                           closeIcon={'circle'}
                           isObject={false}
                           // value={selectedValue}
-                          onChange={setDistill}
+                          onChange={(selectedOptions) => {
+                            const justLabels = selectedOptions.map(
+                              (opt) => opt.label
+                            );
+                            setDistill(justLabels);
+                          }}
                           // onRemove={handleChange}
                           // onSelect={handleChange}
                           options={distilleries_select}

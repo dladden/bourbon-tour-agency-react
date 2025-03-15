@@ -1,57 +1,70 @@
-const client = require("@sendgrid/mail");
-require("dotenv").config();
-const {
-  REACT_APP_SENDGRID_API_KEY,
-  REACT_APP_SENDGRID_TEMPLATE_ID2,
-  REACT_APP_SENDGRID_FROM_NOREPLY_EMAIL,
-} = process.env;
-//event, context, callback
-//Order Confirmation sends en order confirmation email to the customer
-//with details like tour picked, date, total cost etc..
-exports.handler = async (event, context, callback) => {
-  const { guest_email, tour_name, guest_name, date, mainTrans, guests } =
-    JSON.parse(event.body);
-  client.setApiKey(REACT_APP_SENDGRID_API_KEY);
-  //generating order date
-  var today = new Date().toLocaleDateString();
-  //destructuring date individually
-  const start = date[0];
-  var startDate = new Date(start).toLocaleDateString();
-  const end = date[1];
-  var endDate = new Date(end).toLocaleDateString();
-  const orderSubject = () => {
-    return "Custom Order Submission for: " + `${tour_name}`; //total formatted in cents
-  };
+const React = require('react');
+require('dotenv').config();
+const { render } = require('@react-email/render');
+const nodemailer = require('nodemailer');
 
-  const msg = {
-    to: guest_email,
-    from: REACT_APP_SENDGRID_FROM_NOREPLY_EMAIL,
-    templateId: REACT_APP_SENDGRID_TEMPLATE_ID2,
-    dynamic_template_data: {
-      subject: orderSubject(),
-      date: today,
-      tour_date1: startDate,
-      tour_date2: endDate,
-      name: guest_name,
-      tour_name: tour_name,
-      tour_guests: guests,
-      total_trans: mainTrans,
-    },
-    // text: JSON.stringify({ cart, total_amount, tourUser }),
-    // number: JSON.stringify(total_amount),
-    // html: JSON.stringify({ cart, total_amount, tourUser }),
-  };
+const OrderConfirmation = require('../dist/emails/OrderConfirmation').default; //importing your React Email component
 
+exports.handler = async (event, context) => {
   try {
-    await client.send(msg);
+    const { guest_email, tour_name, guest_name, date, mainTrans, guests } =
+      JSON.parse(event.body); // parsing request body (the data sent from your React app)
+
+    const today = new Date().toLocaleDateString();
+    const startDate = new Date(date[0]).toLocaleDateString();
+    const endDate = new Date(date[1]).toLocaleDateString();
+
+    const emailHtml = await render(
+      React.createElement(OrderConfirmation, {
+        guestName: guest_name,
+        tourName: tour_name,
+        orderDate: today,
+        startDate,
+        endDate,
+        totalTrans: mainTrans,
+        numberOfGuests: guests,
+      })
+    ); // rendering the React Email component to HTML
+    console.log('Is this a promise?', emailHtml instanceof Promise);
+    console.log('Type of emailHtml:', typeof emailHtml);
+
+    const transporter = nodemailer.createTransport({
+      host: process.env.REACT_AWS_SES_HOST,
+      port: Number(process.env.REACT_AWS_SES_PORT),
+      secure: Number(process.env.REACT_AWS_SES_PORT) === 465, // true for SSL on port 465
+      auth: {
+        user: process.env.REACT_AWS_SES_SMTP_USER,
+        pass: process.env.REACT_AWS_SES_SMTP_PASS,
+      },
+    }); //configure nodemailer with your AWS SES SMTP credentials
+
+    const orderSubject = `Custom Order Submission for: ${tour_name}`;
+    const mailOptions = {
+      from: process.env.REACT_NO_REPLY_EMAIL, // e.g. no-reply@yourdomain.com
+      to: guest_email,
+      subject: orderSubject,
+      html: emailHtml,
+    }; // define the mail options
+
+    let info = await transporter.sendMail(mailOptions); // send the email
+
     return {
       statusCode: 200,
-      body: "Message sent",
-    };
+      body: JSON.stringify({
+        message: 'Order confirmation email sent successfully!',
+        info,
+      }),
+    }; // return success
   } catch (error) {
+    console.error('Error sending email:', error);
+
+    const statusCode = typeof error.code === 'number' ? error.code : 500;
     return {
-      statusCode: error.code,
-      body: JSON.stringify({ msg: error.message }),
+      statusCode,
+      body: JSON.stringify({
+        message: 'Failed to send order confirmation email.',
+        error: error.message,
+      }),
     };
-  }
+  } // fallback to 500 if error.code is not a number
 };

@@ -1,9 +1,9 @@
 //domain/.netlify/functions/create-payment-intent
 //handler (async) with two arguments event and context that return a promise (all NODE)
 
-const dotenv = require("dotenv"); //importing dotenv
+const dotenv = require('dotenv'); //importing dotenv
 dotenv.config();
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
 
 exports.handler = async function (event, context, callback) {
   //if: if event body property exists on event object only then create POST request,
@@ -35,7 +35,7 @@ exports.handler = async function (event, context, callback) {
       // Create a PaymentIntent with the order amount and currency
       const paymentIntent = await stripe.paymentIntents.create({
         amount: calculateOrderAmount(),
-        currency: "usd",
+        currency: 'usd',
 
         // statement_descriptor_suffix: "Bourbon Tours",
         // name: cart.name,
@@ -58,6 +58,6 @@ exports.handler = async function (event, context, callback) {
   } //END if: event.body
   return {
     statusCode: 200,
-    body: "Create Payment Intent",
+    body: 'Create Payment Intent',
   };
 };
