@@ -120,7 +120,12 @@ const SingleTourPage = () => {
             </div>
             {/* passing the stars data to the Stars component */}
             <Stars stars={stars} rev_url={rev_url} category={category} />
-            <h5 className="price">{priceFormat(price)}</h5>
+            <h5 className="price">
+              {priceFormat(price)}{" "}
+              <span className="per-person">
+                (or <span className="highlight">$150</span> per person)
+              </span>
+            </h5>
             <p className="desc">{desc}</p>
             <p className="info-title">Distillery Choices:</p>
             <p className="info">
@@ -168,6 +173,17 @@ const Wrapper = styled.main`
   }
   .price {
     color: var(--clr-primary-5);
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  .per-person {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    color: var(--clr-grey-5);
+  }
+  .highlight {
+    color: var(--clr-primary-5); //HERE distinct accent
+    font-weight: 700;
   }
   .desc {
     line-height: 2;
@@ -201,8 +217,19 @@ const Wrapper = styled.main`
       align-items: top;
     }
     .price {
-      font-size: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
+    .per-person {
+      margin-left: 0;
+      font-size: 0.95rem;
+      color: var(--clr-grey-6);
+    }
+    .highlight {
+    color: var(--clr-primary-7); //HERE distinct accent
+    font-weight: 700;
+  }
   }
   @media (min-width: 1000px) {
     .info {
