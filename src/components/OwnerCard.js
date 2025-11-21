@@ -6,6 +6,10 @@ import socialLinks from "../utils/social_links";
 import { email_link } from "../utils/constants";
 //Component responsible for the OwnerCard used in Contact page
 const OwnerCard = () => {
+  const phoneDisplay = '(502) 216-0678'; //HERE display format
+  const phoneHref = 'tel:15022160678'; //HERE tap-to-call
+
+  const emailHref = `mailto:${email_link}`;
   return (
     <Wrapper>
       <div className="container">
@@ -13,9 +17,25 @@ const OwnerCard = () => {
           <div className="member">
             <img src={owner} alt="member_image" width="90" height="90" />
             <h3>Steven</h3>
-            <h4>(502) 216-0678</h4>
+            <div className="phone-wrapper">
+              <a
+                href={phoneHref}
+                className="phone-btn"
+                aria-label={phoneDisplay}
+              >
+              {phoneDisplay}
+              </a>
+            </div>
             <span>
-              <h5 className="email">{email_link}</h5>
+              <h5 className="email">
+                <a
+                  href={emailHref}
+                  className="email-link"
+                  aria-label={`Email ${email_link}`}
+                >
+                  {email_link}
+                </a>
+              </h5>
             </span>
             <hr />
             <p>
@@ -138,6 +158,30 @@ const Wrapper = styled.section`
   }
   .email {
     font-size: 17px;
+  }
+  .phone-wrapper {
+    margin: 0.75rem 0;
+  }
+  .phone-btn:hover {
+    background-color: var(--clr-primary-4);
+  }
+  .phone-btn {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    background: var(--clr-primary-5);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+  }
+  .email-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .email-link:hover {
+    background-color: var(--clr-primary-5);
   }
   body {
     background: #eceff8;

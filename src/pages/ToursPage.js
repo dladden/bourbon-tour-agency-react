@@ -1,9 +1,15 @@
-import "@fontsource/cormorant-garamond/700.css";
-import React from "react";
-import styled from "styled-components";
-import { Seo, Filters, TourList, Sort, PageHero } from "../components";
+import '@fontsource/cormorant-garamond/700.css';
+import React, { useState } from 'react'; //HERE
+import styled from 'styled-components';
+import { Seo, Filters, TourList, Sort, PageHero } from '../components';
+
 //TourPage responsible for displaying the components
 const ToursPage = () => {
+  const [showFilters, setShowFilters] = useState(false); //HERE
+
+  const openFilters = () => setShowFilters(true); //HERE
+  const closeFilters = () => setShowFilters(false); //HERE
+
   return (
     <main>
       <Seo
@@ -15,9 +21,24 @@ const ToursPage = () => {
       <PageHero title="tours" />
       <Wrapper className="page">
         <div className="section-center tours">
-          <section id="filters-section">
-            <Filters />
+          {/* Mobile filter button – ONLY when panel is closed */} {/*HERE*/}
+          {!showFilters && (
+            <button
+              type="button"
+              className="btn filters-toggle-btn"
+              onClick={openFilters}
+            >
+              Filter
+            </button>
+          )}
+
+          <section
+            id="filters-section"
+            className={`filters-panel ${showFilters ? 'is-open' : ''}`} //HERE
+          >
+            <Filters closeFilters={closeFilters} /> {/*HERE*/}
           </section>
+
           <div>
             <section id="tours-list">
               <Sort />
@@ -33,12 +54,34 @@ const ToursPage = () => {
 const Wrapper = styled.div`
   .tours {
     display: grid;
-    gap: 3rem 1.5rem;
+    gap: 0rem 1.5rem;
     margin: 1.5rem auto;
   }
+  .filters-toggle-btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+  }
+  .filters-panel {
+    display: none;
+  }
+  .filters-panel.is-open {
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
   @media (min-width: 768px) {
     .tours {
       grid-template-columns: 200px 1fr;
+      align-items: flex-start;
+    }
+    .filters-toggle-btn {
+      display: none; /* no filter button on desktop */
+    }
+    .filters-panel {
+      display: block !important; /* always visible sidebar on desktop */
+      margin-bottom: 0;
     }
   }
 `;

@@ -21,11 +21,13 @@ const ContactPage = () => {
         title="Contact"
         content="Since 2020 Shelby Bourbon Tours has provided touring on a trail to all distillers around Kentucky. If you are curious about the distilling process as we are, contact us."
         robots="index"
-        href="/about"
+        href="/contact"
       />
       <PageHero title="Contact" />
       <Wrapper>
+        <section id="owner-card">
         <OwnerCard />
+        </section>
         <section id="contact-us">
           <ContactList />
         </section>

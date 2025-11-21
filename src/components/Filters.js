@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useFilterContext } from '../context/filter_context';
 import { getUniqueValues, priceFormat } from '../utils/helpers';
-const Filters = () => {
+const Filters = ({ closeFilters }) => {
   //importing the filter context
   //search_text - used in the SEARCH INPUT to get the value: actual text and the name of the action: "search_text"
   //..
@@ -122,6 +122,7 @@ const Filters = () => {
         <button type="button" className="clear-btn" onClick={clearFilters}>
           Clear Filters
         </button>
+        <button className="close-btn" onClick={closeFilters}>Close</button> 
       </div>
     </Wrapper>
   );
@@ -251,6 +252,12 @@ const Wrapper = styled.section`
   }
   .clear-btn {
     background: var(--clr-primary-5);
+    color: var(--clr-white);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--small-btn-radius);
+  }
+  .close-btn{
+    background: var(--clr-red-dark);
     color: var(--clr-white);
     padding: 0.25rem 0.5rem;
     border-radius: var(--small-btn-radius);
