@@ -145,7 +145,6 @@ const Wrapper = styled.section`
   /* Typography */
   /**************************/
   
-  }
   h2 {
 
     font-size: 70px;
@@ -159,7 +158,6 @@ const Wrapper = styled.section`
   }
   p{
     font-size: 1.4rem;
-  }
   }
   .first-character {
     font-weight: 400;

@@ -9,8 +9,8 @@ const Hero = () => {
     <Wrapper className="section-center">
       <article className="content">
         <h1>
-          Tour Your Favorite <br />
-          Distilleries in the Heart of Kentucky
+          Find the Best<br />
+          Kentucky Bourbon Tours
         </h1>
         <p>
           Shelby Bourbon Tours provides bourbon trail tour transportation to all

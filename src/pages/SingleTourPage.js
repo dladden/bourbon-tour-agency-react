@@ -77,6 +77,21 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
+  // SEO: build dynamic title/description per category
+  const siteName = 'Kentucky Bourbon Tours';
+  const categoryLabelMap = {
+    tour: 'Bourbon Tour',
+    stay: 'Stay & Lodging',
+    food: 'Food & Dining',
+    event: 'Bourbon Event',
+  };
+  const categoryLabel = categoryLabelMap[category] || 'Experience';
+  const distPreview = Array.isArray(dist) && dist.length > 0
+      ? dist.slice(0, 3).join(', ')
+      : 'top Kentucky distilleries';
+  const seoTitle = `${name} | ${categoryLabel} | ${siteName}`;
+  const seoDescription = `${name} is a ${categoryLabel.toLowerCase()} from ${siteName}, visiting ${distPreview} on the Kentucky bourbon trail.`;
+  const canonicalHref = `/tours/${id}`;
   //id is passed to addToCart to check uniqueness in the cart
   const DefaultIcon = () => {
     // Return your default icon component here
@@ -100,9 +115,10 @@ const SingleTourPage = () => {
   return (
     <Wrapper>
       <Seo
-        title="Tours"
-        content="Tour Distilleries in Kentucky form Shelby Bourbon Tours Selection. Anywhere on the map of Kentucky, from Louisville, Shelby County, Frankfort, and Lexington."
+        title={seoTitle}
+        content={seoDescription}
         robots="index"
+        href={canonicalHref}
       />
       {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />

@@ -7,7 +7,7 @@ const ToursPage = () => {
   return (
     <main>
       <Seo
-        title="Tours"
+        title="Kentucky Bourbon Tours & Transportation"
         content="Kentucky Bourbon Tours. Such as Buffalo Trace, Woodford Reserve, Maker's Mark, Bulleit, Four Roses, Wild Turkey, Angel's Envy, and much more."
         robots="index"
         href="/tours"
