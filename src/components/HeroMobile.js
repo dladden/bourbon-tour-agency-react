@@ -66,8 +66,8 @@ const HeroMobile = () => {
           Kentucky Bourbon Tours
         </h1>
         <p className="hero-text">
-          Private Kentucky bourbon trail transportation to major distilleries
-          across Kentucky. Enjoy your tastings and leave the driving to us.
+          Kentucky Bourbon Tours provides bourbon trail tour transportation to all
+          of the major Bourbon distillery locations across Kentucky.
         </p>
 
         <div className="hero-buttons">

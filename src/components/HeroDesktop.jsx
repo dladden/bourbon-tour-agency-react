@@ -13,8 +13,8 @@ const Hero = () => {
           Kentucky Bourbon Tours
         </h1>
         <p>
-          Shelby Bourbon Tours provides bourbon trail tour transportation to all
-          of the major Bourbon distillery locations. Whether you are a group of
+          Kentucky Bourbon Tours provides bourbon trail tour transportation to all
+          of the major Bourbon distillery locations across Kentucky. Whether you are a group of
           2 or 20, we can ensure that you visit all of your favorite
           distilleries while having peace of mind that you can participate and
           enjoy all of the tastings and not have to worry about driving. So
