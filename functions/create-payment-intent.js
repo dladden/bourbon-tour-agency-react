@@ -4,6 +4,7 @@
 const dotenv = require('dotenv'); //importing dotenv
 dotenv.config();
 const stripe = require('stripe')(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
+const MIN_AMOUNT = 99999; //base amount for min control
 
 exports.handler = async function (event, context, callback) {
   //if: if event body property exists on event object only then create POST request,
@@ -29,12 +30,20 @@ exports.handler = async function (event, context, callback) {
         return total_amount_int; //total formatted in cents
       }
     };
+    //simple validation for min amount
+    const amount = calculateOrderAmount();
+    if (amount < MIN_AMOUNT) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid Amount' }),
+      };
+    }
     //try-catch: for connection to stripe
     try {
       //Stripe API from the docs:
       // Create a PaymentIntent with the order amount and currency
       const paymentIntent = await stripe.paymentIntents.create({
-        amount: calculateOrderAmount(),
+        amount,
         currency: 'usd',
 
         // statement_descriptor_suffix: "Bourbon Tours",
