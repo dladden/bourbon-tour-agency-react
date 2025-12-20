@@ -3,7 +3,7 @@
 
 const dotenv = require('dotenv'); //importing dotenv
 dotenv.config();
-const stripe = require('stripe')(process.env.REACT_APP_STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 const MIN_AMOUNT = 99999; //base amount for min control
 
 exports.handler = async function (event, context, callback) {
