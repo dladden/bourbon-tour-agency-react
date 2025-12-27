@@ -8,6 +8,7 @@ import AmountButtons from "./AmountButtons";
 import "react-calendar/dist/Calendar.css";
 import CalendarPicker from "./CalendarPicker";
 import { HashLink } from "react-router-hash-link";
+import { addToCartTag } from "../utils/googleAds";
 //Component responsible for transportation type and count of guests
 //
 const AddToCart = ({ tour }) => {
@@ -44,6 +45,17 @@ const AddToCart = ({ tour }) => {
       }
       return tempGuest;
     });
+  };
+
+  const handleAddToCart = () => {
+    addToCart(date, id, mainTrans, guest, tour);
+    if (window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: addToCartTag,
+        value: 1,
+        currency: "USD",
+      });
+    }//google Ads Add-To-Cart conversion
   };
 
   return (
@@ -130,7 +142,7 @@ const AddToCart = ({ tour }) => {
           smooth
           to="/cart#user-cart"
           className="btn"
-          onClick={() => addToCart(date, id, mainTrans, guest, tour)}
+          onClick={handleAddToCart}
         >
           Book Tour
         </HashLink>

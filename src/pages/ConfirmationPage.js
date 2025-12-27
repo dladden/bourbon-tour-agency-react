@@ -1,12 +1,22 @@
 import "@fontsource/cormorant-garamond/700.css";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 //hooks from react router dom to access the url parameters
 //This is a confirmation page after a customer makes a purchase of a reservation for a tour
 //This page will not be crawled by google bots since it is set up as <meta name="robots" content="noindex" />
 import { Seo, PageHero, Confirmation } from "../components";
+import { purchaseTag } from "../utils/googleAds";
 
 const ConfirmationPage = () => {
+   useEffect(() => {
+    if (window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: purchaseTag,
+        value: 900,
+        currency: "USD"
+      });
+    }
+  }, []);
   return (
     <main>
       <Seo
