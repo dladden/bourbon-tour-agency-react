@@ -4,12 +4,22 @@ import contactQR from "../assets/contact_qr.svg";
 import owner from "../assets/owner.webp";
 import socialLinks from "../utils/social_links";
 import { email_link } from "../utils/constants";
+import { callClickTag } from "../utils/googleAds";
 //Component responsible for the OwnerCard used in Contact page
 const OwnerCard = () => {
   const phoneDisplay = '(502) 216-0678'; //HERE display format
   const phoneHref = 'tel:15022160678'; //HERE tap-to-call
 
   const emailHref = `mailto:${email_link}`;
+  const handleCallClick = () => {
+  if (window.gtag) {
+    window.gtag("event", "conversion", {
+      send_to: callClickTag,
+      value: 1,
+      currency: "USD",
+    });
+  }
+};
   return (
     <Wrapper>
       <div className="container">
@@ -22,6 +32,7 @@ const OwnerCard = () => {
                 href={phoneHref}
                 className="phone-btn"
                 aria-label={phoneDisplay}
+                onClick={handleCallClick}
               >
               {phoneDisplay}
               </a>
