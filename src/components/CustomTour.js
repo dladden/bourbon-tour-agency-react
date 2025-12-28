@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios'; //axios for post function request
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import styled from 'styled-components';
 import Multiselect from 'react-select';
 import bus from '../assets/bus.svg';
@@ -9,8 +10,15 @@ import c_tour from '../assets/custom_tour.svg';
 import { guests, trans, distilleries_select } from '../utils/constants';
 import { MultiCalendarPicker, AmountButtons } from '../components';
 import { useNavigate } from 'react-router-dom';
-//Component responsible for transportation type and count of guests
-const CustomTour = () => {
+/**
+ * CustomTour is a form lets user submit a request for tour responsible for
+ * triggering netlify functions sending confirmation email to user and
+ * notification email to site owner. Note double wrapping of CustomTourForm
+ * with GoogleReCaptchaProvider to provide recaptcha context.
+ * @returns 
+ */
+//Inner form Component handles state + submit
+const CustomTourForm = () => {
   //The increase function uses count variable as storage and increments value by on
   //The function then prevents incremented amount from getting larger then the set max guests data
   const increase = () => {
@@ -58,10 +66,16 @@ const CustomTour = () => {
   //checkbox confirming that the tour must be reviewed
   const [checked, setChecked] = useState(false);
   const handleClick = () => setChecked(!checked);
+  //submission state
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   //useNavigate for navigation with timeout
   const navigate = useNavigate();
   //ReCaptcha
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  // call customer confirmation email function
   const orderConfirmation = async () => {
     try {
       const response = await axios
@@ -75,7 +89,9 @@ const CustomTour = () => {
             date,
             mainTrans,
             guests: tour_guests,
-          })
+          },
+          { headers: { 'Content-Type': 'application/json' } }
+          )
         )
         .then((response) => response.json());
       if (!response.ok) {
@@ -83,49 +99,62 @@ const CustomTour = () => {
         return;
       }
     } catch (error) {
-      //error
-    }
-  }; //end Order Submission
-
-  //async function for handling the submission of the custom order
-  const orderSubmission = async () => {
-    try {
-      const response = await axios
-        .post(
-          '/.netlify/functions/custom-order-submission',
-          JSON.stringify({
-            tour_name,
-            guest_name,
-            guest_email,
-            phone_number,
-            distill,
-            reservation,
-            guest_comment,
-            date,
-            mainTrans,
-            guests: tour_guests,
-            checked,
-          })
-        )
-        .then((response) => response.json());
-      if (!response.ok) {
-        //all OK
-        return;
-      }
-    } catch (error) {
-      //error
+      console.error('Error sending confirmation email:', error);
     }
   }; //end Order Submission
 
   //HANDLE ON SUBMIT: async's two functions and times out to a custom confirmation page
-  async function handleSubmit(event) {
+ const handleSubmit = async (event) => {
     event.preventDefault();
-    orderSubmission();
+    //orderSubmission();
+    setErrorMessage(null);
     orderConfirmation();
-    setTimeout(() => {
-      navigate('/submission-confirmation');
-    }, 2500);
-  } //end async Custom Order Submission
+
+    try {
+      if (!executeRecaptcha) {
+        setErrorMessage('reCAPTCHA not ready. Please try again.');
+        setSubmitting(false);
+        return;
+      }//get reCAPTCHA token
+      const captchaToken = await executeRecaptcha('customTourSubmit');
+      const payload = {
+        tour_name,
+        guest_name,
+        guest_email,
+        phone_number,
+        distill,
+        reservation,
+        guest_comment,
+        date,
+        mainTrans,
+        guests: tour_guests,
+        checked,
+        captchaToken,
+      };//building payload + captcha token
+
+      const response = await axios.post(
+        '/.netlify/functions/custom-order-submission',
+        payload,
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      if (response.status !== 200 || response.data?.error) {
+        setErrorMessage(
+          response.data?.error || 'Submission rejected. Please check your info.'
+        );
+        setSubmitting(false);
+        return;
+      }
+
+      await orderConfirmation();//fireing customer confirmation email (best-effort)
+      setTimeout(() => {
+        navigate('/submission-confirmation');
+      }, 2500);
+    } catch (error) {
+      console.error('Submission failed:', error);
+      setErrorMessage('Submission failed. Please try again later.');
+      setSubmitting(false);
+    }
+  }//end async Custom Order Submission
   return (
     <Wrapper>
       <div className="form-body">
@@ -148,6 +177,9 @@ const CustomTour = () => {
                   <h3>Custom Tour Form</h3>
                 </div>
                 <p>Submit the form and we will contact you within 24 hours.</p>
+                {errorMessage && (
+                  <p className="error-message">{errorMessage}</p> //HERE
+                )}
                 {/* TOUR NAME */}
                 <form
                   className="requires-validation"
@@ -447,6 +479,15 @@ const CustomTour = () => {
         </div>
       </div>
     </Wrapper>
+  );
+};
+
+// Outer wrapper that provides reCAPTCHA context //HERE
+const CustomTour = () => {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}>
+      <CustomTourForm />
+    </GoogleReCaptchaProvider>
   );
 };
 

@@ -1,6 +1,9 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-
+const fetch = require('node-fetch');
+/**
+ * Sends the full booking/order details to the OWNER
+ */
 const MAX_REQUESTS_PER_WINDOW = 5;//rate limiting allow 5 per 10 min per IP
 const WINDOW_MS = 10 * 60 * 1000;//rate limiting 10 minutes
 const rateLimitStore = {};//rate limiting inmemory resets on function cold start
@@ -20,36 +23,27 @@ function isRateLimited(ip) {
   return entry.count > MAX_REQUESTS_PER_WINDOW;
 }
 
-function looksFakeName(name) {
-  if (typeof name !== 'string') return true;
-  if (!/^[a-zA-Z\s]+$/.test(name)) return true;
-  const words = name.trim().split(/\s+/);
-  if (words.length < 2) return true;
-  if (words.some(w => w.length < 4)) return true;
-  if (!/[aeiouAEIOU]/.test(name)) return true;
-  return false;
-} //abuse heuristics: require 2+ words at least 4 chars each some vowels only letters/spaces
-function looksFakeTourName(tour) {
-  if (typeof tour !== 'string') return true;
-  if (tour.length < 4) return true;
-  if (/^[A-Z0-9]+$/.test(tour)) return true;
-  if (!/[aeiouAEIOU]/.test(tour)) return true;
-  return false;
-}//no ALLuppercase no random looking strings at least 6 chars at least one space
-function looksFakeEmail(email) {
-  // Must contain @ and .
-  if (typeof email !== 'string') return true;
-  if (!email.includes('@') || !email.includes('.')) return true;
-  return false;
-}
-function looksFakeComment(comment) {
-  // Must be at least 12 chars, has at least one space and a vowell
-  if (typeof comment !== 'string') return true;
-  if (comment.length < 12) return true;
-  if (!/[\s]/.test(comment)) return true;
-  if (!/[aeiouAEIOU]/.test(comment)) return true;
-  return false;
-}
+async function verifyCaptcha(token) {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret || !token) return false;
+
+  try {
+    const res = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `secret=${encodeURIComponent(secret)}&response=${encodeURIComponent(
+        token
+      )}`,
+    });
+
+    const data = await res.json();
+    // You can tune score threshold; 0.5 is a reasonable start
+    return data.success && (typeof data.score !== 'number' || data.score > 0.5);
+  } catch (err) {
+    console.error('Error verifying reCAPTCHA:', err);
+    return false;
+  }
+}//invisible reCAPTCHA v3 verification
 
 exports.handler = async (event, context) => {
   if (event.httpMethod && event.httpMethod !== 'POST') {
@@ -83,7 +77,23 @@ exports.handler = async (event, context) => {
     mainTrans,
     guests,
     checked,
+    captchaToken,
   } = body;
+
+  const captchaOk = await verifyCaptcha(captchaToken);
+  if (!captchaOk) {
+    return {
+      statusCode: 403,
+      body: JSON.stringify({ error: 'Failed spam check.' }),
+    };
+  } //verify captcha token before doing anything else
+
+  if (!tour_name || !guest_name || !guest_email || !phone_number) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Missing required fields.' }),
+    };
+  }//required fields server-side even though client validates
 
   if (
     looksFakeName(guest_name) ||
@@ -100,8 +110,10 @@ exports.handler = async (event, context) => {
   let formattedDate = [];
   if (Array.isArray(date)) {
     formattedDate = date.map((str) => new Date(str).toLocaleDateString());
-  } else {
+  } else if (date) {
     formattedDate = [new Date(date).toLocaleDateString()];
+  } else {
+    formattedDate = [];
   }
   const subjectLine = `CUSTOM TOUR REQUEST FROM: ${guest_name}`;
   const emailHtml = `

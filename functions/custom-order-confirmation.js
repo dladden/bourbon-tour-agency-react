@@ -2,7 +2,9 @@ const React = require('react');
 require('dotenv').config();
 const { render } = require('@react-email/render');
 const nodemailer = require('nodemailer');
-
+/**
+ * Sends a confirmation email to the CUSTOMER
+ */
 const OrderConfirmation = require('../dist/emails/OrderConfirmation').default; //importing your React Email component
 
 exports.handler = async (event, context) => {
