@@ -78,25 +78,25 @@ const CustomTourForm = () => {
   // call customer confirmation email function
   const orderConfirmation = async () => {
     try {
-      const response = await axios
-        .post(
-          '/.netlify/functions/custom-order-confirmation',
+      const res = await axios.post(
+        '/.netlify/functions/custom-order-confirmation',
+        {
+          guest_email,
+          tour_name,
+          guest_name,
+          date,
+          mainTrans,
+          guests: tour_guests,
+        },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
 
-          JSON.stringify({
-            guest_email,
-            tour_name,
-            guest_name,
-            date,
-            mainTrans,
-            guests: tour_guests,
-          },
-          { headers: { 'Content-Type': 'application/json' } }
-          )
-        )
-        .then((response) => response.json());
-      if (!response.ok) {
-        //all OK
-        return;
+      if (res.status !== 200) {
+        console.error(
+          'Confirmation email function returned non-200:',
+          res.status,
+          res.data
+        );
       }
     } catch (error) {
       console.error('Error sending confirmation email:', error);
@@ -146,12 +146,11 @@ const CustomTourForm = () => {
       }
 
       await orderConfirmation();//fireing customer confirmation email (best-effort)
-      setTimeout(() => {
-        navigate('/submission-confirmation');
-      }, 2500);
+      navigate('/submission-confirmation');
     } catch (error) {
       console.error('Submission failed:', error);
       setErrorMessage('Submission failed. Please try again later.');
+    } finally {
       setSubmitting(false);
     }
   }//end async Custom Order Submission
