@@ -1,6 +1,5 @@
 require('dotenv').config();
 const nodemailer = require('nodemailer');
-const fetch = require('node-fetch');
 /**
  * Sends the full booking/order details to the OWNER
  */
@@ -94,18 +93,6 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ error: 'Missing required fields.' }),
     };
   }//required fields server-side even though client validates
-
-  if (
-    looksFakeName(guest_name) ||
-    looksFakeTourName(tour_name) ||
-    looksFakeEmail(guest_email) ||
-    looksFakeComment(guest_comment)
-  ) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({ error: 'Submission rejected by bot filter.' }),
-    };
-  }
 
   let formattedDate = [];
   if (Array.isArray(date)) {
