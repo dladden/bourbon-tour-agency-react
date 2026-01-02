@@ -111,7 +111,7 @@ const Footer = () => {
           <div className="ft-main-item">
             <h2 className="ft-title">Stay Updated</h2>
             <h5 className="footer-text">
-              If you like to stay one step ahead on your bourbon game, subscribe
+              Tours are for guests 21+. Please enjoy responsibly. If you like to stay one step ahead on your bourbon game, subscribe
               to our newsletter and follow us on Instagram or Facebook! We not
               only talk about distilleries and tours but also talk about the
               history and share our favorite recipes and, of course, our
