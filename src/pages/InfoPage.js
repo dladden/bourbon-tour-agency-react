@@ -4,10 +4,23 @@ import styled from "styled-components";
 import info_data from "../utils/info_data"; //default export always resolves to default name
 import { Seo, Question, Cancelation } from "../components";
 import logo from "../assets/indent_logo.svg";
+import { Helmet } from "react-helmet-async";
 
 //Simple Information Page with Q&A/FAQ style
 const InfoPage = () => {
   const [questions] = useState(info_data);
+  const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": questions.map((q) => ({
+    "@type": "Question",
+    "name": q.question_title,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": q.info
+    }
+  }))
+};
   return (
     <Wrapper>
       <main>
@@ -17,6 +30,11 @@ const InfoPage = () => {
           robots="index"
           href="/faq"
         />
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(faqSchema)}
+          </script>
+        </Helmet>
         <section id="questions">
           <div className="container">
             <h1>

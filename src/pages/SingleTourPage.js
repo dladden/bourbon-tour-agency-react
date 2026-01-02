@@ -11,6 +11,7 @@ import { useParams, useNavigate } from 'react-router-dom'; //hooks from react ro
 import { useToursContext } from '../context/tours_context';
 import { single_tour_url as url } from '../utils/constants'; //single product url ending with ending: '?id=' calling it url
 import { priceFormat } from '../utils/helpers';
+import { Helmet } from 'react-helmet-async';
 import {
   Seo,
   Loading,
@@ -77,6 +78,28 @@ const SingleTourPage = () => {
     stars,
     rev_url,
   } = tour;
+  const tourSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": name,
+  "description": desc,
+  "touristType": "Adults",
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Shelby Bourbon Tours",
+    "telephone": "5022160678",
+    "url": "https://shelbybourbontours.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "USD",
+    "availability": available
+      ? "https://schema.org/InStock"
+      : "https://schema.org/OutOfStock",
+    "url": `https://shelbybourbontours.com/tours/${id}`
+    }
+  };
   // SEO: build dynamic title/description per category
   const siteName = 'Kentucky Bourbon Tours';
   const categoryLabelMap = {
@@ -120,6 +143,11 @@ const SingleTourPage = () => {
         robots="index"
         href={canonicalHref}
       />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(tourSchema)}
+        </script>
+      </Helmet>
       {/* passing the tour at the end for conditional rendering */}
       <PageHero title={name} tour />
       <div className="section section-center page">
@@ -131,7 +159,7 @@ const SingleTourPage = () => {
           <TourImages images={images} />
           <section className="content">
             <div className="title-icon">
-              <h2>{name}</h2>
+              <h1 className="tour-title">{name}</h1>
               <h2 className="icon">{renderIcon()}</h2>
             </div>
             {/* passing the stars data to the Stars component */}
@@ -177,6 +205,9 @@ const Wrapper = styled.main`
     display: grid;
     gap: 2rem;
     margin-top: 2rem;
+  }
+  .tour-title {
+  font-size: 2.5rem;
   }
   .content {
   }
